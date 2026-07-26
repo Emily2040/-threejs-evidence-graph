@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use or discuss this publication set, please cite it using this metadata."
+title: "Three.js Evidence Graph v2.0 and The Hollow Meridian RPG Full Prompt v1.0"
+type: generic
+version: 2026.07.0
+date-released: 2026-07-27
+authors:
+  - family-names: "Paradox"
+    given-names: "Emily"
+repository-code: "https://github.com/Emily2040/threejs-evidence-graph"
+url: "https://github.com/Emily2040/threejs-evidence-graph"
+keywords:
+  - Three.js
+  - WebGPU
+  - WebGL
+  - TSL
+  - multi-agent systems
+  - game development
+  - deterministic replay
+  - procedural generation
+  - evidence graph
+  - browser games
+abstract: >-
+  A two-document publication set describing an evidence-driven, repository-local
+  multi-agent production framework for narrow Three.js browser-game vertical
+  slices and an applied action-RPG production specification titled The Hollow
+  Meridian. This release contains design specifications and prompts, not a
+  playable implementation or benchmark result.

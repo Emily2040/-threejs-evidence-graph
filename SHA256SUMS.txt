@@ -1,0 +1,2 @@
+901016103dfa0e660712dbc72490e84ea3a8eed571f95d8e1e1c29b4dfff51c4  publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf
+343a67ccebefa014acf72fefbad3dc53d18fc6ad8b8d7417db5e36af993c8076  publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf

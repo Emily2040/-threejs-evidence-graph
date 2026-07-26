@@ -1,0 +1,51 @@
+{
+  "suite": {
+    "title": "Three.js Evidence Graph: Method and Applied RPG Specification",
+    "version": "2026.07.0",
+    "release_date": "2026-07-27",
+    "release_type": "documentation",
+    "author": "Emily Paradox",
+    "normative_language": "en",
+    "repository": "https://github.com/Emily2040/threejs-evidence-graph"
+  },
+  "publications": [
+    {
+      "id": "threejs-evidence-graph",
+      "title": "Three.js Evidence Graph - Operational Manual",
+      "version": "2.0",
+      "language": "en",
+      "pages": 64,
+      "file": "publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf",
+      "sha256": "343a67ccebefa014acf72fefbad3dc53d18fc6ad8b8d7417db5e36af993c8076",
+      "status": "design specification",
+      "benchmark_run_included": false
+    },
+    {
+      "id": "the-hollow-meridian",
+      "title": "The Hollow Meridian RPG Full Prompt",
+      "version": "1.0",
+      "language": "en",
+      "pages": 81,
+      "file": "publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf",
+      "sha256": "901016103dfa0e660712dbc72490e84ea3a8eed571f95d8e1e1c29b4dfff51c4",
+      "status": "applied production specification",
+      "playable_build_included": false,
+      "evidence_graph_v2_conformance": "core-aligned, not certified"
+    }
+  ],
+  "localization": {
+    "repository_guides": [
+      "en",
+      "zh-CN",
+      "ja",
+      "ko"
+    ],
+    "pdf_editions": [
+      "en"
+    ],
+    "translation_scope": "Repository guides are translated. The 145 PDF pages remain the normative English editions."
+  },
+  "license": {
+    "status": "not selected"
+  }
+}
