@@ -1,7 +1,7 @@
 {
   "suite": {
     "title": "Three.js Evidence Graph: Method and Applied RPG Specification",
-    "version": "2026.07.0",
+    "version": "2026.07.1",
     "release_date": "2026-07-27",
     "release_type": "documentation",
     "author": "Emily Paradox",
@@ -40,10 +40,43 @@
       "ja",
       "ko"
     ],
+    "hollow_meridian_game_guides": [
+      "en",
+      "zh-CN",
+      "ja",
+      "ko"
+    ],
     "pdf_editions": [
       "en"
     ],
-    "translation_scope": "Repository guides are translated. The 145 PDF pages remain the normative English editions."
+    "translation_review_status": "unreviewed",
+    "translation_scope": "Repository guides and expanded Hollow Meridian companion guides are localized. The 145 PDF pages remain the normative English editions."
+  },
+  "artwork": {
+    "status": "concept artwork, not implementation evidence",
+    "generator": "OpenAI ImageGen",
+    "assets": [
+      "assets/readme-hero.jpg",
+      "assets/evidence-graph-control-hero.jpg",
+      "assets/hollow-meridian-world-hero.jpg",
+      "assets/hollow-meridian-boss-hero.jpg"
+    ],
+    "dimensions": {
+      "assets/readme-hero.jpg": "2172x724",
+      "assets/evidence-graph-control-hero.jpg": "2172x724",
+      "assets/hollow-meridian-world-hero.jpg": "2172x724",
+      "assets/hollow-meridian-boss-hero.jpg": "2172x724"
+    },
+    "sha256": {
+      "assets/readme-hero.jpg": "aad0da924b7a933935de29d7538afb7014981a2dd3d1efc05d87bd867400efa5",
+      "assets/evidence-graph-control-hero.jpg": "d9c3737ddc5657f72dcbe556af38dd21afbfaaad1193e2156f0ba44c9549a0ad",
+      "assets/hollow-meridian-world-hero.jpg": "c3fc71ff23174b7ba1641c203319f145208b1e70d194403015dddf5c0dffd6b1",
+      "assets/hollow-meridian-boss-hero.jpg": "a9ad843d0fcc9e887607d25a5af71e94e59458f0015163ac0c935e2010aba025"
+    },
+    "prompt_records": [
+      "assets/readme-hero.prompt.md",
+      "assets/section-heroes.prompt.md"
+    ]
   },
   "license": {
     "status": "not selected"

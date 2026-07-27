@@ -1,5 +1,5 @@
 # Three.js Evidence Graph
-<!-- source_version: 2026.07.0; translation_status: unreviewed; language: zh-CN -->
+<!-- source_version: 2026.07.1; translation_status: unreviewed; language: zh-CN -->
 
 面向源码生成型 Three.js 垂直切片、由证据驱动的多智能体生产体系，并以 *The Hollow Meridian* 作为 RPG 应用规范。
 
@@ -20,7 +20,7 @@
 
 ![Three.js Evidence Graph 与 The Hollow Meridian 的封面](assets/publication-set.jpg)
 
-第一份文档定义生产决策如何转化为有证据支持的状态转移。第二份文档定义一个高目标 RPG 切片应包含的内容。两者源自同一条 Evidence Graph 方法谱系，但版本尚未完全对齐。*The Hollow Meridian* 实现了该框架的许多核心理念，但其成文早于若干 v2 防护机制。
+第一份文档定义生产决策如何转化为有证据支持的状态转移。第二份文档定义一个高目标 RPG 切片应包含的内容。两者源自同一条 Evidence Graph 方法谱系，但版本尚未完全对齐。*The Hollow Meridian* 在设计规范中纳入了该框架的许多核心理念，但其成文早于若干 v2 防护机制。
 
 ## 本项目为何存在
 
@@ -30,16 +30,18 @@
 
 ```mermaid
 flowchart TD
-    A["Product contract"] --> B["Bounded specialist work"]
-    B --> C["Independent evidence capture"]
-    C --> D["Mechanical gates and calibrated review"]
-    D --> E["Accept, repair, branch, or roll back"]
-    E --> F["Evidence-backed release decision"]
+    A["产品契约"] --> B["范围明确的专业工作"]
+    B --> C["独立证据捕获"]
+    C --> D["机械关卡与校准评审"]
+    D --> E["接受、修复、分支或回滚"]
+    E --> F["证据支持的发布决策"]
 ```
 
 提示词是控制平面的接口，而非控制平面本身。仓库状态、类型化任务包、确定性检查、证据清单、预算与发布谓词，共同承载对话本身无法安全持有的权威。
 
 ## Three.js Evidence Graph 概览
+
+![产品契约分支为有边界的工作、证据捕获、发布关卡、修复与拒绝路径](assets/evidence-graph-control-hero.jpg)
 
 *Three.js Evidence Graph v2.0* 描述了一套位于仓库内部、面向小范围浏览器游戏垂直切片的生产系统。其核心贡献包括：
 
@@ -60,7 +62,15 @@ flowchart TD
 
 ## The Hollow Meridian 概览
 
+![The Hollow Meridian 废弃天文台中的经编排路线](assets/hollow-meridian-world-hero.jpg)
+
+*用于出版物说明的概念美术，并非游戏实机截图或实现证据。*
+
 *The Hollow Meridian v1.0* 是一份 81 页的产品契约与编排提示词，目标是在 Three.js 中构建一款面向桌面浏览器的第三人称黑暗奇幻动作 RPG，且不下载最终使用的美术、音频、模型、纹理、字体或资产包。
+
+> **深入了解游戏：** 阅读[《The Hollow Meridian》中文游戏说明指南](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md)，其中系统说明了世界设定、十段路线、战斗、谜题、遗物、存档、首领、无障碍要求及证据驱动的生产方法。该指南不是完整 81 页 PDF 的中文译本。
+>
+> 游戏说明指南：[English](docs/THE_HOLLOW_MERIDIAN_GUIDE.md) | [简体中文](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
 
 玩家扮演 Cartographer，一名没有面孔的成年守卫者，探索一座保存着消失城市真名的废弃天文台。首次游玩的预期时长为 10 至 14 分钟，其中包括：
 
@@ -76,6 +86,31 @@ flowchart TD
 该规范有意排除开放世界扩展、制作系统、商店、随机战利品、同伴、多人游戏和角色创建。其目的在于完整解决一段紧凑体验，而不是用功能数量掩盖薄弱的交互。
 
 其生产提示词为架构、游戏玩法与战斗、程序化世界构建、敌人和首领行为、RPG 与 UI 系统、音频和特效、集成、QA 与性能、视觉评审以及溯源审计定义了专家角色。它还定义了固定时间步模拟、回放捕获、状态哈希、稳定诊断 URL、证据文件夹、有边界的修复任务、隔离的候选版本、回滚以及最终发布关卡。
+
+### 十段路线与核心玩法闭环
+
+路线的十个节拍均由作者明确编排，而不是交给随机生成决定：
+
+1. 在 **Ash Court** 学习移动、镜头、交互与检查点；
+2. 接受任务并开启寻找两枚方位印记的路线；
+3. 在 **Orrery Bridge** 遭遇 Ashbound Skirmisher，学习锁定、闪避、防御与招架；
+4. 穿过 **Archive Nave**，应对 Lantern Wraith 的远程压力并发现可选背景信息；
+5. 对齐三个 Meridian 圆环，解开确定性的空间谜题并取得 North Seal；
+6. 在 **Bell Foundry** 击破 Bell Sentinel 的防御并取得 Depth Seal；
+7. 从三件遗物中选择一件，使实际战斗决策发生改变；
+8. 开启 Meridian Chamber，通过一段简短且可跳过的生成式过场揭示首领；
+9. 与 **The Bell Without a Name** 完成一场具有空间规则变化的两阶段战斗；
+10. 选择束缚或释放，保存结局后果并返回安全枢纽。
+
+每时每刻的玩法循环是：借助建筑与 Name-light 辨认方向，读取敌人或交互信息，在移动、防御与攻击之间做出承诺，管理耐力，通过有效行动积累 Resonance，再使用 Echo Brand 或经遗物修改的能力推进任务。谜题不是装饰性机关，而是一个由种子与状态控制、结果可复现的三环对齐系统。
+
+战斗采用规模有限但意图清晰的动作集，包括轻攻击连段、蓄力重击、闪避、防御、限定窗口招架、锁定及耐力约束。三种敌人分别教授距离与时机、远程压力与横向移动、防御压力与架势击破。遗物选择不只是数值标签，而会修改真实的战斗选项。版本化本地存档记录任务、印记、遗物、消耗品、检查点、设置、控制映射、完成状态与结局选择。
+
+首领不是普通敌人的放大版本。**The Bell Without a Name** 具有独立结构、四种可读攻击与 55% 生命值时的受保护阶段转换。第二阶段引入旋转的子午线危险区域和可见安全扇区，在改变空间与节奏的同时保留玩家已经学会的战斗规则。
+
+> **规范与实现的区别**
+>
+> 上述内容是产品与工程契约，说明实现必须满足什么条件以及需要提交哪些证据。它不是可游玩的实现、实际游戏截图、性能实测或已通过验收的构建版本。本仓库目前提供的是设计规范与生产控制系统，而不是已经完成的游戏。
 
 ## 两个版本之间的关系
 
@@ -135,14 +170,19 @@ flowchart TD
 
 ```text
 .
+├── .gitattributes
 ├── README.md
 ├── README.zh-CN.md
 ├── README.ja.md
 ├── README.ko.md
 ├── assets/
+│   ├── evidence-graph-control-hero.jpg
+│   ├── hollow-meridian-boss-hero.jpg
+│   ├── hollow-meridian-world-hero.jpg
 │   ├── publication-set.jpg
 │   ├── readme-hero.jpg
 │   ├── readme-hero.prompt.md
+│   ├── section-heroes.prompt.md
 │   ├── threejs-evidence-graph-cover.jpg
 │   └── the-hollow-meridian-cover.jpg
 ├── publications/
@@ -151,6 +191,10 @@ flowchart TD
 ├── docs/
 │   ├── GLOSSARY.md
 │   ├── PUBLICATION_STATUS.md
+│   ├── THE_HOLLOW_MERIDIAN_GUIDE.md
+│   ├── THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md
+│   ├── THE_HOLLOW_MERIDIAN_GUIDE.ja.md
+│   ├── THE_HOLLOW_MERIDIAN_GUIDE.ko.md
 │   └── TRANSLATION_POLICY.md
 ├── CHANGELOG.md
 ├── CITATION.cff
@@ -181,7 +225,9 @@ flowchart TD
 
 ## 翻译政策
 
-英文版是规范性版本。简体中文、日文与韩文文件均为本仓库指南的完整说明性翻译。出版物标题、游戏专有名称、文件名、命令、schema key、图节点标识符、路径、enum value 及代码标识符均保留规范英文形式。
+英文版是规范性版本。简体中文、日文与韩文 README 均提供完整的仓库说明；*The Hollow Meridian* 另有对应的本地化游戏说明指南。中文读者可从[《The Hollow Meridian》中文游戏说明指南](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md)深入了解十段路线、玩法系统与生产契约。两份出版物 PDF 目前仍仅提供英文版，配套指南不应被理解为完整 81 页 PDF 的翻译。
+
+出版物标题、游戏专有名称、文件名、命令、schema key、图节点标识符、路径、enum value 及代码标识符均保留规范英文形式，以便与英文 PDF、仓库产物和诊断证据进行追踪对应。
 
 如果译文与英文版存在差异，请以英文版进行技术解释，并通过 issue 报告不一致之处。请参阅[翻译政策](docs/TRANSLATION_POLICY.md)与[多语言技术术语表](docs/GLOSSARY.md)。
 

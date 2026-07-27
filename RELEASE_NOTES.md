@@ -1,4 +1,4 @@
-# v2026.07.0 - July 2026 Documentation Release
+# v2026.07.1 - Multilingual Game Guide and Visual Expansion
 
 This release publishes two complementary works by Emily Paradox:
 
@@ -26,6 +26,11 @@ This release publishes two complementary works by Emily Paradox:
 - SHA-256 integrity checksums
 - release manifest and changelog
 - original text-free README hero banner generated for the publication
+- expanded *The Hollow Meridian* companion guide in English
+- complete Simplified Chinese, Japanese, and Korean editions of the companion guide
+- three additional text-free section heroes for the control plane, authored game route, and boss transition
+- exact prompt and provenance documentation for the new artwork
+- expanded multilingual game-development terminology
 
 ## Evidence status
 
@@ -58,9 +63,13 @@ The RPG specification does not yet fully integrate v2 controls for:
 
 ## Translation scope
 
-The four README guides explain the complete repository publication in English, Simplified Chinese, Japanese, and Korean.
+The four README guides explain the complete repository publication in English, Simplified Chinese, Japanese, and Korean. Four additional *The Hollow Meridian* companion guides explain the world premise, ten-beat route, moment-to-moment loop, combat, enemy lessons, boss phases, relic and save systems, procedural-media rules, accessibility targets, evidence surface, and practical use sequence.
 
-The 145 designed PDF pages remain the normative English editions. The three translated repository guides are marked as unreviewed until native-language technical review is recorded.
+The 145 designed PDF pages remain the normative English editions. The translated Markdown guides are marked as unreviewed until independent native-language technical review is recorded.
+
+## Artwork status
+
+The additional hero images are original concept artwork generated for this repository. They are explicitly presented as explanatory publication images, not gameplay screenshots, renderer captures, benchmark evidence, or proof of implementation.
 
 ## Technical baseline
 

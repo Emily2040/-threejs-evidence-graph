@@ -19,7 +19,7 @@ Evidence-driven multi-agent production for source-generated Three.js vertical sl
 
 ![The covers of Three.js Evidence Graph and The Hollow Meridian](assets/publication-set.jpg)
 
-The first document defines how production decisions become evidence-backed transitions. The second defines what one ambitious RPG slice should contain. They share the same evidence-graph lineage, but they are not fully version-aligned. *The Hollow Meridian* implements many core ideas from the framework and predates several v2 safeguards.
+The first document defines how production decisions become evidence-backed transitions. The second defines what one ambitious RPG slice should contain. They share the same evidence-graph lineage, but they are not fully version-aligned. *The Hollow Meridian* incorporates many core ideas from the framework and predates several v2 safeguards.
 
 ## Why this work exists
 
@@ -40,6 +40,8 @@ The prompt is an interface to the control plane. It is not the control plane its
 
 ## Three.js Evidence Graph at a glance
 
+![A product contract branching into bounded work, evidence capture, release gates, repair, and rejection](assets/evidence-graph-control-hero.jpg)
+
 *Three.js Evidence Graph v2.0* describes a repository-local production system for a narrow browser-game vertical slice. Its core contributions are:
 
 1. **A canonical production graph.** Work advances through typed nodes and explicit transition predicates, not through optimistic status messages.
@@ -59,7 +61,15 @@ The manual includes a v1-to-v2 defect ledger, a 15-node control graph, a four-pa
 
 ## The Hollow Meridian at a glance
 
+![The authored route through the ruined observatory of The Hollow Meridian](assets/hollow-meridian-world-hero.jpg)
+
+*Concept artwork for the publication. Not a gameplay capture or implementation evidence.*
+
 *The Hollow Meridian v1.0* is an 81-page product contract and orchestration prompt for a desktop-browser, third-person dark-fantasy action RPG built in Three.js without downloaded final art, audio, models, textures, fonts, or asset packs.
+
+> [Read the expanded English game guide](docs/THE_HOLLOW_MERIDIAN_GUIDE.md) for the world premise, ten-beat route, combat model, enemies, boss phases, relic and save systems, procedural-media rules, accessibility targets, evidence surface, and practical use sequence.
+>
+> Game guide languages: [English](docs/THE_HOLLOW_MERIDIAN_GUIDE.md) | [简体中文](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
 
 The player is the Cartographer, a faceless adult warden exploring a ruined observatory that stores the true names of vanished cities. The intended first playthrough is 10 to 14 minutes and includes:
 
@@ -75,6 +85,12 @@ The player is the Cartographer, a faceless adult warden exploring a ruined obser
 The specification deliberately excludes open-world expansion, crafting, shops, random loot, companions, multiplayer, and character creation. Its purpose is to resolve one compact experience instead of hiding weak interaction beneath feature volume.
 
 Its production prompt defines specialist roles for architecture, gameplay and combat, procedural world construction, enemy and boss behavior, RPG and UI systems, audio and effects, integration, QA and performance, visual criticism, and provenance audit. It also defines fixed-tick simulation, replay capture, state hashes, stable diagnostic URLs, evidence folders, bounded repair tasks, isolated candidates, rollback, and final release gates.
+
+### What the player does
+
+The route begins in the Ash Court, where movement, interaction, the Mnemonic Keeper, and a resting checkpoint establish the world. The player accepts a two-seal quest, crosses the Orrery Bridge combat tutorial, explores the Archive Nave, solves a deterministic three-ring alignment puzzle, defeats the Bell Sentinel in the Foundry, selects one combat-changing relic, opens the Meridian Chamber, confronts *The Bell Without a Name*, chooses to bind or release the stolen names, and returns to the hub with the consequence saved.
+
+Moment to moment, the player reads architecture and light, manages spacing and stamina, commits to attacks or defense, earns Resonance through effective timing, resolves one authored obstacle, and preserves meaningful state at checkpoints. Procedural systems construct bounded geometry and media, but they do not choose the dramatic route, encounter order, focal hierarchy, or narrative purpose.
 
 ## How the two editions relate
 
@@ -134,6 +150,7 @@ No document in this repository proves that the target has been achieved. Such a 
 
 ```text
 .
+├── .gitattributes
 ├── README.md
 ├── README.zh-CN.md
 ├── README.ja.md
@@ -142,6 +159,10 @@ No document in this repository proves that the target has been achieved. Such a 
 │   ├── publication-set.jpg
 │   ├── readme-hero.jpg
 │   ├── readme-hero.prompt.md
+│   ├── section-heroes.prompt.md
+│   ├── evidence-graph-control-hero.jpg
+│   ├── hollow-meridian-world-hero.jpg
+│   ├── hollow-meridian-boss-hero.jpg
 │   ├── threejs-evidence-graph-cover.jpg
 │   └── the-hollow-meridian-cover.jpg
 ├── publications/
@@ -150,6 +171,10 @@ No document in this repository proves that the target has been achieved. Such a 
 ├── docs/
 │   ├── GLOSSARY.md
 │   ├── PUBLICATION_STATUS.md
+│   ├── THE_HOLLOW_MERIDIAN_GUIDE.md
+│   ├── THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md
+│   ├── THE_HOLLOW_MERIDIAN_GUIDE.ja.md
+│   ├── THE_HOLLOW_MERIDIAN_GUIDE.ko.md
 │   └── TRANSLATION_POLICY.md
 ├── CHANGELOG.md
 ├── CITATION.cff
@@ -180,9 +205,9 @@ Until that exists, this repository claims design and specification value, not em
 
 ## Translation policy
 
-English is the normative edition. The Simplified Chinese, Japanese, and Korean files are complete explanatory translations of this repository guide. Publication titles, game proper nouns, filenames, commands, schema keys, graph-node identifiers, paths, enum values, and code identifiers remain in canonical English.
+English is the normative edition. Simplified Chinese, Japanese, and Korean versions are provided for both the repository guide and the expanded *The Hollow Meridian* companion guide. Publication titles, game proper nouns, filenames, commands, schema keys, graph-node identifiers, paths, enum values, and code identifiers remain in canonical English.
 
-If a translation and the English edition differ, use the English edition for technical interpretation and report the discrepancy through an issue. See the [Translation Policy](docs/TRANSLATION_POLICY.md) and [Multilingual Technical Glossary](docs/GLOSSARY.md).
+These companion guides explain the game and production system in more detail, but they are not translations of the complete 145 PDF pages. If a translation and the English edition differ, use the English edition for technical interpretation and report the discrepancy through an issue. See the [Translation Policy](docs/TRANSLATION_POLICY.md) and [Multilingual Technical Glossary](docs/GLOSSARY.md).
 
 ## Integrity
 

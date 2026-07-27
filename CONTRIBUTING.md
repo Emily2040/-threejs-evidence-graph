@@ -32,6 +32,18 @@ Include:
 - reason for the change;
 - any related terminology that must be updated for consistency.
 
+For a native-language technical review, also confirm:
+
+- every English heading and warning has a localized counterpart;
+- route order, quantities, timings, exclusions, and version relationships are unchanged;
+- concept artwork is not described as captured gameplay;
+- the guide does not imply that the English PDF has been fully translated;
+- generic prose reads naturally in the target language;
+- canonical proper nouns, filenames, commands, schemas, identifiers, and paths remain traceable;
+- terminology agrees with `docs/GLOSSARY.md`.
+
+After a complete review, propose the exact translation-status change and identify the reviewer, language, files, review date, and source version. Do not remove the `unreviewed` marker without a recorded independent review.
+
 ## Implementation reports
 
 An implementation report should identify:

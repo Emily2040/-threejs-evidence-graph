@@ -9,7 +9,8 @@ This repository is a document publication containing:
 - *Three.js Evidence Graph v2.0*, a general operational framework;
 - *The Hollow Meridian RPG Full Prompt v1.0*, a game-specific product contract and orchestration prompt;
 - multilingual repository guides in English, Simplified Chinese, Japanese, and Korean;
-- cover images, citation metadata, version history, contribution guidance, and checksums.
+- expanded *The Hollow Meridian* companion guides in the same four languages;
+- cover and concept artwork, prompt provenance, citation metadata, version history, contribution guidance, and checksums.
 
 ## What this release is not
 
@@ -48,7 +49,11 @@ The publications use Three.js r185 as their pinned baseline. Future Three.js rel
 
 ## Accessibility
 
-The designed PDFs are untagged. The multilingual Markdown guides provide a more accessible entry point, but they are explanatory guides rather than full text-equivalent editions of all 145 PDF pages.
+The designed PDFs are untagged. The multilingual Markdown repository guides and expanded game guides provide a more accessible entry point, but they are explanatory companions rather than full text-equivalent editions of all 145 PDF pages.
+
+## Artwork interpretation
+
+The README and game-guide hero images are original concept artwork. They communicate the control model, authored route, material language, and intended boss readability. They are not gameplay screenshots, renderer captures, performance evidence, or proof that a playable build exists.
 
 ## Future evidence threshold
 

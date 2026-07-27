@@ -1,5 +1,5 @@
 # Three.js Evidence Graph
-<!-- source_version: 2026.07.0; translation_status: unreviewed; language: ja -->
+<!-- source_version: 2026.07.1; translation_status: unreviewed; language: ja -->
 
 ソース生成型の Three.js 垂直スライスを対象とする、エビデンス駆動のマルチエージェント制作手法です。適用例として RPG 仕様書 *The Hollow Meridian* を収録しています。
 
@@ -20,7 +20,7 @@
 
 ![Three.js Evidence Graph と The Hollow Meridian の表紙](assets/publication-set.jpg)
 
-第1文書は、制作上の判断をエビデンスに裏付けられた遷移へ変換する方法を定義します。第2文書は、野心的な RPG 垂直スライスに含めるべき内容を定義します。両文書は同じ Evidence Graph の系譜に属しますが、バージョン間で完全に整合しているわけではありません。*The Hollow Meridian* はフレームワークの中核的な考え方を数多く実装していますが、v2 で追加された複数の安全策より前に作成されています。
+第1文書は、制作上の判断をエビデンスに裏付けられた遷移へ変換する方法を定義します。第2文書は、野心的な RPG 垂直スライスに含めるべき内容を定義します。両文書は同じ Evidence Graph の系譜に属しますが、バージョン間で完全に整合しているわけではありません。*The Hollow Meridian* はフレームワークの中核的な考え方を設計仕様へ数多く取り入れていますが、v2 で追加された複数の安全策より前に作成されています。
 
 ## この取り組みが必要な理由
 
@@ -30,52 +30,70 @@
 
 ```mermaid
 flowchart TD
-    A["Product contract"] --> B["Bounded specialist work"]
-    B --> C["Independent evidence capture"]
-    C --> D["Mechanical gates and calibrated review"]
-    D --> E["Accept, repair, branch, or roll back"]
-    E --> F["Evidence-backed release decision"]
+    A["プロダクト契約"] --> B["範囲を限定した専門作業"]
+    B --> C["独立したエビデンス取得"]
+    C --> D["機械的判定と校正済み評価"]
+    D --> E["受理、修復、分岐、ロールバック"]
+    E --> F["エビデンスに基づくリリース判断"]
 ```
 
-プロンプトはコントロールプレーンへのインターフェースであり、それ自体がコントロールプレーンなのではありません。リポジトリの状態、型付き task packets、決定論的チェック、evidence manifests、budgets、release predicates が、会話だけでは安全に保持できない権限を担います。
+プロンプトはコントロールプレーンへのインターフェースであり、それ自体がコントロールプレーンなのではありません。リポジトリの状態、型付きタスク・パケット（task packets）、決定論的チェック、エビデンス・マニフェスト（evidence manifests）、予算、リリース条件（release predicates）が、会話だけでは安全に保持できない権限を担います。
 
 ## Three.js Evidence Graph の概要
 
+![プロダクト契約から、範囲を限定した作業、エビデンス取得、リリース判定、修復、却下へ分岐する制御グラフ](assets/evidence-graph-control-hero.jpg)
+
 *Three.js Evidence Graph v2.0* は、範囲を限定したブラウザゲームの垂直スライスを対象とする、リポジトリ内完結型の制作システムを説明します。主な貢献は次のとおりです。
 
-1. **正準な制作グラフ。** 作業は、楽観的な進捗報告ではなく、型付きノードと明示的な transition predicates に従って進行します。
+1. **正準な制作グラフ。** 作業は、楽観的な進捗報告ではなく、型付きノードと明示的な遷移条件（transition predicates）に従って進行します。
 2. **リポジトリの権威。** プロダクト、アート、アーキテクチャ、品質に関する契約は、会話の記憶や個々のエージェントの判断よりも上位に置かれます。
-3. **範囲を限定した委任。** 各スペシャリストには、単一の目的、変更を許可または禁止するファイル、invariants、acceptance commands、evidence requirements、retries、resource budget が与えられます。
-4. **権限の分離。** Builder は実装を担当します。読み取り専用の critic は取得済み artifact を評価します。provenance auditor はリリースを阻止できます。指名された human director は constitution を変更できますが、失敗した gate を免除することはできません。
+3. **範囲を限定した委任。** 各スペシャリストには、単一の目的、変更を許可または禁止するファイル、不変条件、合格判定コマンド、必要なエビデンス、再試行上限、計算資源の予算が与えられます。
+4. **権限の分離。** 構築担当者（Builder）は実装を担当します。読み取り専用の評価担当者（critic）は取得済み成果物を評価します。来歴監査担当者（provenance auditor）はリリースを阻止できます。指名された人間のディレクターは基本規約（constitution）を変更できますが、失敗した判定を免除することはできません。
 5. **2つのエビデンス制度。** シミュレーション状態やその他の制御対象データには、ビット単位の完全一致を使用できます。GPU でラスタライズされた出力やプロファイル横断の視覚的エビデンスには、宣言済みの許容範囲を使用します。
 6. **実証に基づくレンダラー選択。** WebGPU/TSL と WebGL 2 は、代表的なマテリアル、エフェクト、デバイス、ブラウザ、トレースに照らして検証する候補として扱われます。
-7. **コンパイルとしてのプロシージャル生成。** generator には grammar、範囲を制限した parameters、seeds、rejection tests、collision and LOD policy、provenance、diagnostic output が必要です。ランダム性は構成設計の代替にはなりません。
-8. **サプライチェーンを考慮した provenance。** asset policy は、ソースファイル、依存関係、ビルド済みバンドル、フォント、不透明な blob、エンコード済みメディア、ランタイム要求、生成済み出力を検査します。
-9. **校正された評価。** critic は既知の欠陥を検出し、提示順を反転した評価にも耐え、エビデンスを引用し、一般的な好みではなく観測可能な失敗を報告しなければなりません。
-10. **根本原因の修復。** 各修復では、defect、evidence、hypothesis、intervention、expected change、protected metrics、acceptance test、cost、rollback condition を記録します。
+7. **コンパイルとしてのプロシージャル生成。** 生成器には、文法、範囲を制限したパラメーター、シード、排除テスト、衝突判定と LOD の方針、来歴、診断出力が必要です。ランダム性は構成設計の代替にはなりません。
+8. **サプライチェーンを考慮した来歴管理。** アセット方針は、ソースファイル、依存関係、ビルド済みバンドル、フォント、不透明なバイナリ、エンコード済みメディア、実行時要求、生成済み出力を検査します。
+9. **校正された評価。** 評価担当者は既知の欠陥を検出し、提示順を反転した評価にも耐え、エビデンスを引用し、一般的な好みではなく観測可能な失敗を報告しなければなりません。
+10. **根本原因の修復。** 各修復では、欠陥、エビデンス、仮説、介入、予想される変化、保護対象の指標、合格試験、コスト、ロールバック条件を記録します。
 11. **パフォーマンス分布。** 本手法は、平均 FPS だけに依存せず、フレーム時間のパーセンタイル、長時間フレーム、CPU および GPU コスト、メモリ増加、コンパイル停止、レンダラー統計を評価します。
-12. **計算資源の経済性。** 機械的チェックではモデルを使用しません。モデル呼び出しはタスク価値に応じて振り分けられ、実行単位の cost ledger に記録されます。
+12. **計算資源の経済性。** 機械的チェックではモデルを使用しません。モデル呼び出しはタスク価値に応じて振り分けられ、実行単位のコスト台帳（cost ledger）に記録されます。
 
-マニュアルには、v1-to-v2 defect ledger、15-node control graph、4部構成の orchestrator prompt、および task packets、defect records、run manifests 用の draft-07 schemas が含まれます。
+マニュアルには、v1 から v2 への欠陥台帳、15ノードの制御グラフ、4部構成のオーケストレーター・プロンプト（orchestrator prompt）、およびタスク・パケット、欠陥記録、実行マニフェスト用の draft-07 スキーマが含まれます。
 
 ## The Hollow Meridian の概要
 
+![The Hollow Meridian の廃墟となった天文台を通る設計済みゲームルート](assets/hollow-meridian-world-hero.jpg)
+
+*出版物の説明用コンセプトアートです。ゲームプレイのキャプチャや実装済みであることを示す証拠ではありません。*
+
 *The Hollow Meridian v1.0* は、Three.js で構築するデスクトップブラウザ向け三人称視点ダークファンタジー・アクション RPG の、81ページに及ぶプロダクト契約兼オーケストレーションプロンプトです。ダウンロードした完成版のアート、音声、モデル、テクスチャ、フォント、アセットパックは使用しません。
+
+> **日本語の詳細ガイド：** [The Hollow Meridian ゲーム解説ガイド](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md)では、世界観、10ビートのルート、戦闘、パズル、遺物、セーブ、ボス、アクセシビリティ、制作グラフを詳しく解説しています。このガイドは81ページの英語版 PDF の完全翻訳ではありません。
 
 プレイヤーは Cartographer となり、消滅した都市の真の名前を保存する廃墟の天文台を探索します。Cartographer は顔を持たない成人の守護者です。想定される初回プレイ時間は10～14分で、次の要素を含みます。
 
-- 安全な hub 1か所と、設計済み route 1本
+- 安全な拠点（hub）1か所と、設計済みルート1本
 - 主要な空間5か所
-- quest giver 1人と、3つの ring で構成される spatial puzzle 1つ
-- enemy archetype 3種
-- 3択の relic decision 1つ
-- 2段階の boss、*The Bell Without a Name*
-- ending outcome 2種
-- ローカル checkpoint、save、death、recovery、victory、return-to-hub の各 loop
+- クエスト提供者1人と、3つの環で構成される空間パズル1つ
+- 敵の基本型（enemy archetype）3種
+- 3択の遺物（relic）1つ
+- 2段階のボス *The Bell Without a Name*
+- 2種類のエンディング
+- チェックポイント、セーブ、死亡、復帰、勝利、拠点への帰還を扱うローカル進行管理
 
-この仕様では、オープンワールドへの拡張、クラフト、ショップ、ランダム loot、companion、マルチプレイヤー、キャラクター作成を意図的に除外しています。機能量で弱いインタラクションを覆い隠すのではなく、1つのコンパクトな体験を完成させることが目的です。
+この仕様では、オープンワールドへの拡張、クラフト、ショップ、ランダム戦利品、仲間、マルチプレイヤー、キャラクター作成を意図的に除外しています。機能量で弱いインタラクションを覆い隠すのではなく、1つのコンパクトな体験を完成させることが目的です。
 
-制作プロンプトは、architecture、gameplay and combat、procedural world construction、enemy and boss behavior、RPG and UI systems、audio and effects、integration、QA and performance、visual criticism、provenance audit を担当する専門ロールを定義します。また、fixed-tick simulation、replay capture、state hashes、安定した diagnostic URLs、evidence folders、範囲を限定した repair tasks、isolated candidates、rollback、final release gates も定義します。
+制作プロンプトは、建築、ゲームプレイと戦闘、プロシージャルな世界構築、敵とボスの挙動、RPG と UI のシステム、音声と効果、統合、QA と性能、視覚評価、来歴監査を担当する専門的な役割を定義します。また、固定刻みシミュレーション、リプレイ取得、状態ハッシュ、安定した診断 URL、エビデンス保存先、範囲を限定した修復タスク、分離した候補、ロールバック、最終リリース判定も定義します。
+
+### 設計されたプレイ構造
+
+10ビートのルートは、Ash Court での導入とクエスト受注から始まり、Orrery Bridge の戦闘チュートリアル、Archive Nave の探索、決定論的な3環式子午線パズル、Bell Foundry のガード崩し戦へ進みます。続いて3つの遺物から1つを選び、Meridian Chamber を開き、2段階のボス **The Bell Without a Name** と戦い、最後に束縛（bind）か解放（release）を選んで拠点へ戻ります。プロシージャル・システムが形状や素材を生成しても、この劇的な順序と各空間の目的は設計済みのまま維持されます。
+
+瞬間ごとのループでは、建築と光から方向を把握し、戦闘を読み、移動、ガード、パリィ、回避、攻撃を選び、スタミナと Resonance を管理し、印章またはクエスト状態を進め、チェックポイントで意味のある状態を保存します。戦闘は弱攻撃と強攻撃、ガード、選択されたパリィ受付時間、Echo Brand で構成されます。3種の敵は、それぞれ間合い、遠距離からの圧力、ガード崩しを教えます。3環式パズルは決定論的に解ける空間課題であり、3択の遺物は実際の戦闘判断を変えます。
+
+セーブ・スキーマ（save schema）は、クエスト状態、2つの印章、選択した遺物、消耗品、チェックポイント、完了状態、エンディングの選択、設定、再割り当てした操作を保持します。ボスは標準の敵の大型版ではなく、固有の攻撃一式、体勢耐久（poise）、体力55パーセントでの保護された段階移行、視認可能な安全区画を持つ独立システムです。
+
+これらはすべて、想定されるゲームの**仕様**です。現時点のリポジトリには、プレイ可能なビルド、実行時コード、測定済みベンチマーク、受理済みの `run-0001` エビデンス・パッケージは含まれていません。詳細ガイドはゲームを理解するためのローカライズ資料であり、完全版 PDF 自体は英語版のままです。
 
 ## 2つの版の関係
 
@@ -83,58 +101,59 @@ flowchart TD
 
 | 領域 | Evidence Graph v2.0 | Hollow Meridian v1.0 |
 |---|---|---|
-| Product scope | 45～90秒という非常に狭い baseline slice を推奨 | 10～14分の野心的な RPG route を規定 |
-| Evidence regimes | ビット単位の完全一致と許容範囲ベースの制度を明示 | 決定論的エビデンスは存在するが、2つの制度は完全には統合されていない |
-| Critic controls | Calibration、both-order review、drift rechecks | 独立した critics は存在するが、calibration は完全には規定されていない |
-| Compute economics | Model tiers と必須の cost ledger | 未統合 |
-| Human authority | 修正権限を限定された指名 director | 未統合 |
-| Cross-engine determinism | 厳密一致を主張する場合、制御された deterministic math kernel を要求 | まだ完全には規定されていない |
-| Audio evidence | Offline render、loudness、true-peak、dropout、voice-budget gates | Procedural audio は規定済みだが、同等の measurement gates への更新が必要 |
-| Accessibility | エビデンスに裏付けられた release gate | 充実した accessibility requirements を収録 |
-| Provenance | Source、dependency、bundle、network、output の監査 | source-generated media と provenance に関する強力な規則を収録 |
+| プロダクト範囲 | 45～90秒という非常に狭い基準スライスを推奨 | 10～14分の野心的な RPG ルートを規定 |
+| エビデンス制度 | ビット単位の完全一致と許容範囲ベースの制度を明示 | 決定論的エビデンスは存在するが、2つの制度は完全には統合されていない |
+| 評価担当者の統制 | 校正、提示順を入れ替えた評価、評価傾向の再点検 | 独立した評価担当者は存在するが、校正は完全には規定されていない |
+| 計算資源の経済性 | モデル階層と必須のコスト台帳 | 未統合 |
+| 人間の権限 | 修正権限を限定された指名ディレクター | 未統合 |
+| エンジン横断の決定論 | 厳密一致を主張する場合、制御された決定論的数学カーネルを要求 | まだ完全には規定されていない |
+| 音声エビデンス | オフライン書き出し、ラウドネス、トゥルーピーク、音切れ、音声予算の判定 | プロシージャル音声は規定済みだが、同等の測定判定への更新が必要 |
+| アクセシビリティ | エビデンスに裏付けられたリリース判定 | 充実したアクセシビリティ要件を収録 |
+| 来歴 | ソース、依存関係、バンドル、ネットワーク、出力の監査 | ソース生成型メディアと来歴に関する強力な規則を収録 |
 
 この区別は重要です。将来の改訂では、互換性がすでに存在すると装うことなく、RPG 仕様を完全に整合させることができます。
 
 ## ここでの「AAA-grade」の意味
 
-この表現は、意図的に範囲を限定した垂直スライスの内部リリース契約として使用しています。これは、完成度の高い表現、game feel、一貫性、パフォーマンス、accessibility、provenance、evidence を指します。コンテンツ量、予算、チーム規模、市場での位置付け、あるいは商用 AAA タイトルとして完成済みの品質を主張するものではありません。
+この表現は、意図的に範囲を限定した垂直スライスの内部リリース契約として使用しています。これは、完成度の高い表現、操作感（game feel）、一貫性、パフォーマンス、アクセシビリティ、来歴、エビデンスを指します。コンテンツ量、予算、チーム規模、市場での位置付け、あるいは商用 AAA タイトルとして完成済みの品質を主張するものではありません。
 
-このリポジトリ内の文書は、目標が達成されたことを証明していません。その主張には、実行可能な実装、宣言済み device profiles、完全な evidence manifests、校正済み評価、再現可能な resources、問題のない regression cycles、単一の accepted commit に紐付いた release candidate が必要です。
+このリポジトリ内の文書は、目標が達成されたことを証明していません。その主張には、実行可能な実装、宣言済みデバイス・プロファイル、完全なエビデンス・マニフェスト、校正済み評価、再現可能な計算資源、問題のない回帰試験サイクル、単一の受理済みコミットに紐付いたリリース候補が必要です。
 
 ## 技術的ベースラインと境界
 
-- 出版物は **Three.js r185 baseline** を基準として作成されています。
-- WebGPU/TSL と WebGL 2 は renderer decision gate を通じて評価されます。
+- 出版物は **Three.js r185** を技術基準として作成されています。
+- WebGPU/TSL と WebGL 2 は、レンダラー選択判定を通じて評価されます。
 - 「No downloaded assets」は、最終的に可視または可聴となるメディアに適用されます。バージョンを固定した開発用依存関係、ブラウザ API、ビルドツール、テストツール、プロファイラーは引き続き使用できますが、監査対象です。
 - ビット単位の完全一致を主張できるのは、制御されたデータクラスに限られます。ブラウザと GPU の出力は、オペレーティングシステム、ドライバー、ハードウェア、ブラウザ、設定によって変動する可能性があります。
-- 文書内の accessibility requirements はエンジニアリング上の目標です。正式な WCAG 適合を確立するものではありません。
-- Provenance controls はトレーサビリティを向上させますが、著作権上の独自性やソフトウェアセキュリティを証明するものではありません。
-- Host agents には、リポジトリへのアクセス、shell execution、browser automation、capture infrastructure、分離された branches または worktrees、structured task dispatch が必要です。基本的なチャットインターフェースだけでは不十分です。
+- 文書内のアクセシビリティ要件はエンジニアリング上の目標です。正式な WCAG 適合を確立するものではありません。
+- 来歴管理はトレーサビリティを向上させますが、著作権上の独自性やソフトウェアセキュリティを証明するものではありません。
+- ホスト・エージェントには、リポジトリへのアクセス、シェル実行、ブラウザ自動化、取得基盤、分離されたブランチまたは worktree、構造化されたタスク割り当てが必要です。基本的なチャットインターフェースだけでは不十分です。
 
 ## 推奨する読み方
 
 ### テクニカルディレクターおよび研究者
 
-1. Evidence Graph の defect ledger と document-status page を読みます。
-2. control graph、authority hierarchy、evidence regimes、critic calibration、operations、normative schemas を確認します。
-3. *The Hollow Meridian* を適用例として扱う前に、上記の compatibility table を読みます。
+1. Evidence Graph の欠陥台帳と文書状況ページを読みます。
+2. 制御グラフ、権限階層、エビデンス制度、評価担当者の校正、運用、規範スキーマを確認します。
+3. *The Hollow Meridian* を適用例として扱う前に、上記の互換性表を読みます。
 
 ### ゲームおよびテクニカルアートチーム
 
-1. *The Hollow Meridian* の game contract、route、experience pillars、anti-slop rules を読みます。
-2. 続いて game systems、procedural-media policy、QA gates を確認します。
-3. repository authority documents と acceptance commands が存在する場合に限り、specialist cards を使用します。
+1. *The Hollow Meridian* のゲーム契約、ルート、体験の柱、反スロップ規則（anti-slop rules）を読みます。
+2. 続いてゲームシステム、プロシージャル・メディア方針、QA 判定を確認します。
+3. リポジトリの権限文書と合格判定コマンドが存在する場合に限り、専門エージェント・カード（specialist cards）を使用します。
 
 ### エージェントシステム構築者
 
-1. Evidence Graph の orchestrator prompt と schemas から始めます。
-2. model routing より先に validation と state transitions を実装します。
-3. 取得済み artifacts、修復済み defect、rollback、frame-time distributions、cost accounting、accepted commit を含む、実在する end-to-end run を1件追加します。
+1. Evidence Graph のオーケストレーター・プロンプト（orchestrator prompt）とスキーマから始めます。
+2. モデル振り分けより先に、検証と状態遷移を実装します。
+3. 取得済み成果物、修復済みの欠陥、ロールバック、フレーム時間分布、コスト計上、受理済みコミットを含む、実在するエンドツーエンド実行を1件追加します。
 
 ## リポジトリ構成
 
 ```text
 .
+├── .gitattributes
 ├── README.md
 ├── README.zh-CN.md
 ├── README.ja.md
@@ -143,6 +162,10 @@ flowchart TD
 │   ├── publication-set.jpg
 │   ├── readme-hero.jpg
 │   ├── readme-hero.prompt.md
+│   ├── section-heroes.prompt.md
+│   ├── evidence-graph-control-hero.jpg
+│   ├── hollow-meridian-boss-hero.jpg
+│   ├── hollow-meridian-world-hero.jpg
 │   ├── threejs-evidence-graph-cover.jpg
 │   └── the-hollow-meridian-cover.jpg
 ├── publications/
@@ -151,6 +174,10 @@ flowchart TD
 ├── docs/
 │   ├── GLOSSARY.md
 │   ├── PUBLICATION_STATUS.md
+│   ├── THE_HOLLOW_MERIDIAN_GUIDE.md
+│   ├── THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md
+│   ├── THE_HOLLOW_MERIDIAN_GUIDE.ja.md
+│   ├── THE_HOLLOW_MERIDIAN_GUIDE.ko.md
 │   └── TRANSLATION_POLICY.md
 ├── CHANGELOG.md
 ├── CITATION.cff
@@ -163,25 +190,30 @@ flowchart TD
 
 ## 現在のロードマップ
 
-次のリリースで最も価値があるのは、より大規模なプロンプトではありません。既存の契約を検証可能にする、実行可能な companion surface です。
+次のリリースで最も価値があるのは、より大規模なプロンプトではありません。既存の契約を検証可能にする、実行可能な付属基盤です。
 
-- canonical machine-readable schemas
-- graph state と transition predicates
-- task-packet と defect validators
-- renderer proof harness
-- deterministic replay と state hashing
-- asset と provenance scanners
-- Playwright capture profiles
-- critic calibration fixtures
-- run manifest と cost ledger
-- 完全な `run-0001` evidence package 1件
-- accepted repair 1件、rejected candidate 1件、verified rollback 1件
+- 正準かつ機械可読なスキーマ
+- グラフ状態と遷移条件
+- タスク・パケットと欠陥の検証器
+- レンダラー実証基盤
+- 決定論的リプレイと状態ハッシュ
+- アセットと来歴のスキャナー
+- Playwright の取得プロファイル
+- 評価担当者を校正する固定テスト
+- 実行マニフェストとコスト台帳
+- 完全な `run-0001` エビデンス・パッケージ1件
+- 受理済みの修復1件、却下済みの候補1件、検証済みのロールバック1件
 
 これらが存在するまでは、このリポジトリが主張するのは設計および仕様としての価値であり、実証的な制作結果ではありません。
 
 ## 翻訳方針
 
-英語版が規範版です。簡体字中国語版、日本語版、韓国語版は、このリポジトリガイドの完全な説明翻訳です。出版物のタイトル、ゲーム固有名詞、ファイル名、コマンド、schema keys、graph-node identifiers、paths、enum values、code identifiers は、正準な英語表記のまま維持されます。
+英語版が規範版です。簡体字中国語版、日本語版、韓国語版は、このリポジトリガイドの完全な説明翻訳です。さらに *The Hollow Meridian* には、世界観、ゲームループ、戦闘、パズル、遺物、セーブ、ボス、制作システムを各言語で詳しく説明するローカライズ版の付属ガイドがあります。これらのガイドは、81ページの英語版 PDF の完全翻訳ではありません。出版物のタイトル、ゲーム固有名詞、ファイル名、コマンド、スキーマのキー、グラフノード識別子、パス、列挙値、コード識別子は、正準な英語表記のまま維持されます。
+
+- [English game guide](docs/THE_HOLLOW_MERIDIAN_GUIDE.md)
+- [简体中文游戏指南](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md)
+- [日本語ゲーム解説ガイド](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md)
+- [한국어 게임 가이드](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
 
 翻訳版と英語版の内容が異なる場合は、技術的解釈には英語版を使用し、issue を通じて相違を報告してください。[Translation Policy](docs/TRANSLATION_POLICY.md) と[多言語技術用語集](docs/GLOSSARY.md)を参照してください。
 
@@ -197,9 +229,9 @@ flowchart TD
 - 無効になったソースリンク
 - 翻訳の修正
 - 用語の改善
-- accessibility の改善
+- アクセシビリティの改善
 - 再現可能な実装レポート
-- 公開済みの authority model を維持する machine-readable contracts
+- 公開済みの権限モデルを維持する機械可読な契約
 
 issue または pull request を開く前に、[CONTRIBUTING.md](CONTRIBUTING.md) をお読みください。
 
