@@ -1,9 +1,13 @@
-# v2026.07.1 - Multilingual Game Guide and Visual Expansion
+# v2026.07.2 - Author Identity and MIT License
 
-This release publishes two complementary works by Emily Paradox:
+This release publishes two complementary works under the publication byline Emily Paradox:
 
 - *Three.js Evidence Graph: Operational Manual v2.0*
 - *The Hollow Meridian RPG Full Prompt v1.0*
+
+The canonical creator and rights-holder identity is Iamemily2050
+(@iamemily2050). Official profiles and the contact address are recorded in
+`AUTHORS.md` and `release-manifest.json`.
 
 ## What the release contributes
 
@@ -79,6 +83,14 @@ The publications were authored against Three.js r185. This is a pinned document 
 
 Use `SHA256SUMS.txt` to verify the two PDF files. Never replace a PDF silently inside this release. Corrections require a new document version and a new repository release.
 
-## License status
+## License
 
-No reuse license has been selected for this release.
+This repository is released under the MIT License.
+
+Copyright (c) 2026 Iamemily2050 (@iamemily2050).
+
+Unless a file states otherwise, the license covers the repository
+documentation, PDFs, and original concept artwork. Copies or substantial
+portions must retain the copyright and permission notices. Citation is
+requested for academic, editorial, and technical discussion, but it is not an
+additional license condition.

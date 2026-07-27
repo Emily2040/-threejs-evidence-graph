@@ -213,3 +213,16 @@ The accurate claim is that *The Hollow Meridian* is an applied RPG specification
 English remains normative for the PDF, commands, filenames, schemas, identifiers, and game proper nouns. The localized guides explain the game in Simplified Chinese, Japanese, and Korean while keeping canonical terms traceable.
 
 If a localized guide differs from the English publication, use the English edition for technical interpretation and report the discrepancy. See the [Translation Policy](TRANSLATION_POLICY.md) and [Multilingual Technical Glossary](GLOSSARY.md).
+
+## Author and license
+
+- **Publication byline:** Emily Paradox
+- **Creator and copyright holder:** Iamemily2050 (@iamemily2050)
+- **GitHub:** [Emily2040](https://github.com/Emily2040)
+- **Website:** [iamemily2050.com](https://iamemily2050.com)
+- **X:** [@iamemily2050](https://x.com/iamemily2050)
+- **Instagram:** [@iamemily2050](https://instagram.com/iamemily2050)
+
+Unless a file states otherwise, this repository is released under the
+[MIT License](../LICENSE). See [AUTHORS.md](../AUTHORS.md) for the complete
+identity and attribution record.

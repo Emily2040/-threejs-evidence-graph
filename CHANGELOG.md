@@ -2,6 +2,27 @@
 
 All notable changes to the publication bundle are documented here.
 
+## [2026.07.2] - 2026-07-27
+
+### Added
+
+- MIT License aligned with the canonical Seedance V2 repository
+- Author and rights-holder record with official GitHub, website, X, Instagram, and contact links
+- Machine-readable creator, profile, copyright, license, and scope metadata
+
+### Changed
+
+- Updated all four README editions with the license terms and canonical creator identity
+- Corrected repository URLs in citation and release metadata to the live GitHub repository
+- Updated publication-status and release documents for the licensed release
+
+### Status
+
+- Documentation, identity, and licensing patch
+- Publication byline remains Emily Paradox
+- Creator and copyright holder is Iamemily2050 (@iamemily2050)
+- Repository contents are released under the MIT License unless a file states otherwise
+
 ## [2026.07.1] - 2026-07-27
 
 ### Added

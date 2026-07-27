@@ -1,4 +1,4 @@
-<!-- source_version: 2026.07.1; translation_status: unreviewed; language: zh-CN -->
+<!-- source_version: 2026.07.2; translation_status: unreviewed; language: zh-CN -->
 
 # The Hollow Meridian：游戏说明指南
 
@@ -215,3 +215,14 @@ RPG 深度来自少量但会实际影响玩法的状态变化：
 PDF、命令、文件名、schema、标识符及游戏专有名称均以英文为规范版本。本地化指南使用简体中文、日文与韩文解释游戏，同时保留可追踪的规范术语。
 
 如果本地化指南与英文出版物存在差异，请以英文版作为技术解释依据，并报告该差异。另请参阅[翻译政策](TRANSLATION_POLICY.md)与[多语言技术术语表](GLOSSARY.md)。
+
+## 作者与许可证
+
+- **出版署名：** Emily Paradox
+- **创作者与版权所有者：** Iamemily2050（`@iamemily2050`）
+- **GitHub：** [Emily2040](https://github.com/Emily2040)
+- **网站：** [iamemily2050.com](https://iamemily2050.com)
+- **X：** [`@iamemily2050`](https://x.com/iamemily2050)
+- **Instagram：** [`@iamemily2050`](https://instagram.com/iamemily2050)
+
+除非某个文件另有明确说明，本仓库采用 [MIT 许可证](../LICENSE) 发布。完整的身份与署名记录请参阅 [AUTHORS.md](../AUTHORS.md)。

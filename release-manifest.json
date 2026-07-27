@@ -1,12 +1,21 @@
 {
   "suite": {
     "title": "Three.js Evidence Graph: Method and Applied RPG Specification",
-    "version": "2026.07.1",
+    "version": "2026.07.2",
     "release_date": "2026-07-27",
     "release_type": "documentation",
     "author": "Emily Paradox",
+    "creator": "Iamemily2050",
+    "rights_holder": "Iamemily2050 (@iamemily2050)",
+    "profiles": {
+      "github": "https://github.com/Emily2040",
+      "website": "https://iamemily2050.com",
+      "x": "https://x.com/iamemily2050",
+      "instagram": "https://instagram.com/iamemily2050",
+      "contact": "191656017+Emily2040@users.noreply.github.com"
+    },
     "normative_language": "en",
-    "repository": "https://github.com/Emily2040/threejs-evidence-graph"
+    "repository": "https://github.com/Emily2040/-threejs-evidence-graph"
   },
   "publications": [
     {
@@ -79,6 +88,9 @@
     ]
   },
   "license": {
-    "status": "not selected"
+    "spdx_id": "MIT",
+    "file": "LICENSE",
+    "copyright": "Copyright (c) 2026 Iamemily2050 (@iamemily2050)",
+    "scope": "Unless a file states otherwise, the MIT License applies to repository documentation, PDFs, and original concept artwork."
   }
 }

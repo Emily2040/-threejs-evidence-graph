@@ -151,6 +151,8 @@ No document in this repository proves that the target has been achieved. Such a 
 ```text
 .
 ├── .gitattributes
+├── AUTHORS.md
+├── LICENSE
 ├── README.md
 ├── README.zh-CN.md
 ├── README.ja.md
@@ -233,12 +235,22 @@ Use the metadata in [CITATION.cff](CITATION.cff). A concise citation is:
 
 > Emily Paradox. *Three.js Evidence Graph v2.0 and The Hollow Meridian RPG Full Prompt v1.0*. Technical Systems and Game Systems Series, July 2026.
 
-## License status
+## License
 
-No reuse license has been selected for this publication release. The absence of a license should not be interpreted as permission to redistribute, sell, or publish derivative editions.
+This repository is released under the [MIT License](LICENSE).
 
-## Author
+Copyright (c) 2026 Iamemily2050 (@iamemily2050).
 
-**Emily Paradox**  
-AI digital artist, prompt-system designer, and creative technologist  
-GitHub: [@Emily2040](https://github.com/Emily2040)
+Unless a file states otherwise, the license covers the repository documentation, PDFs, and original concept artwork. Copies or substantial portions must retain the copyright and permission notices. Citation is requested for academic, editorial, and technical discussion, but it is not an additional license condition.
+
+## Author and rights holder
+
+- **Publication byline:** Emily Paradox
+- **Creator and copyright holder:** Iamemily2050 (@iamemily2050)
+- **Role:** AI Digital Artist
+- **GitHub:** [Emily2040](https://github.com/Emily2040)
+- **Website:** [iamemily2050.com](https://iamemily2050.com)
+- **X:** [@iamemily2050](https://x.com/iamemily2050)
+- **Instagram:** [@iamemily2050](https://instagram.com/iamemily2050)
+
+See [AUTHORS.md](AUTHORS.md) for the identity distinction, contact address, and attribution guidance.

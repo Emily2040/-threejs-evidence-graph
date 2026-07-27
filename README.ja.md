@@ -1,5 +1,5 @@
 # Three.js Evidence Graph
-<!-- source_version: 2026.07.1; translation_status: unreviewed; language: ja -->
+<!-- source_version: 2026.07.2; translation_status: unreviewed; language: ja -->
 
 ソース生成型の Three.js 垂直スライスを対象とする、エビデンス駆動のマルチエージェント制作手法です。適用例として RPG 仕様書 *The Hollow Meridian* を収録しています。
 
@@ -154,6 +154,8 @@ flowchart TD
 ```text
 .
 ├── .gitattributes
+├── AUTHORS.md
+├── LICENSE
 ├── README.md
 ├── README.zh-CN.md
 ├── README.ja.md
@@ -241,12 +243,21 @@ issue または pull request を開く前に、[CONTRIBUTING.md](CONTRIBUTING.md
 
 > Emily Paradox. *Three.js Evidence Graph v2.0 and The Hollow Meridian RPG Full Prompt v1.0*. Technical Systems and Game Systems Series, July 2026.
 
-## ライセンス状況
+## ライセンス
 
-この出版リリースには、再利用ライセンスが選択されていません。ライセンスが存在しないことを、再配布、販売、派生版の公開に対する許可と解釈しないでください。
+Copyright (c) 2026 Iamemily2050 (@iamemily2050).
 
-## 著者
+個別のファイルに別段の記載がない限り、本リポジトリの文書、PDF、およびオリジナルのコンセプトアートには [MIT License](LICENSE) が適用されます。
 
-**Emily Paradox**  
-AI デジタルアーティスト、プロンプトシステムデザイナー、クリエイティブテクノロジスト  
-GitHub: [@Emily2040](https://github.com/Emily2040)
+利用または再配布する場合は、該当する著作権表示および許諾表示を保持してください。学術、編集、技術上の議論では出典の明記をお願いしますが、これは MIT License に追加される条件ではありません。
+
+## 著者および権利者
+
+- 出版物の著者表記：**Emily Paradox**
+- クリエイターおよび権利者：**Iamemily2050**（`@iamemily2050`）
+- 職種：**AI Digital Artist（AIデジタルアーティスト）**
+- GitHub：[https://github.com/Emily2040](https://github.com/Emily2040)
+- ウェブサイト：[https://iamemily2050.com](https://iamemily2050.com)
+- X：[@iamemily2050](https://x.com/iamemily2050)
+- Instagram：[@iamemily2050](https://instagram.com/iamemily2050)
+- 著者および権利情報：[AUTHORS.md](AUTHORS.md)

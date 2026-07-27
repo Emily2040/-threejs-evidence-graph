@@ -1,4 +1,4 @@
-<!-- source_version: 2026.07.1; translation_status: unreviewed; language: ja -->
+<!-- source_version: 2026.07.2; translation_status: unreviewed; language: ja -->
 # The Hollow Meridian：ゲーム解説ガイド
 
 [English](THE_HOLLOW_MERIDIAN_GUIDE.md) | [简体中文](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
@@ -214,3 +214,14 @@ GPU とブラウザをまたぐ視覚出力がビット単位で一致すると�
 PDF、コマンド、ファイル名、スキーマ、識別子、ゲーム固有名詞については、英語版が規範版です。ローカライズ版ガイドは、正準用語を追跡可能な形で維持しつつ、ゲームの内容を簡体字中国語、日本語、韓国語で説明します。
 
 ローカライズ版ガイドと英語の出版物に相違がある場合は、技術的解釈には英語版を使用し、相違を報告してください。[Translation Policy](TRANSLATION_POLICY.md) と[多言語技術用語集](GLOSSARY.md)を参照してください。
+
+## 著者とライセンス
+
+- **出版物の著者表記：** Emily Paradox
+- **クリエイターおよび著作権者：** Iamemily2050（`@iamemily2050`）
+- **GitHub：** [Emily2040](https://github.com/Emily2040)
+- **ウェブサイト：** [iamemily2050.com](https://iamemily2050.com)
+- **X：** [`@iamemily2050`](https://x.com/iamemily2050)
+- **Instagram：** [`@iamemily2050`](https://instagram.com/iamemily2050)
+
+個別のファイルに別段の記載がない限り、本リポジトリは [MIT License](../LICENSE) の下で公開されています。著者・権利者情報と帰属表記の記録については、[AUTHORS.md](../AUTHORS.md) を参照してください。

@@ -1,4 +1,4 @@
-<!-- source_version: 2026.07.1; translation_status: unreviewed; language: ko -->
+<!-- source_version: 2026.07.2; translation_status: unreviewed; language: ko -->
 # The Hollow Meridian: 게임 해설 가이드
 
 [English](THE_HOLLOW_MERIDIAN_GUIDE.md) | [简体中文](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
@@ -214,3 +214,14 @@ GPU와 브라우저가 달라도 시각적 출력이 비트 단위로 완전히 
 PDF, 명령어, 파일명, 스키마, 식별자, 게임 고유명사에 대해서는 영문판이 계속 규범적입니다. 현지화 가이드는 표준 용어를 추적할 수 있도록 유지하면서 중국어 간체, 일본어, 한국어로 게임을 설명합니다.
 
 현지화 가이드와 영문 출판물이 다를 경우 기술적 해석에는 영문판을 사용하고 그 차이를 보고해 주십시오. [Translation Policy](TRANSLATION_POLICY.md)와 [다국어 기술 용어집](GLOSSARY.md)을 참조하십시오.
+
+## 저자 및 라이선스
+
+출판물 표기명은 **Emily Paradox**이며, 창작자 및 저작권자는 **Iamemily2050 (@iamemily2050)**입니다.
+
+- GitHub: [Emily2040](https://github.com/Emily2040)
+- 웹사이트: [iamemily2050.com](https://iamemily2050.com)
+- X: [@iamemily2050](https://x.com/iamemily2050)
+- Instagram: [@iamemily2050](https://instagram.com/iamemily2050)
+
+이 저장소는 개별 파일에 달리 명시되어 있지 않은 한 [MIT 라이선스](../LICENSE)에 따라 배포됩니다. 자세한 저자 및 권리 정보는 [AUTHORS.md](../AUTHORS.md)를 참조하십시오.

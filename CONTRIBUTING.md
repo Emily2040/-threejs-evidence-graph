@@ -2,6 +2,13 @@
 
 Thank you for helping improve this publication.
 
+## Contribution license
+
+Unless explicitly agreed otherwise in writing, contributions submitted to this
+repository are provided under the same [MIT License](LICENSE) that covers the
+repository. Contributors must have the right to submit their work and must not
+include third-party material that is incompatible with that license.
+
 ## Good contribution types
 
 - Factual corrections with an exact PDF title and page number

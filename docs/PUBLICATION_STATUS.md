@@ -12,6 +12,19 @@ This repository is a document publication containing:
 - expanded *The Hollow Meridian* companion guides in the same four languages;
 - cover and concept artwork, prompt provenance, citation metadata, version history, contribution guidance, and checksums.
 
+## Authorship and license
+
+The two PDFs use **Emily Paradox** as their publication byline. The canonical
+creator and rights holder for the repository is **Iamemily2050
+(@iamemily2050)**. Official profiles and the contact address are recorded in
+[AUTHORS.md](../AUTHORS.md).
+
+Unless a file states otherwise, the repository documentation, PDFs, and
+original concept artwork are released under the [MIT License](../LICENSE).
+Copies or substantial portions must retain the copyright and permission
+notices. Citation is requested for academic, editorial, and technical
+discussion, but it is not an additional license condition.
+
 ## What this release is not
 
 This release does not include:
