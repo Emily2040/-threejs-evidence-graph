@@ -1,4 +1,4 @@
-# v2026.07.2 - Author Identity and MIT License
+# v2026.07.3 - Security and Release Integrity
 
 This release publishes two complementary works under the publication byline Emily Paradox:
 
@@ -35,6 +35,8 @@ The canonical creator and rights-holder identity is Iamemily2050
 - three additional text-free section heroes for the control plane, authored game route, and boss transition
 - exact prompt and provenance documentation for the new artwork
 - expanded multilingual game-development terminology
+- SHA-256 coverage for every published PDF and JPEG asset
+- canonical metadata for the professional `threejs-evidence-graph` repository name
 
 ## Evidence status
 
@@ -81,7 +83,13 @@ The publications were authored against Three.js r185. This is a pinned document 
 
 ## Integrity
 
-Use `SHA256SUMS.txt` to verify the two PDF files. Never replace a PDF silently inside this release. Corrections require a new document version and a new repository release.
+Use `sha256sum -c SHA256SUMS.txt` from the repository root to verify all nine published PDF and JPEG files. Never replace a publication or artwork asset silently inside this release. Corrections require updated checksums, a changelog entry, and a new repository release; PDF corrections also require a new document version.
+
+The release files were reviewed for exposed credentials, unsafe URL schemes,
+unexpected executable file modes, PDF active content and attachments, and
+JPEG metadata or appended payloads. No credential or executable-content issue
+was found. This is a structural release audit, not a claim that future external
+links or deliberately concealed pixel data can never present risk.
 
 ## License
 

@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use or discuss this publication set, please cite it using this metadata."
 title: "Three.js Evidence Graph v2.0 and The Hollow Meridian RPG Full Prompt v1.0"
 type: generic
-version: 2026.07.2
+version: 2026.07.3
 date-released: 2026-07-27
 license: MIT
 authors:
@@ -11,8 +11,8 @@ authors:
     alias: "Iamemily2050"
     email: "191656017+Emily2040@users.noreply.github.com"
     website: "https://iamemily2050.com"
-repository-code: "https://github.com/Emily2040/-threejs-evidence-graph"
-url: "https://github.com/Emily2040/-threejs-evidence-graph"
+repository-code: "https://github.com/Emily2040/threejs-evidence-graph"
+url: "https://github.com/Emily2040/threejs-evidence-graph"
 keywords:
   - Three.js
   - WebGPU

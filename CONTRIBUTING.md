@@ -71,11 +71,12 @@ Screenshots without a manifest are useful illustrations, but they are not suffic
 
 ## Publication integrity
 
-Do not replace the PDFs silently. Any PDF revision must:
+Do not replace published binary files silently. Any PDF or JPEG revision must
+update `SHA256SUMS.txt`, the release manifest, and the changelog. A PDF
+revision must also:
 
 - increment its document version;
 - add a changelog entry;
 - update `CITATION.cff`;
-- update `SHA256SUMS.txt`;
 - describe the changed claims;
 - preserve the previous release through GitHub Releases.

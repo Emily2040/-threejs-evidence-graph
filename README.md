@@ -213,7 +213,7 @@ These companion guides explain the game and production system in more detail, bu
 
 ## Integrity
 
-The SHA-256 values in [SHA256SUMS.txt](SHA256SUMS.txt) identify the exact PDF files in this release.
+The SHA-256 values in [SHA256SUMS.txt](SHA256SUMS.txt) cover every published PDF and JPEG asset in this release. Run `sha256sum -c SHA256SUMS.txt` from the repository root to verify all nine binary files.
 
 ## Contributing
 

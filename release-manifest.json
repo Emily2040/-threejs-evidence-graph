@@ -1,7 +1,7 @@
 {
   "suite": {
     "title": "Three.js Evidence Graph: Method and Applied RPG Specification",
-    "version": "2026.07.2",
+    "version": "2026.07.3",
     "release_date": "2026-07-27",
     "release_type": "documentation",
     "author": "Emily Paradox",
@@ -15,7 +15,7 @@
       "contact": "191656017+Emily2040@users.noreply.github.com"
     },
     "normative_language": "en",
-    "repository": "https://github.com/Emily2040/-threejs-evidence-graph"
+    "repository": "https://github.com/Emily2040/threejs-evidence-graph"
   },
   "publications": [
     {
@@ -68,19 +68,28 @@
       "assets/readme-hero.jpg",
       "assets/evidence-graph-control-hero.jpg",
       "assets/hollow-meridian-world-hero.jpg",
-      "assets/hollow-meridian-boss-hero.jpg"
+      "assets/hollow-meridian-boss-hero.jpg",
+      "assets/publication-set.jpg",
+      "assets/threejs-evidence-graph-cover.jpg",
+      "assets/the-hollow-meridian-cover.jpg"
     ],
     "dimensions": {
       "assets/readme-hero.jpg": "2172x724",
       "assets/evidence-graph-control-hero.jpg": "2172x724",
       "assets/hollow-meridian-world-hero.jpg": "2172x724",
-      "assets/hollow-meridian-boss-hero.jpg": "2172x724"
+      "assets/hollow-meridian-boss-hero.jpg": "2172x724",
+      "assets/publication-set.jpg": "1434x980",
+      "assets/threejs-evidence-graph-cover.jpg": "1191x1684",
+      "assets/the-hollow-meridian-cover.jpg": "1191x1684"
     },
     "sha256": {
       "assets/readme-hero.jpg": "aad0da924b7a933935de29d7538afb7014981a2dd3d1efc05d87bd867400efa5",
       "assets/evidence-graph-control-hero.jpg": "d9c3737ddc5657f72dcbe556af38dd21afbfaaad1193e2156f0ba44c9549a0ad",
       "assets/hollow-meridian-world-hero.jpg": "c3fc71ff23174b7ba1641c203319f145208b1e70d194403015dddf5c0dffd6b1",
-      "assets/hollow-meridian-boss-hero.jpg": "a9ad843d0fcc9e887607d25a5af71e94e59458f0015163ac0c935e2010aba025"
+      "assets/hollow-meridian-boss-hero.jpg": "a9ad843d0fcc9e887607d25a5af71e94e59458f0015163ac0c935e2010aba025",
+      "assets/publication-set.jpg": "2b8d2bd8e5f9557dfad82dfafbf03b9a7f5d1b6f2b34f862e434cf3ecaefdf9a",
+      "assets/threejs-evidence-graph-cover.jpg": "269fda7e50e4c50bd533b9254c1cb4a8edaee995d0e90989b328eac12fdef86b",
+      "assets/the-hollow-meridian-cover.jpg": "db0d3124887fd4e6db7c52a52287a9dd40541a45b538f072c400fbabb09bbab2"
     },
     "prompt_records": [
       "assets/readme-hero.prompt.md",
@@ -92,5 +101,11 @@
     "file": "LICENSE",
     "copyright": "Copyright (c) 2026 Iamemily2050 (@iamemily2050)",
     "scope": "Unless a file states otherwise, the MIT License applies to repository documentation, PDFs, and original concept artwork."
+  },
+  "integrity": {
+    "algorithm": "SHA-256",
+    "checksum_file": "SHA256SUMS.txt",
+    "binary_files_covered": 9,
+    "coverage": "All published PDF and JPEG files in this release"
   }
 }

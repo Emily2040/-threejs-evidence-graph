@@ -1,4 +1,4 @@
-<!-- source_version: 2026.07.2; translation_status: unreviewed; language: zh-CN -->
+<!-- source_version: 2026.07.3; translation_status: unreviewed; language: zh-CN -->
 
 # The Hollow Meridian：游戏说明指南
 

@@ -2,6 +2,24 @@
 
 All notable changes to the publication bundle are documented here.
 
+## [2026.07.3] - 2026-07-27
+
+### Added
+
+- SHA-256 integrity coverage for all seven JPEG assets and both PDF publications
+- Complete artwork dimensions and hashes in the machine-readable release manifest
+- Structural security review of repository history, links, PDFs, and JPEG assets
+
+### Changed
+
+- Prepared the canonical repository name as `threejs-evidence-graph`
+- Updated citation and release metadata to the canonical repository URL
+- Expanded multilingual integrity instructions with a reproducible verification command
+
+### Security
+
+- Found no exposed tokens, private keys, credentials, unsafe URL schemes, executable repository files, PDF active content, PDF attachments, JPEG metadata, or appended JPEG payloads
+
 ## [2026.07.2] - 2026-07-27
 
 ### Added

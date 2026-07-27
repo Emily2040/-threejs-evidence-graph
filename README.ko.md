@@ -1,5 +1,5 @@
 # Three.js Evidence Graph
-<!-- source_version: 2026.07.2; translation_status: unreviewed; language: ko -->
+<!-- source_version: 2026.07.3; translation_status: unreviewed; language: ko -->
 
 소스만으로 생성되는 Three.js 버티컬 슬라이스를 위한 증거 기반 멀티 에이전트 제작 체계이며, *The Hollow Meridian*을 RPG 적용 명세로 제시합니다.
 
@@ -216,7 +216,7 @@ flowchart TD
 
 ## 무결성
 
-[SHA256SUMS.txt](SHA256SUMS.txt)의 SHA-256 값은 이 릴리스의 정확한 PDF 파일을 식별합니다.
+[SHA256SUMS.txt](SHA256SUMS.txt)의 SHA-256 값은 이 릴리스에 포함된 모든 PDF 및 JPEG 자산을 대상으로 합니다. 저장소 루트에서 `sha256sum -c SHA256SUMS.txt`를 실행하여 9개 바이너리 파일을 모두 검증할 수 있습니다.
 
 ## 기여
 

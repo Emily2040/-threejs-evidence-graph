@@ -12,6 +12,10 @@ This repository is a document publication containing:
 - expanded *The Hollow Meridian* companion guides in the same four languages;
 - cover and concept artwork, prompt provenance, citation metadata, version history, contribution guidance, and checksums.
 
+All seven published JPEG assets and both PDF files are recorded in
+[`SHA256SUMS.txt`](../SHA256SUMS.txt). The release manifest records artwork
+dimensions and hashes in addition to publication metadata.
+
 ## Authorship and license
 
 The two PDFs use **Emily Paradox** as their publication byline. The canonical
@@ -67,6 +71,14 @@ The designed PDFs are untagged. The multilingual Markdown repository guides and 
 ## Artwork interpretation
 
 The README and game-guide hero images are original concept artwork. They communicate the control model, authored route, material language, and intended boss readability. They are not gameplay screenshots, renderer captures, performance evidence, or proof that a playable build exists.
+
+## Security review
+
+The release files were checked for exposed credentials, unsafe URL schemes,
+unexpected executable file modes, PDF active content and attachments, and
+JPEG metadata or appended payloads. No credential or executable-content issue
+was found. This structural review does not constitute steganalysis and cannot
+guarantee the future safety of externally linked websites.
 
 ## Future evidence threshold
 

@@ -1,5 +1,5 @@
 # Three.js Evidence Graph
-<!-- source_version: 2026.07.2; translation_status: unreviewed; language: ja -->
+<!-- source_version: 2026.07.3; translation_status: unreviewed; language: ja -->
 
 ソース生成型の Three.js 垂直スライスを対象とする、エビデンス駆動のマルチエージェント制作手法です。適用例として RPG 仕様書 *The Hollow Meridian* を収録しています。
 
@@ -221,7 +221,7 @@ flowchart TD
 
 ## 完全性
 
-[SHA256SUMS.txt](SHA256SUMS.txt) の SHA-256 値は、このリリースに含まれる正確な PDF ファイルを識別します。
+[SHA256SUMS.txt](SHA256SUMS.txt) の SHA-256 値は、このリリースで公開されるすべての PDF および JPEG アセットを対象としています。リポジトリのルートで `sha256sum -c SHA256SUMS.txt` を実行すると、9 個すべてのバイナリファイルを検証できます。
 
 ## コントリビューション
 

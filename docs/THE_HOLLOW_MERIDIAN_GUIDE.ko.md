@@ -1,4 +1,4 @@
-<!-- source_version: 2026.07.2; translation_status: unreviewed; language: ko -->
+<!-- source_version: 2026.07.3; translation_status: unreviewed; language: ko -->
 # The Hollow Meridian: 게임 해설 가이드
 
 [English](THE_HOLLOW_MERIDIAN_GUIDE.md) | [简体中文](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](THE_HOLLOW_MERIDIAN_GUIDE.ko.md)

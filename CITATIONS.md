@@ -20,7 +20,7 @@ Paradox, E. (2026). *Three.js Evidence Graph: Operational Manual* (Version 2.0).
   year        = {2026},
   month       = {7},
   version     = {2.0},
-  url         = {https://github.com/Emily2040/-threejs-evidence-graph}
+  url         = {https://github.com/Emily2040/threejs-evidence-graph}
 }
 ```
 
@@ -40,6 +40,6 @@ Paradox, E. (2026). *The Hollow Meridian RPG Full Prompt* (Version 1.0). Emily P
   year        = {2026},
   month       = {7},
   version     = {1.0},
-  url         = {https://github.com/Emily2040/-threejs-evidence-graph}
+  url         = {https://github.com/Emily2040/threejs-evidence-graph}
 }
 ```

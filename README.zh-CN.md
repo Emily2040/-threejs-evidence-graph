@@ -1,5 +1,5 @@
 # Three.js Evidence Graph
-<!-- source_version: 2026.07.2; translation_status: unreviewed; language: zh-CN -->
+<!-- source_version: 2026.07.3; translation_status: unreviewed; language: zh-CN -->
 
 面向源码生成型 Three.js 垂直切片、由证据驱动的多智能体生产体系，并以 *The Hollow Meridian* 作为 RPG 应用规范。
 
@@ -235,7 +235,7 @@ flowchart TD
 
 ## 完整性
 
-[SHA256SUMS.txt](SHA256SUMS.txt) 中的 SHA-256 值用于标识本次发布中完全一致的 PDF 文件。
+[SHA256SUMS.txt](SHA256SUMS.txt) 中的 SHA-256 值覆盖本次发布的全部 PDF 与 JPEG 资源。请在仓库根目录运行 `sha256sum -c SHA256SUMS.txt`，以验证全部 9 个二进制文件。
 
 ## 贡献
 
