@@ -56,6 +56,9 @@ def check_sha256sums() -> int:
         full_path = os.path.join(ROOT, rel_path)
         assert os.path.isfile(full_path), f"Missing file listed in SHA256SUMS.txt: {rel_path}"
         assert os.path.getsize(full_path) > 0, f"Zero-byte file listed in SHA256SUMS.txt: {rel_path}"
+        if not rel_path.endswith((".pdf", ".jpg", ".jpeg", ".png", ".webp")):
+            with open(full_path, "rb") as tf:
+                assert b"\r\n" not in tf.read(), f"Text file {rel_path} must use LF line endings (found CRLF)"
         assert digest != "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", (
             f"Empty-file SHA-256 digest in SHA256SUMS.txt for {rel_path}"
         )
