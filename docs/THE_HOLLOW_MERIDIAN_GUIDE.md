@@ -1,24 +1,12 @@
 # The Hollow Meridian: Explanatory Game Guide
 
-<div align="center">
+| **MONOGRAPH EDITIONS** | [**English**](THE_HOLLOW_MERIDIAN_GUIDE.md) | [**简体中文**](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [**日本語**](THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [**한국어**](THE_HOLLOW_MERIDIAN_GUIDE.ko.md) |
+| :--- | :---: | :---: | :---: | :---: |
+| **VOLUME COLOPHON** | `VOLUME II · 81 PAGES · GAME 01: THIRD-PERSON DARK-FANTASY ACTION RPG · SEED 1337` | [Normative PDF](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) | [Master Folio](../README.md) | `Three.js r185 · Zero External Assets` |
 
-[![Native English](https://img.shields.io/badge/Edition-Native_English-D49B4B?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.md)
-[![简体中文](https://img.shields.io/badge/语言-简体中文_(原生母语版)-45B29D?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md)
-[![日本語](https://img.shields.io/badge/言語-日本語_(ネイティブ版)-38C6D9?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.ja.md)
-[![한국어](https://img.shields.io/badge/언어-한국어_(네이티브판)-C89B54?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
-
-[![Game 01 Action RPG](https://img.shields.io/badge/Game_01-Third--Person_Action_RPG-0F1722?style=flat-square)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)
-[![Pages 81](https://img.shields.io/badge/Pages-81_(357,144_B)-D49B4B?style=flat-square)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)
-[![Seed 1337](https://img.shields.io/badge/Golden_Fixture-run--0001_(seed%3D1337)-45B29D?style=flat-square)](../examples/run-0001/)
-[![Back to README](https://img.shields.io/badge/Suite_Index-README.md-38C6D9?style=flat-square)](../README.md)
-
-</div>
-
-| Publication Cover Plate (`81 Pages`) | Ruined Observatory World Route Plate | Two-Phase Boss: *The Bell Without a Name* |
-| :---: | :---: | :---: |
-| [![The Hollow Meridian Cover](../assets/the-hollow-meridian-cover.jpg)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) | ![The authored route through the ruined observatory of The Hollow Meridian](../assets/hollow-meridian-world-hero.jpg) | ![The Bell Without a Name entering its second phase inside the Meridian Chamber](../assets/hollow-meridian-boss-hero.jpg) |
-
-*Concept artwork for the publication. Not a gameplay capture or implementation evidence.*
+| Cover Plate (Vol. II · 81 pp) | Plate II-1: Astrolabe Causeway & Orrery Bridge | Plate II-2: Bell Foundry & Three Relics Shrine | Plate II-3: The Bell Without a Name (850 HP) |
+| :---: | :---: | :---: | :---: |
+| [![Cover Plate (Vol. II · 81 pp)](../assets/the-hollow-meridian-cover.jpg)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) | ![Plate II-1: Astrolabe Causeway & Orrery Bridge](../assets/hollow-meridian-world-hero.jpg) | ![Plate II-2: Bell Foundry & Three Relics Shrine](../assets/hollow-meridian-sanctum-hero.jpg) | ![Plate II-3: The Bell Without a Name (850 HP)](../assets/hollow-meridian-boss-hero.jpg) |
 
 > **Guide status**
 >

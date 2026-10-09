@@ -2,25 +2,13 @@
 
 # 《琉璃骸骨堂》（The Glass Ossuary）：悬疑恐怖游戏研发与架构指南
 
-<div align="center">
+| **MONOGRAPH EDITIONS** | [**English**](THE_GLASS_OSSUARY_GUIDE.md) | [**简体中文**](THE_GLASS_OSSUARY_GUIDE.zh-CN.md) | [**日本語**](THE_GLASS_OSSUARY_GUIDE.ja.md) | [**한국어**](THE_GLASS_OSSUARY_GUIDE.ko.md) |
+| :--- | :---: | :---: | :---: | :---: |
+| **VOLUME COLOPHON** | `第三卷 · 36 页 · 游戏 02：第一人称悬疑恐怖取证调查《琉璃骸骨堂》 · SEED 1894` | [Normative PDF](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf) | [Master Folio](../README.zh-CN.md) | `Three.js r185 · Zero External Assets` |
 
-[![English](https://img.shields.io/badge/Language-English-4FA89B?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.md)
-[![Simplified Chinese](https://img.shields.io/badge/语言-简体中文-C89B54?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.zh-CN.md)
-[![Japanese](https://img.shields.io/badge/言語-日本語-B8423A?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.ja.md)
-[![Korean](https://img.shields.io/badge/언어-한국어-4FA89B?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.ko.md)
-
-[![返回主控台](https://img.shields.io/badge/←_返回总览-README.zh--CN-16202A?style=flat-square&borderColor=4FA89B)](../README.zh-CN.md)
-[![游戏品类](https://img.shields.io/badge/品类-第一人称调查悬疑恐怖-4FA89B?style=flat-square)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
-[![规格篇幅](https://img.shields.io/badge/出版物-36_页_PDF-C89B54?style=flat-square)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
-[![黄金样本](https://img.shields.io/badge/黄金样本-examples%2Frun--0002-3DBE8B?style=flat-square)](../examples/run-0002/run-manifest.json)
-
-| 出版物封面（36 页） | 现场取证概念图（`Refraction Gallery`） | 终局 Boss 概念图（`The Choir in the Glass`） |
-| :---: | :---: | :---: |
-| <a href="../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf"><img src="../assets/the-glass-ossuary-cover.jpg" width="210" alt="《琉璃骸骨堂》v1.0 封面" /></a> | <img src="../assets/glass-ossuary-investigation-hero.jpg" width="340" alt="Clara Vane 在《琉璃骸骨堂》的折射回廊中进行现场取证" /> | <img src="../assets/glass-ossuary-apparition-hero.jpg" width="340" alt="《琉璃骸骨堂》终局双阶段 Boss 玻璃圣咏团显形" /> |
-
-*本组图像为出版物概念设定渲染图，并非实机运行截图或交付验证证据。*
-
-</div>
+| 第三卷典藏封面 (36页) | 图版 III-1：圣维恩暗礁与菲涅尔折射长廊 | 图版 III-2：守塔人剥离室与 1894 取证工作台 | 图版 III-3：琉璃圣咏团声学首领战 (600 完整度) |
+| :---: | :---: | :---: | :---: |
+| [![第三卷典藏封面 (36页)](../assets/the-glass-ossuary-cover.jpg)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf) | ![图版 III-1：圣维恩暗礁与菲涅尔折射长廊](../assets/glass-ossuary-investigation-hero.jpg) | ![图版 III-2：守塔人剥离室与 1894 取证工作台](../assets/glass-ossuary-inquest-hero.jpg) | ![图版 III-3：琉璃圣咏团声学首领战 (600 完整度)](../assets/glass-ossuary-apparition-hero.jpg) |
 
 > **文档定位说明**
 >

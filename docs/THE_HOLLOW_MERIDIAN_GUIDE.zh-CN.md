@@ -2,25 +2,13 @@
 
 # 《虚空子午线》（The Hollow Meridian）：动作 RPG 生产规范与设计指南
 
-<div align="center">
+| **MONOGRAPH EDITIONS** | [**English**](THE_HOLLOW_MERIDIAN_GUIDE.md) | [**简体中文**](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [**日本語**](THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [**한국어**](THE_HOLLOW_MERIDIAN_GUIDE.ko.md) |
+| :--- | :---: | :---: | :---: | :---: |
+| **VOLUME COLOPHON** | `第二卷 · 81 页 · 游戏 01：第三人称暗黑奇幻动作 RPG《虚空子午线》 · SEED 1337` | [Normative PDF](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) | [Master Folio](../README.zh-CN.md) | `Three.js r185 · Zero External Assets` |
 
-[![Native English](https://img.shields.io/badge/Edition-Native_English-D49B4B?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.md)
-[![简体中文](https://img.shields.io/badge/语言-简体中文_(原生母语版)-45B29D?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md)
-[![日本語](https://img.shields.io/badge/言語-日本語_(ネイティブ版)-38C6D9?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.ja.md)
-[![한국어](https://img.shields.io/badge/언어-한국어_(네이티브판)-C89B54?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
-
-[![Game 01 Action RPG](https://img.shields.io/badge/游戏_01-第三人称暗黑奇幻动作RPG-0F1722?style=flat-square)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)
-[![Pages 81](https://img.shields.io/badge/页数-81页_(357,144字节)-D49B4B?style=flat-square)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)
-[![Seed 1337](https://img.shields.io/badge/黄金样本-run--0001_(seed%3D1337)-45B29D?style=flat-square)](../examples/run-0001/)
-[![Back to README](https://img.shields.io/badge/返回总览-README.zh--CN.md-38C6D9?style=flat-square)](../README.zh-CN.md)
-
-</div>
-
-| 卷 02 出版物封面图（`81 页`） | 废弃观测站五区空间路线概念图 | 双阶段首领：“无名之钟”概念图 |
-| :---: | :---: | :---: |
-| [![虚空子午线封面](../assets/the-hollow-meridian-cover.jpg)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) | ![The Hollow Meridian 废弃天文台中的经编排路线](../assets/hollow-meridian-world-hero.jpg) | ![The Bell Without a Name 在 Meridian Chamber 中进入第二阶段](../assets/hollow-meridian-boss-hero.jpg) |
-
-*用于出版物说明的概念美术，并非游戏实机截图或实现证据。*
+| 第二卷典藏封面 (81页) | 图版 II-1：沉没星盘栈道与天体仪长桥 | 图版 II-2：铸钟熔炉与三圣物祭坛 | 图版 II-3：无名之钟双阶段首领战 (850 HP) |
+| :---: | :---: | :---: | :---: |
+| [![第二卷典藏封面 (81页)](../assets/the-hollow-meridian-cover.jpg)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) | ![图版 II-1：沉没星盘栈道与天体仪长桥](../assets/hollow-meridian-world-hero.jpg) | ![图版 II-2：铸钟熔炉与三圣物祭坛](../assets/hollow-meridian-sanctum-hero.jpg) | ![图版 II-3：无名之钟双阶段首领战 (850 HP)](../assets/hollow-meridian-boss-hero.jpg) |
 
 > **指南状态**
 >

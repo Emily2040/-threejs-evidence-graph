@@ -134,18 +134,22 @@
     "status": "concept artwork and publication plates, not implementation evidence",
     "assets": [
       "assets/readme-hero.jpg",
-      "assets/evidence-graph-control-hero.jpg",
-      "assets/hollow-meridian-world-hero.jpg",
-      "assets/hollow-meridian-boss-hero.jpg",
-      "assets/glass-ossuary-investigation-hero.jpg",
-      "assets/glass-ossuary-apparition-hero.jpg",
-      "assets/perihelion-breach-world-hero.jpg",
-      "assets/perihelion-breach-combat-hero.jpg",
       "assets/publication-set.jpg",
       "assets/threejs-evidence-graph-cover.jpg",
       "assets/the-hollow-meridian-cover.jpg",
       "assets/the-glass-ossuary-cover.jpg",
-      "assets/perihelion-breach-cover.jpg"
+      "assets/perihelion-breach-cover.jpg",
+      "assets/evidence-graph-control-hero.jpg",
+      "assets/evidence-graph-atelier-hero.jpg",
+      "assets/hollow-meridian-world-hero.jpg",
+      "assets/hollow-meridian-boss-hero.jpg",
+      "assets/hollow-meridian-sanctum-hero.jpg",
+      "assets/glass-ossuary-investigation-hero.jpg",
+      "assets/glass-ossuary-apparition-hero.jpg",
+      "assets/glass-ossuary-inquest-hero.jpg",
+      "assets/perihelion-breach-world-hero.jpg",
+      "assets/perihelion-breach-combat-hero.jpg",
+      "assets/perihelion-breach-arsenal-hero.jpg"
     ],
     "svg_assets": [
       "assets/svg/masthead-en.svg",
@@ -171,47 +175,91 @@
       "assets/svg/game-03-telemetry-ko.svg"
     ],
     "dimensions": {
-      "assets/readme-hero.jpg": "2172x724",
-      "assets/evidence-graph-control-hero.jpg": "2172x724",
+      "assets/readme-hero.jpg": "1376x768",
+      "assets/publication-set.jpg": "2400x1520",
+      "assets/threejs-evidence-graph-cover.jpg": "1400x1980",
+      "assets/the-hollow-meridian-cover.jpg": "1400x1980",
+      "assets/the-glass-ossuary-cover.jpg": "1400x1980",
+      "assets/perihelion-breach-cover.jpg": "1400x1980",
+      "assets/evidence-graph-control-hero.jpg": "1376x768",
+      "assets/evidence-graph-atelier-hero.jpg": "1376x768",
       "assets/hollow-meridian-world-hero.jpg": "2172x724",
       "assets/hollow-meridian-boss-hero.jpg": "2172x724",
+      "assets/hollow-meridian-sanctum-hero.jpg": "1376x768",
       "assets/glass-ossuary-investigation-hero.jpg": "1600x893",
       "assets/glass-ossuary-apparition-hero.jpg": "1600x893",
+      "assets/glass-ossuary-inquest-hero.jpg": "1376x768",
       "assets/perihelion-breach-world-hero.jpg": "1600x893",
       "assets/perihelion-breach-combat-hero.jpg": "1600x893",
-      "assets/publication-set.jpg": "1600x993",
-      "assets/threejs-evidence-graph-cover.jpg": "1191x1684",
-      "assets/the-hollow-meridian-cover.jpg": "1191x1684",
-      "assets/the-glass-ossuary-cover.jpg": "1400x1812",
-      "assets/perihelion-breach-cover.jpg": "1400x1812"
+      "assets/perihelion-breach-arsenal-hero.jpg": "1376x768"
     },
     "sha256": {
-      "assets/readme-hero.jpg": "d1391fc2f880ecdb0f1d3827e44753808a913b56e664cac74c2a1b2610159ecf",
-      "assets/evidence-graph-control-hero.jpg": "138c9ed49c941b55665efeb87708f2b72157bd8fc55972fda78dfe3dc2cb52f9",
+      "assets/readme-hero.jpg": "4ade27f0cbf2fe18fed9ec4c7c775da3ab0b9d5949eb2df339c21dd874685ad7",
+      "assets/publication-set.jpg": "bb9ed0cc713f5b1e970c9e62b0c41d0e9254330548537f2a95fa78ac65a000d6",
+      "assets/threejs-evidence-graph-cover.jpg": "2c180f164a1a60eb87362e9c7d9e0ef4691979907419f09edfac0e9c2a6bb146",
+      "assets/the-hollow-meridian-cover.jpg": "05e49455dea61e47fb07d34bdfaf323600b397c0d609977583357fbfa0c74458",
+      "assets/the-glass-ossuary-cover.jpg": "3bef44dcacd6180f62960415e7bebd0d686d37e9cbe9f5f609668054889571eb",
+      "assets/perihelion-breach-cover.jpg": "26c7491681bdc75d238583f8d74c7c5c7a507c280c2cc2e81c26d6797a9deacc",
+      "assets/evidence-graph-control-hero.jpg": "6f49a92d6cf68380c1889607883df4d4e4ce45b4e8cff4199a78e89315caa4c4",
+      "assets/evidence-graph-atelier-hero.jpg": "e8574901b51f6d82399a4e6aca6b1af3f23212a6c47c08dbd957650e2a08c821",
       "assets/hollow-meridian-world-hero.jpg": "d8f429dfe0b8c3ff30abea3cc095cdd73c5ff3c4181eeb1130e707546fc4e5fb",
       "assets/hollow-meridian-boss-hero.jpg": "a351d7011b588564676165154484881fd038c97a4c165324261a53437ebe77ee",
+      "assets/hollow-meridian-sanctum-hero.jpg": "3ef8654c24268f43ff6d8d82a03200a80d40553d8f4101239f8d696e69471056",
       "assets/glass-ossuary-investigation-hero.jpg": "d1d28b72a90dcc303e6ae7cb382ba8ca8f93ec9fdff8d9701e35cf86ad272a27",
       "assets/glass-ossuary-apparition-hero.jpg": "4057239e3293250c25e7cf361abf5cb31331ff0275ec31627a25d8b4b13dea1f",
+      "assets/glass-ossuary-inquest-hero.jpg": "8fe80e316b18fcdf64cb1e49cd9f34ee418c9ee142f5d2361f807a67a0b0f445",
       "assets/perihelion-breach-world-hero.jpg": "dd90785d29bfcd3dcebb397c0320e3f38eaa879da7c7a064e29bd841b5f79d95",
       "assets/perihelion-breach-combat-hero.jpg": "3036789882a08f824ea3af3719dbef8e8d85c96c75a2e46e1c0400eb57c0dd50",
-      "assets/publication-set.jpg": "b11a2a3549df0790786fcc2dab0f2c44891db6ceb4efc865c6fb7bd51520b310",
-      "assets/threejs-evidence-graph-cover.jpg": "3839e7167b525b67384f63491bdb0877979a1c644972ec994ae7a8c4d2ec989a",
-      "assets/the-hollow-meridian-cover.jpg": "85c7ebc54c2818e7d29c6679e4b15603deaa714484d645e6e97c7b5a9f89d6ad",
-      "assets/the-glass-ossuary-cover.jpg": "9481ddeb5da5c36d9fc7948f97b3a7def5bf6240328f2f6663346326508f1bb3",
-      "assets/perihelion-breach-cover.jpg": "cae50baacc0169a10038a96c9e36e72fa9c9866c22347e811e4e15257384eb74"
+      "assets/perihelion-breach-arsenal-hero.jpg": "ab1ce56c8d872330a07cd59788840bc6f59a4684d18967ae80967b997383fa5f"
     },
     "items": [
       {
         "path": "assets/readme-hero.jpg",
-        "dimensions": "2172x724",
-        "bytes": 542432,
-        "sha256": "d1391fc2f880ecdb0f1d3827e44753808a913b56e664cac74c2a1b2610159ecf"
+        "dimensions": "1376x768",
+        "bytes": 450911,
+        "sha256": "4ade27f0cbf2fe18fed9ec4c7c775da3ab0b9d5949eb2df339c21dd874685ad7"
+      },
+      {
+        "path": "assets/publication-set.jpg",
+        "dimensions": "2400x1520",
+        "bytes": 1210843,
+        "sha256": "bb9ed0cc713f5b1e970c9e62b0c41d0e9254330548537f2a95fa78ac65a000d6"
+      },
+      {
+        "path": "assets/threejs-evidence-graph-cover.jpg",
+        "dimensions": "1400x1980",
+        "bytes": 1093879,
+        "sha256": "2c180f164a1a60eb87362e9c7d9e0ef4691979907419f09edfac0e9c2a6bb146"
+      },
+      {
+        "path": "assets/the-hollow-meridian-cover.jpg",
+        "dimensions": "1400x1980",
+        "bytes": 807100,
+        "sha256": "05e49455dea61e47fb07d34bdfaf323600b397c0d609977583357fbfa0c74458"
+      },
+      {
+        "path": "assets/the-glass-ossuary-cover.jpg",
+        "dimensions": "1400x1980",
+        "bytes": 870431,
+        "sha256": "3bef44dcacd6180f62960415e7bebd0d686d37e9cbe9f5f609668054889571eb"
+      },
+      {
+        "path": "assets/perihelion-breach-cover.jpg",
+        "dimensions": "1400x1980",
+        "bytes": 1016775,
+        "sha256": "26c7491681bdc75d238583f8d74c7c5c7a507c280c2cc2e81c26d6797a9deacc"
       },
       {
         "path": "assets/evidence-graph-control-hero.jpg",
-        "dimensions": "2172x724",
-        "bytes": 363490,
-        "sha256": "138c9ed49c941b55665efeb87708f2b72157bd8fc55972fda78dfe3dc2cb52f9"
+        "dimensions": "1376x768",
+        "bytes": 424884,
+        "sha256": "6f49a92d6cf68380c1889607883df4d4e4ce45b4e8cff4199a78e89315caa4c4"
+      },
+      {
+        "path": "assets/evidence-graph-atelier-hero.jpg",
+        "dimensions": "1376x768",
+        "bytes": 392664,
+        "sha256": "e8574901b51f6d82399a4e6aca6b1af3f23212a6c47c08dbd957650e2a08c821"
       },
       {
         "path": "assets/hollow-meridian-world-hero.jpg",
@@ -226,6 +274,12 @@
         "sha256": "a351d7011b588564676165154484881fd038c97a4c165324261a53437ebe77ee"
       },
       {
+        "path": "assets/hollow-meridian-sanctum-hero.jpg",
+        "dimensions": "1376x768",
+        "bytes": 370373,
+        "sha256": "3ef8654c24268f43ff6d8d82a03200a80d40553d8f4101239f8d696e69471056"
+      },
+      {
         "path": "assets/glass-ossuary-investigation-hero.jpg",
         "dimensions": "1600x893",
         "bytes": 364655,
@@ -236,6 +290,12 @@
         "dimensions": "1600x893",
         "bytes": 358168,
         "sha256": "4057239e3293250c25e7cf361abf5cb31331ff0275ec31627a25d8b4b13dea1f"
+      },
+      {
+        "path": "assets/glass-ossuary-inquest-hero.jpg",
+        "dimensions": "1376x768",
+        "bytes": 383265,
+        "sha256": "8fe80e316b18fcdf64cb1e49cd9f34ee418c9ee142f5d2361f807a67a0b0f445"
       },
       {
         "path": "assets/perihelion-breach-world-hero.jpg",
@@ -250,141 +310,117 @@
         "sha256": "3036789882a08f824ea3af3719dbef8e8d85c96c75a2e46e1c0400eb57c0dd50"
       },
       {
-        "path": "assets/publication-set.jpg",
-        "dimensions": "1600x993",
-        "bytes": 420067,
-        "sha256": "b11a2a3549df0790786fcc2dab0f2c44891db6ceb4efc865c6fb7bd51520b310"
-      },
-      {
-        "path": "assets/threejs-evidence-graph-cover.jpg",
-        "dimensions": "1191x1684",
-        "bytes": 315941,
-        "sha256": "3839e7167b525b67384f63491bdb0877979a1c644972ec994ae7a8c4d2ec989a"
-      },
-      {
-        "path": "assets/the-hollow-meridian-cover.jpg",
-        "dimensions": "1191x1684",
-        "bytes": 315959,
-        "sha256": "85c7ebc54c2818e7d29c6679e4b15603deaa714484d645e6e97c7b5a9f89d6ad"
-      },
-      {
-        "path": "assets/the-glass-ossuary-cover.jpg",
-        "dimensions": "1400x1812",
-        "bytes": 316094,
-        "sha256": "9481ddeb5da5c36d9fc7948f97b3a7def5bf6240328f2f6663346326508f1bb3"
-      },
-      {
-        "path": "assets/perihelion-breach-cover.jpg",
-        "dimensions": "1400x1812",
-        "bytes": 334479,
-        "sha256": "cae50baacc0169a10038a96c9e36e72fa9c9866c22347e811e4e15257384eb74"
+        "path": "assets/perihelion-breach-arsenal-hero.jpg",
+        "dimensions": "1376x768",
+        "bytes": 464051,
+        "sha256": "ab1ce56c8d872330a07cd59788840bc6f59a4684d18967ae80967b997383fa5f"
       }
     ],
     "svg_items": [
       {
         "path": "assets/svg/masthead-en.svg",
-        "bytes": 9500,
-        "sha256": "4bb8eaca6d7a7a369a4a60bf7c95b02580acf1a22711bfe0a3d3ada63fa5eb9a"
+        "bytes": 6426,
+        "sha256": "930fac86c2b0ad849a99967b731631dd0ec920ae170c67722011efc01bbe90ed"
       },
       {
         "path": "assets/svg/masthead-zh-CN.svg",
-        "bytes": 9768,
-        "sha256": "72cdc4138460357ad2352109bca8055cd70ebc37c3bbcce3d0597fc2f877ca30"
+        "bytes": 6493,
+        "sha256": "51ea652cfb0c529b3144b5356dd69590ec92a48b4a6b99bfd169f8dd76674853"
       },
       {
         "path": "assets/svg/masthead-ja.svg",
-        "bytes": 9984,
-        "sha256": "7d35ef0be91deeb32839a55f139c88d8ee129e201a7c009424450a15cb31da81"
+        "bytes": 6579,
+        "sha256": "05286a7733cf3fbfba80b429cc95d3429a42ab7a5acb0bc4f2be8a43ce78b732"
       },
       {
         "path": "assets/svg/masthead-ko.svg",
-        "bytes": 9775,
-        "sha256": "61da78c977dffaaee3356685126e6d0ca4db1e6aef2add182e9d915672c31eea"
+        "bytes": 6562,
+        "sha256": "f07ba9329633e7d1fcea77eb23ad6d7546919be2cff54260990dfce7caad298b"
       },
       {
         "path": "assets/svg/architecture-pipeline.svg",
-        "bytes": 10333,
-        "sha256": "1aec60e237a4cfd4c0c75f03ee798f3f2776a43bb522e970e6d81a2d34ffe6e8"
+        "bytes": 19019,
+        "sha256": "8bc92b2ccc3364bfb0c2ac22d8e3b1899e686ee3947f1d224a600531d8979994"
       },
       {
         "path": "assets/svg/architecture-pipeline-en.svg",
-        "bytes": 10333,
-        "sha256": "1aec60e237a4cfd4c0c75f03ee798f3f2776a43bb522e970e6d81a2d34ffe6e8"
+        "bytes": 19019,
+        "sha256": "8bc92b2ccc3364bfb0c2ac22d8e3b1899e686ee3947f1d224a600531d8979994"
       },
       {
         "path": "assets/svg/architecture-pipeline-zh-CN.svg",
-        "bytes": 10847,
-        "sha256": "d0ba1ec838a8bcd68dca8c354a215ff9c45311a6b5f62122d646dae167919caa"
+        "bytes": 19363,
+        "sha256": "570cbb2733f7ac236ef53bbd48e31ce61020e27d05a19c932ceef091ac5d8f04"
       },
       {
         "path": "assets/svg/architecture-pipeline-ja.svg",
-        "bytes": 10881,
-        "sha256": "8fb89558398491ec7f9b32730c0a30acc647460e7a0c4d996b436add81c54786"
+        "bytes": 19587,
+        "sha256": "c7a47b45ae3ccf43c95fae8b55db2367aea34c3641a61c90a7162254ba553463"
       },
       {
         "path": "assets/svg/architecture-pipeline-ko.svg",
-        "bytes": 10817,
-        "sha256": "1f690a7183bfb74581f930308df388218114e4ade9d13844db9d738d3a116247"
+        "bytes": 19477,
+        "sha256": "c67fc7725e96d74b3702c5beab36d95b5adb556cd0dcbe9a8941d25ffa7d7957"
       },
       {
         "path": "assets/svg/game-01-telemetry-en.svg",
-        "bytes": 12808,
-        "sha256": "30ebcabe4b47a9826f1c06e13e4a7ef56cddb7f796f053aecf2383c3e387726e"
+        "bytes": 12591,
+        "sha256": "ed36f6767a604194011133e96449ecd7e1a4282120e19b693a5fcfcf3866b822"
       },
       {
         "path": "assets/svg/game-01-telemetry-zh-CN.svg",
-        "bytes": 13339,
-        "sha256": "497405308864ef2c878abf3dfbf13d0a7b6d3c730117447709adf158b0ab8081"
+        "bytes": 12698,
+        "sha256": "33c91cb5b267a30424eebd868d40a9c9869b0ee4cd22c101d34a3a0d2c15d1e2"
       },
       {
         "path": "assets/svg/game-01-telemetry-ja.svg",
-        "bytes": 13217,
-        "sha256": "5bb9f9eda1d004f4c66961dada8aa8252b7153ce1b3b9aa409c44479aeac2489"
+        "bytes": 12745,
+        "sha256": "81d36e06ca33e57b0ec24d43690322f5b66c45cfb56a641c88d05b9076378cb1"
       },
       {
         "path": "assets/svg/game-01-telemetry-ko.svg",
-        "bytes": 13346,
-        "sha256": "7346e1b74464e762f20dc2adc0e28286f3b187f45937b0ab76164842b47cf20d"
+        "bytes": 12730,
+        "sha256": "fdf4e070e2aa244a1d799b6d8937bed8b60ddacd556cfc3a8bf63e6a5f6b2dfa"
       },
       {
         "path": "assets/svg/game-02-telemetry-en.svg",
-        "bytes": 12807,
-        "sha256": "acb25bef9f68b5eb4bca8f7ac663f1472cf03e05f56d3fefa8eedcd76dcaba84"
+        "bytes": 12928,
+        "sha256": "59d5d223691d80c3053edb6d13a158b84d3adab614f52c0ce246fd48fb4a8262"
       },
       {
         "path": "assets/svg/game-02-telemetry-zh-CN.svg",
-        "bytes": 13353,
-        "sha256": "60cafc733cbff7de97fcdf7100ae54d7ec002acf651aee64dac5f46ffb397383"
+        "bytes": 13040,
+        "sha256": "b0b0095639c89bd2d845487366ee2503c46a922b427ca94b1b25bc91217110de"
       },
       {
         "path": "assets/svg/game-02-telemetry-ja.svg",
-        "bytes": 13271,
-        "sha256": "8cb1c6a898e0d54d241598b7d754b06bfc2233daca9ac88c5382ec85c492f461"
+        "bytes": 13085,
+        "sha256": "69e9a2b99aacac01b7111e499548bd1ca6c8f108d07d1330e82898c4e3315b20"
       },
       {
         "path": "assets/svg/game-02-telemetry-ko.svg",
-        "bytes": 13348,
-        "sha256": "db7f7593ae1374460500c10240a7dbca30dac1d0f3bb6008593ec901b851b5bc"
+        "bytes": 13060,
+        "sha256": "5d0e572166c7cce89d3892bc27d04f3a87c4a4f280980c05331d7810d53a5e36"
       },
       {
         "path": "assets/svg/game-03-telemetry-en.svg",
-        "bytes": 12808,
-        "sha256": "7043354cd138d629b1ad0124eb2ad5a6e3aef1641ac66d71af362d4f32da7847"
+        "bytes": 12999,
+        "sha256": "eece25f56125136cd1e2a136a1049613731787e3048c7b86eafb9869d5917a69"
       },
       {
         "path": "assets/svg/game-03-telemetry-zh-CN.svg",
-        "bytes": 13397,
-        "sha256": "84af0d4bc06c97006ab4d2d9491e30d958bb8424bf92ac305ff7229a0d4cdd4b"
+        "bytes": 13085,
+        "sha256": "19b6df5ccc6947a0741271697a5bee34beaa86adfd04fc4aa8d8d1b4b8ed81e0"
       },
       {
         "path": "assets/svg/game-03-telemetry-ja.svg",
-        "bytes": 13279,
-        "sha256": "9477d9ddb6fcd8b361fbc618f81f8c1e253f7f125ff808fb6d933ebd8d5b2b24"
+        "bytes": 13169,
+        "sha256": "25ce0b3f406acf5d9898c8aa66ed580cca3639612d89dbbba3d04614a5ab6dd3"
       },
       {
         "path": "assets/svg/game-03-telemetry-ko.svg",
-        "bytes": 13426,
-        "sha256": "cc2d9bf04fb70e954f20e74b9f20a4e78784bb81888a716526cc2bbe69ae797a"
+        "bytes": 13174,
+        "sha256": "5c89874ae4835400fc4555b652803f8ffb36dc8e4b5c1c842fabf2ec1d3a9a80"
       }
     ],
     "prompt_records": [
@@ -598,10 +634,10 @@
   "integrity": {
     "algorithm": "SHA-256",
     "checksum_file": "SHA256SUMS.txt",
-    "binary_files_covered": 17,
+    "binary_files_covered": 21,
     "svg_files_covered": 21,
-    "total_files_covered": 109,
+    "total_files_covered": 133,
     "verification_script": "scripts/verify_release.py",
-    "coverage": "All 4 published PDFs (217 pages), 13 JPEG artwork assets, 21 SVG typographic and telemetry diagrams, standalone JSON schemas, 3 golden fixture runs, 25 prompts, and native 4-language documentation files in this release"
+    "coverage": "All 4 published PDFs (217 pages), 17 JPEG Collector's Monograph artwork assets, 21 SVG archival blueprint diagrams, standalone JSON schemas, 3 golden fixture runs, 25 prompts, and native 4-language documentation files in this release"
   }
 }

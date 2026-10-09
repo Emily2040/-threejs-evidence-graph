@@ -1,24 +1,12 @@
 # The Glass Ossuary: Mystery Horror Companion Guide
 
-<div align="center">
+| **MONOGRAPH EDITIONS** | [**English**](THE_GLASS_OSSUARY_GUIDE.md) | [**简体中文**](THE_GLASS_OSSUARY_GUIDE.zh-CN.md) | [**日本語**](THE_GLASS_OSSUARY_GUIDE.ja.md) | [**한국어**](THE_GLASS_OSSUARY_GUIDE.ko.md) |
+| :--- | :---: | :---: | :---: | :---: |
+| **VOLUME COLOPHON** | `VOLUME III · 36 PAGES · GAME 02: FIRST-PERSON INVESTIGATIVE MYSTERY HORROR · SEED 1894` | [Normative PDF](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf) | [Master Folio](../README.md) | `Three.js r185 · Zero External Assets` |
 
-[![English](https://img.shields.io/badge/Language-English-4FA89B?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.md)
-[![Simplified Chinese](https://img.shields.io/badge/语言-简体中文-C89B54?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.zh-CN.md)
-[![Japanese](https://img.shields.io/badge/言語-日本語-B8423A?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.ja.md)
-[![Korean](https://img.shields.io/badge/언어-한국어-4FA89B?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.ko.md)
-
-[![Back to Master Suite](https://img.shields.io/badge/←_Master_Suite-README-16202A?style=flat-square&borderColor=4FA89B)](../README.md)
-[![Genre](https://img.shields.io/badge/Genre-1st--Person_Investigative_Mystery_Horror-4FA89B?style=flat-square)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
-[![Pages](https://img.shields.io/badge/Publication-36_Pages_PDF-C89B54?style=flat-square)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
-[![Golden Run](https://img.shields.io/badge/Golden_Fixture-examples%2Frun--0002-3DBE8B?style=flat-square)](../examples/run-0002/run-manifest.json)
-
-| Publication Cover (36 pp.) | Investigation Hero (`Refraction Gallery`) | Boss Hero (`The Choir in the Glass`) |
-| :---: | :---: | :---: |
-| <a href="../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf"><img src="../assets/the-glass-ossuary-cover.jpg" width="210" alt="The Glass Ossuary v1.0 cover" /></a> | <img src="../assets/glass-ossuary-investigation-hero.jpg" width="340" alt="Clara Vane investigating the bone-glass Refraction Gallery in The Glass Ossuary" /> | <img src="../assets/glass-ossuary-apparition-hero.jpg" width="340" alt="The Choir in the Glass manifesting inside the resonant cathedral of The Glass Ossuary" /> |
-
-*Concept artwork for the publication. Not a gameplay capture or implementation evidence.*
-
-</div>
+| Cover Plate (Vol. III · 36 pp) | Plate III-1: Refraction Gallery Investigation | Plate III-2: Caretaker's Forensic Workbench | Plate III-3: The Choir in the Glass (600 Int.) |
+| :---: | :---: | :---: | :---: |
+| [![Cover Plate (Vol. III · 36 pp)](../assets/the-glass-ossuary-cover.jpg)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf) | ![Plate III-1: Refraction Gallery Investigation](../assets/glass-ossuary-investigation-hero.jpg) | ![Plate III-2: Caretaker's Forensic Workbench](../assets/glass-ossuary-inquest-hero.jpg) | ![Plate III-3: The Choir in the Glass (600 Int.)](../assets/glass-ossuary-apparition-hero.jpg) |
 
 > **Guide status**
 >

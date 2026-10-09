@@ -2,25 +2,13 @@
 
 # 《유리 납골당》(The Glass Ossuary): 미스터리 호러 개발 규격 및 아키텍처 가이드
 
-<div align="center">
+| **MONOGRAPH EDITIONS** | [**English**](THE_GLASS_OSSUARY_GUIDE.md) | [**简体中文**](THE_GLASS_OSSUARY_GUIDE.zh-CN.md) | [**日本語**](THE_GLASS_OSSUARY_GUIDE.ja.md) | [**한국어**](THE_GLASS_OSSUARY_GUIDE.ko.md) |
+| :--- | :---: | :---: | :---: | :---: |
+| **VOLUME COLOPHON** | `제3권 · 36페이지 · 게임 02: 1인칭 미스터리 호러 조사극 《유리 납골당》 · SEED 1894` | [Normative PDF](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf) | [Master Folio](../README.ko.md) | `Three.js r185 · Zero External Assets` |
 
-[![English](https://img.shields.io/badge/Language-English-4FA89B?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.md)
-[![Simplified Chinese](https://img.shields.io/badge/语言-简体中文-C89B54?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.zh-CN.md)
-[![Japanese](https://img.shields.io/badge/言語-日本語-B8423A?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.ja.md)
-[![Korean](https://img.shields.io/badge/언어-한국어-4FA89B?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.ko.md)
-
-[![마스터 스위트로 돌아가기](https://img.shields.io/badge/←_마스터_스위트-README.ko-16202A?style=flat-square&borderColor=4FA89B)](../README.ko.md)
-[![장르](https://img.shields.io/badge/장르-1인칭_조사형_미스터리_호러-4FA89B?style=flat-square)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
-[![분량](https://img.shields.io/badge/출판물-36쪽_PDF-C89B54?style=flat-square)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
-[![골든 픽스처](https://img.shields.io/badge/골든_픽스처-examples%2Frun--0002-3DBE8B?style=flat-square)](../examples/run-0002/run-manifest.json)
-
-| 출판물 표지 (36쪽) | 현장 조사 컨셉 (`Refraction Gallery`) | 보스전 컨셉 (`The Choir in the Glass`) |
-| :---: | :---: | :---: |
-| <a href="../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf"><img src="../assets/the-glass-ossuary-cover.jpg" width="210" alt="《유리 납골당》 v1.0 표지" /></a> | <img src="../assets/glass-ossuary-investigation-hero.jpg" width="340" alt="《유리 납골당》의 굴절 회랑에서 포렌식 조사를 수행하는 Clara Vane" /> | <img src="../assets/glass-ossuary-apparition-hero.jpg" width="340" alt="《유리 납골당》 최심부 대성당에서 현현하는 2페이즈 보스 유리 속의 성가대" /> |
-
-*본 이미지들은 출판물용 컨셉 아트워크이며, 실제 게임플레이 캡처나 구현 완료 증거가 아닙니다.*
-
-</div>
+| 제3권 모노그래프 표지 (36P) | 도판 III-1: 생베인 암초와 프레넬 굴절 회랑 | 도판 III-2: 등대지기의 박리실과 1894 포렌식 작업대 | 도판 III-3: 유리 속의 성가대 보스전 (600 무결성) |
+| :---: | :---: | :---: | :---: |
+| [![제3권 모노그래프 표지 (36P)](../assets/the-glass-ossuary-cover.jpg)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf) | ![도판 III-1: 생베인 암초와 프레넬 굴절 회랑](../assets/glass-ossuary-investigation-hero.jpg) | ![도판 III-2: 등대지기의 박리실과 1894 포렌식 작업대](../assets/glass-ossuary-inquest-hero.jpg) | ![도판 III-3: 유리 속의 성가대 보스전 (600 무결성)](../assets/glass-ossuary-apparition-hero.jpg) |
 
 > **문서 위상 안내**
 >

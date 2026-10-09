@@ -2,25 +2,13 @@
 
 # 《近日点破袭》（Perihelion Breach）：第一人称科幻射击冒险研发与架构指南
 
-<div align="center">
+| **MONOGRAPH EDITIONS** | [**English**](PERIHELION_BREACH_GUIDE.md) | [**简体中文**](PERIHELION_BREACH_GUIDE.zh-CN.md) | [**日本語**](PERIHELION_BREACH_GUIDE.ja.md) | [**한국어**](PERIHELION_BREACH_GUIDE.ko.md) |
+| :--- | :---: | :---: | :---: | :---: |
+| **VOLUME COLOPHON** | `第四卷 · 36 页 · 游戏 03：第一人称科幻射击冒险《近日点破袭》 · SEED 2142` | [Normative PDF](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf) | [Master Folio](../README.zh-CN.md) | `Three.js r185 · Zero External Assets` |
 
-[![English](https://img.shields.io/badge/Language-English-38C6D9?style=for-the-badge)](PERIHELION_BREACH_GUIDE.md)
-[![Simplified Chinese](https://img.shields.io/badge/语言-简体中文-F08A24?style=for-the-badge)](PERIHELION_BREACH_GUIDE.zh-CN.md)
-[![Japanese](https://img.shields.io/badge/言語-日本語-E54848?style=for-the-badge)](PERIHELION_BREACH_GUIDE.ja.md)
-[![Korean](https://img.shields.io/badge/언어-한국어-38C6D9?style=for-the-badge)](PERIHELION_BREACH_GUIDE.ko.md)
-
-[![返回主控台](https://img.shields.io/badge/←_返回总览-README.zh--CN-1A2433?style=flat-square&borderColor=38C6D9)](../README.zh-CN.md)
-[![游戏品类](https://img.shields.io/badge/品类-第一人称科幻射击冒险-38C6D9?style=flat-square)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
-[![规格篇幅](https://img.shields.io/badge/出版物-36_页_PDF-F08A24?style=flat-square)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
-[![黄金样本](https://img.shields.io/badge/黄金样本-examples%2Frun--0003-3DBE8B?style=flat-square)](../examples/run-0003/run-manifest.json)
-
-| 出版物封面（36 页） | 轨道世界概念图（`Heliostat Truss`） | 终局 Boss 概念图（`The Heliarch Warden`） |
-| :---: | :---: | :---: |
-| <a href="../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf"><img src="../assets/perihelion-breach-cover.jpg" width="210" alt="《近日点破袭》v1.0 封面" /></a> | <img src="../assets/perihelion-breach-world-hero.jpg" width="340" alt="Soren Kestrel 在伊卡洛斯-9号太阳中继站定日镜桁架区高速机动" /> | <img src="../assets/perihelion-breach-combat-hero.jpg" width="340" alt="Soren Kestrel 在近日点核心舱内迎战日冕典狱长" /> |
-
-*本组图像为出版物概念设定渲染图，并非实机运行截图或交付验证证据。*
-
-</div>
+| 第四卷典藏封面 (36页) | 图版 IV-1：0.09 AU 伊卡洛斯 9 号定日镜桁架 | 图版 IV-2：低温冷却歧管与主动散热换弹 | 图版 IV-3：日冕典狱长立体空战 (1,000 完整度) |
+| :---: | :---: | :---: | :---: |
+| [![第四卷典藏封面 (36页)](../assets/perihelion-breach-cover.jpg)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf) | ![图版 IV-1：0.09 AU 伊卡洛斯 9 号定日镜桁架](../assets/perihelion-breach-world-hero.jpg) | ![图版 IV-2：低温冷却歧管与主动散热换弹](../assets/perihelion-breach-arsenal-hero.jpg) | ![图版 IV-3：日冕典狱长立体空战 (1,000 完整度)](../assets/perihelion-breach-combat-hero.jpg) |
 
 > **文档定位说明**
 >

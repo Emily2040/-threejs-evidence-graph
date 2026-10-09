@@ -2,23 +2,13 @@
 
 # Three.js Evidence Graph：操作手册 v2.0 配套导读指南
 
-<div align="center">
+| **MONOGRAPH EDITIONS** | [**English**](EVIDENCE_GRAPH_GUIDE.md) | [**简体中文**](EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [**日本語**](EVIDENCE_GRAPH_GUIDE.ja.md) | [**한국어**](EVIDENCE_GRAPH_GUIDE.ko.md) |
+| :--- | :---: | :---: | :---: | :---: |
+| **VOLUME COLOPHON** | `第一卷 · 64 页 · 多智能体控制平面与双轨确定性操作手册 v2.0` | [Normative PDF](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf) | [Master Folio](../README.zh-CN.md) | `Three.js r185 · Zero External Assets` |
 
-[![Native English](https://img.shields.io/badge/Edition-Native_English-D49B4B?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.md)
-[![简体中文](https://img.shields.io/badge/语言-简体中文_(原生母语版)-45B29D?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.zh-CN.md)
-[![日本語](https://img.shields.io/badge/言語-日本語_(ネイティブ版)-38C6D9?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.ja.md)
-[![한국어](https://img.shields.io/badge/언어-한국어_(네이티브판)-C89B54?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.ko.md)
-
-[![Volume 01](https://img.shields.io/badge/卷_01-控制平面手册_v2.0-0F1722?style=flat-square)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf)
-[![Pages 64](https://img.shields.io/badge/页数-64页_(416,827字节)-D49B4B?style=flat-square)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf)
-[![JSON Schema Draft 2020-12](https://img.shields.io/badge/Schema契约-Draft_2020--12-38C6D9?style=flat-square)](../schemas/)
-[![Back to README](https://img.shields.io/badge/返回总览-README.zh--CN.md-45B29D?style=flat-square)](../README.zh-CN.md)
-
-</div>
-
-| 卷 01 出版物封面图（`64 页`） | 多智能体控制平面与门禁概念图 |
-| :---: | :---: |
-| [![Three.js Evidence Graph v2.0 封面](../assets/threejs-evidence-graph-cover.jpg)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf) | ![从产品契约分支到有边界专家工作、独立证据捕获与发布关卡的控制平面](../assets/evidence-graph-control-hero.jpg) |
+| 第一卷典藏封面 (64页) | 图版 I-A：钟表级确定性验证与光学控制工坊 | 图版 I-B：零资产程序化几何与 TSL 材质编译工坊 |
+| :---: | :---: | :---: |
+| [![第一卷典藏封面 (64页)](../assets/threejs-evidence-graph-cover.jpg)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf) | ![图版 I-A：钟表级确定性验证与光学控制工坊](../assets/evidence-graph-control-hero.jpg) | ![图版 I-B：零资产程序化几何与 TSL 材质编译工坊](../assets/evidence-graph-atelier-hero.jpg) |
 
 ## 1. 编写目的与核心命题
 

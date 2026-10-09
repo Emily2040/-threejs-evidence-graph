@@ -2,25 +2,13 @@
 
 # 『ペリヘリオン・ブリーチ』（Perihelion Breach）：FPSアドベンチャー開発仕様・設計ガイド
 
-<div align="center">
+| **MONOGRAPH EDITIONS** | [**English**](PERIHELION_BREACH_GUIDE.md) | [**简体中文**](PERIHELION_BREACH_GUIDE.zh-CN.md) | [**日本語**](PERIHELION_BREACH_GUIDE.ja.md) | [**한국어**](PERIHELION_BREACH_GUIDE.ko.md) |
+| :--- | :---: | :---: | :---: | :---: |
+| **VOLUME COLOPHON** | `第四巻 · 36頁 · ゲーム 03：一人称SFシューター・アドベンチャー『ペリヘリオン・ブリーチ』 · SEED 2142` | [Normative PDF](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf) | [Master Folio](../README.ja.md) | `Three.js r185 · Zero External Assets` |
 
-[![English](https://img.shields.io/badge/Language-English-38C6D9?style=for-the-badge)](PERIHELION_BREACH_GUIDE.md)
-[![Simplified Chinese](https://img.shields.io/badge/语言-简体中文-F08A24?style=for-the-badge)](PERIHELION_BREACH_GUIDE.zh-CN.md)
-[![Japanese](https://img.shields.io/badge/言語-日本語-E54848?style=for-the-badge)](PERIHELION_BREACH_GUIDE.ja.md)
-[![Korean](https://img.shields.io/badge/언어-한국어-38C6D9?style=for-the-badge)](PERIHELION_BREACH_GUIDE.ko.md)
-
-[![スイート総覧へ戻る](https://img.shields.io/badge/←_スイート総覧-README.ja-1A2433?style=flat-square&borderColor=38C6D9)](../README.ja.md)
-[![ジャンル](https://img.shields.io/badge/ジャンル-一人称SFシューターアドベンチャー-38C6D9?style=flat-square)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
-[![仕様書頁数](https://img.shields.io/badge/仕様書-全36頁_PDF-F08A24?style=flat-square)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
-[![ゴールデン検証](https://img.shields.io/badge/検証Fixture-examples%2Frun--0003-3DBE8B?style=flat-square)](../examples/run-0003/run-manifest.json)
-
-| 仕様書カバー（全36頁） | 軌道エリアコンセプト（`Heliostat Truss`） | ボス戦コンセプト（`The Heliarch Warden`） |
-| :---: | :---: | :---: |
-| <a href="../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf"><img src="../assets/perihelion-breach-cover.jpg" width="210" alt="『ペリヘリオン・ブリーチ』v1.0 カバー" /></a> | <img src="../assets/perihelion-breach-world-hero.jpg" width="340" alt="イカロス9号のヘリオスタット・トラスを高速機動するSoren Kestrel" /> | <img src="../assets/perihelion-breach-combat-hero.jpg" width="340" alt="コアチャンバー内でヘリアーク・ウォーデンと交戦するSoren Kestrel" /> |
-
-*本画像群は仕様書向けのコンセプトアートであり、実機プレイ画面や実装完了を示す証跡ではありません。*
-
-</div>
+| 第四巻モノグラフ表紙 (36頁) | 図版 IV-1：0.09 AU イカロス9号ヘリオスタット主トラス | 図版 IV-2：極低温冷却マニホールドと排熱リロード | 図版 IV-3：ヘリアーク・ウォーデン決戦 (1,000 Int.) |
+| :---: | :---: | :---: | :---: |
+| [![第四巻モノグラフ表紙 (36頁)](../assets/perihelion-breach-cover.jpg)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf) | ![図版 IV-1：0.09 AU イカロス9号ヘリオスタット主トラス](../assets/perihelion-breach-world-hero.jpg) | ![図版 IV-2：極低温冷却マニホールドと排熱リロード](../assets/perihelion-breach-arsenal-hero.jpg) | ![図版 IV-3：ヘリアーク・ウォーデン決戦 (1,000 Int.)](../assets/perihelion-breach-combat-hero.jpg) |
 
 > **ガイドの位置づけ**
 >

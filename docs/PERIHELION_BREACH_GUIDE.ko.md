@@ -2,25 +2,13 @@
 
 # 《근일점 돌파》(Perihelion Breach): FPS 어드벤처 개발 규격 및 아키텍처 가이드
 
-<div align="center">
+| **MONOGRAPH EDITIONS** | [**English**](PERIHELION_BREACH_GUIDE.md) | [**简体中文**](PERIHELION_BREACH_GUIDE.zh-CN.md) | [**日本語**](PERIHELION_BREACH_GUIDE.ja.md) | [**한국어**](PERIHELION_BREACH_GUIDE.ko.md) |
+| :--- | :---: | :---: | :---: | :---: |
+| **VOLUME COLOPHON** | `제4권 · 36페이지 · 게임 03: 1인칭 SF 슈터 어드벤처 《근일점 돌파》 · SEED 2142` | [Normative PDF](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf) | [Master Folio](../README.ko.md) | `Three.js r185 · Zero External Assets` |
 
-[![English](https://img.shields.io/badge/Language-English-38C6D9?style=for-the-badge)](PERIHELION_BREACH_GUIDE.md)
-[![Simplified Chinese](https://img.shields.io/badge/语言-简体中文-F08A24?style=for-the-badge)](PERIHELION_BREACH_GUIDE.zh-CN.md)
-[![Japanese](https://img.shields.io/badge/言語-日本語-E54848?style=for-the-badge)](PERIHELION_BREACH_GUIDE.ja.md)
-[![Korean](https://img.shields.io/badge/언어-한국어-38C6D9?style=for-the-badge)](PERIHELION_BREACH_GUIDE.ko.md)
-
-[![마스터 스위트로 돌아가기](https://img.shields.io/badge/←_마스터_스위트-README.ko-1A2433?style=flat-square&borderColor=38C6D9)](../README.ko.md)
-[![장르](https://img.shields.io/badge/장르-1인칭_SF_슈팅_어드벤처-38C6D9?style=flat-square)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
-[![분량](https://img.shields.io/badge/출판물-36쪽_PDF-F08A24?style=flat-square)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
-[![골든 픽스처](https://img.shields.io/badge/골든_픽스처-examples%2Frun--0003-3DBE8B?style=flat-square)](../examples/run-0003/run-manifest.json)
-
-| 출판물 표지 (36쪽) | 궤도 섹터 컨셉 (`Heliostat Truss`) | 보스전 컨셉 (`The Heliarch Warden`) |
-| :---: | :---: | :---: |
-| <a href="../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf"><img src="../assets/perihelion-breach-cover.jpg" width="210" alt="《근일점 돌파》 v1.0 표지" /></a> | <img src="../assets/perihelion-breach-world-hero.jpg" width="340" alt="이카로스-9 헬리오스탯 트러스 구역을 고속 기동하는 Soren Kestrel" /> | <img src="../assets/perihelion-breach-combat-hero.jpg" width="340" alt="근일점 코어 챔버에서 헬리아크 워든과 교전하는 Soren Kestrel" /> |
-
-*본 이미지들은 출판물용 컨셉 아트워크이며, 실제 게임플레이 캡처나 구현 완료 증거가 아닙니다.*
-
-</div>
+| 제4권 모노그래프 표지 (36P) | 도판 IV-1: 0.09 AU 이카루스-9 헬리오스탯 트러스 | 도판 IV-2: 극저온 냉각 매니폴드 & 능동 방열 재장전 | 도판 IV-3: 헬리아크 워든 공중 보스전 (1,000 무결성) |
+| :---: | :---: | :---: | :---: |
+| [![제4권 모노그래프 표지 (36P)](../assets/perihelion-breach-cover.jpg)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf) | ![도판 IV-1: 0.09 AU 이카루스-9 헬리오스탯 트러스](../assets/perihelion-breach-world-hero.jpg) | ![도판 IV-2: 극저온 냉각 매니폴드 & 능동 방열 재장전](../assets/perihelion-breach-arsenal-hero.jpg) | ![도판 IV-3: 헬리아크 워든 공중 보스전 (1,000 무결성)](../assets/perihelion-breach-combat-hero.jpg) |
 
 > **문서 위상 안내**
 >

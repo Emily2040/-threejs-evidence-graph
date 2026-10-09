@@ -2,23 +2,13 @@
 
 # Three.js Evidence Graph：運用マニュアル v2.0 コンパニオンガイド
 
-<div align="center">
+| **MONOGRAPH EDITIONS** | [**English**](EVIDENCE_GRAPH_GUIDE.md) | [**简体中文**](EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [**日本語**](EVIDENCE_GRAPH_GUIDE.ja.md) | [**한국어**](EVIDENCE_GRAPH_GUIDE.ko.md) |
+| :--- | :---: | :---: | :---: | :---: |
+| **VOLUME COLOPHON** | `第一巻 · 64頁 · 制御基盤＆決定論的検証運用マニュアル v2.0` | [Normative PDF](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf) | [Master Folio](../README.ja.md) | `Three.js r185 · Zero External Assets` |
 
-[![Native English](https://img.shields.io/badge/Edition-Native_English-D49B4B?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.md)
-[![简体中文](https://img.shields.io/badge/语言-简体中文_(原生母语版)-45B29D?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.zh-CN.md)
-[![日本語](https://img.shields.io/badge/言語-日本語_(ネイティブ版)-38C6D9?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.ja.md)
-[![한국어](https://img.shields.io/badge/언어-한국어_(네이티브판)-C89B54?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.ko.md)
-
-[![Volume 01](https://img.shields.io/badge/第01巻-制御プレーンマニュアル_v2.0-0F1722?style=flat-square)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf)
-[![Pages 64](https://img.shields.io/badge/ページ数-64頁_(416,827_B)-D49B4B?style=flat-square)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf)
-[![JSON Schema Draft 2020-12](https://img.shields.io/badge/JSON_Schema-Draft_2020--12-38C6D9?style=flat-square)](../schemas/)
-[![Back to README](https://img.shields.io/badge/総合ガイドへ戻る-README.ja.md-45B29D?style=flat-square)](../README.ja.md)
-
-</div>
-
-| 第01巻 仕様書カバープレート（`64頁`） | マルチエージェント制御プレーン ヒーロープレート |
-| :---: | :---: |
-| [![Three.js Evidence Graph v2.0 カバー](../assets/threejs-evidence-graph-cover.jpg)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf) | ![プロダクト契約から範囲を限定した専門作業、エビデンス取得、リリース判定へ分岐するコントロールプレーン](../assets/evidence-graph-control-hero.jpg) |
+| 第一巻モノグラフ表紙 (64頁) | 図版 I-A：天文時計式検証機構＆光学制御アトリエ | 図版 I-B：プロシージャル幾何＆TSLコンパイル工房 |
+| :---: | :---: | :---: |
+| [![第一巻モノグラフ表紙 (64頁)](../assets/threejs-evidence-graph-cover.jpg)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf) | ![図版 I-A：天文時計式検証機構＆光学制御アトリエ](../assets/evidence-graph-control-hero.jpg) | ![図版 I-B：プロシージャル幾何＆TSLコンパイル工房](../assets/evidence-graph-atelier-hero.jpg) |
 
 ## 1. 目的と中核テーゼ
 

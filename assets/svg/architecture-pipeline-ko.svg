@@ -1,92 +1,84 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 348" width="100%" role="img" aria-label="15노드 결정론적 에비던스 그래프 토폴로지 (N00 .. N14) 및 3대 장르 버티컬 슬라이스 아키텍처">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="100%">
   <defs>
-    <linearGradient id="pipeBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#080C12"/>
-      <stop offset="100%" stop-color="#0E1622"/>
-    </linearGradient>
-    <pattern id="pipeGrid" width="36" height="36" patternUnits="userSpaceOnUse">
-      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#142030" stroke-width="0.6" stroke-opacity="0.6"/>
+    <pattern id="bp-grid-ko" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#E6DEC8" stroke-width="0.7"/>
     </pattern>
   </defs>
-  <rect width="1260" height="348" rx="10" fill="url(#pipeBg)" stroke="#1E2D40" stroke-width="1.5"/>
-  <rect width="1260" height="348" rx="10" fill="url(#pipeGrid)"/>
 
-  <text x="36" y="32" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="11" font-weight="700" letter-spacing="1.0">15노드 결정론적 에비던스 그래프 토폴로지 (N00 .. N14) 및 3대 장르 버티컬 슬라이스 아키텍처</text>
-  <text x="1224" y="32" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700" text-anchor="end">레짐 A (고정 Chromium 비트 일치) + 레짐 B (크로스 플랫폼 허용오차 검증)</text>
+  <!-- Warm Archival Vellum Blueprint Background -->
+  <rect width="1200" height="700" fill="#F4EFE5"/>
+  <rect width="1200" height="700" fill="url(#bp-grid-ko)"/>
 
-  <!-- Top Pipeline Row: 5 Core Stages Grouping N00..N14 -->
-  <g transform="translate(36, 48)">
-    
-    <rect x="0" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#45B29D" stroke-width="1.3"/>
-    <rect x="0" y="0" width="222" height="3" rx="1.5" fill="#45B29D"/>
-    <text x="12" y="23" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700">N00 .. N02 // 계약 및 예산</text>
-    <text x="12" y="46" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="12.5" font-weight="700">브리프·월드·렌더 예산</text>
-    <text x="12" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10">WebGPURenderer + WebGL2 동등성</text>
-    <line x1="222" y1="42" x2="238" y2="42" stroke="#45B29D" stroke-width="2"/>
-    <polygon points="233,38 238,42 233,46" fill="#45B29D"/>
-    <rect x="238" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#D49B4B" stroke-width="1.3"/>
-    <rect x="238" y="0" width="222" height="3" rx="1.5" fill="#D49B4B"/>
-    <text x="250" y="23" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700">N03 .. N05 // 결정론적 시뮬</text>
-    <text x="250" y="46" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="12.5" font-weight="700">60 Hz 고정 틱 &amp; 시드 PRNG</text>
-    <text x="250" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10">16.6667 ms 스텝 · 상태 해시 검증</text>
-    <line x1="460" y1="42" x2="476" y2="42" stroke="#45B29D" stroke-width="2"/>
-    <polygon points="471,38 476,42 471,46" fill="#45B29D"/>
-    <rect x="476" y="0" width="236" height="84" rx="6" fill="#111A28" stroke="#38C6D9" stroke-width="1.3"/>
-    <rect x="476" y="0" width="236" height="3" rx="1.5" fill="#38C6D9"/>
-    <text x="488" y="23" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700">N06A + N06B // 병렬 포크</text>
-    <text x="488" y="46" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="12.5" font-weight="700">절차적 아트 &amp; Web Audio</text>
-    <text x="488" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10">TSL 셰이더 · -16 LUFS 오디오 합성</text>
-    <line x1="712" y1="42" x2="728" y2="42" stroke="#45B29D" stroke-width="2"/>
-    <polygon points="723,38 728,42 723,46" fill="#45B29D"/>
-    <rect x="728" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#C89B54" stroke-width="1.3"/>
-    <rect x="728" y="0" width="222" height="3" rx="1.5" fill="#C89B54"/>
-    <text x="740" y="23" fill="#C89B54" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700">N07 .. N10 // 게임플레이·UI</text>
-    <text x="740" y="46" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="12.5" font-weight="700">전투/추리 루프 &amp; 접근성 HUD</text>
-    <text x="740" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10">WCAG 2.2 AA · DOM 메모리 누수 제로</text>
-    <line x1="950" y1="42" x2="966" y2="42" stroke="#45B29D" stroke-width="2"/>
-    <polygon points="961,38 966,42 961,46" fill="#45B29D"/>
-    <rect x="966" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#45B29D" stroke-width="1.3"/>
-    <rect x="966" y="0" width="222" height="3" rx="1.5" fill="#45B29D"/>
-    <text x="978" y="23" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700">N11 .. N14 // 감사 및 릴리스</text>
-    <text x="978" y="46" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="12.5" font-weight="700">QA 감사·자동 수리·출하 게이트</text>
-    <text x="978" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10">SHA-256 RunManifest 증거 서명</text>
+  <!-- Outer Double Monograph Frame -->
+  <rect x="16" y="16" width="1168" height="668" fill="none" stroke="#B5A690" stroke-width="2"/>
+  <rect x="24" y="24" width="1152" height="652" fill="none" stroke="#D5CBB8" stroke-width="1"/>
+  <rect x="16" y="16" width="1168" height="7" fill="#1B435D"/>
+
+  <!-- Header Block -->
+  <text x="46" y="50" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12" font-weight="700" fill="#B83227" letter-spacing="1">아키텍처 청사진 도판 I  //  15노드 결정론적 에비던스 그래프(N00 .. N14) 및 3대 장르 수직 슬라이스 인스턴스화</text>
+  <text x="46" y="80" font-family="'Georgia', 'Times New Roman', 'Noto Serif CJK SC', 'Source Han Serif SC', 'Yu Mincho', 'Hiragino Mincho ProN', 'Batang', serif" font-size="25" font-weight="700" fill="#151412">Three.js 에비던스 그래프 v2.0: 컨트롤 플레인 토폴로지 &amp; 3대 제로 에셋 게임 슬라이스</text>
+  <line x1="46" y1="94" x2="1154" y2="94" stroke="#B5A690" stroke-width="1.5"/>
+
+  <!-- Tier I Label -->
+  <text x="46" y="118" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12" font-weight="700" fill="#1B435D">제1계층 — 15노드 유향 순환 컨트롤 플레인 상태 머신 (SCHEMAS/GRAPH-STATE.D.TS 규율)</text>
+
+  <!-- 15 Nodes Grid -->
+  <g transform="translate(46, 134)"><rect width="204" height="46" fill="#FAF7F0" stroke="#1B435D" stroke-width="1.6"/><rect width="46" height="46" fill="#1B435D"/><text x="23" y="28" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#FAF6EE">N00</text><text x="54" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.8" font-weight="700" fill="#151412">BRIEF</text></g><line x1="250" y1="157" x2="270" y2="157" stroke="#151412" stroke-width="1.5"/><polygon points="270,157 264,153 264,161" fill="#151412"/><g transform="translate(270, 134)"><rect width="204" height="46" fill="#FAF7F0" stroke="#1B435D" stroke-width="1.6"/><rect width="46" height="46" fill="#1B435D"/><text x="23" y="28" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#FAF6EE">N01</text><text x="54" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.8" font-weight="700" fill="#151412">CONTRACTS</text></g><line x1="474" y1="157" x2="494" y2="157" stroke="#151412" stroke-width="1.5"/><polygon points="494,157 488,153 488,161" fill="#151412"/><g transform="translate(494, 134)"><rect width="204" height="46" fill="#FAF7F0" stroke="#1B435D" stroke-width="1.6"/><rect width="46" height="46" fill="#1B435D"/><text x="23" y="28" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#FAF6EE">N02</text><text x="54" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.8" font-weight="700" fill="#151412">SCAFFOLD</text></g><line x1="698" y1="157" x2="718" y2="157" stroke="#151412" stroke-width="1.5"/><polygon points="718,157 712,153 712,161" fill="#151412"/><g transform="translate(718, 134)"><rect width="204" height="46" fill="#FAF7F0" stroke="#1B435D" stroke-width="1.6"/><rect width="46" height="46" fill="#1B435D"/><text x="23" y="28" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#FAF6EE">N03</text><text x="54" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.8" font-weight="700" fill="#151412">ASSET_COMPILER</text></g><line x1="922" y1="157" x2="942" y2="157" stroke="#151412" stroke-width="1.5"/><polygon points="942,157 936,153 936,161" fill="#151412"/><g transform="translate(942, 134)"><rect width="204" height="46" fill="#FAF7F0" stroke="#1B435D" stroke-width="1.6"/><rect width="46" height="46" fill="#1B435D"/><text x="23" y="28" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#FAF6EE">N04</text><text x="54" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.8" font-weight="700" fill="#151412">WORLD_GRAPH</text></g><g transform="translate(46, 212)"><rect width="204" height="46" fill="#FAF7F0" stroke="#8C5828" stroke-width="1.6"/><rect width="46" height="46" fill="#8C5828"/><text x="23" y="28" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#FAF6EE">N05</text><text x="54" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.8" font-weight="700" fill="#151412">RENDER_PIPELINE</text></g><line x1="250" y1="235" x2="270" y2="235" stroke="#151412" stroke-width="1.5"/><polygon points="270,235 264,231 264,239" fill="#151412"/><g transform="translate(270, 212)"><rect width="204" height="46" fill="#FAF7F0" stroke="#8C5828" stroke-width="1.6"/><rect width="46" height="46" fill="#8C5828"/><text x="23" y="28" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#FAF6EE">N06A/B</text><text x="54" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.8" font-weight="700" fill="#151412">GAMEPLAY_AUDIO</text></g><line x1="474" y1="235" x2="494" y2="235" stroke="#151412" stroke-width="1.5"/><polygon points="494,235 488,231 488,239" fill="#151412"/><g transform="translate(494, 212)"><rect width="204" height="46" fill="#FAF7F0" stroke="#8C5828" stroke-width="1.6"/><rect width="46" height="46" fill="#8C5828"/><text x="23" y="28" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#FAF6EE">N07</text><text x="54" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.8" font-weight="700" fill="#151412">UI_HUD_A11Y</text></g><line x1="698" y1="235" x2="718" y2="235" stroke="#151412" stroke-width="1.5"/><polygon points="718,235 712,231 712,239" fill="#151412"/><g transform="translate(718, 212)"><rect width="204" height="46" fill="#FAF7F0" stroke="#8C5828" stroke-width="1.6"/><rect width="46" height="46" fill="#8C5828"/><text x="23" y="28" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#FAF6EE">N08</text><text x="54" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.8" font-weight="700" fill="#151412">TELEMETRY_HARNESS</text></g><line x1="922" y1="235" x2="942" y2="235" stroke="#151412" stroke-width="1.5"/><polygon points="942,235 936,231 936,239" fill="#151412"/><g transform="translate(942, 212)"><rect width="204" height="46" fill="#FAF7F0" stroke="#8C5828" stroke-width="1.6"/><rect width="46" height="46" fill="#8C5828"/><text x="23" y="28" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#FAF6EE">N09</text><text x="54" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.8" font-weight="700" fill="#151412">REPLAY_RUNNER</text></g><g transform="translate(46, 290)"><rect width="204" height="46" fill="#F2E8DC" stroke="#B83227" stroke-width="1.6"/><rect width="46" height="46" fill="#B83227"/><text x="23" y="28" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#FAF6EE">N10</text><text x="54" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.8" font-weight="700" fill="#151412">PERF_GATE</text></g><line x1="250" y1="313" x2="270" y2="313" stroke="#151412" stroke-width="1.5"/><polygon points="270,313 264,309 264,317" fill="#151412"/><g transform="translate(270, 290)"><rect width="204" height="46" fill="#F2E8DC" stroke="#B83227" stroke-width="1.6"/><rect width="46" height="46" fill="#B83227"/><text x="23" y="28" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#FAF6EE">N11</text><text x="54" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.8" font-weight="700" fill="#151412">VISUAL_AUDIO_CRITIC</text></g><line x1="474" y1="313" x2="494" y2="313" stroke="#151412" stroke-width="1.5"/><polygon points="494,313 488,309 488,317" fill="#151412"/><g transform="translate(494, 290)"><rect width="204" height="46" fill="#F2E8DC" stroke="#B83227" stroke-width="1.6"/><rect width="46" height="46" fill="#B83227"/><text x="23" y="28" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#FAF6EE">N12</text><text x="54" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.8" font-weight="700" fill="#151412">PROVENANCE_AUDIT</text></g><line x1="698" y1="313" x2="718" y2="313" stroke="#151412" stroke-width="1.5"/><polygon points="718,313 712,309 712,317" fill="#151412"/><g transform="translate(718, 290)"><rect width="204" height="46" fill="#F2E8DC" stroke="#B83227" stroke-width="1.6"/><rect width="46" height="46" fill="#B83227"/><text x="23" y="28" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#FAF6EE">N13</text><text x="54" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.8" font-weight="700" fill="#151412">REPAIR_ROUTER</text></g><line x1="922" y1="313" x2="942" y2="313" stroke="#151412" stroke-width="1.5"/><polygon points="942,313 936,309 936,317" fill="#151412"/><g transform="translate(942, 290)"><rect width="204" height="46" fill="#F2E8DC" stroke="#B83227" stroke-width="1.6"/><rect width="46" height="46" fill="#B83227"/><text x="23" y="28" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#FAF6EE">N14</text><text x="54" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.8" font-weight="700" fill="#151412">RELEASE_CANDIDATE</text></g>
+
+  <!-- Row Connectors & Bounded Rollback Loop -->
+  <path d="M 1044 180 L 1044 196 L 148 196 L 148 212" fill="none" stroke="#1B435D" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <path d="M 1044 258 L 1044 274 L 148 274 L 148 290" fill="none" stroke="#8C5828" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <path d="M 820 336 L 820 356 L 600 356 L 600 258" fill="none" stroke="#B83227" stroke-width="1.8" stroke-dasharray="5 3"/>
+  <text x="46" y="362" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#B83227">유한 롤백 루프: N13_REPAIR_ROUTER -&gt; N05..N08 (노드당 최대 3회 · 전역 최대 8회)</text>
+
+  <!-- Tier II: 7 Specialist Roles Bar -->
+  <rect x="46" y="376" width="1108" height="58" fill="#EAE1D0" stroke="#B5A690" stroke-width="1.5"/>
+  <rect x="46" y="376" width="8" height="58" fill="#1B435D"/>
+  <text x="68" y="397" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12" font-weight="700" fill="#1B435D">제2계층 — 파일 소유권이 격리된 7개 전문 에이전트 역할 및 제로 에셋 출처 검증 게이트</text>
+  <text x="68" y="420" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12.5" font-weight="700" fill="#151412">combat_gameplay  |  world_quest  |  procedural_art_vfx  |  procedural_audio  |  ui_hud_accessibility  |  qa_perf_playwright  |  independent_critic (읽기 전용)</text>
+
+  <!-- Tier III: Three Game Columns -->
+  <text x="46" y="460" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12" font-weight="700" fill="#151412">제3계층 — 3대 장르 제로 에셋 수직 슬라이스 인스턴스화 (THREE.JS r185 WEBGPU + TSL)</text>
+
+  <!-- Game 01 Column -->
+  <g transform="translate(46, 472)">
+    <rect width="352" height="186" fill="#FAF7F0" stroke="#B5A690" stroke-width="1.6"/>
+    <rect width="352" height="8" fill="#A84B24"/>
+    <text x="18" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#A84B24">제2권 · 게임 01 · 다크 판타지 액션 RPG (81P)</text>
+    <text x="18" y="54" font-family="'Georgia', 'Times New Roman', 'Noto Serif CJK SC', 'Source Han Serif SC', 'Yu Mincho', 'Hiragino Mincho ProN', 'Batang', serif" font-size="19" font-weight="700" fill="#151412">《공허의 자오선》 (The Hollow Meridian)</text>
+    <line x1="18" y1="64" x2="334" y2="64" stroke="#D5CBB8" stroke-width="1"/>
+    <text x="18" y="84" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#2C2925">• 주인공: Sable Veren (지도제작자 · 체력/스태미나/공명)</text>
+    <text x="18" y="106" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#2C2925">• 60 Hz 패리 튕겨내기(Ticks 6..12) 및 가드 전환</text>
+    <text x="18" y="128" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#2C2925">• 3대 성물 분기: brass_vow / ash_thread / vacant_name</text>
+    <text x="18" y="150" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#2C2925">• 2페이즈 보스: 이름 없는 종 (850 HP, 467 HP 2페이즈)</text>
+    <text x="18" y="172" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#A84B24">• 골든 픽스처: examples/run-0001 (seed=1337)</text>
   </g>
 
-  <!-- Fan-Out Bus Lines from Pipeline to Three Genre Slices -->
-  <line x1="630" y1="132" x2="630" y2="156" stroke="#45B29D" stroke-width="1.5"/>
-  <line x1="227" y1="156" x2="1033" y2="156" stroke="#2A3C54" stroke-width="1.5"/>
-  <line x1="227" y1="156" x2="227" y2="178" stroke="#D49B4B" stroke-width="1.5"/>
-  <line x1="630" y1="156" x2="630" y2="178" stroke="#4FA89B" stroke-width="1.5"/>
-  <line x1="1033" y1="156" x2="1033" y2="178" stroke="#38C6D9" stroke-width="1.5"/>
-  <rect x="420" y="145" width="420" height="20" rx="4" fill="#0B111A" stroke="#24354A" stroke-width="1"/>
-  <text x="630" y="159" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10" font-weight="600" text-anchor="middle">단일 15노드 DAG 파이프라인 -&gt; 3종의 무에셋 버티컬 슬라이스 인스턴스화</text>
+  <!-- Game 02 Column -->
+  <g transform="translate(424, 472)">
+    <rect width="352" height="186" fill="#FAF7F0" stroke="#B5A690" stroke-width="1.6"/>
+    <rect width="352" height="8" fill="#17565E"/>
+    <text x="18" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#17565E">제3권 · 게임 02 · 미스터리 호러 조사극 (36P)</text>
+    <text x="18" y="54" font-family="'Georgia', 'Times New Roman', 'Noto Serif CJK SC', 'Source Han Serif SC', 'Yu Mincho', 'Hiragino Mincho ProN', 'Batang', serif" font-size="19" font-weight="700" fill="#151412">《유리 납골당》 (The Glass Ossuary)</text>
+    <line x1="18" y1="64" x2="334" y2="64" stroke="#D5CBB8" stroke-width="1"/>
+    <text x="18" y="84" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#2C2925">• 주인공: Clara Vane (음향 기록관 · 평정심/랜턴 기름)</text>
+    <text x="18" y="106" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#2C2925">• 3대 포렌식 기구: 이중 초점 루페·축음기·페로타입 플래시</text>
+    <text x="18" y="128" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#2C2925">• 6노드 심문 보드: lens / quarantine / acoustic</text>
+    <text x="18" y="150" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#2C2925">• 2페이즈 보스: 유리 속의 성가대 (600 -&gt; 300 무결성)</text>
+    <text x="18" y="172" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#17565E">• 골든 픽스처: examples/run-0002 (seed=1894)</text>
+  </g>
 
-  <!-- Bottom Row: Three Genre Vertical Slice Instantiations -->
-  <g transform="translate(36, 180)">
-    
-    <rect x="0" y="0" width="382" height="140" rx="7" fill="#101926" stroke="#28384E" stroke-width="1.2"/>
-    <rect x="0" y="0" width="382" height="4" rx="2" fill="#D49B4B"/>
-    <circle cx="16" cy="24" r="3.5" fill="#D49B4B"/>
-    <text x="26" y="28" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700">GAME 01 · 3인칭 액션 RPG (81쪽 규격)</text>
-    <text x="16" y="54" fill="#F8FAFC" font-family="'Noto Serif KR', 'Source Han Serif KR', 'Batang', serif" font-size="17" font-weight="700">《공허의 자오선》 The Hollow Meridian</text>
-    <text x="16" y="79" fill="#CBD5E1" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="11.5">Sable Veren · 60 Hz 패링 판정(6..12틱) · 5개 관측소 구역</text>
-    <text x="16" y="101" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10">보스: 이름 없는 종 (850 HP / 467 HP) · examples/run-0001/</text>
-    <text x="16" y="122" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5">프롬프트: prompts/hollow-meridian/orchestrator.md + 7종</text>
-    <rect x="403" y="0" width="382" height="140" rx="7" fill="#101926" stroke="#28384E" stroke-width="1.2"/>
-    <rect x="403" y="0" width="382" height="4" rx="2" fill="#4FA89B"/>
-    <circle cx="419" cy="24" r="3.5" fill="#4FA89B"/>
-    <text x="429" y="28" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700">GAME 02 · 1인칭 미스터리 호러 (36쪽 규격)</text>
-    <text x="419" y="54" fill="#F8FAFC" font-family="'Noto Serif KR', 'Source Han Serif KR', 'Batang', serif" font-size="17" font-weight="700">《유리 납골당》 The Glass Ossuary</text>
-    <text x="419" y="79" fill="#CBD5E1" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="11.5">Clara Vane · 음향 루페·축음기·습판 플래시 · 6노드 추리 보드</text>
-    <text x="419" y="101" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10">보스: 유리 속의 성가대 (무결성 600 / 300) · examples/run-0002/</text>
-    <text x="419" y="122" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5">프롬프트: prompts/glass-ossuary/orchestrator.md + 7종</text>
-    <rect x="806" y="0" width="382" height="140" rx="7" fill="#101926" stroke="#28384E" stroke-width="1.2"/>
-    <rect x="806" y="0" width="382" height="4" rx="2" fill="#38C6D9"/>
-    <circle cx="822" cy="24" r="3.5" fill="#38C6D9"/>
-    <text x="832" y="28" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700">GAME 03 · 1인칭 SF 슈팅 어드벤처 (36쪽 규격)</text>
-    <text x="822" y="54" fill="#F8FAFC" font-family="'Noto Serif KR', 'Source Han Serif KR', 'Batang', serif" font-size="17" font-weight="700">《근일점 돌파》 Perihelion Breach</text>
-    <text x="822" y="79" fill="#CBD5E1" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="11.5">Soren Kestrel · 자기 그래플·슬라이드·방열 재장전(14..20틱)</text>
-    <text x="822" y="101" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10">보스: 헬리아크 워든 (장갑 1,000 / 500) · examples/run-0003/</text>
-    <text x="822" y="122" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5">프롬프트: prompts/perihelion-breach/orchestrator.md + 7종</text>
+  <!-- Game 03 Column -->
+  <g transform="translate(802, 472)">
+    <rect width="352" height="186" fill="#FAF7F0" stroke="#B5A690" stroke-width="1.6"/>
+    <rect width="352" height="8" fill="#D6451B"/>
+    <text x="18" y="28" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#D6451B">제4권 · 게임 03 · SF FPS 어드벤처 (36P)</text>
+    <text x="18" y="54" font-family="'Georgia', 'Times New Roman', 'Noto Serif CJK SC', 'Source Han Serif SC', 'Yu Mincho', 'Hiragino Mincho ProN', 'Batang', serif" font-size="19" font-weight="700" fill="#151412">《근일점 돌파》 (Perihelion Breach)</text>
+    <line x1="18" y1="64" x2="334" y2="64" stroke="#D5CBB8" stroke-width="1"/>
+    <text x="18" y="84" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#2C2925">• 주인공: Soren Kestrel (선봉 요원 · 실드/선체/코어 열량)</text>
+    <text x="18" y="106" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#2C2925">• 60 Hz 방열 재장전(Ticks 14..20) &amp; 18 m/s 자력 그래플</text>
+    <text x="18" y="128" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#2C2925">• 3대 엑소 리그 코어: gyro / siphon / overdrive</text>
+    <text x="18" y="150" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="12.5" fill="#2C2925">• 2페이즈 보스: 헬리아크 워든 (1,000 -&gt; 500 장갑 무결성)</text>
+    <text x="18" y="172" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#D6451B">• 골든 픽스처: examples/run-0003 (seed=2142)</text>
   </g>
 </svg>
