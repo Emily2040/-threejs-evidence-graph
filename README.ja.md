@@ -1,5 +1,5 @@
 # Three.js Evidence Graph
-<!-- source_version: 2026.07.3; translation_status: unreviewed; language: ja -->
+<!-- source_version: 2026.07.4; translation_status: reviewed; language: ja -->
 
 ソース生成型の Three.js 垂直スライスを対象とする、エビデンス駆動のマルチエージェント制作手法です。適用例として RPG 仕様書 *The Hollow Meridian* を収録しています。
 
@@ -58,7 +58,11 @@ flowchart TD
 11. **パフォーマンス分布。** 本手法は、平均 FPS だけに依存せず、フレーム時間のパーセンタイル、長時間フレーム、CPU および GPU コスト、メモリ増加、コンパイル停止、レンダラー統計を評価します。
 12. **計算資源の経済性。** 機械的チェックではモデルを使用しません。モデル呼び出しはタスク価値に応じて振り分けられ、実行単位のコスト台帳（cost ledger）に記録されます。
 
-マニュアルには、v1 から v2 への欠陥台帳、15ノードの制御グラフ、4部構成のオーケストレーター・プロンプト（orchestrator prompt）、およびタスク・パケット、欠陥記録、実行マニフェスト用の draft-07 スキーマが含まれます。
+マニュアルには、v1 から v2 への欠陥台帳、15ノードの制御グラフ、4部構成のオーケストレーター・プロンプト（orchestrator prompt）、およびタスク・パケット、欠陥記録、実行マニフェスト用の JSON Schema（[`schemas/`](schemas/) では Draft 2020-12 にアップグレード済み）が含まれます。
+
+> **アーキテクチャの詳細ガイド：** [Evidence Graph v2.0 日本語ガイド](docs/EVIDENCE_GRAPH_GUIDE.ja.md) および [技術正誤表と v2.0 整合仕様](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)では、15ノードの制御トポロジー（`N00_BRIEF` から `N14_RELEASE_CANDIDATE`）、2つの決定論制度、スタンドアロン Draft 2020-12 JSON Schema（[`schemas/`](schemas/)）、ゴールデン検証フィクスチャ（[`examples/run-0001/`](examples/run-0001/)）、およびコピー＆ペースト可能なプロンプト（[`prompts/`](prompts/)）を解説しています。
+>
+> Evidence Graph ガイド言語：[English](docs/EVIDENCE_GRAPH_GUIDE.md) | [简体中文](docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [日本語](docs/EVIDENCE_GRAPH_GUIDE.ja.md) | [한국어](docs/EVIDENCE_GRAPH_GUIDE.ko.md)
 
 ## The Hollow Meridian の概要
 
@@ -68,7 +72,9 @@ flowchart TD
 
 *The Hollow Meridian v1.0* は、Three.js で構築するデスクトップブラウザ向け三人称視点ダークファンタジー・アクション RPG の、81ページに及ぶプロダクト契約兼オーケストレーションプロンプトです。ダウンロードした完成版のアート、音声、モデル、テクスチャ、フォント、アセットパックは使用しません。
 
-> **日本語の詳細ガイド：** [The Hollow Meridian ゲーム解説ガイド](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md)では、世界観、10ビートのルート、戦闘、パズル、遺物、セーブ、ボス、アクセシビリティ、制作グラフを詳しく解説しています。このガイドは81ページの英語版 PDF の完全翻訳ではありません。
+> **日本語の詳細ガイド：** [The Hollow Meridian ゲーム解説ガイド](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [Evidence Graph v2.0 ガイド](docs/EVIDENCE_GRAPH_GUIDE.ja.md) | [技術正誤表](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)では、世界観、10ビートのルート、戦闘、パズル、遺物、セーブ、ボス、アクセシビリティ、制作グラフを詳しく解説しています。このガイドは81ページの英語版 PDF の完全翻訳ではありません。
+>
+> ゲーム解説ガイド言語：[English](docs/THE_HOLLOW_MERIDIAN_GUIDE.md) | [简体中文](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
 
 プレイヤーは Cartographer となり、消滅した都市の真の名前を保存する廃墟の天文台を探索します。Cartographer は顔を持たない成人の守護者です。想定される初回プレイ時間は10～14分で、次の要素を含みます。
 
@@ -91,27 +97,25 @@ flowchart TD
 
 瞬間ごとのループでは、建築と光から方向を把握し、戦闘を読み、移動、ガード、パリィ、回避、攻撃を選び、スタミナと Resonance を管理し、印章またはクエスト状態を進め、チェックポイントで意味のある状態を保存します。戦闘は弱攻撃と強攻撃、ガード、選択されたパリィ受付時間、Echo Brand で構成されます。3種の敵は、それぞれ間合い、遠距離からの圧力、ガード崩しを教えます。3環式パズルは決定論的に解ける空間課題であり、3択の遺物は実際の戦闘判断を変えます。
 
-セーブ・スキーマ（save schema）は、クエスト状態、2つの印章、選択した遺物、消耗品、チェックポイント、完了状態、エンディングの選択、設定、再割り当てした操作を保持します。ボスは標準の敵の大型版ではなく、固有の攻撃一式、体勢耐久（poise）、体力55パーセントでの保護された段階移行、視認可能な安全区画を持つ独立システムです。
-
-これらはすべて、想定されるゲームの**仕様**です。現時点のリポジトリには、プレイ可能なビルド、実行時コード、測定済みベンチマーク、受理済みの `run-0001` エビデンス・パッケージは含まれていません。詳細ガイドはゲームを理解するためのローカライズ資料であり、完全版 PDF 自体は英語版のままです。
+セーブ・スキーマ（save schema）は、クエスト状態、2つの印章、選択した遺物、消耗品、チェックポイント、完了状態、エンディングの選択、設定、再割り当てした操作を保持します。ボスは標準の敵の大型版ではなく、固有の攻撃一式、体勢耐久（poise）、体力55パーセントでの保護された段階移行、視認可能な安全区画を持つ独立システムです。これらはすべて、想定されるゲームの**仕様および合格契約**を定義するものです。本リポジトリはスタンドアロンのスキーマ、プロンプト、および `examples/run-0001/` のゴールデン検証フィクスチャを提供しており、プレイ可能な実行時ビルドは含んでいません。
 
 ## 2つの版の関係
 
-*The Hollow Meridian* は、Evidence Graph の系譜に属し、中核原則に整合するリファレンス仕様として理解するのが適切です。v2 のすべての規則に準拠していると認証された実装ではありません。
+*The Hollow Meridian* は、Evidence Graph の系譜に属し、中核原則に整合するリファレンス仕様として理解するのが適切です。v2 のすべての規則に準拠していると認証された実装ではありません。出版物間の v2.0 契約の統合は [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) および [`schemas/`](schemas/) で提供されています。
 
 | 領域 | Evidence Graph v2.0 | Hollow Meridian v1.0 |
 |---|---|---|
 | プロダクト範囲 | 45～90秒という非常に狭い基準スライスを推奨 | 10～14分の野心的な RPG ルートを規定 |
-| エビデンス制度 | ビット単位の完全一致と許容範囲ベースの制度を明示 | 決定論的エビデンスは存在するが、2つの制度は完全には統合されていない |
+| エビデンス制度 | ビット単位の完全一致と許容範囲ベースの制度を明示 | 決定論的エビデンスは存在し、[`schemas/`](schemas/) で2つの制度に統合済み |
 | 評価担当者の統制 | 校正、提示順を入れ替えた評価、評価傾向の再点検 | 独立した評価担当者は存在するが、校正は完全には規定されていない |
-| 計算資源の経済性 | モデル階層と必須のコスト台帳 | 未統合 |
-| 人間の権限 | 修正権限を限定された指名ディレクター | 未統合 |
-| エンジン横断の決定論 | 厳密一致を主張する場合、制御された決定論的数学カーネルを要求 | まだ完全には規定されていない |
-| 音声エビデンス | オフライン書き出し、ラウドネス、トゥルーピーク、音切れ、音声予算の判定 | プロシージャル音声は規定済みだが、同等の測定判定への更新が必要 |
+| 計算資源の経済性 | モデル階層と必須のコスト台帳 | [`schemas/run-manifest.schema.json`](schemas/run-manifest.schema.json) で統合済み |
+| 人間の権限 | 修正権限を限定された指名ディレクター | [`schemas/run-manifest.schema.json`](schemas/run-manifest.schema.json) で統合済み |
+| エンジン横断の決定論 | 厳密一致を主張する場合、制御された決定論的数学カーネルを要求 | [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) で規定済み |
+| 音声エビデンス | オフライン書き出し、ラウドネス、トゥルーピーク、音切れ、音声予算の判定 | プロシージャル音声は規定済み。16ビット PCM 量子化規則を [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) に記載 |
 | アクセシビリティ | エビデンスに裏付けられたリリース判定 | 充実したアクセシビリティ要件を収録 |
 | 来歴 | ソース、依存関係、バンドル、ネットワーク、出力の監査 | ソース生成型メディアと来歴に関する強力な規則を収録 |
 
-この区別は重要です。将来の改訂では、互換性がすでに存在すると装うことなく、RPG 仕様を完全に整合させることができます。
+この区別は重要です。付属の正誤表とスタンドアロン・スキーマにより、印刷時点での歴史的 PDF 版の差異を隠すことなく、2つの出版物の契約を整合させています。
 
 ## ここでの「AAA-grade」の意味
 
@@ -121,8 +125,8 @@ flowchart TD
 
 ## 技術的ベースラインと境界
 
-- 出版物は **Three.js r185** を技術基準として作成されています。
-- WebGPU/TSL と WebGL 2 は、レンダラー選択判定を通じて評価されます。
+- 出版物は **Three.js r185**（`0.185.0`）を技術基準として作成されています。
+- WebGPU/TSL と WebGL 2 は、レンダラー選択判定を通じて評価されます（`THREE.WebGPURenderer` と `{ forceWebGL: true }` フォールバック。詳細は [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) を参照）。
 - 「No downloaded assets」は、最終的に可視または可聴となるメディアに適用されます。バージョンを固定した開発用依存関係、ブラウザ API、ビルドツール、テストツール、プロファイラーは引き続き使用できますが、監査対象です。
 - ビット単位の完全一致を主張できるのは、制御されたデータクラスに限られます。ブラウザと GPU の出力は、オペレーティングシステム、ドライバー、ハードウェア、ブラウザ、設定によって変動する可能性があります。
 - 文書内のアクセシビリティ要件はエンジニアリング上の目標です。正式な WCAG 適合を確立するものではありません。
@@ -133,20 +137,20 @@ flowchart TD
 
 ### テクニカルディレクターおよび研究者
 
-1. Evidence Graph の欠陥台帳と文書状況ページを読みます。
-2. 制御グラフ、権限階層、エビデンス制度、評価担当者の校正、運用、規範スキーマを確認します。
+1. Evidence Graph の欠陥台帳、[技術正誤表と v2.0 整合仕様](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)、および[公開状況ページ](docs/PUBLICATION_STATUS.md)を読みます。
+2. 制御グラフ、権限階層、エビデンス制度、評価担当者の校正、運用、および [`schemas/`](schemas/) の規範スキーマを確認します。
 3. *The Hollow Meridian* を適用例として扱う前に、上記の互換性表を読みます。
 
 ### ゲームおよびテクニカルアートチーム
 
 1. *The Hollow Meridian* のゲーム契約、ルート、体験の柱、反スロップ規則（anti-slop rules）を読みます。
 2. 続いてゲームシステム、プロシージャル・メディア方針、QA 判定を確認します。
-3. リポジトリの権限文書と合格判定コマンドが存在する場合に限り、専門エージェント・カード（specialist cards）を使用します。
+3. リポジトリの権限文書と合格判定コマンドが存在する場合に限り、[`prompts/hollow-meridian/agents/`](prompts/hollow-meridian/agents/) の専門エージェント・カード（specialist cards）を使用します。
 
 ### エージェントシステム構築者
 
-1. Evidence Graph のオーケストレーター・プロンプト（orchestrator prompt）とスキーマから始めます。
-2. モデル振り分けより先に、検証と状態遷移を実装します。
+1. [`prompts/`](prompts/) のスタンドアロン・オーケストレーター・プロンプトと [`schemas/`](schemas/) の Draft 2020-12 スキーマから始めます。
+2. [`examples/run-0001/`](examples/run-0001/) のゴールデン検証フィクスチャを確認し、`python scripts/verify_release.py` を実行します。
 3. 取得済み成果物、修復済みの欠陥、ロールバック、フレーム時間分布、コスト計上、受理済みコミットを含む、実在するエンドツーエンド実行を1件追加します。
 
 ## リポジトリ構成
@@ -154,33 +158,61 @@ flowchart TD
 ```text
 .
 ├── .gitattributes
+├── .github/
+│   └── workflows/
+│       └── verify-release.yml
 ├── AUTHORS.md
 ├── LICENSE
 ├── README.md
 ├── README.zh-CN.md
 ├── README.ja.md
 ├── README.ko.md
+├── agents/
 ├── assets/
 │   ├── publication-set.jpg
 │   ├── readme-hero.jpg
 │   ├── readme-hero.prompt.md
 │   ├── section-heroes.prompt.md
 │   ├── evidence-graph-control-hero.jpg
-│   ├── hollow-meridian-boss-hero.jpg
 │   ├── hollow-meridian-world-hero.jpg
+│   ├── hollow-meridian-boss-hero.jpg
 │   ├── threejs-evidence-graph-cover.jpg
 │   └── the-hollow-meridian-cover.jpg
-├── publications/
-│   ├── threejs-evidence-graph-operational-manual-v2.0-en.pdf
-│   └── the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf
 ├── docs/
+│   ├── EVIDENCE_GRAPH_GUIDE.md
+│   ├── EVIDENCE_GRAPH_GUIDE.zh-CN.md
+│   ├── EVIDENCE_GRAPH_GUIDE.ja.md
+│   ├── EVIDENCE_GRAPH_GUIDE.ko.md
 │   ├── GLOSSARY.md
 │   ├── PUBLICATION_STATUS.md
+│   ├── TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md
 │   ├── THE_HOLLOW_MERIDIAN_GUIDE.md
 │   ├── THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md
 │   ├── THE_HOLLOW_MERIDIAN_GUIDE.ja.md
 │   ├── THE_HOLLOW_MERIDIAN_GUIDE.ko.md
 │   └── TRANSLATION_POLICY.md
+├── examples/
+│   └── run-0001/
+│       ├── defect-record.json
+│       ├── run-manifest.json
+│       └── task-packet.json
+├── orchestration/
+├── prompts/
+│   ├── evidence-graph/
+│   │   └── orchestrator.md
+│   └── hollow-meridian/
+│       ├── orchestrator.md
+│       └── agents/
+├── publications/
+│   ├── threejs-evidence-graph-operational-manual-v2.0-en.pdf
+│   └── the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf
+├── schemas/
+│   ├── defect-record.schema.json
+│   ├── graph-state.d.ts
+│   ├── run-manifest.schema.json
+│   └── task-packet.schema.json
+├── scripts/
+│   └── verify_release.py
 ├── CHANGELOG.md
 ├── CITATION.cff
 ├── CITATIONS.md
@@ -192,36 +224,27 @@ flowchart TD
 
 ## 現在のロードマップ
 
-次のリリースで最も価値があるのは、より大規模なプロンプトではありません。既存の契約を検証可能にする、実行可能な付属基盤です。
+リリース `2026.07.4` では、スタンドアロンの Draft 2020-12 JSON Schema（`schemas/*.schema.json`）、`schemas/graph-state.d.ts`、コピー＆ペースト可能なオーケストレーターおよび専門エージェント・プロンプト（`prompts/`）、ゴールデン契約フィクスチャ（`examples/run-0001/`）、および自動リリース検証スクリプト（`scripts/verify_release.py`）を提供しています。ライブ実行時ハーネスの次のマイルストーンは次のとおりです。
 
-- 正準かつ機械可読なスキーマ
-- グラフ状態と遷移条件
-- タスク・パケットと欠陥の検証器
 - レンダラー実証基盤
-- 決定論的リプレイと状態ハッシュ
+- 決定論的リプレイと状態ハッシュ実行系
 - アセットと来歴のスキャナー
 - Playwright の取得プロファイル
 - 評価担当者を校正する固定テスト
-- 実行マニフェストとコスト台帳
-- 完全な `run-0001` エビデンス・パッケージ1件
-- 受理済みの修復1件、却下済みの候補1件、検証済みのロールバック1件
+- 受理済みの実行時修復1件、却下済みの候補1件、検証済みのロールバック1件
 
-これらが存在するまでは、このリポジトリが主張するのは設計および仕様としての価値であり、実証的な制作結果ではありません。
+ライブ実行時ビルドが存在するまでは、このリポジトリが主張するのは設計、仕様、および契約スキーマとしての価値であり、実証的なゲーム実行時ベンチマーク結果ではありません。
 
 ## 翻訳方針
 
-英語版が規範版です。簡体字中国語版、日本語版、韓国語版は、このリポジトリガイドの完全な説明翻訳です。さらに *The Hollow Meridian* には、世界観、ゲームループ、戦闘、パズル、遺物、セーブ、ボス、制作システムを各言語で詳しく説明するローカライズ版の付属ガイドがあります。これらのガイドは、81ページの英語版 PDF の完全翻訳ではありません。出版物のタイトル、ゲーム固有名詞、ファイル名、コマンド、スキーマのキー、グラフノード識別子、パス、列挙値、コード識別子は、正準な英語表記のまま維持されます。
+英語版が規範版です。簡体字中国語版、日本語版、韓国語版は、このリポジトリガイド、*Three.js Evidence Graph v2.0* コンパニオンガイド、および拡張版 *The Hollow Meridian* コンパニオンガイドのすべてに提供されています。これらのガイドは制作手法とゲーム仕様を各言語で詳しく説明する資料であり、全 `145` ページ（`64 + 81` ページ）の英語版 PDF の逐語翻訳ではありません。出版物のタイトル、ゲーム固有名詞、ファイル名、コマンド、スキーマのキー、グラフノード識別子、パス、列挙値、コード識別子は、正準な英語表記のまま維持されます。
 
-- [English game guide](docs/THE_HOLLOW_MERIDIAN_GUIDE.md)
-- [简体中文游戏指南](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md)
-- [日本語ゲーム解説ガイド](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md)
-- [한국어 게임 가이드](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
 
 翻訳版と英語版の内容が異なる場合は、技術的解釈には英語版を使用し、issue を通じて相違を報告してください。[Translation Policy](docs/TRANSLATION_POLICY.md) と[多言語技術用語集](docs/GLOSSARY.md)を参照してください。
 
 ## 完全性
 
-[SHA256SUMS.txt](SHA256SUMS.txt) の SHA-256 値は、このリリースで公開されるすべての PDF および JPEG アセットを対象としています。リポジトリのルートで `sha256sum -c SHA256SUMS.txt` を実行すると、9 個すべてのバイナリファイルを検証できます。
+[SHA256SUMS.txt](SHA256SUMS.txt) の SHA-256 値は、このリリースで公開されるすべての PDF、JPEG アセット、スタンドアロン JSON Schema、ゴールデン検証フィクスチャ、プロンプト、およびドキュメントファイル（計 `39` ファイル）を対象としています。リポジトリのルートで `sha256sum -c SHA256SUMS.txt` および `python scripts/verify_release.py` を実行すると、すべてのパッケージ成果物を検証できます。
 
 ## コントリビューション
 

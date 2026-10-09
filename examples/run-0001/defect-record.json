@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/defect-record.schema.json",
+  "issue_id": "RPG-N06A-COMBAT-014",
+  "run_id": "run-0001",
+  "severity": "P1",
+  "category": "combat_feel",
+  "node": "N06A_GAMEPLAY_COMBAT",
+  "owner_agent": "combat_gameplay",
+  "summary": "Parry deflect active window (ticks 6..12) was unreachable when Guard evaluated on button-down at tick 0 against Bell Sentinel overhead strike.",
+  "evidence": [
+    "evidence/run-0001/replays/rep-09-parry-trace.json",
+    "evidence/run-0001/metrics/combat-window-audit.json"
+  ],
+  "root_cause_hypothesis": "Input handler bound both Parry and Guard to the same button-down tick without state-machine priority disambiguation.",
+  "proposed_repair": "Evaluate Parry immediately on button-down (startup ticks 0..4, active deflect window ticks 6..12) and transition to continuous Guard only if the input remains held at tick 13 without a deflect trigger.",
+  "affected_paths": [
+    "src/combat/input-buffer.ts",
+    "src/combat/state-machine.ts"
+  ],
+  "regression_check": "npm run test:replay -- --seed=1337 --scenario=rep-09",
+  "status": "verified_fixed"
+}

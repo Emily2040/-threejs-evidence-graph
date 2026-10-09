@@ -1,9 +1,13 @@
 {
+  "version": "2026.07.4",
+  "release_date": "2026-07-27",
+  "repository": "https://github.com/Emily2040/-threejs-evidence-graph",
+  "three_baseline": "0.185.0",
   "suite": {
     "title": "Three.js Evidence Graph: Method and Applied RPG Specification",
-    "version": "2026.07.3",
+    "version": "2026.07.4",
     "release_date": "2026-07-27",
-    "release_type": "documentation",
+    "release_type": "documentation-and-contracts",
     "author": "Emily Paradox",
     "creator": "Iamemily2050",
     "rights_holder": "Iamemily2050 (@iamemily2050)",
@@ -15,7 +19,7 @@
       "contact": "191656017+Emily2040@users.noreply.github.com"
     },
     "normative_language": "en",
-    "repository": "https://github.com/Emily2040/threejs-evidence-graph"
+    "repository": "https://github.com/Emily2040/-threejs-evidence-graph"
   },
   "publications": [
     {
@@ -25,7 +29,9 @@
       "language": "en",
       "pages": 64,
       "file": "publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf",
-      "sha256": "343a67ccebefa014acf72fefbad3dc53d18fc6ad8b8d7417db5e36af993c8076",
+      "path": "publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf",
+      "bytes": 416827,
+      "sha256": "d3830d411a61c52c92d6d9f4454d317a5e5bb7dbc3660824e7d24b7a959eb6cd",
       "status": "design specification",
       "benchmark_run_included": false
     },
@@ -36,14 +42,22 @@
       "language": "en",
       "pages": 81,
       "file": "publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf",
-      "sha256": "901016103dfa0e660712dbc72490e84ea3a8eed571f95d8e1e1c29b4dfff51c4",
+      "path": "publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf",
+      "bytes": 357144,
+      "sha256": "c4f8fe83995d526b99cefddd3d267bf6a3ed42c945b9df0b579193533bfa2b16",
       "status": "applied production specification",
       "playable_build_included": false,
-      "evidence_graph_v2_conformance": "core-aligned, not certified"
+      "evidence_graph_v2_conformance": "reconciled via schemas/ and docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md"
     }
   ],
   "localization": {
     "repository_guides": [
+      "en",
+      "zh-CN",
+      "ja",
+      "ko"
+    ],
+    "evidence_graph_guides": [
       "en",
       "zh-CN",
       "ja",
@@ -58,8 +72,8 @@
     "pdf_editions": [
       "en"
     ],
-    "translation_review_status": "unreviewed",
-    "translation_scope": "Repository guides and expanded Hollow Meridian companion guides are localized. The 145 PDF pages remain the normative English editions."
+    "translation_review_status": "reviewed",
+    "translation_scope": "Repository guides, Evidence Graph v2.0 companion guides, and expanded Hollow Meridian companion guides are localized in 4 languages. The 145 PDF pages remain the normative English editions."
   },
   "artwork": {
     "status": "concept artwork, not implementation evidence",
@@ -83,29 +97,161 @@
       "assets/the-hollow-meridian-cover.jpg": "1191x1684"
     },
     "sha256": {
-      "assets/readme-hero.jpg": "aad0da924b7a933935de29d7538afb7014981a2dd3d1efc05d87bd867400efa5",
-      "assets/evidence-graph-control-hero.jpg": "d9c3737ddc5657f72dcbe556af38dd21afbfaaad1193e2156f0ba44c9549a0ad",
-      "assets/hollow-meridian-world-hero.jpg": "c3fc71ff23174b7ba1641c203319f145208b1e70d194403015dddf5c0dffd6b1",
-      "assets/hollow-meridian-boss-hero.jpg": "a9ad843d0fcc9e887607d25a5af71e94e59458f0015163ac0c935e2010aba025",
-      "assets/publication-set.jpg": "2b8d2bd8e5f9557dfad82dfafbf03b9a7f5d1b6f2b34f862e434cf3ecaefdf9a",
-      "assets/threejs-evidence-graph-cover.jpg": "269fda7e50e4c50bd533b9254c1cb4a8edaee995d0e90989b328eac12fdef86b",
-      "assets/the-hollow-meridian-cover.jpg": "db0d3124887fd4e6db7c52a52287a9dd40541a45b538f072c400fbabb09bbab2"
+      "assets/readme-hero.jpg": "d1391fc2f880ecdb0f1d3827e44753808a913b56e664cac74c2a1b2610159ecf",
+      "assets/evidence-graph-control-hero.jpg": "138c9ed49c941b55665efeb87708f2b72157bd8fc55972fda78dfe3dc2cb52f9",
+      "assets/hollow-meridian-world-hero.jpg": "d8f429dfe0b8c3ff30abea3cc095cdd73c5ff3c4181eeb1130e707546fc4e5fb",
+      "assets/hollow-meridian-boss-hero.jpg": "a351d7011b588564676165154484881fd038c97a4c165324261a53437ebe77ee",
+      "assets/publication-set.jpg": "cd0fbdf71b17e95442b31738687a3665d0965b5247b4878c6c78be5b0cbb68e3",
+      "assets/threejs-evidence-graph-cover.jpg": "3839e7167b525b67384f63491bdb0877979a1c644972ec994ae7a8c4d2ec989a",
+      "assets/the-hollow-meridian-cover.jpg": "85c7ebc54c2818e7d29c6679e4b15603deaa714484d645e6e97c7b5a9f89d6ad"
     },
+    "items": [
+      {
+        "path": "assets/readme-hero.jpg",
+        "dimensions": "2172x724",
+        "bytes": 542432,
+        "sha256": "d1391fc2f880ecdb0f1d3827e44753808a913b56e664cac74c2a1b2610159ecf"
+      },
+      {
+        "path": "assets/evidence-graph-control-hero.jpg",
+        "dimensions": "2172x724",
+        "bytes": 363490,
+        "sha256": "138c9ed49c941b55665efeb87708f2b72157bd8fc55972fda78dfe3dc2cb52f9"
+      },
+      {
+        "path": "assets/hollow-meridian-world-hero.jpg",
+        "dimensions": "2172x724",
+        "bytes": 615252,
+        "sha256": "d8f429dfe0b8c3ff30abea3cc095cdd73c5ff3c4181eeb1130e707546fc4e5fb"
+      },
+      {
+        "path": "assets/hollow-meridian-boss-hero.jpg",
+        "dimensions": "2172x724",
+        "bytes": 797717,
+        "sha256": "a351d7011b588564676165154484881fd038c97a4c165324261a53437ebe77ee"
+      },
+      {
+        "path": "assets/publication-set.jpg",
+        "dimensions": "1434x980",
+        "bytes": 273945,
+        "sha256": "cd0fbdf71b17e95442b31738687a3665d0965b5247b4878c6c78be5b0cbb68e3"
+      },
+      {
+        "path": "assets/threejs-evidence-graph-cover.jpg",
+        "dimensions": "1191x1684",
+        "bytes": 315941,
+        "sha256": "3839e7167b525b67384f63491bdb0877979a1c644972ec994ae7a8c4d2ec989a"
+      },
+      {
+        "path": "assets/the-hollow-meridian-cover.jpg",
+        "dimensions": "1191x1684",
+        "bytes": 315959,
+        "sha256": "85c7ebc54c2818e7d29c6679e4b15603deaa714484d645e6e97c7b5a9f89d6ad"
+      }
+    ],
     "prompt_records": [
       "assets/readme-hero.prompt.md",
       "assets/section-heroes.prompt.md"
     ]
   },
+  "schemas": [
+    {
+      "path": "schemas/task-packet.schema.json",
+      "bytes": 3803,
+      "sha256": "95375fa208916e910fccd5af183ba3ec7d53c2865bc43c70d2eca8a3a115de29"
+    },
+    {
+      "path": "schemas/defect-record.schema.json",
+      "bytes": 2702,
+      "sha256": "3fb61ca3564a970ec667a84cc4e6b001fd768509743e2f14f7d150a3b5f6c29a"
+    },
+    {
+      "path": "schemas/run-manifest.schema.json",
+      "bytes": 7118,
+      "sha256": "9cc7b532bab2dead0bdd4cf138e3f94ec0e674aec36219655cd51b4c245f6383"
+    },
+    {
+      "path": "schemas/graph-state.d.ts",
+      "bytes": 3080,
+      "sha256": "a9530d439c7fb27c0a35424985aa35e683071d8758dfa21fd2e1a371849bb166"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/run-0001/task-packet.json",
+      "bytes": 1427,
+      "sha256": "62d59ab909cc5eec916a119fd5243b8ea6f1127c665f00c4d8629d43a6be1bcf"
+    },
+    {
+      "path": "examples/run-0001/defect-record.json",
+      "bytes": 1109,
+      "sha256": "6b9234044e3958353b4505be4f4e0e06a30bf8d2cdbc074bdbd7dd9a0daa5e4c"
+    },
+    {
+      "path": "examples/run-0001/run-manifest.json",
+      "bytes": 2656,
+      "sha256": "d8e3483201b9d7d7cb59f0849e8029ed8a03cadce286e97cda425bf778a3bd92"
+    }
+  ],
+  "prompts": [
+    {
+      "path": "prompts/evidence-graph/orchestrator.md",
+      "bytes": 2129,
+      "sha256": "3755a0a2afd1798ca53596387e646d6cadea3ab86feca575edfba1349dc32ee4"
+    },
+    {
+      "path": "prompts/hollow-meridian/orchestrator.md",
+      "bytes": 2561,
+      "sha256": "8da99e1530d26ba51c0417c604f55f7d6a37586d752db53bf5f2ecfde5fd5333"
+    },
+    {
+      "path": "prompts/hollow-meridian/agents/combat-gameplay.md",
+      "bytes": 1261,
+      "sha256": "2f65a62dfea8e65ddb1e69c8467027e6ff6fc96397ecedaec0ebd485d6d32b03"
+    },
+    {
+      "path": "prompts/hollow-meridian/agents/independent-critic.md",
+      "bytes": 719,
+      "sha256": "42861394943874cf1c3fced78ade3493040351f6ae7e0fb9bfcbdc156168f0a2"
+    },
+    {
+      "path": "prompts/hollow-meridian/agents/procedural-art-vfx.md",
+      "bytes": 985,
+      "sha256": "c8da555d2bd2133c49b3d96c4ac284f038ca20803a4dc508c67c32393690f703"
+    },
+    {
+      "path": "prompts/hollow-meridian/agents/procedural-audio.md",
+      "bytes": 725,
+      "sha256": "2ff20882bfd1c588b5902876880999441c3542df6df08697229c24bbb3a42146"
+    },
+    {
+      "path": "prompts/hollow-meridian/agents/qa-perf-playwright.md",
+      "bytes": 725,
+      "sha256": "2b762405691491a00e6ae1da894a8daef6025a4e6894a9f3f05e4528a8183368"
+    },
+    {
+      "path": "prompts/hollow-meridian/agents/ui-hud-accessibility.md",
+      "bytes": 657,
+      "sha256": "a935f625b584f162c6ac27d53b4a25ebcfce72af8347544bcbb4be9fd58c42fc"
+    },
+    {
+      "path": "prompts/hollow-meridian/agents/world-quest.md",
+      "bytes": 990,
+      "sha256": "3805ade32069ca1d1b893a8d55e260746b9d6ce08f18c02d3d9156da70a75919"
+    }
+  ],
   "license": {
     "spdx_id": "MIT",
     "file": "LICENSE",
     "copyright": "Copyright (c) 2026 Iamemily2050 (@iamemily2050)",
-    "scope": "Unless a file states otherwise, the MIT License applies to repository documentation, PDFs, and original concept artwork."
+    "scope": "Unless a file states otherwise, the MIT License applies to repository documentation, schemas, prompts, PDFs, and original concept artwork."
   },
   "integrity": {
     "algorithm": "SHA-256",
     "checksum_file": "SHA256SUMS.txt",
     "binary_files_covered": 9,
-    "coverage": "All published PDF and JPEG files in this release"
+    "total_files_covered": 39,
+    "verification_script": "scripts/verify_release.py",
+    "coverage": "All published PDFs, JPEG artwork assets, standalone JSON schemas, golden fixtures, prompts, and documentation files in this release"
   }
 }

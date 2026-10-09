@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Emily2040/-threejs-evidence-graph/schemas/defect-record.schema.json",
+  "title": "DefectRecord",
+  "description": "Normative Evidence Graph v2.0 DefectRecord contract with unified evidence path validation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "issue_id",
+    "run_id",
+    "severity",
+    "category",
+    "node",
+    "owner_agent",
+    "summary",
+    "evidence",
+    "root_cause_hypothesis",
+    "proposed_repair",
+    "affected_paths",
+    "regression_check",
+    "status"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "issue_id": {
+      "type": "string",
+      "pattern": "^([A-Z]{3,6}-[0-9]{3,}|[A-Z]{3,6}-N[0-9]{2}[A-B]?-[A-Z0-9]{3,}-[0-9]{3,})$",
+      "description": "Canonical defect ID (e.g., PRF-014, DOC-010, or RPG-N06A-COMBAT-014)."
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-[0-9]{4,}$"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "P0",
+        "P1",
+        "P2",
+        "P3"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "render",
+        "performance",
+        "combat_feel",
+        "audio",
+        "determinism",
+        "accessibility",
+        "provenance",
+        "schema_contract",
+        "ui_layout"
+      ]
+    },
+    "node": {
+      "type": "string",
+      "pattern": "^N(0[0-9]|1[0-4])[A-B]?(_[A-Z0-9_]+)?$"
+    },
+    "owner_agent": {
+      "type": "string",
+      "enum": [
+        "orchestrator",
+        "combat_gameplay",
+        "world_quest",
+        "procedural_art_vfx",
+        "procedural_audio",
+        "ui_hud_accessibility",
+        "qa_perf_playwright",
+        "independent_critic"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 15
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^(evidence/|examples/)?run-[0-9]{4,}/.+$",
+        "description": "Relative artifact path inside evidence/run-XXXX/ or run-XXXX/."
+      }
+    },
+    "root_cause_hypothesis": {
+      "type": "string",
+      "minLength": 15
+    },
+    "proposed_repair": {
+      "type": "string",
+      "minLength": 15
+    },
+    "affected_paths": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 2
+      }
+    },
+    "regression_check": {
+      "type": "string",
+      "minLength": 5
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "in_repair",
+        "verified_fixed",
+        "deferred",
+        "wont_fix"
+      ]
+    }
+  }
+}

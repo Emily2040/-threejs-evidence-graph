@@ -1,4 +1,4 @@
-<!-- source_version: 2026.07.3; translation_status: unreviewed; language: ja -->
+<!-- source_version: 2026.07.4; translation_status: reviewed; language: ja -->
 # The Hollow Meridian：ゲーム解説ガイド
 
 [English](THE_HOLLOW_MERIDIAN_GUIDE.md) | [简体中文](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
@@ -225,3 +225,14 @@ PDF、コマンド、ファイル名、スキーマ、識別子、ゲーム固�
 - **Instagram：** [`@iamemily2050`](https://instagram.com/iamemily2050)
 
 個別のファイルに別段の記載がない限り、本リポジトリは [MIT License](../LICENSE) の下で公開されています。著者・権利者情報と帰属表記の記録については、[AUTHORS.md](../AUTHORS.md) を参照してください。
+
+
+---
+
+## スタンドアロン Schema・プロンプト・技術正誤表（v2.0 整合）
+
+- **技術正誤表 & 60 Hz 整数ティック戦闘フレーム表**：[`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)
+- **Evidence Graph v2.0 コンパニオンガイド**：[`docs/EVIDENCE_GRAPH_GUIDE.ja.md`](EVIDENCE_GRAPH_GUIDE.ja.md)
+- **規範的 JSON Schema & TypeScript 型定義**：[`schemas/task-packet.schema.json`](../schemas/task-packet.schema.json)、[`schemas/defect-record.schema.json`](../schemas/defect-record.schema.json)、[`schemas/run-manifest.schema.json`](../schemas/run-manifest.schema.json)、[`schemas/graph-state.d.ts`](../schemas/graph-state.d.ts)
+- **コピー＆ペースト可能なプロンプト**：[`prompts/hollow-meridian/orchestrator.md`](../prompts/hollow-meridian/orchestrator.md)、[`prompts/hollow-meridian/agents/`](../prompts/hollow-meridian/agents/)
+- **ゴールデン検証フィクスチャ**：[`examples/run-0001/`](../examples/run-0001/)

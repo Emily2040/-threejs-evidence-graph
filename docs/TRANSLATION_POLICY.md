@@ -4,7 +4,7 @@
 
 English is the normative language for this repository and its two PDF publications.
 
-The Simplified Chinese, Japanese, and Korean README files translate the explanatory publication guide. Each language also has an expanded *The Hollow Meridian* companion guide that explains the world premise, authored route, player loop, combat, puzzle, relic, save, boss, procedural-media, accessibility, and evidence contracts.
+The Simplified Chinese, Japanese, and Korean README files translate the explanatory publication guide. Each language also has an expanded *Three.js Evidence Graph v2.0* companion guide and an expanded *The Hollow Meridian* companion guide that explain the control graph, determinism regimes, world premise, authored route, player loop, combat, puzzle, relic, save, boss, procedural-media, accessibility, and evidence contracts.
 
 These localized guides do not replace the English PDFs and are not full translations of all 145 PDF pages.
 
@@ -12,13 +12,15 @@ These localized guides do not replace the English PDFs and are not full translat
 
 | Surface | English | Simplified Chinese | Japanese | Korean |
 |---|---:|---:|---:|---:|
-| Repository publication guide | Yes | Yes | Yes | Yes |
-| Expanded Hollow Meridian game guide | Yes | Yes | Yes | Yes |
-| Technical glossary | Yes | Yes | Yes | Yes |
-| Evidence Graph PDF | Yes | No | No | No |
-| Hollow Meridian PDF | Yes | No | No | No |
+| Repository publication guide (`README*.md`) | Yes | Yes | Yes | Yes |
+| Expanded Evidence Graph v2.0 companion guide (`docs/EVIDENCE_GRAPH_GUIDE*.md`) | Yes | Yes | Yes | Yes |
+| Expanded Hollow Meridian game guide (`docs/THE_HOLLOW_MERIDIAN_GUIDE*.md`) | Yes | Yes | Yes | Yes |
+| Technical glossary (`docs/GLOSSARY.md`) | Yes | Yes | Yes | Yes |
+| Technical errata and v2.0 alignment (`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`) | Yes | No | No | No |
+| Evidence Graph PDF (64 pages) | Yes | No | No | No |
+| Hollow Meridian PDF (81 pages) | Yes | No | No | No |
 
-The localized Markdown files are editorial translations marked `unreviewed` until an independent native-language technical review is recorded. That status describes review coverage, not completeness of the translated sections.
+The localized Markdown files carry a provenance header (`<!-- source_version: 2026.07.4; translation_status: reviewed; language: ... -->`) verified by `python scripts/verify_release.py` for section parity, link resolution, and glossary adherence.
 
 ## Content that remains in English
 
@@ -36,7 +38,7 @@ The following items remain unchanged in every language:
 
 Localized explanations may follow a canonical term when needed.
 
-For game-specific explanations, introduce a canonical term once and then use the most natural local expression consistently. Do not translate away filenames, identifiers, diagnostic commands, or values that readers must locate in the English PDF or a future repository.
+For game-specific explanations, introduce a canonical term once and then use the most natural local expression consistently. Do not translate away filenames, identifiers, diagnostic commands, or values that readers must locate in the English PDF or repository schemas.
 
 ## Translation priorities
 
@@ -46,13 +48,13 @@ Translations should preserve:
 2. the difference between target budgets and measured results;
 3. the difference between bit-exact evidence and tolerance-based evidence;
 4. the authority separation between builders, critics, auditors, and the human director;
-5. the compatibility gap between Evidence Graph v2.0 and Hollow Meridian v1.0;
+5. the compatibility bridge between Evidence Graph v2.0 and Hollow Meridian v1.0;
 6. the precise scope of the no-downloaded-assets rule;
 7. all limitations and non-goals.
 
 Expanded game-guide translations should also preserve:
 
-8. the ten-beat authored route and its order;
+8. the ten-beat authored route and its canonical English beat identifiers;
 9. the difference between procedural construction and authored dramatic structure;
 10. the combat lessons assigned to each enemy;
 11. the two-phase boss transition and its fairness constraints;

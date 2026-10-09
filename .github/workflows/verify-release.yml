@@ -1,0 +1,28 @@
+name: Verify Release & Contracts
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install verification dependencies
+        run: pip install pypdf pillow jsonschema
+
+      - name: Verify SHA256SUMS.txt with sha256sum
+        run: sha256sum -c SHA256SUMS.txt
+
+      - name: Run full release and schema verification suite
+        run: python scripts/verify_release.py

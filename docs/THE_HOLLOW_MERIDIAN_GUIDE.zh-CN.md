@@ -1,4 +1,4 @@
-<!-- source_version: 2026.07.3; translation_status: unreviewed; language: zh-CN -->
+<!-- source_version: 2026.07.4; translation_status: reviewed; language: zh-CN -->
 
 # The Hollow Meridian：游戏说明指南
 
@@ -51,16 +51,16 @@
 
 | 节拍 | 空间与目的 | 玩家获得的结果 |
 |---:|---|---|
-| 1 | **抵达 Ash Court** | 学习移动、镜头、交互、Mnemonic Keeper，以及作为检查点的休息机制 |
-| 2 | **接受任务** | 得知需要取得两枚方位印记，并开启前进路线 |
-| 3 | **Orrery Bridge 教程** | 遭遇 Ashbound Skirmisher，学习锁定、闪避、防御、招架及第一种消耗品 |
-| 4 | **Archive Nave** | 体验纵向空间揭示，应对 Lantern Wraith 的压力，并寻找可选背景信息 |
-| 5 | **Meridian 对齐** | 解开一个确定性的三环空间谜题，取得 North Seal |
-| 6 | **Bell Foundry** | 击破 Bell Sentinel 的防御，取得 Depth Seal |
-| 7 | **神龛选择** | 从三件遗物中选择一件，使战斗模型发生改变 |
-| 8 | **密室开启** | 触发一段简短、可跳过的生成式过场，并揭示首领 |
-| 9 | **Unnamed Bell** | 完成一场两阶段战斗，应对可读的危险提示与不同的空间规则 |
-| 10 | **束缚或释放** | 在两个结局中做出选择，保存其后果并返回枢纽 |
+| 1 | **抵达 Ash Court（`Ash Court Arrival`）** | 学习移动、镜头、交互、Mnemonic Keeper，以及作为检查点的休息机制 |
+| 2 | **接受任务（`Quest Acceptance`）** | 得知需要取得两枚方位印记，并开启前进路线 |
+| 3 | **Orrery Bridge 教程（`Orrery Bridge Tutorial`）** | 遭遇 Ashbound Skirmisher，学习锁定、闪避、防御、招架及第一种消耗品 |
+| 4 | **Archive Nave（`Archive Nave`）** | 体验纵向空间揭示，应对 Lantern Wraith 的压力，并寻找可选背景信息 |
+| 5 | **Meridian 对齐（`Meridian Alignment`）** | 解开一个确定性的三环空间谜题，取得 North Seal |
+| 6 | **Bell Foundry（`Bell Foundry`）** | 击破 Bell Sentinel 的防御，取得 Depth Seal |
+| 7 | **神龛选择（`Shrine Choice`）** | 从三件遗物中选择一件，使战斗模型发生改变 |
+| 8 | **密室开启（`Chamber Opening`）** | 触发一段简短、可跳过的生成式过场，并揭示首领 |
+| 9 | **Unnamed Bell（`The Unnamed Bell`）** | 完成一场两阶段战斗，应对可读的危险提示与不同的空间规则 |
+| 10 | **束缚或释放（`Bind or Release`）** | 在两个结局中做出选择，保存其后果并返回枢纽 |
 
 程序化系统可以生成建筑、材质、标识、粒子与有边界的变化，但不能决定戏剧路线、遭遇顺序、视觉焦点层级、揭示时机或空间的叙事目的。
 
@@ -226,3 +226,14 @@ PDF、命令、文件名、schema、标识符及游戏专有名称均以英文�
 - **Instagram：** [`@iamemily2050`](https://instagram.com/iamemily2050)
 
 除非某个文件另有明确说明，本仓库采用 [MIT 许可证](../LICENSE) 发布。完整的身份与署名记录请参阅 [AUTHORS.md](../AUTHORS.md)。
+
+
+---
+
+## 独立模式文件、提示词与 v2.0 对齐勘误表
+
+- **技术勘误与 60 Hz 整数帧表**：[`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)
+- **Evidence Graph v2.0 配套导读指南**：[`docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md`](EVIDENCE_GRAPH_GUIDE.zh-CN.md)
+- **规范性 JSON Schema 与状态接口**：[`schemas/task-packet.schema.json`](../schemas/task-packet.schema.json)、[`schemas/defect-record.schema.json`](../schemas/defect-record.schema.json)、[`schemas/run-manifest.schema.json`](../schemas/run-manifest.schema.json)、[`schemas/graph-state.d.ts`](../schemas/graph-state.d.ts)
+- **可直接复制的提示词**：[`prompts/hollow-meridian/orchestrator.md`](../prompts/hollow-meridian/orchestrator.md) 与 [`prompts/hollow-meridian/agents/`](../prompts/hollow-meridian/agents/)
+- **黄金参考运行样例**：[`examples/run-0001/`](../examples/run-0001/)

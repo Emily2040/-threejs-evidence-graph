@@ -10,6 +10,9 @@ English is normative. Canonical identifiers in code, schemas, commands, paths, a
 | control plane | 控制平面 | コントロールプレーン | 제어 계층 |
 | bounded specialist | 边界明确的专家智能体 | 作業範囲を限定したスペシャリスト | 작업 범위가 제한된 전문 에이전트 |
 | task packet | 任务包 | タスクパケット | 작업 패킷 |
+| defect record | 缺陷记录 | 欠陥記録 | 결함 기록 |
+| run manifest | 运行清单 | 実行マニフェスト | 실행 매니페스트 |
+| graph state | 图状态 | グラフ状態 | 그래프 상태 |
 | invariant | 不可变条件 | 不変条件 | 불변 조건 |
 | acceptance command | 验收命令 | 受け入れ判定コマンド | 인수 명령 |
 | release predicate | 发布谓词 | リリース判定条件 | 릴리스 조건 |
@@ -33,6 +36,7 @@ English is normative. Canonical identifiers in code, schemas, commands, paths, a
 | combat telegraph | 攻击预兆 | 攻撃予兆 | 공격 예고 |
 | active window | 生效判定窗口 | 攻撃判定時間 | 유효 판정 구간 |
 | recovery window | 收招与恢复窗口 | 硬直・回復時間 | 회복 가능 구간 |
+| parry / deflect | 招架 / 弹反 | パリィ / 受け流し | 패리 / 받아치기 |
 | poise | 韧性值 | 体勢値 | 강인도 |
 | guard break | 破防 | ガードブレイク | 가드 브레이크 |
 | relic | 遗物 | 遺物 | 유물 |
@@ -48,6 +52,13 @@ English is normative. Canonical identifiers in code, schemas, commands, paths, a
 | persistent state | 持久状态 | 永続状態 | 영속 상태 |
 | transient state | 瞬时状态 | 一時状態 | 일시 상태 |
 | concept artwork | 概念美术 | コンセプトアート | 콘셉트 아트 |
+| Three.js Shading Language (TSL) | Three.js 着色器语言 (TSL) | Three.js シェーディング言語 (TSL) | Three.js 셰이딩 언어 (TSL) |
+| WebGPURenderer | WebGPU 渲染器 (`WebGPURenderer`) | WebGPU レンダラー (`WebGPURenderer`) | WebGPU 렌더러 (`WebGPURenderer`) |
+| PostProcessing | 节点后处理管线 (`THREE.PostProcessing`) | ノード後処理パイプライン (`THREE.PostProcessing`) | 노드 후처리 파이프라인 (`THREE.PostProcessing`) |
+| compileAsync | 异步着色器预编译 (`compileAsync`) | 非同期シェーダー事前コンパイル (`compileAsync`) | 비동기 셰이더 사전 컴파일 (`compileAsync`) |
+| InstancedMesh / BatchedMesh | 实例化网格 / 批处理网格 | インスタンス化メッシュ / バッチメッシュ | 인스턴스 메시 / 배치 메시 |
+| OfflineAudioContext | 离线音频上下文 (`OfflineAudioContext`) | オフライン音声コンテキスト (`OfflineAudioContext`) | 오프라인 오디오 컨텍스트 (`OfflineAudioContext`) |
+| integrated loudness (LUFS) / true peak (dBTP) | 综合响度 (LUFS) / 真峰值 (dBTP) | 統合ラウドネス (LUFS) / トゥルーピーク (dBTP) | 통합 라우드니스 (LUFS) / 트루 피크 (dBTP) |
 
 ## Proper nouns retained in English
 

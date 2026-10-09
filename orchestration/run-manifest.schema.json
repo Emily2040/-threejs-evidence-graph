@@ -1,0 +1,323 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Emily2040/-threejs-evidence-graph/schemas/run-manifest.schema.json",
+  "title": "RunManifest",
+  "description": "Normative Evidence Graph v2.0 RunManifest contract recording determinism regime, metrics, critic verdicts, cost ledger, and human sign-off.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id",
+    "git_commit",
+    "three_version",
+    "determinism_regime",
+    "backend",
+    "seed",
+    "viewport",
+    "device_tier",
+    "scenarios",
+    "metrics",
+    "critic_verdicts",
+    "human_signoff",
+    "cost_ledger",
+    "provenance",
+    "verdict"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-[0-9]{4,}$"
+    },
+    "git_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{7,40}$"
+    },
+    "three_version": {
+      "type": "string",
+      "const": "0.185.0"
+    },
+    "determinism_regime": {
+      "type": "string",
+      "enum": [
+        "A-PinnedBrowser",
+        "B-CrossPlatform"
+      ]
+    },
+    "backend": {
+      "type": "string",
+      "enum": [
+        "webgpu",
+        "webgl2-fallback"
+      ]
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "viewport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height",
+        "device_pixel_ratio"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 320
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 240
+        },
+        "device_pixel_ratio": {
+          "type": "number",
+          "minimum": 1.0
+        }
+      }
+    },
+    "device_tier": {
+      "type": "string",
+      "enum": [
+        "tier-1-discrete-gpu",
+        "tier-2-integrated-gpu",
+        "ci-headless-swiftshader"
+      ]
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "scenario_id",
+          "seed",
+          "state_hash",
+          "audio_hash",
+          "geometry_hash",
+          "passed"
+        ],
+        "properties": {
+          "scenario_id": {
+            "type": "string"
+          },
+          "relic_branch": {
+            "type": "string",
+            "enum": [
+              "none",
+              "brass_vow",
+              "ash_thread",
+              "vacant_name"
+            ]
+          },
+          "seed": {
+            "type": "integer"
+          },
+          "state_hash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "audio_hash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "geometry_hash": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "passed": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "frame_time_p50_ms",
+        "frame_time_p95_ms",
+        "frame_time_p99_ms",
+        "max_draw_calls",
+        "max_triangles",
+        "gpu_memory_mb",
+        "integrated_lufs",
+        "true_peak_dbtp"
+      ],
+      "properties": {
+        "frame_time_p50_ms": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 16.6
+        },
+        "frame_time_p95_ms": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 16.6
+        },
+        "frame_time_p99_ms": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 22.0
+        },
+        "max_draw_calls": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 300
+        },
+        "max_triangles": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 500000
+        },
+        "gpu_memory_mb": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 512
+        },
+        "integrated_lufs": {
+          "type": "number",
+          "minimum": -24.0,
+          "maximum": -14.0
+        },
+        "true_peak_dbtp": {
+          "type": "number",
+          "maximum": -1.0
+        }
+      }
+    },
+    "critic_verdicts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "visual_critic",
+        "audio_critic",
+        "gameplay_critic",
+        "provenance_critic"
+      ],
+      "properties": {
+        "visual_critic": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "fail"
+          ]
+        },
+        "audio_critic": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "fail"
+          ]
+        },
+        "gameplay_critic": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "fail"
+          ]
+        },
+        "provenance_critic": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "fail"
+          ]
+        }
+      }
+    },
+    "human_signoff": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authority",
+        "status",
+        "signed_at"
+      ],
+      "properties": {
+        "authority": {
+          "type": "string",
+          "minLength": 2
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "approved",
+            "pending",
+            "rejected"
+          ]
+        },
+        "signed_at": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "cost_ledger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "total_tokens",
+        "wall_clock_seconds",
+        "subagent_invocations",
+        "repair_cycles"
+      ],
+      "properties": {
+        "total_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "wall_clock_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "subagent_invocations": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "repair_cycles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "external_network_requests",
+        "downloaded_assets_count",
+        "procedural_generators_verified"
+      ],
+      "properties": {
+        "external_network_requests": {
+          "type": "integer",
+          "const": 0
+        },
+        "downloaded_assets_count": {
+          "type": "integer",
+          "const": 0
+        },
+        "procedural_generators_verified": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "accepted",
+        "rejected",
+        "rollback_triggered"
+      ]
+    }
+  }
+}

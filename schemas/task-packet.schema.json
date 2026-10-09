@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Emily2040/-threejs-evidence-graph/schemas/task-packet.schema.json",
+  "title": "TaskPacket",
+  "description": "Normative Evidence Graph v2.0 TaskPacket contract shared by Three.js Evidence Graph Operational Manual v2.0 and The Hollow Meridian v1.0.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "packet_id",
+    "run_id",
+    "node",
+    "owner_agent",
+    "goal",
+    "allowed_paths",
+    "forbidden_paths",
+    "inputs",
+    "required_outputs",
+    "acceptance_commands",
+    "critic_gates",
+    "max_repair_iterations",
+    "budget"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "packet_id": {
+      "type": "string",
+      "pattern": "^TP-[0-9]{4,}-[A-Z0-9_-]+$",
+      "description": "Unique task packet identifier for the run and graph node."
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-[0-9]{4,}$",
+      "description": "Evidence run identifier matching examples/run-XXXX or evidence/run-XXXX."
+    },
+    "node": {
+      "type": "string",
+      "enum": [
+        "N00_BRIEF",
+        "N01_CONTRACTS",
+        "N02_SCAFFOLD",
+        "N03_ASSET_COMPILER",
+        "N04_WORLD_GRAPH",
+        "N05_RENDER_PIPELINE",
+        "N06A_GAMEPLAY_COMBAT",
+        "N06B_AUDIO_SYNTH",
+        "N07_UI_HUD_A11Y",
+        "N08_TELEMETRY_HARNESS",
+        "N09_REPLAY_RUNNER",
+        "N10_PERF_GATE",
+        "N11_VISUAL_AUDIO_CRITIC",
+        "N12_PROVENANCE_AUDIT",
+        "N13_REPAIR_ROUTER",
+        "N14_RELEASE_CANDIDATE"
+      ],
+      "description": "Canonical v2.0 Evidence Graph node identifier (N00..N14)."
+    },
+    "owner_agent": {
+      "type": "string",
+      "enum": [
+        "orchestrator",
+        "combat_gameplay",
+        "world_quest",
+        "procedural_art_vfx",
+        "procedural_audio",
+        "ui_hud_accessibility",
+        "qa_perf_playwright",
+        "independent_critic"
+      ],
+      "description": "Single write-owning agent role for this TaskPacket."
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 20
+    },
+    "allowed_paths": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 2
+      }
+    },
+    "forbidden_paths": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 2
+      }
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_outputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "acceptance_commands": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "critic_gates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "max_repair_iterations": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_wall_clock_minutes",
+        "max_subagent_calls",
+        "max_tokens"
+      ],
+      "properties": {
+        "max_wall_clock_minutes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 240
+        },
+        "max_subagent_calls": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 64
+        },
+        "max_tokens": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 2000000
+        }
+      }
+    },
+    "domain_parameters": {
+      "type": "object",
+      "description": "Optional game-specific constraints (such as relic IDs, boss phases, or seed overrides)."
+    }
+  }
+}

@@ -1,5 +1,5 @@
 # Three.js Evidence Graph
-<!-- source_version: 2026.07.3; translation_status: unreviewed; language: zh-CN -->
+<!-- source_version: 2026.07.4; translation_status: reviewed; language: zh-CN -->
 
 面向源码生成型 Three.js 垂直切片、由证据驱动的多智能体生产体系，并以 *The Hollow Meridian* 作为 RPG 应用规范。
 
@@ -58,7 +58,11 @@ flowchart TD
 11. **性能分布。** 该方法评估帧时间百分位数、长帧、CPU 与 GPU 成本、内存增长、编译停顿及渲染器统计信息，而非仅依赖平均 FPS。
 12. **算力经济性。** 机械检查不使用模型。模型调用按任务价值进行路由，并记录在运行级成本账本中。
 
-本手册包含一份 v1 至 v2 缺陷账本、一个包含 15 个节点的控制图、一个由四部分组成的编排器提示词，以及用于任务包、缺陷记录与运行清单的 draft-07 schema。
+本手册包含一份 v1 至 v2 缺陷账本、一个包含 15 个节点的控制图、一个由四部分组成的编排器提示词，以及用于任务包、缺陷记录与运行清单的 JSON Schema（在 [`schemas/`](schemas/) 中已升级为 Draft 2020-12）。
+
+> **深入了解架构：** 阅读[《Three.js Evidence Graph v2.0》中文导读指南](docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md)与[技术勘误与 v2.0 对齐说明](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)，了解 15 节点拓扑（`N00_BRIEF` 至 `N14_RELEASE_CANDIDATE`）、双重确定性制度、独立 Draft 2020-12 JSON Schema（[`schemas/`](schemas/)）、黄金参考样例（[`examples/run-0001/`](examples/run-0001/)）以及可直接复制的提示词（[`prompts/`](prompts/)）。
+>
+> Evidence Graph 导读指南：[English](docs/EVIDENCE_GRAPH_GUIDE.md) | [简体中文](docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [日本語](docs/EVIDENCE_GRAPH_GUIDE.ja.md) | [한국어](docs/EVIDENCE_GRAPH_GUIDE.ko.md)
 
 ## The Hollow Meridian 概览
 
@@ -87,48 +91,31 @@ flowchart TD
 
 其生产提示词为架构、游戏玩法与战斗、程序化世界构建、敌人和首领行为、RPG 与 UI 系统、音频和特效、集成、QA 与性能、视觉评审以及溯源审计定义了专家角色。它还定义了固定时间步模拟、回放捕获、状态哈希、稳定诊断 URL、证据文件夹、有边界的修复任务、隔离的候选版本、回滚以及最终发布关卡。
 
-### 十段路线与核心玩法闭环
+### 玩家的核心体验与流程
 
-路线的十个节拍均由作者明确编排，而不是交给随机生成决定：
+路线始于 Ash Court，在此通过移动、交互、Mnemonic Keeper 以及休息检查点确立世界基调。玩家接受双印记任务，穿过 Orrery Bridge 战斗教学，探索 Archive Nave，解开确定性的三环对齐空间谜题，在 Bell Foundry 击败 Bell Sentinel，选择一件改变战斗决策的遗物，开启 Meridian Chamber，迎战两阶段首领 *The Bell Without a Name*，在束缚（bind）或释放（release）被窃真名之间做出抉择，并在保存结局后果后返回安全枢纽。
 
-1. 在 **Ash Court** 学习移动、镜头、交互与检查点；
-2. 接受任务并开启寻找两枚方位印记的路线；
-3. 在 **Orrery Bridge** 遭遇 Ashbound Skirmisher，学习锁定、闪避、防御与招架；
-4. 穿过 **Archive Nave**，应对 Lantern Wraith 的远程压力并发现可选背景信息；
-5. 对齐三个 Meridian 圆环，解开确定性的空间谜题并取得 North Seal；
-6. 在 **Bell Foundry** 击破 Bell Sentinel 的防御并取得 Depth Seal；
-7. 从三件遗物中选择一件，使实际战斗决策发生改变；
-8. 开启 Meridian Chamber，通过一段简短且可跳过的生成式过场揭示首领；
-9. 与 **The Bell Without a Name** 完成一场具有空间规则变化的两阶段战斗；
-10. 选择束缚或释放，保存结局后果并返回安全枢纽。
+在每时每刻的循环中，玩家借助建筑与光线辨认方向，管理距离与耐力，在攻击或防御之间做出承诺，通过精准时机积累 Resonance，使用 Echo Brand 或经遗物调整的动作，解决经作者编排的空间阻碍，并在检查点保存关键状态。战斗融合轻重攻击、防御、受控招架窗口、锁定、耐力与 Resonance；三种敌人原型分别教授距离控制、远程压迫与破防，三环谜题具备确定性解法，三选一遗物则实质性改变战斗决策。
 
-每时每刻的玩法循环是：借助建筑与 Name-light 辨认方向，读取敌人或交互信息，在移动、防御与攻击之间做出承诺，管理耐力，通过有效行动积累 Resonance，再使用 Echo Brand 或经遗物修改的能力推进任务。谜题不是装饰性机关，而是一个由种子与状态控制、结果可复现的三环对齐系统。
-
-战斗采用规模有限但意图清晰的动作集，包括轻攻击连段、蓄力重击、闪避、防御、限定窗口招架、锁定及耐力约束。三种敌人分别教授距离与时机、远程压力与横向移动、防御压力与架势击破。遗物选择不只是数值标签，而会修改真实的战斗选项。版本化本地存档记录任务、印记、遗物、消耗品、检查点、设置、控制映射、完成状态与结局选择。
-
-首领不是普通敌人的放大版本。**The Bell Without a Name** 具有独立结构、四种可读攻击与 55% 生命值时的受保护阶段转换。第二阶段引入旋转的子午线危险区域和可见安全扇区，在改变空间与节奏的同时保留玩家已经学会的战斗规则。
-
-> **规范与实现的区别**
->
-> 上述内容是产品与工程契约，说明实现必须满足什么条件以及需要提交哪些证据。它不是可游玩的实现、实际游戏截图、性能实测或已通过验收的构建版本。本仓库目前提供的是设计规范与生产控制系统，而不是已经完成的游戏。
+版本化本地存档结构（save schema）保存任务状态、两枚印记、所选遗物、消耗品、检查点、完成状态、结局选择、设置与重映射键位。首领并非普通敌人的放大版，而是拥有独立攻击语法、韧性（poise）、55% 生命值受保护阶段转换及清晰安全扇区的独立系统。上述内容均用于定义目标游戏的**规范与验收契约**；本仓库提供独立 Schema、提示词与 `examples/run-0001/` 黄金参考样例，不包含可游玩的运行时构建版本。
 
 ## 两个版本之间的关系
 
-应将 *The Hollow Meridian* 理解为源自 Evidence Graph 谱系、与核心理念对齐的参考规范，而不是已通过认证、完整实现每项 v2 规则的版本。
+应将 *The Hollow Meridian* 理解为源自 Evidence Graph 谱系、与核心理念对齐的参考规范，而不是已通过认证、完整实现每项 v2 规则的版本。跨出版物的 v2.0 契约统一详见 [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) 与 [`schemas/`](schemas/)。
 
 | 领域 | Evidence Graph v2.0 | Hollow Meridian v1.0 |
 |---|---|---|
 | 产品范围 | 建议采用非常窄的 45 至 90 秒基准切片 | 规定一条高目标的 10 至 14 分钟 RPG 路线 |
-| 证据制度 | 明确区分逐比特精确与基于容差的制度 | 已包含确定性证据，但两种制度尚未完整整合 |
+| 证据制度 | 明确区分逐比特精确与基于容差的制度 | 已包含确定性证据，并在 [`schemas/`](schemas/) 中与双重制度统一 |
 | 评审控制 | 包含校准、双顺序评审及漂移复查 | 已有独立评审者，但校准尚未完整规定 |
-| 算力经济性 | 包含模型分级和强制成本账本 | 尚未整合 |
-| 人类权限 | 具名主管拥有有边界的修订权 | 尚未整合 |
-| 跨引擎确定性 | 对精确声明要求使用受控的确定性数学内核 | 尚未完整规定 |
-| 音频证据 | 包含离线渲染、响度、真峰值、信号丢失及语音预算关卡 | 已规定程序化音频；仍需更新同等的测量关卡 |
+| 算力经济性 | 包含模型分级和强制成本账本 | 已在 [`schemas/run-manifest.schema.json`](schemas/run-manifest.schema.json) 中统一 |
+| 人类权限 | 具名主管拥有有边界的修订权 | 已在 [`schemas/run-manifest.schema.json`](schemas/run-manifest.schema.json) 中统一 |
+| 跨引擎确定性 | 对精确声明要求使用受控的确定性数学内核 | 已在 [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) 中规定 |
+| 音频证据 | 包含离线渲染、响度、真峰值、信号丢失及语音预算关卡 | 已规定程序化音频；16 位 PCM 量化规则详见 [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) |
 | 无障碍 | 由证据支持的发布关卡 | 已包含大量无障碍要求 |
 | 溯源 | 审计源文件、依赖项、构建包、网络及输出 | 已包含严格的源码生成型媒体与溯源规则 |
 
-这一区别至关重要。未来修订可以让 RPG 规范实现完全对齐，而不必假装目前已经具备这种兼容性。
+这一区别至关重要。配套勘误表与独立 Schema 在不掩盖历史 PDF 版本差异的前提下完成了两部作品的契约对齐。
 
 ## 此处的“AAA 级”意味着什么
 
@@ -138,8 +125,8 @@ flowchart TD
 
 ## 技术基线与边界
 
-- 两份出版物以 **Three.js r185 baseline** 为编写基线。
-- WebGPU/TSL 与 WebGL 2 通过渲染器决策关卡进行评估。
+- 两份出版物以 **Three.js r185 baseline**（`0.185.0`）为编写基线。
+- WebGPU/TSL 与 WebGL 2 通过渲染器决策关卡进行评估（主路径采用 `THREE.WebGPURenderer`，回退路径采用 `{ forceWebGL: true }`；详见 [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)）。
 - “No downloaded assets”适用于最终可见与可听的媒体。仍允许使用锁定版本的开发依赖、浏览器 API、构建工具、测试工具及性能分析器，但必须接受审计。
 - 逐比特精确声明仅适用于受控数据类别。浏览器与 GPU 输出会因操作系统、驱动程序、硬件、浏览器和设置而有所不同。
 - 文档中的无障碍要求属于工程目标，并不构成正式的 WCAG 合规声明。
@@ -150,54 +137,82 @@ flowchart TD
 
 ### 技术主管与研究人员
 
-1. 阅读 Evidence Graph 缺陷账本与文档状态页。
-2. 审阅控制图、权限层级、证据制度、评审校准、操作流程及规范性 schema。
+1. 阅读 Evidence Graph 缺陷账本、[技术勘误与 v2.0 对齐说明](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)与[文档发布状态](docs/PUBLICATION_STATUS.md)。
+2. 审阅控制图、权限层级、证据制度、评审校准、操作流程及 [`schemas/`](schemas/) 中的规范性 schema。
 3. 在将 *The Hollow Meridian* 作为应用示例之前，先阅读上方兼容性表格。
 
 ### 游戏与技术美术团队
 
 1. 阅读 *The Hollow Meridian* 游戏契约、路线、体验支柱与反粗制滥造规则。
 2. 继续阅读游戏系统、程序化媒体策略和 QA 关卡。
-3. 只有在仓库权威文档与验收命令已经存在后，才使用专家任务卡。
+3. 只有在仓库权威文档与验收命令已经存在后，才使用 [`prompts/hollow-meridian/agents/`](prompts/hollow-meridian/agents/) 中的专家任务卡。
 
 ### 智能体系统构建者
 
-1. 从 Evidence Graph 编排器提示词与 schema 开始。
-2. 在实现模型路由之前，先实现验证与状态转移。
-3. 增加一次真实的端到端运行，包含已捕获的产物、一个已修复缺陷、一次回滚、帧时间分布、成本核算，以及一个已接受提交。
+1. 从 [`prompts/`](prompts/) 中的独立编排器提示词与 [`schemas/`](schemas/) 中的 Draft 2020-12 schema 开始。
+2. 检查 [`examples/run-0001/`](examples/run-0001/) 中的黄金参考样例并运行 `python scripts/verify_release.py`。
+3. 增加一次真实的端到端运行时实现，包含已捕获的产物、一个已修复缺陷、一次回滚、帧时间分布、成本核算，以及一个已接受提交。
 
 ## 仓库结构
 
 ```text
 .
 ├── .gitattributes
+├── .github/
+│   └── workflows/
+│       └── verify-release.yml
 ├── AUTHORS.md
 ├── LICENSE
 ├── README.md
 ├── README.zh-CN.md
 ├── README.ja.md
 ├── README.ko.md
+├── agents/
 ├── assets/
-│   ├── evidence-graph-control-hero.jpg
-│   ├── hollow-meridian-boss-hero.jpg
-│   ├── hollow-meridian-world-hero.jpg
 │   ├── publication-set.jpg
 │   ├── readme-hero.jpg
 │   ├── readme-hero.prompt.md
 │   ├── section-heroes.prompt.md
+│   ├── evidence-graph-control-hero.jpg
+│   ├── hollow-meridian-world-hero.jpg
+│   ├── hollow-meridian-boss-hero.jpg
 │   ├── threejs-evidence-graph-cover.jpg
 │   └── the-hollow-meridian-cover.jpg
-├── publications/
-│   ├── threejs-evidence-graph-operational-manual-v2.0-en.pdf
-│   └── the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf
 ├── docs/
+│   ├── EVIDENCE_GRAPH_GUIDE.md
+│   ├── EVIDENCE_GRAPH_GUIDE.zh-CN.md
+│   ├── EVIDENCE_GRAPH_GUIDE.ja.md
+│   ├── EVIDENCE_GRAPH_GUIDE.ko.md
 │   ├── GLOSSARY.md
 │   ├── PUBLICATION_STATUS.md
+│   ├── TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md
 │   ├── THE_HOLLOW_MERIDIAN_GUIDE.md
 │   ├── THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md
 │   ├── THE_HOLLOW_MERIDIAN_GUIDE.ja.md
 │   ├── THE_HOLLOW_MERIDIAN_GUIDE.ko.md
 │   └── TRANSLATION_POLICY.md
+├── examples/
+│   └── run-0001/
+│       ├── defect-record.json
+│       ├── run-manifest.json
+│       └── task-packet.json
+├── orchestration/
+├── prompts/
+│   ├── evidence-graph/
+│   │   └── orchestrator.md
+│   └── hollow-meridian/
+│       ├── orchestrator.md
+│       └── agents/
+├── publications/
+│   ├── threejs-evidence-graph-operational-manual-v2.0-en.pdf
+│   └── the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf
+├── schemas/
+│   ├── defect-record.schema.json
+│   ├── graph-state.d.ts
+│   ├── run-manifest.schema.json
+│   └── task-packet.schema.json
+├── scripts/
+│   └── verify_release.py
 ├── CHANGELOG.md
 ├── CITATION.cff
 ├── CITATIONS.md
@@ -209,25 +224,20 @@ flowchart TD
 
 ## 当前路线图
 
-下一个最有价值的版本不是更长的提示词，而是一个可执行的配套层，使现有契约能够接受测试：
+`2026.07.4` 版本已提供独立的 Draft 2020-12 JSON Schema（`schemas/*.schema.json`）、`schemas/graph-state.d.ts`、可直接复制的编排器与专家提示词（`prompts/`）、黄金参考契约样例（`examples/run-0001/`）以及自动化发布验证器（`scripts/verify_release.py`）。面向实时运行时测试工具链的后续里程碑包括：
 
-- 规范的机器可读 schema；
-- 图状态与转移谓词；
-- 任务包与缺陷验证器；
 - 渲染器证明工具链；
-- 确定性回放与状态哈希；
+- 确定性回放与状态哈希运行时；
 - 资产与溯源扫描器；
 - Playwright 捕获配置；
 - 评审校准夹具；
-- 运行清单与成本账本；
-- 一个完整的 `run-0001` 证据包；
-- 一次已接受修复、一个已拒绝候选版本及一次已验证回滚。
+- 一次已接受运行时修复、一个已拒绝候选版本及一次已验证回滚。
 
-在此之前，本仓库所主张的是设计与规范价值，而非经实证的生产成果。
+在实时运行时构建存在之前，本仓库所主张的是设计、规范与契约 Schema 价值，而非经实证的游戏运行时基准测试结果。
 
 ## 翻译政策
 
-英文版是规范性版本。简体中文、日文与韩文 README 均提供完整的仓库说明；*The Hollow Meridian* 另有对应的本地化游戏说明指南。中文读者可从[《The Hollow Meridian》中文游戏说明指南](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md)深入了解十段路线、玩法系统与生产契约。两份出版物 PDF 目前仍仅提供英文版，配套指南不应被理解为完整 81 页 PDF 的翻译。
+英文版是规范性版本。本仓库说明指南、《Three.js Evidence Graph v2.0》配套导读指南以及《The Hollow Meridian》扩展游戏说明指南均提供简体中文、日文与韩文版本。两份出版物 PDF（共 `145` 页，`64 + 81` 页）目前仍以英文版为规范正文，配套指南不应被理解为完整 `145` 页 PDF 的逐字翻译。
 
 出版物标题、游戏专有名称、文件名、命令、schema key、图节点标识符、路径、enum value 及代码标识符均保留规范英文形式，以便与英文 PDF、仓库产物和诊断证据进行追踪对应。
 
@@ -235,7 +245,7 @@ flowchart TD
 
 ## 完整性
 
-[SHA256SUMS.txt](SHA256SUMS.txt) 中的 SHA-256 值覆盖本次发布的全部 PDF 与 JPEG 资源。请在仓库根目录运行 `sha256sum -c SHA256SUMS.txt`，以验证全部 9 个二进制文件。
+[SHA256SUMS.txt](SHA256SUMS.txt) 中的 SHA-256 值覆盖本次发布的全部 PDF、JPEG 美术资源、独立 JSON Schema、黄金参考样例、提示词与文档文件（共 `39` 个受控文件）。请在仓库根目录运行 `sha256sum -c SHA256SUMS.txt` 与 `python scripts/verify_release.py`，以验证完整发布包。
 
 ## 贡献
 
