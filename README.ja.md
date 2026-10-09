@@ -34,7 +34,11 @@
 
 ![全4巻仕様書スイート：Three.js Evidence Graph v2.0、『虚ろの子午線』、『硝子の納骨堂』、『ペリヘリオン・ブリーチ』](assets/publication-set.jpg)
 
-*本画像は本リポジトリに収録された4冊のPDF仕様書のコンポジット図版です。すべてのカバーアートおよびセクションヒーロー画像は仕様書向けのコンセプトアートであり、完成した実機ビルドのスクリーンショットやベンチマーク証跡ではありません。*
+| 第01巻 · 制御プレーンマニュアル | 第02巻 · アクションRPG | 第03巻 · 鑑識ミステリーホラー | 第04巻 · SFシューター・アドベンチャー |
+| :---: | :---: | :---: | :---: |
+| [![Three.js Evidence Graph v2.0 カバー](assets/threejs-evidence-graph-cover.jpg)](publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf)<br/>**Evidence Graph v2.0**<br/>`64頁` · [日本語ガイド](docs/EVIDENCE_GRAPH_GUIDE.ja.md) | [![虚ろの子午線 カバー](assets/the-hollow-meridian-cover.jpg)](publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)<br/>**『虚ろの子午線』**<br/>`81頁` · [日本語ガイド](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [![硝子の納骨堂 カバー](assets/the-glass-ossuary-cover.jpg)](publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)<br/>**『硝子の納骨堂』**<br/>`36頁` · [日本語ガイド](docs/THE_GLASS_OSSUARY_GUIDE.ja.md) | [![ペリヘリオン・ブリーチ カバー](assets/perihelion-breach-cover.jpg)](publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)<br/>**『ペリヘリオン・ブリーチ』**<br/>`36頁` · [日本語ガイド](docs/PERIHELION_BREACH_GUIDE.ja.md) |
+
+*本画像は本リポジトリに収録された4冊のPDF仕様書のコンポジット図版およびカバーギャラリーです。すべてのカバーアートおよびセクションヒーロー画像は仕様書向けのコンセプトアートであり、完成した実機ビルドのスクリーンショットやベンチマーク証跡ではありません。*
 
 | 巻 | 仕様書タイトル・ジャンル | PDFアーティファクト（`publications/`） | ページ数 | サイズ | 4言語ネイティブガイド（`docs/`） | プロンプト・検証フィクスチャ |
 | :-: | :--- | :--- | ---: | ---: | :--- | :--- |
@@ -47,7 +51,7 @@
 
 ## コアアーキテクチャ：15ノード・エビデンスグラフ（`N00` .. `N14`）
 
-![15ノード・エビデンスグラフトポロジーと3ジャンル垂直スライス構成図](assets/svg/architecture-pipeline.svg)
+![15ノード・エビデンスグラフトポロジーと3ジャンル垂直スライス構成図](assets/svg/architecture-pipeline-ja.svg)
 
 単一のチャットスレッドに企画・実装・シェーダー記述・品質判定をすべて委ねる従来のLLMゲーム生成では、コンテキストの肥大化に伴う仕様ドリフトやシェーダーコンパイルスパイク、根拠のない自己合格宣言が頻発します。**Three.js Evidence Graph v2.0** は、権限と検証を以下の4層に分離することでこの構造的欠陥を解決します。
 
@@ -88,13 +92,13 @@
 | :---: | :---: |
 | ![虚ろの子午線 ワールドルート](assets/hollow-meridian-world-hero.jpg) | ![名もなき鐘 ボス戦](assets/hollow-meridian-boss-hero.jpg) |
 
+![Game 01『虚ろの子午線』60 Hz戦闘フレーム表・マテリアルカラーパレット・テレメトリ図](assets/svg/game-01-telemetry-ja.svg)
+
 失われた都市の「真名」を保管していた巨大な廃墟観測所を舞台に、プレイヤーは **The Cartographer（測量師）** として5つの空間を踏破します。60 Hz固定ティックによる7フレームのジャストパリィ判定、スタミナ管理、3連リングの空間パズル、聖堂での遺物（Relic）選択を経て、二段階ボス **The Bell Without a Name（名もなき鐘）** に挑みます。
 
 <details>
 <summary><strong>『虚ろの子午線』10ビート進行ルート・60 Hz戦闘フレーム表・遺物分岐を展開</strong></summary>
 
-| アクション | 発生 | 持続 / 無敵 | 硬直 | 全体フレーム | 消費・効果 |
-| :--- | :--- | :--- | :--- | :--- | :--- |
 - **設計済み10ビート進行ルート（`recover_orientation`）**：`01 Ash Court Arrival`（拠点・`Mnemonic Keeper`）-> `02 Quest Acceptance`（2つの方位印クエスト）-> `03 Orrery Bridge Tutorial`（`Ashbound Skirmisher` 戦）-> `04 Archive Nave`（`Lantern Wraith` 戦）-> `05 Meridian Alignment`（3連リングパズル -> `North Seal`）-> `06 Bell Foundry`（`Bell Sentinel` 撃破 -> `Depth Seal`）-> `07 Shrine Choice`（3種の遺物：`brass_vow` / `ash_thread` / `vacant_name`）-> `08 Chamber Opening` -> `09 The Unnamed Bell`（`850 HP` 二段階ボス戦）-> `10 Bind or Release`（`CHOICE_BIND` / `CHOICE_RELEASE`）。
 
 | アクション | 発生 | 持続 / 無敵 | 硬直 | 全体フレーム | 消費・効果 |
@@ -118,6 +122,8 @@
 | 屈折回廊での光学鑑識 コンセプトプレート | 二段階ボス「硝子の中の聖歌隊」コンセプトプレート |
 | :---: | :---: |
 | ![硝子の納骨堂 現場鑑識](assets/glass-ossuary-investigation-hero.jpg) | ![硝子の中の聖歌隊 ボス戦](assets/glass-ossuary-apparition-hero.jpg) |
+
+![Game 02『硝子の納骨堂』60 Hz鑑識器具フレーム表・マテリアルカラーパレット・テレメトリ図](assets/svg/game-02-telemetry-ja.svg)
 
 1894年秋の暴風雨の夜、音響記録保管官 **Clara Vane** は、フレネル灯台と地下の「骨硝子（ボーン・ガラス）」納骨堂が融合したサン＝ヴァーヌ沿岸観測所へ足を踏み入れます。銃器やスクリプト演出のジャンプスケアに頼らず、`二焦点真鍮ルーペ`、`蝋管蓄音機`、`銀塩フェロタイプ乾板カメラ` の3つの鑑識器具と `6ノード推理ボード` を駆使して海難事件の真相を解明し、最深部で **The Choir in the Glass（硝子の中の聖歌隊）** と対峙します。
 
@@ -148,6 +154,8 @@
 | 太陽中継ステーション「イカロス9号」コンセプトプレート | 二段階ボス「ヘリアーク・ウォーデン」コンセプトプレート |
 | :---: | :---: |
 | ![ペリヘリオン・ブリーチ 軌道セクター](assets/perihelion-breach-world-hero.jpg) | ![ヘリアーク・ウォーデン ボス戦](assets/perihelion-breach-combat-hero.jpg) |
+
+![Game 03『ペリヘリオン・ブリーチ』60 Hz銃器・グラップルフレーム表・マテリアルカラーパレット・テレメトリ図](assets/svg/game-03-telemetry-ja.svg)
 
 太陽からわずか `0.09 AU` の近日点軌道を周回する巨大太陽中継ステーション「イカロス9号」を舞台に、先遣隊員 **Soren Kestrel** が戦術AI **Vesper** と共に熱暴走した防衛グリッドを突破します。`Kestrel-9 ツインコイル・カービン` や貫通電磁スラッグを撃ち出す `Helios Scatter-Rail`、`ticks 14..20` の受付ウィンドウで熱量を一掃する `Thermal Vent Reload`、`18.0 m/s` の `Magnetic Grapple` スリング機動を駆使し、二段階ボス **The Heliarch Warden（ヘリアーク・ウォーデン）** を撃破します。
 
@@ -203,7 +211,7 @@ threejs-evidence-graph/
 ├── prompts/                                                          # オーケストレーター4種＋専門サブエージェントカード21枚
 ├── examples/                                                         # スキーマ検証済みゴールデンフィクスチャ（run-0001..0003）
 ├── docs/                                                             # 4言語ネイティブガイド16冊＋エラッタ＋ガバナンス文書
-├── assets/                                                           # EXIFゼロJPEG 13枚＋カスタムタイポグラフィSVG 5枚
+├── assets/                                                           # EXIFゼロJPEG 13枚＋カスタムネイティブSVG 21枚
 ├── scripts/verify_release.py                                         # 自動ハッシュ・スキーマ・PDF・EXIF・リンク検証スクリプト
 ├── SHA256SUMS.txt                                                    # 全リリース資産のSHA-256チェックサム（LF改行）
 └── release-manifest.json                                             # 機械可読リリースマニフェスト

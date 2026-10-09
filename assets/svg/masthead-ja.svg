@@ -6,8 +6,9 @@
       <stop offset="100%" stop-color="#091019"/>
     </linearGradient>
     <linearGradient id="goldCyan" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#D49B4B"/>
-      <stop offset="50%" stop-color="#45B29D"/>
+      <stop offset="0%" stop-color="#45B29D"/>
+      <stop offset="35%" stop-color="#D49B4B"/>
+      <stop offset="70%" stop-color="#4FA89B"/>
       <stop offset="100%" stop-color="#38C6D9"/>
     </linearGradient>
     <pattern id="archGrid" width="42" height="42" patternUnits="userSpaceOnUse">
@@ -21,65 +22,78 @@
   <rect x="0" y="0" width="1260" height="4" rx="2" fill="url(#goldCyan)"/>
 
   <!-- Decorative Orbital & Acoustic Telemetry Rings -->
-  <g transform="translate(1070, 102)" opacity="0.85">
-    <circle cx="0" cy="0" r="118" fill="none" stroke="#D49B4B" stroke-width="1.1" stroke-opacity="0.35" stroke-dasharray="6 4"/>
-    <circle cx="0" cy="0" r="84" fill="none" stroke="#45B29D" stroke-width="1.2" stroke-opacity="0.45"/>
-    <circle cx="0" cy="0" r="48" fill="none" stroke="#38C6D9" stroke-width="1.2" stroke-opacity="0.55"/>
-    <line x1="-132" y1="0" x2="132" y2="0" stroke="#243447" stroke-width="0.9"/>
-    <line x1="0" y1="-132" x2="0" y2="132" stroke="#243447" stroke-width="0.9"/>
-    <circle cx="0" cy="0" r="5" fill="#D49B4B"/>
-    <circle cx="59" cy="-59" r="4" fill="#45B29D"/>
-    <circle cx="-34" cy="34" r="3.5" fill="#38C6D9"/>
+  <g transform="translate(1118, 96)" opacity="0.85">
+    <circle cx="0" cy="0" r="106" fill="none" stroke="#D49B4B" stroke-width="1.1" stroke-opacity="0.32" stroke-dasharray="6 4"/>
+    <circle cx="0" cy="0" r="76" fill="none" stroke="#45B29D" stroke-width="1.2" stroke-opacity="0.42"/>
+    <circle cx="0" cy="0" r="44" fill="none" stroke="#38C6D9" stroke-width="1.2" stroke-opacity="0.52"/>
+    <line x1="-118" y1="0" x2="118" y2="0" stroke="#243447" stroke-width="0.9"/>
+    <line x1="0" y1="-118" x2="0" y2="118" stroke="#243447" stroke-width="0.9"/>
+    <line x1="-70" y1="34" x2="82" y2="-40" stroke="#D8564A" stroke-width="1.2" stroke-opacity="0.65"/>
+    <circle cx="0" cy="0" r="4.5" fill="#D49B4B"/>
+    <circle cx="53" cy="-53" r="3.8" fill="#45B29D"/>
+    <circle cx="-31" cy="31" r="3.5" fill="#38C6D9"/>
   </g>
 
   <!-- Eyebrow Pill -->
-  <rect x="48" y="30" width="12" height="12" rx="2" fill="#D49B4B"/>
-  <text x="68" y="40" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', monospace" font-size="11.5" font-weight="700" letter-spacing="1.8">EMILY PARADOX 技術アーカイブ // RELEASE 2026.07.5 // THREE.JS r185 決定論的マルチエージェント開発仕様</text>
+  <rect x="48" y="28" width="12" height="12" rx="2" fill="#D49B4B"/>
+  <text x="68" y="38" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="11.5" font-weight="700" letter-spacing="1.4">EMILY PARADOX 技術アーカイブ // RELEASE 2026.07.5 // THREE.JS r185 決定論的マルチエージェント開発仕様</text>
 
   <!-- Main Editorial Headline -->
-  <text x="48" y="92" fill="#F8FAFC" font-family="'Noto Serif JP', 'Source Han Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif" font-size="40" font-weight="700" letter-spacing="-0.4">Three.js エビデンスグラフ &amp; マルチジャンル開発仕様スイート</text>
-  <text x="48" y="134" fill="#38C6D9" font-family="'Noto Serif JP', 'Source Han Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif" font-size="28" font-weight="600">4冊のアーキテクチャ仕様書 · 3本の外部アセットゼロ垂直スライス · 4言語ネイティブ技術文書</text>
+  <text x="48" y="88" fill="#F8FAFC" font-family="'Noto Serif JP', 'Source Han Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif" font-size="36" font-weight="700" letter-spacing="-0.3">Three.js エビデンスグラフ &amp; マルチジャンル開発仕様スイート</text>
+  <text x="48" y="126" fill="#38C6D9" font-family="'Noto Serif JP', 'Source Han Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif" font-size="23.5" font-weight="600">4冊のアーキテクチャ仕様書 · 3本の外部アセットゼロ垂直スライス · 4言語ネイティブ技術文書</text>
 
   <!-- Subtitle -->
-  <text x="48" y="168" fill="#B8C4D4" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="14.5" font-weight="400">15ノードDAGオーケストレーション、WebGPURenderer + TSLシェーダー、Web Audio手続き型音響合成、JSON Schema検証ハーネスを統合。</text>
+  <text x="48" y="162" fill="#B8C4D4" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="13.5" font-weight="400">15ノードDAGオーケストレーション、WebGPURenderer + TSLシェーダー、Web Audio手続き型音響合成、JSON Schema検証ハーネスを統合。</text>
 
   <!-- Four Publication Cards -->
   
-  <g transform="translate(48, 204)">
-    <rect x="0" y="0" width="278" height="96" rx="6" fill="#101824" stroke="#243246" stroke-width="1.2"/>
-    <rect x="0" y="0" width="4" height="96" rx="2" fill="#D49B4B"/>
-    <text x="16" y="24" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', monospace" font-size="11" font-weight="700" letter-spacing="1.2">第1巻 · 64頁</text>
-    <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', monospace" font-size="10.5" font-weight="600" text-anchor="end">基盤アーキテクチャ</text>
-    <text x="16" y="52" fill="#F8FAFC" font-family="'Noto Serif JP', 'Source Han Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif" font-size="17.5" font-weight="700">Evidence Graph v2.0</text>
-    <text x="16" y="76" fill="#94A3B8" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="12" font-weight="500">15ノードDAG · 二重決定論レジーム · JSON Schema</text>
+  <g transform="translate(48, 198)">
+    <rect x="0" y="0" width="278" height="104" rx="7" fill="#0F1723" stroke="#243347" stroke-width="1.2"/>
+    <rect x="0" y="0" width="4" height="104" rx="2" fill="#45B29D"/>
+    <circle cx="16" cy="20" r="3.5" fill="#45B29D"/>
+    <text x="26" y="24" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="11" font-weight="700" letter-spacing="1.0">第1巻 · 64頁</text>
+    <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10.5" font-weight="600" text-anchor="end">基盤アーキテクチャ</text>
+    <text x="16" y="52" fill="#F8FAFC" font-family="'Noto Serif JP', 'Source Han Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif" font-size="17" font-weight="700">Evidence Graph v2.0</text>
+    <text x="16" y="73" fill="#B8C4D4" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11" font-weight="500">15ノードDAG · 二重決定論 · 3種Schema</text>
+    <rect x="16" y="82" width="246" height="15" rx="3" fill="#090E16" stroke="#1C293A" stroke-width="0.8"/>
+    <text x="22" y="93" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="600">全64頁 · SHA-256: d3830d41..</text>
   </g>
-  <g transform="translate(342, 204)">
-    <rect x="0" y="0" width="278" height="96" rx="6" fill="#101824" stroke="#243246" stroke-width="1.2"/>
-    <rect x="0" y="0" width="4" height="96" rx="2" fill="#45B29D"/>
-    <text x="16" y="24" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', monospace" font-size="11" font-weight="700" letter-spacing="1.2">第2巻 · 81頁</text>
-    <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', monospace" font-size="10.5" font-weight="600" text-anchor="end">三人称アクションRPG</text>
-    <text x="16" y="52" fill="#F8FAFC" font-family="'Noto Serif JP', 'Source Han Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif" font-size="17.5" font-weight="700">『虚ろの子午線』</text>
-    <text x="16" y="76" fill="#94A3B8" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="12" font-weight="500">Sable Veren · 60 Hzパリィ判定 · 5つの観測所エリア</text>
+  <g transform="translate(342, 198)">
+    <rect x="0" y="0" width="278" height="104" rx="7" fill="#0F1723" stroke="#243347" stroke-width="1.2"/>
+    <rect x="0" y="0" width="4" height="104" rx="2" fill="#D49B4B"/>
+    <circle cx="16" cy="20" r="3.5" fill="#D49B4B"/>
+    <text x="26" y="24" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="11" font-weight="700" letter-spacing="1.0">第2巻 · 81頁</text>
+    <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10.5" font-weight="600" text-anchor="end">三人称アクションRPG</text>
+    <text x="16" y="52" fill="#F8FAFC" font-family="'Noto Serif JP', 'Source Han Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif" font-size="17" font-weight="700">『虚ろの子午線』</text>
+    <text x="16" y="73" fill="#B8C4D4" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11" font-weight="500">Sable Veren · 60 Hzパリィ · 5エリア</text>
+    <rect x="16" y="82" width="246" height="15" rx="3" fill="#090E16" stroke="#1C293A" stroke-width="0.8"/>
+    <text x="22" y="93" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="600">全81頁 · SHA-256: c4f8fe83..</text>
   </g>
-  <g transform="translate(636, 204)">
-    <rect x="0" y="0" width="278" height="96" rx="6" fill="#101824" stroke="#243246" stroke-width="1.2"/>
-    <rect x="0" y="0" width="4" height="96" rx="2" fill="#C89B54"/>
-    <text x="16" y="24" fill="#C89B54" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', monospace" font-size="11" font-weight="700" letter-spacing="1.2">第3巻 · 36頁</text>
-    <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', monospace" font-size="10.5" font-weight="600" text-anchor="end">一人称ミステリーホラー</text>
-    <text x="16" y="52" fill="#F8FAFC" font-family="'Noto Serif JP', 'Source Han Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif" font-size="17.5" font-weight="700">『硝子の納骨堂』</text>
-    <text x="16" y="76" fill="#94A3B8" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="12" font-weight="500">Clara Vane · 音響鑑識ツール · 6ノード推理ボード</text>
+  <g transform="translate(636, 198)">
+    <rect x="0" y="0" width="278" height="104" rx="7" fill="#0F1723" stroke="#243347" stroke-width="1.2"/>
+    <rect x="0" y="0" width="4" height="104" rx="2" fill="#4FA89B"/>
+    <circle cx="16" cy="20" r="3.5" fill="#4FA89B"/>
+    <text x="26" y="24" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="11" font-weight="700" letter-spacing="1.0">第3巻 · 36頁</text>
+    <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10.5" font-weight="600" text-anchor="end">一人称ミステリーホラー</text>
+    <text x="16" y="52" fill="#F8FAFC" font-family="'Noto Serif JP', 'Source Han Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif" font-size="17" font-weight="700">『硝子の納骨堂』</text>
+    <text x="16" y="73" fill="#B8C4D4" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11" font-weight="500">Clara Vane · 音響鑑識 · 6ノード推理</text>
+    <rect x="16" y="82" width="246" height="15" rx="3" fill="#090E16" stroke="#1C293A" stroke-width="0.8"/>
+    <text x="22" y="93" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="600">全36頁 · SHA-256: efead090..</text>
   </g>
-  <g transform="translate(930, 204)">
-    <rect x="0" y="0" width="278" height="96" rx="6" fill="#101824" stroke="#243246" stroke-width="1.2"/>
-    <rect x="0" y="0" width="4" height="96" rx="2" fill="#38C6D9"/>
-    <text x="16" y="24" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', monospace" font-size="11" font-weight="700" letter-spacing="1.2">第4巻 · 36頁</text>
-    <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', monospace" font-size="10.5" font-weight="600" text-anchor="end">一人称SFシューター</text>
-    <text x="16" y="52" fill="#F8FAFC" font-family="'Noto Serif JP', 'Source Han Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif" font-size="17.5" font-weight="700">『ペリヘリオン・ブリーチ』</text>
-    <text x="16" y="76" fill="#94A3B8" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="12" font-weight="500">Soren Kestrel · 磁気グラップル機動 · 排熱リロード</text>
+  <g transform="translate(930, 198)">
+    <rect x="0" y="0" width="278" height="104" rx="7" fill="#0F1723" stroke="#243347" stroke-width="1.2"/>
+    <rect x="0" y="0" width="4" height="104" rx="2" fill="#38C6D9"/>
+    <circle cx="16" cy="20" r="3.5" fill="#38C6D9"/>
+    <text x="26" y="24" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="11" font-weight="700" letter-spacing="1.0">第4巻 · 36頁</text>
+    <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10.5" font-weight="600" text-anchor="end">一人称SFシューター</text>
+    <text x="16" y="52" fill="#F8FAFC" font-family="'Noto Serif JP', 'Source Han Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif" font-size="17" font-weight="700">『ペリヘリオン・ブリーチ』</text>
+    <text x="16" y="73" fill="#B8C4D4" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11" font-weight="500">Soren Kestrel · 磁気グラップル · 排熱</text>
+    <rect x="16" y="82" width="246" height="15" rx="3" fill="#090E16" stroke="#1C293A" stroke-width="0.8"/>
+    <text x="22" y="93" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="600">全36頁 · SHA-256: 75bdfff2..</text>
   </g>
 
   <!-- Footer Telemetry Bar -->
   <line x1="48" y1="318" x2="1212" y2="318" stroke="#1E2C3E" stroke-width="1"/>
-  <text x="48" y="338" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', monospace" font-size="11" font-weight="600" letter-spacing="0.8">全217頁の技術仕様書 · THREE.JS r185 (0.185.0) · 外部バイナリアセットゼロ · 21枚の専門エージェントカード</text>
-  <text x="1212" y="338" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', monospace" font-size="11" font-weight="700" text-anchor="end" letter-spacing="0.8">ネイティブ4言語展開：ENGLISH · 简体中文 · 日本語 · 한국어</text>
+  <text x="48" y="338" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="11" font-weight="600" letter-spacing="0.6">全217頁の技術仕様書 · THREE.JS r185 (0.185.0) · 外部バイナリアセットゼロ · 21枚の専門エージェントカード</text>
+  <text x="1212" y="338" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="11" font-weight="700" text-anchor="end" letter-spacing="0.6">ネイティブ4言語展開：日本語 (JA) · EN · ZH-CN · KO</text>
 </svg>

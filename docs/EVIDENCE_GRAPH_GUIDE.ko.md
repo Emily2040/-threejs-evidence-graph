@@ -2,9 +2,23 @@
 
 # Three.js Evidence Graph: 운영 매뉴얼 v2.0 동반 가이드
 
-[English](EVIDENCE_GRAPH_GUIDE.md) | [简体中文](EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [日本語](EVIDENCE_GRAPH_GUIDE.ja.md) | [한국어](EVIDENCE_GRAPH_GUIDE.ko.md)
+<div align="center">
 
-![제품 계약에서 작업 범위가 제한된 전문 에이전트 작업, 독립 증거 수집, 릴리스 게이트로 분기되는 제어 계층](../assets/evidence-graph-control-hero.jpg)
+[![Native English](https://img.shields.io/badge/Edition-Native_English-D49B4B?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.md)
+[![简体中文](https://img.shields.io/badge/语言-简体中文_(原生母语版)-45B29D?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.zh-CN.md)
+[![日本語](https://img.shields.io/badge/言語-日本語_(ネイティブ版)-38C6D9?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.ja.md)
+[![한국어](https://img.shields.io/badge/언어-한국어_(네이티브판)-C89B54?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.ko.md)
+
+[![Volume 01](https://img.shields.io/badge/제01권-제어_평면_매뉴얼_v2.0-0F1722?style=flat-square)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf)
+[![Pages 64](https://img.shields.io/badge/쪽수-64쪽_(416,827_B)-D49B4B?style=flat-square)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf)
+[![JSON Schema Draft 2020-12](https://img.shields.io/badge/JSON_Schema-Draft_2020--12-38C6D9?style=flat-square)](../schemas/)
+[![Back to README](https://img.shields.io/badge/전체_가이드로_돌아가기-README.ko.md-45B29D?style=flat-square)](../README.ko.md)
+
+</div>
+
+| 제01권 출판물 표지 플레이트 (`64쪽`) | 멀티 에이전트 제어 평면 히어로 플레이트 |
+| :---: | :---: |
+| [![Three.js Evidence Graph v2.0 표지](../assets/threejs-evidence-graph-cover.jpg)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf) | ![제품 계약에서 작업 범위가 제한된 전문 에이전트 작업, 독립 증거 수집, 릴리스 게이트로 분기되는 제어 계층](../assets/evidence-graph-control-hero.jpg) |
 
 ## 1. 목적 및 핵심 명제
 
@@ -39,6 +53,8 @@
 ---
 
 ## 3. 표준 15개 노드 제작 그래프(`N00`부터 `N14`)
+
+![15노드 에비던스 그래프 토폴로지 및 3대 장르 게임 인스턴스화 다이어그램](../assets/svg/architecture-pipeline-ko.svg)
 
 1. `N00_BRIEF`(`01 BRIEF_COMPILE`): 제품 브리프, 범위 제외 항목, 슬라이스 플레이 시간 목표 확정.
 2. `N01_CONTRACTS`(`02 CONSTITUTION_AUDIT`): JSON Schema(`task-packet`, `defect-record`, `run-manifest`) 및 시드 불변 조건 동결.

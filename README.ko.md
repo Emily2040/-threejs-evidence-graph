@@ -34,7 +34,11 @@
 
 ![4권 출판물 세트: Three.js Evidence Graph v2.0, 《공허의 자오선》, 《유리 납골당》, 《근일점 돌파》](assets/publication-set.jpg)
 
-*본 이미지는 저장소에 수록된 4권의 PDF 출판물 합본 플레이트입니다. 모든 표지와 섹션 히어로 이미지는 출판물용 컨셉 아트워크이며, 실제 게임플레이 스크린샷이나 런타임 벤치마크 증거가 아닙니다.*
+| 제01권 · 제어 평면 매뉴얼 | 제02권 · 다크 판타지 액션 RPG | 제03권 · 포렌식 미스터리 호러 | 제04권 · 하이퍼 SF 슈팅 어드벤처 |
+| :---: | :---: | :---: | :---: |
+| [![Three.js Evidence Graph v2.0 표지](assets/threejs-evidence-graph-cover.jpg)](publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf)<br/>**Evidence Graph v2.0**<br/>`64쪽` · [한국어 가이드](docs/EVIDENCE_GRAPH_GUIDE.ko.md) | [![공허의 자오선 표지](assets/the-hollow-meridian-cover.jpg)](publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)<br/>**《공허의 자오선》**<br/>`81쪽` · [한국어 가이드](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md) | [![유리 납골당 표지](assets/the-glass-ossuary-cover.jpg)](publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)<br/>**《유리 납골당》**<br/>`36쪽` · [한국어 가이드](docs/THE_GLASS_OSSUARY_GUIDE.ko.md) | [![근일점 돌파 표지](assets/perihelion-breach-cover.jpg)](publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)<br/>**《근일점 돌파》**<br/>`36쪽` · [한국어 가이드](docs/PERIHELION_BREACH_GUIDE.ko.md) |
+
+*본 이미지는 저장소에 수록된 4권의 PDF 출판물 합본 플레이트 및 표지 갤러리입니다. 모든 표지와 섹션 히어로 이미지는 출판물용 컨셉 아트워크이며, 실제 게임플레이 스크린샷이나 런타임 벤치마크 증거가 아닙니다.*
 
 | 권호 | 출판물 제목 및 장르 | PDF 아티팩트 (`publications/`) | 쪽수 | 파일 크기 | 4개국어 네이티브 가이드 (`docs/`) | 프롬프트 및 골든 픽스처 |
 | :-: | :--- | :--- | ---: | ---: | :--- | :--- |
@@ -47,7 +51,7 @@
 
 ## 코어 아키텍처: 15노드 에비던스 그래프 (`N00` .. `N14`)
 
-![15노드 에비던스 그래프 토폴로지 및 3대 장르 게임 인스턴스화 다이어그램](assets/svg/architecture-pipeline.svg)
+![15노드 에비던스 그래프 토폴로지 및 3대 장르 게임 인스턴스화 다이어그램](assets/svg/architecture-pipeline-ko.svg)
 
 단일 LLM 대화창에서 기획, 셰이더 작성, 전투 수치 조정, 자체 검수를 동시에 수행하면 컨텍스트 드리프트와 셰이더 스파이크, 근거 없는 자기 승인 문제가 발생합니다. **Three.js Evidence Graph v2.0**은 권한과 검증을 다음 4계층으로 분리하여 이를 원천 차단합니다.
 
@@ -88,13 +92,13 @@
 | :---: | :---: |
 | ![공허의 자오선 월드 루트](assets/hollow-meridian-world-hero.jpg) | ![이름 없는 종 보스전](assets/hollow-meridian-boss-hero.jpg) |
 
+![Game 01 《공허의 자오선》 60 Hz 전투 프레임 테이블 · 머티리얼 컬러 팔레트 · 아키텍처 텔레메트리](assets/svg/game-01-telemetry-ko.svg)
+
 사라진 도시들의 진짜 이름을 보존하던 황동과 현무암 폐허 관측소를 배경으로, 플레이어는 **The Cartographer(측량사)**가 되어 5개의 공간을 돌파합니다. 60 Hz 정수 틱 기반의 7틱 패링 판정, 스태미나 운영, 3중 링 자오선 정렬 퍼즐, 제단 유물 선택을 거쳐 2페이즈 보스 **The Bell Without a Name(이름 없는 종)**과 맞섭니다.
 
 <details>
 <summary><strong>《공허의 자오선》 10비트 진행 루트 · 60 Hz 전투 프레임 테이블 · 제단 유물 분기 펼치기</strong></summary>
 
-| 액션 | 선딜레이 | 활성 / 무적 틱 | 후딜레이 | 총 틱 | 소모 자원 및 전투 효과 |
-| :--- | :--- | :--- | :--- | :--- | :--- |
 - **수작업 10비트 진행 루트 (`recover_orientation`)**: `01 Ash Court Arrival`(안전 허브 · `Mnemonic Keeper`) -> `02 Quest Acceptance`(방위 인장 2종 퀘스트) -> `03 Orrery Bridge Tutorial`(`Ashbound Skirmisher` 교전) -> `04 Archive Nave`(`Lantern Wraith` 원거리 압박) -> `05 Meridian Alignment`(3중 고리 퍼즐 -> `North Seal`) -> `06 Bell Foundry`(`Bell Sentinel` 가드 브레이크 -> `Depth Seal`) -> `07 Shrine Choice`(유물 3종 중 택1: `brass_vow` / `ash_thread` / `vacant_name`) -> `08 Chamber Opening` -> `09 The Unnamed Bell`(`850 HP` 2페이즈 보스전) -> `10 Bind or Release`(`CHOICE_BIND` / `CHOICE_RELEASE`).
 
 | 액션 | 선딜레이 | 활성 / 무적 틱 | 후딜레이 | 총 틱 | 소모 자원 및 전투 효과 |
@@ -118,6 +122,8 @@
 | 굴절 회랑 포렌식 조사 컨셉 플레이트 | 2페이즈 보스 '유리 속의 성가대' 컨셉 플레이트 |
 | :---: | :---: |
 | ![유리 납골당 포렌식 조사](assets/glass-ossuary-investigation-hero.jpg) | ![유리 속의 성가대 보스전](assets/glass-ossuary-apparition-hero.jpg) |
+
+![Game 02 《유리 납골당》 60 Hz 포렌식 장비 프레임 테이블 · 머티리얼 컬러 팔레트 · 아키텍처 텔레메트리](assets/svg/game-02-telemetry-ko.svg)
 
 1894년 가을 폭풍우가 몰아치는 밤, 음향 기록 보관관 **Clara Vane**은 프레넬 등대와 지하 골유리(Bone-Glass) 납골당이 결합된 생반 해안 관측소에 상륙합니다. 총기나 작위적인 점프 스케어 대신 `이중 초점 황동 루페`, `밀랍 실린더 축음기`, `은염 페로타입 건판 카메라` 등 3종의 물리 포렌식 장비와 `6노드 추리 보드`를 활용해 난파 사건의 진실을 추리하고 최심부에서 **The Choir in the Glass(유리 속의 성가대)**와 대면합니다.
 
@@ -148,6 +154,8 @@
 | 이카로스-9 궤도 태양 중계소 컨셉 플레이트 | 2페이즈 보스 '헬리아크 워든' 교전 컨셉 플레이트 |
 | :---: | :---: |
 | ![근일점 돌파 궤도 스테이션](assets/perihelion-breach-world-hero.jpg) | ![헬리아크 워든 보스전](assets/perihelion-breach-combat-hero.jpg) |
+
+![Game 03 《근일점 돌파》 60 Hz 화기/그래플 프레임 테이블 · 머티리얼 컬러 팔레트 · 아키텍처 텔레메트리](assets/svg/game-03-telemetry-ko.svg)
 
 태양으로부터 불과 `0.09 AU` 떨어진 근일점 궤도를 도는 **이카로스-9(Icarus-9) 태양 중계 스테이션**에서 선봉대원 **Soren Kestrel**이 전술 AI **Vesper**와 함께 열폭주에 빠진 방어 그리드를 돌파합니다. `Kestrel-9 트윈코일 카빈`, 관통 전자기 슬러그를 발사하는 `헬리오스 스캐터-레일`, `ticks 14..20` 구간에 열량을 100% 배출하는 `액티브 방열 재장전`, `18.0 m/s` `자기 그래플` 슬링샷 기동을 결합해 2페이즈 보스 **The Heliarch Warden(헬리아크 워든)**을 격파합니다.
 
@@ -203,7 +211,7 @@ threejs-evidence-graph/
 ├── prompts/                                                          # 마스터 오케스트레이터 4종 + 전담 서브에이전트 카드 21종
 ├── examples/                                                         # 스키마 검증을 통과한 골든 픽스처 (run-0001..0003)
 ├── docs/                                                             # 4개국어 네이티브 가이드 16종 + 정오표 + 거버넌스 문서
-├── assets/                                                           # EXIF 제로 JPEG 13종 + 커스텀 타이포그래피 SVG 5종
+├── assets/                                                           # EXIF 제로 JPEG 13종 + 커스텀 네이티브 SVG 21종
 ├── scripts/verify_release.py                                         # 자동 SHA-256, 스키마, PDF, EXIF, 링크 검증 스크립트
 ├── SHA256SUMS.txt                                                    # 전체 릴리스 아티팩트 SHA-256 체크섬 (LF 줄바꿈)
 └── release-manifest.json                                             # 기계 판독용 릴리스 매니페스트

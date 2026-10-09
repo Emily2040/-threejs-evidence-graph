@@ -34,7 +34,11 @@
 
 ![四卷本出版物全家福：Three.js Evidence Graph v2.0、《虚空子午线》、《琉璃骸骨堂》与《近日点破袭》](assets/publication-set.jpg)
 
-*本图为仓库四部 PDF 出版物的合集展示图。所有封面与章节头图均为出版物版式与概念美术设定图，并非实机运行截图或性能实测证据。*
+| 卷 01 · 控制平面手册 | 卷 02 · 暗黑奇幻动作 RPG | 卷 03 · 声学取证悬疑恐怖 | 卷 04 · 高速科幻射击冒险 |
+| :---: | :---: | :---: | :---: |
+| [![Three.js Evidence Graph v2.0 封面](assets/threejs-evidence-graph-cover.jpg)](publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf)<br/>**Evidence Graph v2.0**<br/>`64 页` · [中文指南](docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [![虚空子午线封面](assets/the-hollow-meridian-cover.jpg)](publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)<br/>**《虚空子午线》**<br/>`81 页` · [中文指南](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [![琉璃骸骨堂封面](assets/the-glass-ossuary-cover.jpg)](publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)<br/>**《琉璃骸骨堂》**<br/>`36 页` · [中文指南](docs/THE_GLASS_OSSUARY_GUIDE.zh-CN.md) | [![近日点破袭封面](assets/perihelion-breach-cover.jpg)](publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)<br/>**《近日点破袭》**<br/>`36 页` · [中文指南](docs/PERIHELION_BREACH_GUIDE.zh-CN.md) |
+
+*本图为仓库四部 PDF 出版物的合集展示图与封面画廊。所有封面与章节头图均为出版物版式与概念美术设定图，并非实机运行截图或性能实测证据。*
 
 | 卷号 | 出版物名称与品类定位 | PDF 规范文件（`publications/`） | 页数 | 文件大小 | 四语种母语级配套指南（`docs/`） | 独立提示词与黄金样本 |
 | :-: | :--- | :--- | ---: | ---: | :--- | :--- |
@@ -47,7 +51,7 @@
 
 ## 核心工程架构：15 节点证据图谱（`N00` .. `N14`）
 
-![15 节点证据图谱拓扑与三款跨品类游戏实例化架构图](assets/svg/architecture-pipeline.svg)
+![15 节点证据图谱拓扑与三款跨品类游戏实例化架构图](assets/svg/architecture-pipeline-zh-CN.svg)
 
 在传统的单轮或多轮对话式大模型游戏生成中，同一个上下文既当策划、又写着色器、还自己给自己打分验收，极易陷入上下文漂移、着色器编译卡顿与虚假自夸。**Three.js Evidence Graph v2.0** 通过以下四项硬性工程约束彻底解决这一顽疾：
 
@@ -88,6 +92,8 @@
 | :---: | :---: |
 | ![虚空子午线世界路线概念图](assets/hollow-meridian-world-hero.jpg) | ![无名之钟双阶段Boss概念图](assets/hollow-meridian-boss-hero.jpg) |
 
+![游戏 01《虚空子午线》60 Hz 战斗帧数表、材质色板与架构遥测卡片](assets/svg/game-01-telemetry-zh-CN.svg)
+
 《虚空子午线》将舞台设定在一座曾用来封存失落城市真名的黄铜与玄武岩废墟观测站中。玩家扮演无面守望者 **The Cartographer（制图师）**，手持分段长刃与回响提灯，在五大建筑空间中掌握严谨的 60 Hz 精力管理与 7 帧弹反窗口，解开三环子午线星象仪谜题，在祭坛做出唯一一次流派遗物抉择，并迎战双阶段首领 **无名之钟（The Bell Without a Name）**。
 
 <details>
@@ -116,6 +122,8 @@
 | 折射回廊光学取证概念图 | 骨琉璃圣堂“玻璃圣咏团”概念图 |
 | :---: | :---: |
 | ![琉璃骸骨堂现场取证概念图](assets/glass-ossuary-investigation-hero.jpg) | ![玻璃圣咏团Boss显现概念图](assets/glass-ossuary-apparition-hero.jpg) |
+
+![游戏 02《琉璃骸骨堂》60 Hz 取证器械帧数表、材质色板与架构遥测卡片](assets/svg/game-02-telemetry-zh-CN.svg)
 
 《琉璃骸骨堂》讲述声学档案调查员 **Clara Vane** 于 1894 年风暴之夜登上圣范恩孤岛观测站，调查“子午线号”海难失踪乘员的遗音。游戏摒弃传统枪械与廉价突脸惊吓，玩家必须操作三件 19 世纪物理取证器械（`双焦黄铜放大镜`、`蜡筒留声机`、`银盐铁版照相机`），在六节点 `Inquest Board`（推理板）上串联物证、推导假说，并利用提灯遮光闸与反相声波在双阶段首领 **玻璃圣咏团（The Choir in the Glass）** 的共鸣圣堂中完成定案。
 
@@ -146,6 +154,8 @@
 | 伊卡洛斯-9号定日镜桁架机动概念图 | 近日点核心舱“日冕典狱长”激战概念图 |
 | :---: | :---: |
 | ![近日点破袭轨道空间站概念图](assets/perihelion-breach-world-hero.jpg) | ![日冕典狱长Boss激战概念图](assets/perihelion-breach-combat-hero.jpg) |
+
+![游戏 03《近日点破袭》60 Hz 武器与抓钩帧数表、材质色板与架构遥测卡片](assets/svg/game-03-telemetry-zh-CN.svg)
 
 《近日点破袭》将玩家送上距离太阳仅 `0.09 AU` 的**伊卡洛斯-9号（Icarus-9）轨道太阳中继站**。先锋官 **Soren Kestrel** 在战术 AI **Vesper** 的导航下，必须在定日镜阵列引发热失控熔毁前夺回姿态控制权。游戏将 60 Hz 电磁卡宾枪/穿透磁轨炮射击与 `主动散热装填`（`ticks 14..20` 黄金窗口清空热量）、`磁力抓钩摆荡`（`18.0 m/s`）、`240-tick` 日冕耀斑硬阴影走廊以及双阶段空中竞技场 Boss **日冕典狱长（The Heliarch Warden）** 融为一体。
 
@@ -201,7 +211,7 @@ threejs-evidence-graph/
 ├── prompts/                                                          # 4 部主控编排器 + 21 张专家子智能体角色卡
 ├── examples/                                                         # 3 组通过 Schema 校验的黄金参考样本（run-0001..0003）
 ├── docs/                                                             # 16 份四语种母语级配套指南 + 勘误表 + 术语治理
-├── assets/                                                           # 13 张零 EXIF 元数据 JPEG + 5 张定制排版 SVG
+├── assets/                                                           # 13 张零 EXIF 元数据 JPEG + 21 张定制母语排版 SVG
 ├── scripts/verify_release.py                                         # 自动化哈希、Schema、PDF、EXIF 与链接校验脚本
 ├── SHA256SUMS.txt                                                    # 全部发布资产的 SHA-256 校验清单（LF 换行）
 └── release-manifest.json                                             # 机器可读的发布清单

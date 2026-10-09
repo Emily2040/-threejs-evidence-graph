@@ -2,11 +2,25 @@
 
 # 《유리 납골당》(The Glass Ossuary): 미스터리 호러 개발 규격 및 아키텍처 가이드
 
-[English](THE_GLASS_OSSUARY_GUIDE.md) | [简体中文](THE_GLASS_OSSUARY_GUIDE.zh-CN.md) | [日本語](THE_GLASS_OSSUARY_GUIDE.ja.md) | [한국어](THE_GLASS_OSSUARY_GUIDE.ko.md)
+<div align="center">
 
-![《유리 납골당》의 굴절 회랑에서 이중 초점 황동 루페와 방풍 랜턴을 들고 현장 포렌식 조사를 수행하는 Clara Vane](../assets/glass-ossuary-investigation-hero.jpg)
+[![English](https://img.shields.io/badge/Language-English-4FA89B?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.md)
+[![Simplified Chinese](https://img.shields.io/badge/语言-简体中文-C89B54?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.zh-CN.md)
+[![Japanese](https://img.shields.io/badge/言語-日本語-B8423A?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.ja.md)
+[![Korean](https://img.shields.io/badge/언어-한국어-4FA89B?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.ko.md)
 
-*본 이미지는 출판물용 컨셉 아트워크이며, 실제 게임플레이 캡처나 구현 완료 증거가 아닙니다.*
+[![마스터 스위트로 돌아가기](https://img.shields.io/badge/←_마스터_스위트-README.ko-16202A?style=flat-square&borderColor=4FA89B)](../README.ko.md)
+[![장르](https://img.shields.io/badge/장르-1인칭_조사형_미스터리_호러-4FA89B?style=flat-square)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
+[![분량](https://img.shields.io/badge/출판물-36쪽_PDF-C89B54?style=flat-square)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
+[![골든 픽스처](https://img.shields.io/badge/골든_픽스처-examples%2Frun--0002-3DBE8B?style=flat-square)](../examples/run-0002/run-manifest.json)
+
+| 출판물 표지 (36쪽) | 현장 조사 컨셉 (`Refraction Gallery`) | 보스전 컨셉 (`The Choir in the Glass`) |
+| :---: | :---: | :---: |
+| <a href="../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf"><img src="../assets/the-glass-ossuary-cover.jpg" width="210" alt="《유리 납골당》 v1.0 표지" /></a> | <img src="../assets/glass-ossuary-investigation-hero.jpg" width="340" alt="《유리 납골당》의 굴절 회랑에서 포렌식 조사를 수행하는 Clara Vane" /> | <img src="../assets/glass-ossuary-apparition-hero.jpg" width="340" alt="《유리 납골당》 최심부 대성당에서 현현하는 2페이즈 보스 유리 속의 성가대" /> |
+
+*본 이미지들은 출판물용 컨셉 아트워크이며, 실제 게임플레이 캡처나 구현 완료 증거가 아닙니다.*
+
+</div>
 
 > **문서 위상 안내**
 >
@@ -41,6 +55,8 @@
 | **은염 시안 (Silver-Halide Cyan)** | `#4FA89B` | 골유리 굴절 분산(`ior: 1.54`) 및 페로타입 UV 플래시 네거티브 반전 하이라이트 |
 | **동맥 러스트 (Arterial Rust)** | `#B8423A` | 수문 쇠사슬, 밀랍 인장 및 고침식도(Exposure) 경고 비네트 |
 
+*팔레트 가드레일(Palette Guardrail)*: 흔한 AI 템플릿 보라색(`#7567F5`) 및 고채도 네온 마젠타는 모든 절차적 셰이더, UI 오버레이, 골유리 굴절 커스틱스에서 엄격히 금지됩니다.
+
 ---
 
 ## 3. 10비트 조사 진행 루트 (`case_saint_vane`)
@@ -64,6 +80,10 @@
 
 모든 액션은 60 Hz 정수 틱(`1 tick = 16.6667 ms`) 단위로 구동됩니다. 광학 가시성 상태(`LANTERN_OPEN` / `LANTERN_SHUTTERED`)와 음향 역위상 마스킹(`PHONOGRAPH_CANCEL_ACTIVE`)은 직교 비트마스크 채널로 분리되어, 랜턴 셔터를 여닫아도 활성화된 축음기 위상 상쇄 효과가 절대 덮어써지지 않습니다.
 
+<div align="center">
+  <img src="../assets/svg/game-02-telemetry-ko.svg" width="100%" alt="《유리 납골당》 60 Hz 포렌식 장비 프레임 타임라인, 컬러 팔레트 및 음향 임계값 다이어그램" />
+</div>
+
 | 액션명 | 선딜레이 (Startup) | 판정 구간 (Active Window) | 후딜레이 (Recovery) | 총 틱 | 자원 소모 및 메커니컬 효과 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **랜턴 셔터 (`Lantern Shutter`)** | `6 ticks` | 토글 (`7..`) | `6 ticks` | `12 ticks` | `오일 0`; 조명 콘을 즉시 차단하고 광학 시야 어그로 해제 |
@@ -76,10 +96,6 @@
 ---
 
 ## 5. 괴이 생태계 및 2페이즈 보스: 유리 속의 성가대 (The Choir in the Glass)
-
-![《유리 납골당》 최심부 대성당에서 현현하는 2페이즈 보스 '유리 속의 성가대'](../assets/glass-ossuary-apparition-hero.jpg)
-
-*본 이미지는 출판물용 컨셉 아트워크이며, 실제 게임플레이 캡처나 구현 완료 증거가 아닙니다.*
 
 ### 3종 괴이 아키타입
 1. **진창의 경청자 (`Mire Listener`)**: 시력이 없는 수륙양용 음향 포식자. 물장구, 달리기, 혹은 마스킹되지 않은 축음기 태엽 소리가 `-28 dBFS`를 초과하면 해당 좌표로 급습합니다.

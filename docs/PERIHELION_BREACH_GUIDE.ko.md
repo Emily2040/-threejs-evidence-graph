@@ -2,11 +2,25 @@
 
 # 《근일점 돌파》(Perihelion Breach): FPS 어드벤처 개발 규격 및 아키텍처 가이드
 
-[English](PERIHELION_BREACH_GUIDE.md) | [简体中文](PERIHELION_BREACH_GUIDE.zh-CN.md) | [日本語](PERIHELION_BREACH_GUIDE.ja.md) | [한국어](PERIHELION_BREACH_GUIDE.ko.md)
+<div align="center">
 
-![《근일점 돌파》의 태양 근접 궤도 스테이션 '이카로스-9' 헬리오스탯 트러스 구역을 고속 기동하는 Soren Kestrel](../assets/perihelion-breach-world-hero.jpg)
+[![English](https://img.shields.io/badge/Language-English-38C6D9?style=for-the-badge)](PERIHELION_BREACH_GUIDE.md)
+[![Simplified Chinese](https://img.shields.io/badge/语言-简体中文-F08A24?style=for-the-badge)](PERIHELION_BREACH_GUIDE.zh-CN.md)
+[![Japanese](https://img.shields.io/badge/言語-日本語-E54848?style=for-the-badge)](PERIHELION_BREACH_GUIDE.ja.md)
+[![Korean](https://img.shields.io/badge/언어-한국어-38C6D9?style=for-the-badge)](PERIHELION_BREACH_GUIDE.ko.md)
 
-*본 이미지는 출판물용 컨셉 아트워크이며, 실제 게임플레이 캡처나 구현 완료 증거가 아닙니다.*
+[![마스터 스위트로 돌아가기](https://img.shields.io/badge/←_마스터_스위트-README.ko-1A2433?style=flat-square&borderColor=38C6D9)](../README.ko.md)
+[![장르](https://img.shields.io/badge/장르-1인칭_SF_슈팅_어드벤처-38C6D9?style=flat-square)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
+[![분량](https://img.shields.io/badge/출판물-36쪽_PDF-F08A24?style=flat-square)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
+[![골든 픽스처](https://img.shields.io/badge/골든_픽스처-examples%2Frun--0003-3DBE8B?style=flat-square)](../examples/run-0003/run-manifest.json)
+
+| 출판물 표지 (36쪽) | 궤도 섹터 컨셉 (`Heliostat Truss`) | 보스전 컨셉 (`The Heliarch Warden`) |
+| :---: | :---: | :---: |
+| <a href="../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf"><img src="../assets/perihelion-breach-cover.jpg" width="210" alt="《근일점 돌파》 v1.0 표지" /></a> | <img src="../assets/perihelion-breach-world-hero.jpg" width="340" alt="이카로스-9 헬리오스탯 트러스 구역을 고속 기동하는 Soren Kestrel" /> | <img src="../assets/perihelion-breach-combat-hero.jpg" width="340" alt="근일점 코어 챔버에서 헬리아크 워든과 교전하는 Soren Kestrel" /> |
+
+*본 이미지들은 출판물용 컨셉 아트워크이며, 실제 게임플레이 캡처나 구현 완료 증거가 아닙니다.*
+
+</div>
 
 > **문서 위상 안내**
 >
@@ -42,6 +56,8 @@
 | **체렌코프 시안 (Cherenkov Cyan)** | `#38C6D9` | 이온화 레일 슬러그 궤적, 극저온 냉각수 도관 및 액티브 방열 아크 |
 | **오버히트 플라즈마 레드 (Overheat Plasma Red)** | `#E54848` | 코어 과열 경보(`>= 85 Heat`), 적군 방열 약점 벤트 및 박격포 탄도 |
 
+*팔레트 가드레일(Palette Guardrail)*: 흔한 AI 템플릿 보라색(`#7567F5`) 및 고채도 네온 마젠타는 모든 절차적 셰이더, 전술 HUD 조준선, 플라즈마 이펙트에서 엄격히 금지됩니다.
+
 ---
 
 ## 3. 10비트 궤도 미션 진행 루트 (`restore_perihelion_attitude`)
@@ -65,6 +81,10 @@
 
 모든 화기 연사 템포, 충전 램프, 액티브 재장전 판정 및 기동 임펄스는 60 Hz 정수 틱(`1 tick = 16.6667 ms`)으로 작동합니다. 상체 화기 재장전 카운터는 하체 그래플 이탈 및 슬라이드 부스트 전이와 완전히 분리되어 공중 기동 중에도 방열 재장전이 캔슬되지 않습니다(`FPS-N06A-COMBAT-019`).
 
+<div align="center">
+  <img src="../assets/svg/game-03-telemetry-ko.svg" width="100%" alt="《근일점 돌파》 60 Hz 화기, 방열 재장전 및 그래플 기동 프레임 타임라인 다이어그램" />
+</div>
+
 | 액션명 | 선딜레이 (Startup) | 판정/충전 구간 (Active) | 후딜레이 (Recovery) | 총 틱 | 열량, 피해량 및 메커니컬 효과 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **카빈 3점사 (`Carbine 3-Burst`)** | `2 ticks` | `Ticks 3..11` (3발) | `10 ticks` | `21 ticks` | `+12 Heat`; `3 x 14 dmg` 히트스캔 (약점 배율 `1.5x`) |
@@ -78,10 +98,6 @@
 ---
 
 ## 5. 신스(Synth) 적군 로스터 및 2페이즈 보스: 헬리아크 워든 (The Heliarch Warden)
-
-![《근일점 돌파》의 근일점 코어 챔버에서 '헬리아크 워든'과 교전하는 Soren Kestrel](../assets/perihelion-breach-combat-hero.jpg)
-
-*본 이미지는 출판물용 컨셉 아트워크이며, 실제 게임플레이 캡처나 구현 완료 증거가 아닙니다.*
 
 ### 3종 신스 적군 아키타입
 1. **볼트 스키터 (`Volt Skitter`)**: 벽면과 트러스 빔을 타고 고속 질주하는 4족 보행 유지보수 신스(`90 Hull`, 이동 속도 `6.8 m/s`). 엄폐한 플레이어를 밖으로 몰아냅니다.

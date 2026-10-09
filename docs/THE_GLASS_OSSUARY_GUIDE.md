@@ -1,10 +1,24 @@
 # The Glass Ossuary: Mystery Horror Companion Guide
 
-[English](THE_GLASS_OSSUARY_GUIDE.md) | [简体中文](THE_GLASS_OSSUARY_GUIDE.zh-CN.md) | [日本語](THE_GLASS_OSSUARY_GUIDE.ja.md) | [한국어](THE_GLASS_OSSUARY_GUIDE.ko.md)
+<div align="center">
 
-![Clara Vane investigating the bone-glass Refraction Gallery in The Glass Ossuary](../assets/glass-ossuary-investigation-hero.jpg)
+[![English](https://img.shields.io/badge/Language-English-4FA89B?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.md)
+[![Simplified Chinese](https://img.shields.io/badge/语言-简体中文-C89B54?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.zh-CN.md)
+[![Japanese](https://img.shields.io/badge/言語-日本語-B8423A?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.ja.md)
+[![Korean](https://img.shields.io/badge/언어-한국어-4FA89B?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.ko.md)
+
+[![Back to Master Suite](https://img.shields.io/badge/←_Master_Suite-README-16202A?style=flat-square&borderColor=4FA89B)](../README.md)
+[![Genre](https://img.shields.io/badge/Genre-1st--Person_Investigative_Mystery_Horror-4FA89B?style=flat-square)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
+[![Pages](https://img.shields.io/badge/Publication-36_Pages_PDF-C89B54?style=flat-square)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
+[![Golden Run](https://img.shields.io/badge/Golden_Fixture-examples%2Frun--0002-3DBE8B?style=flat-square)](../examples/run-0002/run-manifest.json)
+
+| Publication Cover (36 pp.) | Investigation Hero (`Refraction Gallery`) | Boss Hero (`The Choir in the Glass`) |
+| :---: | :---: | :---: |
+| <a href="../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf"><img src="../assets/the-glass-ossuary-cover.jpg" width="210" alt="The Glass Ossuary v1.0 cover" /></a> | <img src="../assets/glass-ossuary-investigation-hero.jpg" width="340" alt="Clara Vane investigating the bone-glass Refraction Gallery in The Glass Ossuary" /> | <img src="../assets/glass-ossuary-apparition-hero.jpg" width="340" alt="The Choir in the Glass manifesting inside the resonant cathedral of The Glass Ossuary" /> |
 
 *Concept artwork for the publication. Not a gameplay capture or implementation evidence.*
+
+</div>
 
 > **Guide status**
 >
@@ -39,6 +53,8 @@ The slice takes place in **Saint-Vane Coastal Observatory** during an autumn gal
 | **Silver-Halide Cyan** | `#4FA89B` | Refractive bone-glass dispersion (`ior: 1.54`) and UV ferrotype negative highlights |
 | **Arterial Rust** | `#B8423A` | Iron sluice chains, wax-cylinder seals, and critical Exposure warning vignettes |
 
+*Palette guardrail*: Generic AI purple (`#7567F5`) and neon cyberpunk magenta are strictly banned across all procedural shaders, UI overlays, and refractive caustics.
+
 ---
 
 ## 3. Ten-Beat Investigative Route (`case_saint_vane`)
@@ -62,6 +78,10 @@ The slice takes place in **Saint-Vane Coastal Observatory** during an autumn gal
 
 Every action operates on integer 60 Hz simulation ticks (`1 tick = 16.6667 ms`). Optical visibility (`LANTERN_OPEN` / `LANTERN_SHUTTERED`) and acoustic masking (`PHONOGRAPH_CANCEL_ACTIVE`) occupy orthogonal bitmask channels so toggling the lantern never overwrites active phase cancellation.
 
+<div align="center">
+  <img src="../assets/svg/game-02-telemetry-en.svg" width="100%" alt="The Glass Ossuary 60 Hz Instrument Windows, Palette Swatches, and Acoustic Thresholds" />
+</div>
+
 | Action | Startup | Active Window | Recovery | Total Ticks | Resource Cost & Mechanical Effect |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Lantern Shutter** | `6 ticks` | Toggle (`7..`) | `6 ticks` | `12 ticks` | `0 Oil`; cuts light cone and optical sight-cone aggro |
@@ -74,10 +94,6 @@ Every action operates on integer 60 Hz simulation ticks (`1 tick = 16.6667 ms`).
 ---
 
 ## 5. Apparition Ecology & Two-Phase Boss: The Choir in the Glass
-
-![The Choir in the Glass manifesting inside the resonant cathedral of The Glass Ossuary](../assets/glass-ossuary-apparition-hero.jpg)
-
-*Concept artwork for the publication. Not a gameplay capture or implementation evidence.*
 
 ### Three Apparition Archetypes
 1. **Mire Listener**: Blind amphibious acoustic hunter that tracks footsteps, water splashes, and unmasked phonograph spindles whenever player emission exceeds `-28 dBFS`.

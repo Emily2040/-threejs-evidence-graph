@@ -2,11 +2,25 @@
 
 # 『硝子の納骨堂』（The Glass Ossuary）：ミステリーホラー開発仕様・設計ガイド
 
-[English](THE_GLASS_OSSUARY_GUIDE.md) | [简体中文](THE_GLASS_OSSUARY_GUIDE.zh-CN.md) | [日本語](THE_GLASS_OSSUARY_GUIDE.ja.md) | [한국어](THE_GLASS_OSSUARY_GUIDE.ko.md)
+<div align="center">
 
-![『硝子の納骨堂』の屈折回廊で真鍮製二焦点ルーペと防風ランタンを手に現場鑑識を行うClara Vane](../assets/glass-ossuary-investigation-hero.jpg)
+[![English](https://img.shields.io/badge/Language-English-4FA89B?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.md)
+[![Simplified Chinese](https://img.shields.io/badge/语言-简体中文-C89B54?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.zh-CN.md)
+[![Japanese](https://img.shields.io/badge/言語-日本語-B8423A?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.ja.md)
+[![Korean](https://img.shields.io/badge/언어-한국어-4FA89B?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.ko.md)
 
-*本画像は仕様書向けのコンセプトアートであり、実機プレイ画面や実装完了を示す証跡ではありません。*
+[![スイート総覧へ戻る](https://img.shields.io/badge/←_スイート総覧-README.ja-16202A?style=flat-square&borderColor=4FA89B)](../README.ja.md)
+[![ジャンル](https://img.shields.io/badge/ジャンル-一人称調査型ミステリーホラー-4FA89B?style=flat-square)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
+[![仕様書頁数](https://img.shields.io/badge/仕様書-全36頁_PDF-C89B54?style=flat-square)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
+[![ゴールデン検証](https://img.shields.io/badge/検証Fixture-examples%2Frun--0002-3DBE8B?style=flat-square)](../examples/run-0002/run-manifest.json)
+
+| 仕様書カバー（全36頁） | 現場鑑識コンセプト（`Refraction Gallery`） | ボス戦コンセプト（`The Choir in the Glass`） |
+| :---: | :---: | :---: |
+| <a href="../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf"><img src="../assets/the-glass-ossuary-cover.jpg" width="210" alt="『硝子の納骨堂』v1.0 カバー" /></a> | <img src="../assets/glass-ossuary-investigation-hero.jpg" width="340" alt="『硝子の納骨堂』の屈折回廊で現場鑑識を行うClara Vane" /> | <img src="../assets/glass-ossuary-apparition-hero.jpg" width="340" alt="『硝子の納骨堂』最深部で顕現する二段階ボス「硝子の中の聖歌隊」" /> |
+
+*本画像群は仕様書向けのコンセプトアートであり、実機プレイ画面や実装完了を示す証跡ではありません。*
+
+</div>
 
 > **ガイドの位置づけ**
 >
@@ -41,6 +55,8 @@
 | **ハロゲン化銀シアン（Silver-Halide Cyan）** | `#4FA89B` | 骨硝子の屈折分散（`ior: 1.54`）およびフェロタイプUV閃光のネガ反転ハイライト |
 | **動脈ラスト（Arterial Rust）** | `#B8423A` | 水門鎖、封蝋、および高Exposure時の危険警告ビネット |
 
+*パレットガードレール*：汎用AIパープル（`#7567F5`）および高彩度ネオンマゼンタは、手続き型シェーダー、UIオーバーレイ、骨硝子の屈折コースティクスを含め全面的に使用禁止です。
+
 ---
 
 ## 3. 10ビート調査進行ルート（`case_saint_vane`）
@@ -64,6 +80,10 @@
 
 すべてのアクションは60 Hz整数ティック（`1 tick = 16.6667 ms`）で処理されます。光学的可視状態（`LANTERN_OPEN` / `LANTERN_SHUTTERED`）と音響逆位相マスキング（`PHONOGRAPH_CANCEL_ACTIVE`）は直交するビットマスクチャネルとして実装され、ランタンのシャッター開閉が蓄音機の消音フィールドを上書きしてしまう不具合を構造的に防ぎます。
 
+<div align="center">
+  <img src="../assets/svg/game-02-telemetry-ja.svg" width="100%" alt="『硝子の納骨堂』60 Hz 鑑識器具フレームタイムライン・カラーパレット・音響閾値" />
+</div>
+
 | アクション | 発生（Startup） | 持続（Active Window） | 硬直（Recovery） | 合計フレーム | リソース消費・メカニカル効果 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **ランタンシャッター（`Lantern Shutter`）** | `6 ticks` | トグル（`7..`） | `6 ticks` | `12 ticks` | `油消費 0`。光錐を遮断し、光学視線ヘイトを即座に切る |
@@ -76,10 +96,6 @@
 ---
 
 ## 5. 怪異生態と二段階ボス：硝子の中の聖歌隊（The Choir in the Glass）
-
-![『硝子の納骨堂』最深部で顕現する二段階ボス「硝子の中の聖歌隊」](../assets/glass-ossuary-apparition-hero.jpg)
-
-*本画像は仕様書向けのコンセプトアートであり、実機プレイ画面や実装完了を示す証跡ではありません。*
 
 ### 3種の怪異アーキタイプ
 1. **泥濘の聴取者（`Mire Listener`）**：視覚を持たない水陸両生の音響捕食者。水しぶきや足音、無防備な蓄音機のゼンマイ音が `-28 dBFS` を超えた地点へ高速突進します。

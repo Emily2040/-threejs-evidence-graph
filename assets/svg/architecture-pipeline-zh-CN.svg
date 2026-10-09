@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 348" width="100%" role="img" aria-label="15 节点确定性证据图谱拓扑 (N00 .. N14) 与三大游戏品类实例化架构">
+  <defs>
+    <linearGradient id="pipeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080C12"/>
+      <stop offset="100%" stop-color="#0E1622"/>
+    </linearGradient>
+    <pattern id="pipeGrid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#142030" stroke-width="0.6" stroke-opacity="0.6"/>
+    </pattern>
+  </defs>
+  <rect width="1260" height="348" rx="10" fill="url(#pipeBg)" stroke="#1E2D40" stroke-width="1.5"/>
+  <rect width="1260" height="348" rx="10" fill="url(#pipeGrid)"/>
+
+  <text x="36" y="32" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="11" font-weight="700" letter-spacing="1.0">15 节点确定性证据图谱拓扑 (N00 .. N14) 与三大游戏品类实例化架构</text>
+  <text x="1224" y="32" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10.5" font-weight="700" text-anchor="end">体制 A（锁死 Chromium 逐位级一致）+ 体制 B（跨平台容差验证）</text>
+
+  <!-- Top Pipeline Row: 5 Core Stages Grouping N00..N14 -->
+  <g transform="translate(36, 48)">
+    
+    <rect x="0" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#45B29D" stroke-width="1.3"/>
+    <rect x="0" y="0" width="222" height="3" rx="1.5" fill="#45B29D"/>
+    <text x="12" y="23" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10.5" font-weight="700">N00 .. N02 // 契约与预算</text>
+    <text x="12" y="46" fill="#F8FAFC" font-family="'PingFang SC', 'HarmonyOS Sans SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-size="12.5" font-weight="700">立项简报、世界与渲染预算</text>
+    <text x="12" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10">WebGPURenderer + WebGL2 双后端</text>
+    <line x1="222" y1="42" x2="238" y2="42" stroke="#45B29D" stroke-width="2"/>
+    <polygon points="233,38 238,42 233,46" fill="#45B29D"/>
+    <rect x="238" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#D49B4B" stroke-width="1.3"/>
+    <rect x="238" y="0" width="222" height="3" rx="1.5" fill="#D49B4B"/>
+    <text x="250" y="23" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10.5" font-weight="700">N03 .. N05 // 确定性模拟</text>
+    <text x="250" y="46" fill="#F8FAFC" font-family="'PingFang SC', 'HarmonyOS Sans SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-size="12.5" font-weight="700">60 Hz 固定步长与种子 PRNG</text>
+    <text x="250" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10">16.6667 ms 步长 · 状态摘要校验</text>
+    <line x1="460" y1="42" x2="476" y2="42" stroke="#45B29D" stroke-width="2"/>
+    <polygon points="471,38 476,42 471,46" fill="#45B29D"/>
+    <rect x="476" y="0" width="236" height="84" rx="6" fill="#111A28" stroke="#38C6D9" stroke-width="1.3"/>
+    <rect x="476" y="0" width="236" height="3" rx="1.5" fill="#38C6D9"/>
+    <text x="488" y="23" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10.5" font-weight="700">N06A + N06B // 并行分支</text>
+    <text x="488" y="46" fill="#F8FAFC" font-family="'PingFang SC', 'HarmonyOS Sans SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-size="12.5" font-weight="700">程序化美术与 Web Audio</text>
+    <text x="488" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10">TSL 着色器 · -16 LUFS 离线音频</text>
+    <line x1="712" y1="42" x2="728" y2="42" stroke="#45B29D" stroke-width="2"/>
+    <polygon points="723,38 728,42 723,46" fill="#45B29D"/>
+    <rect x="728" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#C89B54" stroke-width="1.3"/>
+    <rect x="728" y="0" width="222" height="3" rx="1.5" fill="#C89B54"/>
+    <text x="740" y="23" fill="#C89B54" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10.5" font-weight="700">N07 .. N10 // 玩法与界面</text>
+    <text x="740" y="46" fill="#F8FAFC" font-family="'PingFang SC', 'HarmonyOS Sans SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-size="12.5" font-weight="700">战斗/推理循环与无障碍 HUD</text>
+    <text x="740" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10">WCAG 2.2 AA · 零 DOM 内存泄漏</text>
+    <line x1="950" y1="42" x2="966" y2="42" stroke="#45B29D" stroke-width="2"/>
+    <polygon points="961,38 966,42 961,46" fill="#45B29D"/>
+    <rect x="966" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#45B29D" stroke-width="1.3"/>
+    <rect x="966" y="0" width="222" height="3" rx="1.5" fill="#45B29D"/>
+    <text x="978" y="23" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10.5" font-weight="700">N11 .. N14 // 审计与发布</text>
+    <text x="978" y="46" fill="#F8FAFC" font-family="'PingFang SC', 'HarmonyOS Sans SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-size="12.5" font-weight="700">回放审计、修复与发布门禁</text>
+    <text x="978" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10">SHA-256 RunManifest 证据包签发</text>
+  </g>
+
+  <!-- Fan-Out Bus Lines from Pipeline to Three Genre Slices -->
+  <line x1="630" y1="132" x2="630" y2="156" stroke="#45B29D" stroke-width="1.5"/>
+  <line x1="227" y1="156" x2="1033" y2="156" stroke="#2A3C54" stroke-width="1.5"/>
+  <line x1="227" y1="156" x2="227" y2="178" stroke="#D49B4B" stroke-width="1.5"/>
+  <line x1="630" y1="156" x2="630" y2="178" stroke="#4FA89B" stroke-width="1.5"/>
+  <line x1="1033" y1="156" x2="1033" y2="178" stroke="#38C6D9" stroke-width="1.5"/>
+  <rect x="420" y="145" width="420" height="20" rx="4" fill="#0B111A" stroke="#24354A" stroke-width="1"/>
+  <text x="630" y="159" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10" font-weight="600" text-anchor="middle">统一 15 节点 DAG 编排总线 -&gt; 驱动三大零外部资产垂直切片</text>
+
+  <!-- Bottom Row: Three Genre Vertical Slice Instantiations -->
+  <g transform="translate(36, 180)">
+    
+    <rect x="0" y="0" width="382" height="140" rx="7" fill="#101926" stroke="#28384E" stroke-width="1.2"/>
+    <rect x="0" y="0" width="382" height="4" rx="2" fill="#D49B4B"/>
+    <circle cx="16" cy="24" r="3.5" fill="#D49B4B"/>
+    <text x="26" y="28" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10.5" font-weight="700">游戏 01 · 第三人称动作 RPG（81 页规范）</text>
+    <text x="16" y="54" fill="#F8FAFC" font-family="'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSong', serif" font-size="17" font-weight="700">《虚空子午线》 The Hollow Meridian</text>
+    <text x="16" y="79" fill="#CBD5E1" font-family="'PingFang SC', 'HarmonyOS Sans SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-size="11.5">Sable Veren · 60 Hz 精确弹反（第 6..12 帧）· 五大观测站区域</text>
+    <text x="16" y="101" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10">首领：无名之钟（850 HP / 467 转阶段）· examples/run-0001/</text>
+    <text x="16" y="122" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="9.5">提示词套件：prompts/hollow-meridian/orchestrator.md + 7 智能体</text>
+    <rect x="403" y="0" width="382" height="140" rx="7" fill="#101926" stroke="#28384E" stroke-width="1.2"/>
+    <rect x="403" y="0" width="382" height="4" rx="2" fill="#4FA89B"/>
+    <circle cx="419" cy="24" r="3.5" fill="#4FA89B"/>
+    <text x="429" y="28" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10.5" font-weight="700">游戏 02 · 第一人称悬疑恐怖（36 页规范）</text>
+    <text x="419" y="54" fill="#F8FAFC" font-family="'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSong', serif" font-size="17" font-weight="700">《琉璃骸骨堂》 The Glass Ossuary</text>
+    <text x="419" y="79" fill="#CBD5E1" font-family="'PingFang SC', 'HarmonyOS Sans SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-size="11.5">Clara Vane · 声学放大镜、留声机与铁版闪光 · 六节点推理板</text>
+    <text x="419" y="101" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10">首领：玻璃圣咏团（600 完整度 / 300 转阶段）· examples/run-0002/</text>
+    <text x="419" y="122" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="9.5">提示词套件：prompts/glass-ossuary/orchestrator.md + 7 智能体</text>
+    <rect x="806" y="0" width="382" height="140" rx="7" fill="#101926" stroke="#28384E" stroke-width="1.2"/>
+    <rect x="806" y="0" width="382" height="4" rx="2" fill="#38C6D9"/>
+    <circle cx="822" cy="24" r="3.5" fill="#38C6D9"/>
+    <text x="832" y="28" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10.5" font-weight="700">游戏 03 · 第一人称科幻射击（36 页规范）</text>
+    <text x="822" y="54" fill="#F8FAFC" font-family="'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSong', serif" font-size="17" font-weight="700">《近日点破袭》 Perihelion Breach</text>
+    <text x="822" y="79" fill="#CBD5E1" font-family="'PingFang SC', 'HarmonyOS Sans SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-size="11.5">Soren Kestrel · 磁力抓钩、滑铲推进与主动散热（14..20 帧）</text>
+    <text x="822" y="101" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="10">首领：日冕典狱长（1,000 装甲 / 500 转阶段）· examples/run-0003/</text>
+    <text x="822" y="122" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'PingFang SC', 'Microsoft YaHei', monospace" font-size="9.5">提示词套件：prompts/perihelion-breach/orchestrator.md + 7 智能体</text>
+  </g>
+</svg>

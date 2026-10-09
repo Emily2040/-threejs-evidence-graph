@@ -2,11 +2,25 @@
 
 # 《近日点破袭》（Perihelion Breach）：第一人称科幻射击冒险研发与架构指南
 
-[English](PERIHELION_BREACH_GUIDE.md) | [简体中文](PERIHELION_BREACH_GUIDE.zh-CN.md) | [日本語](PERIHELION_BREACH_GUIDE.ja.md) | [한국어](PERIHELION_BREACH_GUIDE.ko.md)
+<div align="center">
 
-![Soren Kestrel 在《近日点破袭》的伊卡洛斯-9号太阳中继站定日镜桁架区高速机动](../assets/perihelion-breach-world-hero.jpg)
+[![English](https://img.shields.io/badge/Language-English-38C6D9?style=for-the-badge)](PERIHELION_BREACH_GUIDE.md)
+[![Simplified Chinese](https://img.shields.io/badge/语言-简体中文-F08A24?style=for-the-badge)](PERIHELION_BREACH_GUIDE.zh-CN.md)
+[![Japanese](https://img.shields.io/badge/言語-日本語-E54848?style=for-the-badge)](PERIHELION_BREACH_GUIDE.ja.md)
+[![Korean](https://img.shields.io/badge/언어-한국어-38C6D9?style=for-the-badge)](PERIHELION_BREACH_GUIDE.ko.md)
 
-*本图为出版物概念设定渲染图，并非实机运行截图或交付验证证据。*
+[![返回主控台](https://img.shields.io/badge/←_返回总览-README.zh--CN-1A2433?style=flat-square&borderColor=38C6D9)](../README.zh-CN.md)
+[![游戏品类](https://img.shields.io/badge/品类-第一人称科幻射击冒险-38C6D9?style=flat-square)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
+[![规格篇幅](https://img.shields.io/badge/出版物-36_页_PDF-F08A24?style=flat-square)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
+[![黄金样本](https://img.shields.io/badge/黄金样本-examples%2Frun--0003-3DBE8B?style=flat-square)](../examples/run-0003/run-manifest.json)
+
+| 出版物封面（36 页） | 轨道世界概念图（`Heliostat Truss`） | 终局 Boss 概念图（`The Heliarch Warden`） |
+| :---: | :---: | :---: |
+| <a href="../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf"><img src="../assets/perihelion-breach-cover.jpg" width="210" alt="《近日点破袭》v1.0 封面" /></a> | <img src="../assets/perihelion-breach-world-hero.jpg" width="340" alt="Soren Kestrel 在伊卡洛斯-9号太阳中继站定日镜桁架区高速机动" /> | <img src="../assets/perihelion-breach-combat-hero.jpg" width="340" alt="Soren Kestrel 在近日点核心舱内迎战日冕典狱长" /> |
+
+*本组图像为出版物概念设定渲染图，并非实机运行截图或交付验证证据。*
+
+</div>
 
 > **文档定位说明**
 >
@@ -42,6 +56,8 @@
 | **切伦科夫青（Cherenkov Cyan）** | `#38C6D9` | 电离磁轨弹道尾迹、低温冷却剂管道与主动散热电弧 |
 | **过热等离子红（Overheat Plasma Red）** | `#E54848` | 核心过热警报（`>= 85 Heat`）、敌方散热弱点核心与迫击炮弹道弧 |
 
+*色彩护栏（Palette Guardrail）*：严禁在程序化着色器、战术 HUD 准星或电离粒子特效中使用廉价 AI 模板紫（`#7567F5`）与高饱和霓虹紫红。
+
 ---
 
 ## 3. 十拍轨道作战推进路线（`restore_perihelion_attitude`）
@@ -65,6 +81,10 @@
 
 所有枪械射速、充能斜率、主动散热窗口及位移冲量均严格运行于 60 Hz 整数帧（`1 tick = 16.6667 ms`）。上半身换弹计时器与下半身抓钩脱钩/滑铲状态机完全解耦（修复缺陷 `FPS-N06A-COMBAT-019`）。
 
+<div align="center">
+  <img src="../assets/svg/game-03-telemetry-zh-CN.svg" width="100%" alt="《近日点破袭》60 Hz 武器散热与抓钩帧数时间轴、色板与热量阈值图" />
+</div>
+
 | 动作名称 | 前摇（Startup） | 判定/蓄力窗口（Active） | 后摇（Recovery） | 总帧数 | 热量消耗、伤害与机制效果 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **卡宾枪三连发（`Carbine 3-Burst`）** | `2 ticks` | `Ticks 3..11`（3 发） | `10 ticks` | `21 ticks` | `+12 Heat`；`3 x 14` 即时命中伤害（弱点倍率 `1.5x`） |
@@ -78,10 +98,6 @@
 ---
 
 ## 5. 合成体敌兵阵容与双阶段 Boss：日冕典狱长（The Heliarch Warden）
-
-![Soren Kestrel 在近日点核心舱内使用磁力抓钩与磁轨炮迎战“日冕典狱长”](../assets/perihelion-breach-combat-hero.jpg)
-
-*本图为出版物概念设定渲染图，并非实机运行截图或交付验证证据。*
 
 ### 三类合成体敌兵原型
 1. **伏特掠行虫（`Volt Skitter`）**：高速四足维修合成体（`90 Hull`，移速 `6.8 m/s`），可沿墙壁与桁架横梁攀爬突袭，迫使玩家保持高速位移。

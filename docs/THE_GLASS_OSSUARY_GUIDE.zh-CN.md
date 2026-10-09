@@ -2,11 +2,25 @@
 
 # 《琉璃骸骨堂》（The Glass Ossuary）：悬疑恐怖游戏研发与架构指南
 
-[English](THE_GLASS_OSSUARY_GUIDE.md) | [简体中文](THE_GLASS_OSSUARY_GUIDE.zh-CN.md) | [日本語](THE_GLASS_OSSUARY_GUIDE.ja.md) | [한국어](THE_GLASS_OSSUARY_GUIDE.ko.md)
+<div align="center">
 
-![Clara Vane 在《琉璃骸骨堂》的折射回廊中手持黄铜双焦放大镜与防风提灯进行现场取证](../assets/glass-ossuary-investigation-hero.jpg)
+[![English](https://img.shields.io/badge/Language-English-4FA89B?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.md)
+[![Simplified Chinese](https://img.shields.io/badge/语言-简体中文-C89B54?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.zh-CN.md)
+[![Japanese](https://img.shields.io/badge/言語-日本語-B8423A?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.ja.md)
+[![Korean](https://img.shields.io/badge/언어-한국어-4FA89B?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.ko.md)
 
-*本图为出版物概念设定渲染图，并非实机运行截图或交付验证证据。*
+[![返回主控台](https://img.shields.io/badge/←_返回总览-README.zh--CN-16202A?style=flat-square&borderColor=4FA89B)](../README.zh-CN.md)
+[![游戏品类](https://img.shields.io/badge/品类-第一人称调查悬疑恐怖-4FA89B?style=flat-square)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
+[![规格篇幅](https://img.shields.io/badge/出版物-36_页_PDF-C89B54?style=flat-square)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
+[![黄金样本](https://img.shields.io/badge/黄金样本-examples%2Frun--0002-3DBE8B?style=flat-square)](../examples/run-0002/run-manifest.json)
+
+| 出版物封面（36 页） | 现场取证概念图（`Refraction Gallery`） | 终局 Boss 概念图（`The Choir in the Glass`） |
+| :---: | :---: | :---: |
+| <a href="../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf"><img src="../assets/the-glass-ossuary-cover.jpg" width="210" alt="《琉璃骸骨堂》v1.0 封面" /></a> | <img src="../assets/glass-ossuary-investigation-hero.jpg" width="340" alt="Clara Vane 在《琉璃骸骨堂》的折射回廊中进行现场取证" /> | <img src="../assets/glass-ossuary-apparition-hero.jpg" width="340" alt="《琉璃骸骨堂》终局双阶段 Boss 玻璃圣咏团显形" /> |
+
+*本组图像为出版物概念设定渲染图，并非实机运行截图或交付验证证据。*
+
+</div>
 
 > **文档定位说明**
 >
@@ -41,6 +55,8 @@
 | **银盐显影青（Silver-Halide Cyan）** | `#4FA89B` | 骨琉璃折射色散（折射率 `ior: 1.54`）与铁版相机紫外闪光负片反相高光 |
 | **动脉铁锈红（Arterial Rust）** | `#B8423A` | 水闸铁链、火漆封缄与高侵蚀度（Exposure）视野边缘警报暗角 |
 
+*色彩护栏（Palette Guardrail）*：严禁在程序化着色器、UI 界面或骨琉璃折射焦散中使用廉价 AI 模板紫（`#7567F5`）与高饱和霓虹紫红。
+
 ---
 
 ## 3. 十拍调查推进路线（`case_saint_vane`）
@@ -64,6 +80,10 @@
 
 所有交互动作均绑定 60 Hz 整数仿真帧（`1 tick = 16.6667 ms`）。光学可见度（`LANTERN_OPEN` / `LANTERN_SHUTTERED`）与声学反相掩蔽（`PHONOGRAPH_CANCEL_ACTIVE`）采用正交位掩码通道，确保开关提灯百叶闸绝不会覆盖正在生效的留声机反相消音状态。
 
+<div align="center">
+  <img src="../assets/svg/game-02-telemetry-zh-CN.svg" width="100%" alt="《琉璃骸骨堂》60 Hz 取证器械帧数时间轴、色板与声学阈值图" />
+</div>
+
 | 动作名称 | 前摇（Startup） | 判定窗口（Active Window） | 后摇（Recovery） | 总帧数 | 资源消耗与机制效果 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **提灯百叶遮光（`Lantern Shutter`）** | `6 ticks` | 持续切换（`7..`） | `6 ticks` | `12 ticks` | `0 鲸油`；切断照明光锥并消除光学视线仇恨 |
@@ -76,10 +96,6 @@
 ---
 
 ## 5. 灵体生态与双阶段 Boss：玻璃圣咏团（The Choir in the Glass）
-
-![《琉璃骸骨堂》终局双阶段 Boss“玻璃圣咏团”在骨琉璃共鸣穹顶下显形](../assets/glass-ossuary-apparition-hero.jpg)
-
-*本图为出版物概念设定渲染图，并非实机运行截图或交付验证证据。*
 
 ### 三类灵体原型
 1. **泥沼听音者（`Mire Listener`）**：双目失明的两栖声学猎手，完全依赖声音寻路。当玩家涉水、奔跑或未开启留声机掩蔽导致音量超过 `-28 dBFS` 时高速扑击。

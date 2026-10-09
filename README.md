@@ -34,6 +34,11 @@
 
 *Composite plate of the four PDF publications in this repository. All covers and section heroes are publication plates and concept artwork rather than captures from a finished runtime build.*
 
+| **01 · Control Plane (`64 pp`)** | **02 · Action RPG (`81 pp`)** | **03 · Mystery Horror (`36 pp`)** | **04 · FPS Adventure (`36 pp`)** |
+| :---: | :---: | :---: | :---: |
+| [![Evidence Graph v2.0 Cover](assets/threejs-evidence-graph-cover.jpg)](publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf) | [![The Hollow Meridian Cover](assets/the-hollow-meridian-cover.jpg)](publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) | [![The Glass Ossuary Cover](assets/the-glass-ossuary-cover.jpg)](publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf) | [![Perihelion Breach Cover](assets/perihelion-breach-cover.jpg)](publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf) |
+| [**Operational Manual v2.0**](docs/EVIDENCE_GRAPH_GUIDE.md)<br/>`15-Node DAG · Regime A & B` | [***The Hollow Meridian***](docs/THE_HOLLOW_MERIDIAN_GUIDE.md)<br/>`Sable Veren · 60 Hz Parry` | [***The Glass Ossuary***](docs/THE_GLASS_OSSUARY_GUIDE.md)<br/>`Clara Vane · 6-Node Inquest` | [***Perihelion Breach***](docs/PERIHELION_BREACH_GUIDE.md)<br/>`Soren Kestrel · Thermal Vent` |
+
 | # | Publication & Genre | PDF Artifact (`publications/`) | Pages | Size (Bytes) | Native Companion Guides (`docs/`) | Prompts & Fixtures |
 | :-: | :--- | :--- | ---: | ---: | :--- | :--- |
 | **01** | **Three.js Evidence Graph v2.0**<br/>*Multi-Agent Control Plane & Determinism Manual* | [`threejs-evidence-graph-operational-manual-v2.0-en.pdf`](publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf)<br/>`sha256[0..16]: d3830d411a61c52c` | `64` | `416,827` | [EN](docs/EVIDENCE_GRAPH_GUIDE.md) · [中文](docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md) · [日本語](docs/EVIDENCE_GRAPH_GUIDE.ja.md) · [한국어](docs/EVIDENCE_GRAPH_GUIDE.ko.md) | [`prompts/evidence-graph/`](prompts/evidence-graph/)<br/>[`schemas/`](schemas/) |
@@ -45,7 +50,7 @@
 
 ## Core Architecture: The 15-Node Evidence Graph (`N00` .. `N14`)
 
-![15-Node Evidence Graph Topology and Three-Genre Game Instantiation](assets/svg/architecture-pipeline.svg)
+![15-Node Evidence Graph Topology and Three-Genre Game Instantiation](assets/svg/architecture-pipeline-en.svg)
 
 Single-conversation LLM game generation routinely collapses when the same context window invents scope, writes shaders, edits combat math, and grades its own output. *Three.js Evidence Graph v2.0* replaces self-certified chat loops with four structural invariants:
 
@@ -86,6 +91,8 @@ Single-conversation LLM game generation routinely collapses when the same contex
 | :---: | :---: |
 | ![The Hollow Meridian World Route](assets/hollow-meridian-world-hero.jpg) | ![The Bell Without a Name Boss Encounter](assets/hollow-meridian-boss-hero.jpg) |
 
+![The Hollow Meridian 60 Hz Combat Telemetry, Palette Swatches, and Boss Gate](assets/svg/game-01-telemetry-en.svg)
+
 *The Hollow Meridian* sets the player inside a ruined brass-and-basalt observatory that once preserved the true names of vanished cities. Playing as **The Cartographer**, you navigate five interconnected spaces, master committed 60 Hz melee parries and stamina discipline, solve the three-ring `Meridian Alignment` puzzle, choose one of three build-defining Shrine relics, and confront **The Bell Without a Name**.
 
 <details>
@@ -116,6 +123,8 @@ Single-conversation LLM game generation routinely collapses when the same contex
 | Forensic Investigation Concept Plate | Apparition & Ossuary Boss Concept Plate |
 | :---: | :---: |
 | ![The Glass Ossuary Forensic Investigation](assets/glass-ossuary-investigation-hero.jpg) | ![The Choir in the Glass Apparition Encounter](assets/glass-ossuary-apparition-hero.jpg) |
+
+![The Glass Ossuary 60 Hz Forensic Instrument Telemetry, Palette Swatches, and Inquest Board](assets/svg/game-02-telemetry-en.svg)
 
 *The Glass Ossuary* places acoustic archivist **Clara Vane** on a storm-lashed tidal island in 1894 where a coastal lighthouse has been fused with a subterranean bone-glass ossuary. Instead of combat weapons or scripted jump scares, survival and revelation depend on three physical 19th-century forensic instruments (`Split-Diopter Brass Loupe`, `Wax-Cylinder Phonograph`, and `Silver-Salt Ferrotype Plate`), a 6-node `Inquest Board`, and strict light/sound discipline against **The Choir in the Glass**.
 
@@ -148,6 +157,8 @@ Single-conversation LLM game generation routinely collapses when the same contex
 | Orbital Solar-Relay Traversal Concept Plate | High-Velocity Boss Combat Concept Plate |
 | :---: | :---: |
 | ![Perihelion Breach World Route](assets/perihelion-breach-world-hero.jpg) | ![The Heliarch Warden Boss Combat](assets/perihelion-breach-combat-hero.jpg) |
+
+![Perihelion Breach 60 Hz Grapple, Thermal Vent Telemetry, Palette Swatches, and Solar Cycle](assets/svg/game-03-telemetry-en.svg)
 
 *Perihelion Breach* drops vanguard specialist **Soren Kestrel** aboard the sun-grazing **Icarus-9 Orbital Solar Relay** at `0.09 AU` after its autonomous defense grid locks the heliostat mirrors into a thermal runaway cascade. Built for high-velocity 60 Hz gunplay and three-dimensional traversal, it combines electromagnetic coilguns and piercing rail-slugs with active `Thermal Vent Reload` timings (`ticks 14..20`), `Magnetic Grapple` slingshots (`18.0 m/s`), `240-tick` solar flare shadow corridors, and a two-phase aerial arena battle against **The Heliarch Warden**.
 
@@ -225,8 +236,8 @@ threejs-evidence-graph/
 │   ├── TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md
 │   ├── GLOSSARY.md, TRANSLATION_POLICY.md, PUBLICATION_STATUS.md
 │   └── ARTWORK_PROVENANCE.md
-├── assets/                                                           # 13 Zero-EXIF JPEGs + 5 Custom Typographic SVGs
-│   ├── svg/{masthead-en,masthead-zh-CN,masthead-ja,masthead-ko,architecture-pipeline}.svg
+├── assets/                                                           # 13 Zero-EXIF JPEGs + 21 Custom Native-Localized SVGs
+│   ├── svg/{masthead-*,architecture-pipeline*,game-01..03-telemetry-*}.svg
 │   └── *.jpg
 ├── scripts/verify_release.py                                         # Automated SHA-256, Schema, PDF, EXIF & Link Verifier
 ├── SHA256SUMS.txt                                                    # Bit-exact SHA-256 checksums (LF line endings)

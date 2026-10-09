@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 348" width="100%" role="img" aria-label="15노드 결정론적 에비던스 그래프 토폴로지 (N00 .. N14) 및 3대 장르 버티컬 슬라이스 아키텍처">
+  <defs>
+    <linearGradient id="pipeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080C12"/>
+      <stop offset="100%" stop-color="#0E1622"/>
+    </linearGradient>
+    <pattern id="pipeGrid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#142030" stroke-width="0.6" stroke-opacity="0.6"/>
+    </pattern>
+  </defs>
+  <rect width="1260" height="348" rx="10" fill="url(#pipeBg)" stroke="#1E2D40" stroke-width="1.5"/>
+  <rect width="1260" height="348" rx="10" fill="url(#pipeGrid)"/>
+
+  <text x="36" y="32" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="11" font-weight="700" letter-spacing="1.0">15노드 결정론적 에비던스 그래프 토폴로지 (N00 .. N14) 및 3대 장르 버티컬 슬라이스 아키텍처</text>
+  <text x="1224" y="32" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700" text-anchor="end">레짐 A (고정 Chromium 비트 일치) + 레짐 B (크로스 플랫폼 허용오차 검증)</text>
+
+  <!-- Top Pipeline Row: 5 Core Stages Grouping N00..N14 -->
+  <g transform="translate(36, 48)">
+    
+    <rect x="0" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#45B29D" stroke-width="1.3"/>
+    <rect x="0" y="0" width="222" height="3" rx="1.5" fill="#45B29D"/>
+    <text x="12" y="23" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700">N00 .. N02 // 계약 및 예산</text>
+    <text x="12" y="46" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="12.5" font-weight="700">브리프·월드·렌더 예산</text>
+    <text x="12" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10">WebGPURenderer + WebGL2 동등성</text>
+    <line x1="222" y1="42" x2="238" y2="42" stroke="#45B29D" stroke-width="2"/>
+    <polygon points="233,38 238,42 233,46" fill="#45B29D"/>
+    <rect x="238" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#D49B4B" stroke-width="1.3"/>
+    <rect x="238" y="0" width="222" height="3" rx="1.5" fill="#D49B4B"/>
+    <text x="250" y="23" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700">N03 .. N05 // 결정론적 시뮬</text>
+    <text x="250" y="46" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="12.5" font-weight="700">60 Hz 고정 틱 &amp; 시드 PRNG</text>
+    <text x="250" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10">16.6667 ms 스텝 · 상태 해시 검증</text>
+    <line x1="460" y1="42" x2="476" y2="42" stroke="#45B29D" stroke-width="2"/>
+    <polygon points="471,38 476,42 471,46" fill="#45B29D"/>
+    <rect x="476" y="0" width="236" height="84" rx="6" fill="#111A28" stroke="#38C6D9" stroke-width="1.3"/>
+    <rect x="476" y="0" width="236" height="3" rx="1.5" fill="#38C6D9"/>
+    <text x="488" y="23" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700">N06A + N06B // 병렬 포크</text>
+    <text x="488" y="46" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="12.5" font-weight="700">절차적 아트 &amp; Web Audio</text>
+    <text x="488" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10">TSL 셰이더 · -16 LUFS 오디오 합성</text>
+    <line x1="712" y1="42" x2="728" y2="42" stroke="#45B29D" stroke-width="2"/>
+    <polygon points="723,38 728,42 723,46" fill="#45B29D"/>
+    <rect x="728" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#C89B54" stroke-width="1.3"/>
+    <rect x="728" y="0" width="222" height="3" rx="1.5" fill="#C89B54"/>
+    <text x="740" y="23" fill="#C89B54" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700">N07 .. N10 // 게임플레이·UI</text>
+    <text x="740" y="46" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="12.5" font-weight="700">전투/추리 루프 &amp; 접근성 HUD</text>
+    <text x="740" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10">WCAG 2.2 AA · DOM 메모리 누수 제로</text>
+    <line x1="950" y1="42" x2="966" y2="42" stroke="#45B29D" stroke-width="2"/>
+    <polygon points="961,38 966,42 961,46" fill="#45B29D"/>
+    <rect x="966" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#45B29D" stroke-width="1.3"/>
+    <rect x="966" y="0" width="222" height="3" rx="1.5" fill="#45B29D"/>
+    <text x="978" y="23" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700">N11 .. N14 // 감사 및 릴리스</text>
+    <text x="978" y="46" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="12.5" font-weight="700">QA 감사·자동 수리·출하 게이트</text>
+    <text x="978" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10">SHA-256 RunManifest 증거 서명</text>
+  </g>
+
+  <!-- Fan-Out Bus Lines from Pipeline to Three Genre Slices -->
+  <line x1="630" y1="132" x2="630" y2="156" stroke="#45B29D" stroke-width="1.5"/>
+  <line x1="227" y1="156" x2="1033" y2="156" stroke="#2A3C54" stroke-width="1.5"/>
+  <line x1="227" y1="156" x2="227" y2="178" stroke="#D49B4B" stroke-width="1.5"/>
+  <line x1="630" y1="156" x2="630" y2="178" stroke="#4FA89B" stroke-width="1.5"/>
+  <line x1="1033" y1="156" x2="1033" y2="178" stroke="#38C6D9" stroke-width="1.5"/>
+  <rect x="420" y="145" width="420" height="20" rx="4" fill="#0B111A" stroke="#24354A" stroke-width="1"/>
+  <text x="630" y="159" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10" font-weight="600" text-anchor="middle">단일 15노드 DAG 파이프라인 -&gt; 3종의 무에셋 버티컬 슬라이스 인스턴스화</text>
+
+  <!-- Bottom Row: Three Genre Vertical Slice Instantiations -->
+  <g transform="translate(36, 180)">
+    
+    <rect x="0" y="0" width="382" height="140" rx="7" fill="#101926" stroke="#28384E" stroke-width="1.2"/>
+    <rect x="0" y="0" width="382" height="4" rx="2" fill="#D49B4B"/>
+    <circle cx="16" cy="24" r="3.5" fill="#D49B4B"/>
+    <text x="26" y="28" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700">GAME 01 · 3인칭 액션 RPG (81쪽 규격)</text>
+    <text x="16" y="54" fill="#F8FAFC" font-family="'Noto Serif KR', 'Source Han Serif KR', 'Batang', serif" font-size="17" font-weight="700">《공허의 자오선》 The Hollow Meridian</text>
+    <text x="16" y="79" fill="#CBD5E1" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="11.5">Sable Veren · 60 Hz 패링 판정(6..12틱) · 5개 관측소 구역</text>
+    <text x="16" y="101" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10">보스: 이름 없는 종 (850 HP / 467 HP) · examples/run-0001/</text>
+    <text x="16" y="122" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5">프롬프트: prompts/hollow-meridian/orchestrator.md + 7종</text>
+    <rect x="403" y="0" width="382" height="140" rx="7" fill="#101926" stroke="#28384E" stroke-width="1.2"/>
+    <rect x="403" y="0" width="382" height="4" rx="2" fill="#4FA89B"/>
+    <circle cx="419" cy="24" r="3.5" fill="#4FA89B"/>
+    <text x="429" y="28" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700">GAME 02 · 1인칭 미스터리 호러 (36쪽 규격)</text>
+    <text x="419" y="54" fill="#F8FAFC" font-family="'Noto Serif KR', 'Source Han Serif KR', 'Batang', serif" font-size="17" font-weight="700">《유리 납골당》 The Glass Ossuary</text>
+    <text x="419" y="79" fill="#CBD5E1" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="11.5">Clara Vane · 음향 루페·축음기·습판 플래시 · 6노드 추리 보드</text>
+    <text x="419" y="101" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10">보스: 유리 속의 성가대 (무결성 600 / 300) · examples/run-0002/</text>
+    <text x="419" y="122" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5">프롬프트: prompts/glass-ossuary/orchestrator.md + 7종</text>
+    <rect x="806" y="0" width="382" height="140" rx="7" fill="#101926" stroke="#28384E" stroke-width="1.2"/>
+    <rect x="806" y="0" width="382" height="4" rx="2" fill="#38C6D9"/>
+    <circle cx="822" cy="24" r="3.5" fill="#38C6D9"/>
+    <text x="832" y="28" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="700">GAME 03 · 1인칭 SF 슈팅 어드벤처 (36쪽 규격)</text>
+    <text x="822" y="54" fill="#F8FAFC" font-family="'Noto Serif KR', 'Source Han Serif KR', 'Batang', serif" font-size="17" font-weight="700">《근일점 돌파》 Perihelion Breach</text>
+    <text x="822" y="79" fill="#CBD5E1" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="11.5">Soren Kestrel · 자기 그래플·슬라이드·방열 재장전(14..20틱)</text>
+    <text x="822" y="101" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10">보스: 헬리아크 워든 (장갑 1,000 / 500) · examples/run-0003/</text>
+    <text x="822" y="122" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5">프롬프트: prompts/perihelion-breach/orchestrator.md + 7종</text>
+  </g>
+</svg>
