@@ -1,10 +1,24 @@
 # Perihelion Breach: FPS Adventure Companion Guide
 
-[English](PERIHELION_BREACH_GUIDE.md) | [简体中文](PERIHELION_BREACH_GUIDE.zh-CN.md) | [日本語](PERIHELION_BREACH_GUIDE.ja.md) | [한국어](PERIHELION_BREACH_GUIDE.ko.md)
+<div align="center">
 
-![Soren Kestrel traversing the sun-grazing Heliostat Truss aboard Icarus-9 in Perihelion Breach](../assets/perihelion-breach-world-hero.jpg)
+[![English](https://img.shields.io/badge/Language-English-38C6D9?style=for-the-badge)](PERIHELION_BREACH_GUIDE.md)
+[![Simplified Chinese](https://img.shields.io/badge/语言-简体中文-F08A24?style=for-the-badge)](PERIHELION_BREACH_GUIDE.zh-CN.md)
+[![Japanese](https://img.shields.io/badge/言語-日本語-E54848?style=for-the-badge)](PERIHELION_BREACH_GUIDE.ja.md)
+[![Korean](https://img.shields.io/badge/언어-한국어-38C6D9?style=for-the-badge)](PERIHELION_BREACH_GUIDE.ko.md)
+
+[![Back to Master Suite](https://img.shields.io/badge/←_Master_Suite-README-1A2433?style=flat-square&borderColor=38C6D9)](../README.md)
+[![Genre](https://img.shields.io/badge/Genre-1st--Person_Sci--Fi_Shooter_Adventure-38C6D9?style=flat-square)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
+[![Pages](https://img.shields.io/badge/Publication-36_Pages_PDF-F08A24?style=flat-square)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
+[![Golden Run](https://img.shields.io/badge/Golden_Fixture-examples%2Frun--0003-3DBE8B?style=flat-square)](../examples/run-0003/run-manifest.json)
+
+| Publication Cover (36 pp.) | World Hero (`Heliostat Truss`) | Boss Hero (`The Heliarch Warden`) |
+| :---: | :---: | :---: |
+| <a href="../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf"><img src="../assets/perihelion-breach-cover.jpg" width="210" alt="Perihelion Breach v1.0 cover" /></a> | <img src="../assets/perihelion-breach-world-hero.jpg" width="340" alt="Soren Kestrel traversing the sun-grazing Heliostat Truss aboard Icarus-9 in Perihelion Breach" /> | <img src="../assets/perihelion-breach-combat-hero.jpg" width="340" alt="Soren Kestrel engaging The Heliarch Warden inside the Perihelion Core Chamber" /> |
 
 *Concept artwork for the publication. Not a gameplay capture or implementation evidence.*
+
+</div>
 
 > **Guide status**
 >
@@ -40,6 +54,8 @@ Aboard **Icarus-9**, blinding `5800K` solar corona glare clashes against deep va
 | **Cherenkov Cyan** | `#38C6D9` | Ionized rail-slug trails, cryo-coolant conduits, and active Thermal Vent purge arcs |
 | **Overheat Plasma Red** | `#E54848` | Core Heat critical warnings (`>= 85 Heat`), enemy weak-point vents, and mortar arcs |
 
+*Palette guardrail*: Generic AI purple (`#7567F5`) and neon cyberpunk magenta are strictly banned across all procedural shaders, HUD reticles, and plasma effects.
+
 ---
 
 ## 3. Ten-Beat Orbital Mission Route (`restore_perihelion_attitude`)
@@ -63,6 +79,10 @@ Aboard **Icarus-9**, blinding `5800K` solar corona glare clashes against deep va
 
 All weapon cadences, active reload windows, and movement impulses run on integer 60 Hz ticks (`1 tick = 16.6667 ms`). Upper-body weapon reload timers are strictly decoupled from lower-body grapple detach and slide-boost transitions (`FPS-N06A-COMBAT-019`).
 
+<div align="center">
+  <img src="../assets/svg/game-03-telemetry-en.svg" width="100%" alt="Perihelion Breach 60 Hz Ballistics, Thermal Vent Reload, and Grapple Kinematics Telemetry" />
+</div>
+
 | Action | Startup | Active / Window | Recovery | Total Ticks | Heat / Damage / Mechanical Effect |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Carbine 3-Burst** | `2 ticks` | `Ticks 3..11` (3x) | `10 ticks` | `21 ticks` | `+12 Heat`; `3 x 14 dmg` hitscan (`1.5x` precision weak-point multiplier) |
@@ -76,10 +96,6 @@ All weapon cadences, active reload windows, and movement impulses run on integer
 ---
 
 ## 5. Enemy Roster & Two-Phase Boss: The Heliarch Warden
-
-![Soren Kestrel engaging The Heliarch Warden inside the Perihelion Core Chamber](../assets/perihelion-breach-combat-hero.jpg)
-
-*Concept artwork for the publication. Not a gameplay capture or implementation evidence.*
 
 ### Three Synth Enemy Archetypes
 1. **Volt Skitter**: Fast quadruped maintenance synth (`90 Hull`, `6.8 m/s`) that bounds along walls and truss beams to flush the player out of cover.

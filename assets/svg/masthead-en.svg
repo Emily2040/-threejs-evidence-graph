@@ -6,8 +6,9 @@
       <stop offset="100%" stop-color="#091019"/>
     </linearGradient>
     <linearGradient id="goldCyan" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#D49B4B"/>
-      <stop offset="50%" stop-color="#45B29D"/>
+      <stop offset="0%" stop-color="#45B29D"/>
+      <stop offset="35%" stop-color="#D49B4B"/>
+      <stop offset="70%" stop-color="#4FA89B"/>
       <stop offset="100%" stop-color="#38C6D9"/>
     </linearGradient>
     <pattern id="archGrid" width="42" height="42" patternUnits="userSpaceOnUse">
@@ -21,65 +22,78 @@
   <rect x="0" y="0" width="1260" height="4" rx="2" fill="url(#goldCyan)"/>
 
   <!-- Decorative Orbital & Acoustic Telemetry Rings -->
-  <g transform="translate(1070, 102)" opacity="0.85">
-    <circle cx="0" cy="0" r="118" fill="none" stroke="#D49B4B" stroke-width="1.1" stroke-opacity="0.35" stroke-dasharray="6 4"/>
-    <circle cx="0" cy="0" r="84" fill="none" stroke="#45B29D" stroke-width="1.2" stroke-opacity="0.45"/>
-    <circle cx="0" cy="0" r="48" fill="none" stroke="#38C6D9" stroke-width="1.2" stroke-opacity="0.55"/>
-    <line x1="-132" y1="0" x2="132" y2="0" stroke="#243447" stroke-width="0.9"/>
-    <line x1="0" y1="-132" x2="0" y2="132" stroke="#243447" stroke-width="0.9"/>
-    <circle cx="0" cy="0" r="5" fill="#D49B4B"/>
-    <circle cx="59" cy="-59" r="4" fill="#45B29D"/>
-    <circle cx="-34" cy="34" r="3.5" fill="#38C6D9"/>
+  <g transform="translate(1118, 96)" opacity="0.85">
+    <circle cx="0" cy="0" r="106" fill="none" stroke="#D49B4B" stroke-width="1.1" stroke-opacity="0.32" stroke-dasharray="6 4"/>
+    <circle cx="0" cy="0" r="76" fill="none" stroke="#45B29D" stroke-width="1.2" stroke-opacity="0.42"/>
+    <circle cx="0" cy="0" r="44" fill="none" stroke="#38C6D9" stroke-width="1.2" stroke-opacity="0.52"/>
+    <line x1="-118" y1="0" x2="118" y2="0" stroke="#243447" stroke-width="0.9"/>
+    <line x1="0" y1="-118" x2="0" y2="118" stroke="#243447" stroke-width="0.9"/>
+    <line x1="-70" y1="34" x2="82" y2="-40" stroke="#D8564A" stroke-width="1.2" stroke-opacity="0.65"/>
+    <circle cx="0" cy="0" r="4.5" fill="#D49B4B"/>
+    <circle cx="53" cy="-53" r="3.8" fill="#45B29D"/>
+    <circle cx="-31" cy="31" r="3.5" fill="#38C6D9"/>
   </g>
 
   <!-- Eyebrow Pill -->
-  <rect x="48" y="30" width="12" height="12" rx="2" fill="#D49B4B"/>
-  <text x="68" y="40" fill="#D49B4B" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="11.5" font-weight="700" letter-spacing="1.8">EMILY PARADOX ARCHIVE // RELEASE 2026.07.5 // DETERMINISTIC THREE.JS r185 SUITE</text>
+  <rect x="48" y="28" width="12" height="12" rx="2" fill="#D49B4B"/>
+  <text x="68" y="38" fill="#D49B4B" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="11.5" font-weight="700" letter-spacing="1.4">EMILY PARADOX ARCHIVE // RELEASE 2026.07.5 // DETERMINISTIC THREE.JS r185 SUITE</text>
 
   <!-- Main Editorial Headline -->
-  <text x="48" y="92" fill="#F8FAFC" font-family="'Instrument Serif', 'Playfair Display', 'Times New Roman', Georgia, serif" font-size="40" font-weight="700" letter-spacing="-0.4">Three.js Evidence Graph &amp; Multi-Genre Game Suite</text>
-  <text x="48" y="134" fill="#38C6D9" font-family="'Instrument Serif', 'Playfair Display', 'Times New Roman', Georgia, serif" font-size="28" font-weight="600">Four Peer-Audited Specifications · Three Zero-Asset Vertical Slices · Four Native Languages</text>
+  <text x="48" y="88" fill="#F8FAFC" font-family="'Instrument Serif', 'Playfair Display', 'Times New Roman', Georgia, serif" font-size="36" font-weight="700" letter-spacing="-0.3">Three.js Evidence Graph &amp; Multi-Genre Game Suite</text>
+  <text x="48" y="126" fill="#38C6D9" font-family="'Instrument Serif', 'Playfair Display', 'Times New Roman', Georgia, serif" font-size="23.5" font-weight="600">Four Peer-Audited Specifications · Three Zero-Asset Vertical Slices · Four Native Languages</text>
 
   <!-- Subtitle -->
-  <text x="48" y="168" fill="#B8C4D4" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14.5" font-weight="400">Deterministic 15-node DAG orchestration, WebGPURenderer + TSL shaders, procedural Web Audio synthesis, and executable JSON Schema contracts.</text>
+  <text x="48" y="162" fill="#B8C4D4" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400">Deterministic 15-node DAG orchestration, WebGPURenderer + TSL shaders, procedural Web Audio synthesis, and executable JSON Schema contracts.</text>
 
   <!-- Four Publication Cards -->
   
-  <g transform="translate(48, 204)">
-    <rect x="0" y="0" width="278" height="96" rx="6" fill="#101824" stroke="#243246" stroke-width="1.2"/>
-    <rect x="0" y="0" width="4" height="96" rx="2" fill="#D49B4B"/>
-    <text x="16" y="24" fill="#D49B4B" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="11" font-weight="700" letter-spacing="1.2">PUB 01 · 64 PP</text>
+  <g transform="translate(48, 198)">
+    <rect x="0" y="0" width="278" height="104" rx="7" fill="#0F1723" stroke="#243347" stroke-width="1.2"/>
+    <rect x="0" y="0" width="4" height="104" rx="2" fill="#45B29D"/>
+    <circle cx="16" cy="20" r="3.5" fill="#45B29D"/>
+    <text x="26" y="24" fill="#45B29D" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="11" font-weight="700" letter-spacing="1.0">PUB 01 · 64 PP</text>
     <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="10.5" font-weight="600" text-anchor="end">CORE ARCHITECTURE</text>
-    <text x="16" y="52" fill="#F8FAFC" font-family="'Instrument Serif', 'Playfair Display', 'Times New Roman', Georgia, serif" font-size="17.5" font-weight="700">Evidence Graph v2.0</text>
-    <text x="16" y="76" fill="#94A3B8" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500">15-Node DAG · Regime A &amp; B · JSON Schemas</text>
+    <text x="16" y="52" fill="#F8FAFC" font-family="'Instrument Serif', 'Playfair Display', 'Times New Roman', Georgia, serif" font-size="17" font-weight="700">Evidence Graph v2.0</text>
+    <text x="16" y="73" fill="#B8C4D4" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">15-Node DAG · Regime A &amp; B · Schemas</text>
+    <rect x="16" y="82" width="246" height="15" rx="3" fill="#090E16" stroke="#1C293A" stroke-width="0.8"/>
+    <text x="22" y="93" fill="#45B29D" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9.5" font-weight="600">64 PAGES · SHA-256: d3830d41..</text>
   </g>
-  <g transform="translate(342, 204)">
-    <rect x="0" y="0" width="278" height="96" rx="6" fill="#101824" stroke="#243246" stroke-width="1.2"/>
-    <rect x="0" y="0" width="4" height="96" rx="2" fill="#45B29D"/>
-    <text x="16" y="24" fill="#45B29D" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="11" font-weight="700" letter-spacing="1.2">PUB 02 · 81 PP</text>
+  <g transform="translate(342, 198)">
+    <rect x="0" y="0" width="278" height="104" rx="7" fill="#0F1723" stroke="#243347" stroke-width="1.2"/>
+    <rect x="0" y="0" width="4" height="104" rx="2" fill="#D49B4B"/>
+    <circle cx="16" cy="20" r="3.5" fill="#D49B4B"/>
+    <text x="26" y="24" fill="#D49B4B" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="11" font-weight="700" letter-spacing="1.0">PUB 02 · 81 PP</text>
     <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="10.5" font-weight="600" text-anchor="end">ACTION RPG SLICE</text>
-    <text x="16" y="52" fill="#F8FAFC" font-family="'Instrument Serif', 'Playfair Display', 'Times New Roman', Georgia, serif" font-size="17.5" font-weight="700">The Hollow Meridian</text>
-    <text x="16" y="76" fill="#94A3B8" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500">Sable Veren · 60 Hz Parry · 5 Ruined Zones</text>
+    <text x="16" y="52" fill="#F8FAFC" font-family="'Instrument Serif', 'Playfair Display', 'Times New Roman', Georgia, serif" font-size="17" font-weight="700">The Hollow Meridian</text>
+    <text x="16" y="73" fill="#B8C4D4" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Sable Veren · 60 Hz Parry · 5 Zones</text>
+    <rect x="16" y="82" width="246" height="15" rx="3" fill="#090E16" stroke="#1C293A" stroke-width="0.8"/>
+    <text x="22" y="93" fill="#D49B4B" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9.5" font-weight="600">81 PAGES · SHA-256: c4f8fe83..</text>
   </g>
-  <g transform="translate(636, 204)">
-    <rect x="0" y="0" width="278" height="96" rx="6" fill="#101824" stroke="#243246" stroke-width="1.2"/>
-    <rect x="0" y="0" width="4" height="96" rx="2" fill="#C89B54"/>
-    <text x="16" y="24" fill="#C89B54" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="11" font-weight="700" letter-spacing="1.2">PUB 03 · 36 PP</text>
+  <g transform="translate(636, 198)">
+    <rect x="0" y="0" width="278" height="104" rx="7" fill="#0F1723" stroke="#243347" stroke-width="1.2"/>
+    <rect x="0" y="0" width="4" height="104" rx="2" fill="#4FA89B"/>
+    <circle cx="16" cy="20" r="3.5" fill="#4FA89B"/>
+    <text x="26" y="24" fill="#4FA89B" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="11" font-weight="700" letter-spacing="1.0">PUB 03 · 36 PP</text>
     <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="10.5" font-weight="600" text-anchor="end">MYSTERY HORROR</text>
-    <text x="16" y="52" fill="#F8FAFC" font-family="'Instrument Serif', 'Playfair Display', 'Times New Roman', Georgia, serif" font-size="17.5" font-weight="700">The Glass Ossuary</text>
-    <text x="16" y="76" fill="#94A3B8" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500">Clara Vane · Acoustic Forensics · 6-Node Board</text>
+    <text x="16" y="52" fill="#F8FAFC" font-family="'Instrument Serif', 'Playfair Display', 'Times New Roman', Georgia, serif" font-size="17" font-weight="700">The Glass Ossuary</text>
+    <text x="16" y="73" fill="#B8C4D4" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Clara Vane · Acoustic Loupe · 6 Nodes</text>
+    <rect x="16" y="82" width="246" height="15" rx="3" fill="#090E16" stroke="#1C293A" stroke-width="0.8"/>
+    <text x="22" y="93" fill="#4FA89B" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9.5" font-weight="600">36 PAGES · SHA-256: efead090..</text>
   </g>
-  <g transform="translate(930, 204)">
-    <rect x="0" y="0" width="278" height="96" rx="6" fill="#101824" stroke="#243246" stroke-width="1.2"/>
-    <rect x="0" y="0" width="4" height="96" rx="2" fill="#38C6D9"/>
-    <text x="16" y="24" fill="#38C6D9" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="11" font-weight="700" letter-spacing="1.2">PUB 04 · 36 PP</text>
+  <g transform="translate(930, 198)">
+    <rect x="0" y="0" width="278" height="104" rx="7" fill="#0F1723" stroke="#243347" stroke-width="1.2"/>
+    <rect x="0" y="0" width="4" height="104" rx="2" fill="#38C6D9"/>
+    <circle cx="16" cy="20" r="3.5" fill="#38C6D9"/>
+    <text x="26" y="24" fill="#38C6D9" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="11" font-weight="700" letter-spacing="1.0">PUB 04 · 36 PP</text>
     <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="10.5" font-weight="600" text-anchor="end">FPS ADVENTURE</text>
-    <text x="16" y="52" fill="#F8FAFC" font-family="'Instrument Serif', 'Playfair Display', 'Times New Roman', Georgia, serif" font-size="17.5" font-weight="700">Perihelion Breach</text>
-    <text x="16" y="76" fill="#94A3B8" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500">Soren Kestrel · Grapple Kinematics · Thermal Vent</text>
+    <text x="16" y="52" fill="#F8FAFC" font-family="'Instrument Serif', 'Playfair Display', 'Times New Roman', Georgia, serif" font-size="17" font-weight="700">Perihelion Breach</text>
+    <text x="16" y="73" fill="#B8C4D4" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Soren Kestrel · Grapple · Thermal Vent</text>
+    <rect x="16" y="82" width="246" height="15" rx="3" fill="#090E16" stroke="#1C293A" stroke-width="0.8"/>
+    <text x="22" y="93" fill="#38C6D9" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9.5" font-weight="600">36 PAGES · SHA-256: 75bdfff2..</text>
   </g>
 
   <!-- Footer Telemetry Bar -->
   <line x1="48" y1="318" x2="1212" y2="318" stroke="#1E2C3E" stroke-width="1"/>
-  <text x="48" y="338" fill="#8A99AD" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="11" font-weight="600" letter-spacing="0.8">217 PAGES TOTAL · THREE.JS r185 (0.185.0) · ZERO EXTERNAL BINARY ASSETS · 21 AGENT CARDS</text>
-  <text x="1212" y="338" fill="#D49B4B" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="11" font-weight="700" text-anchor="end" letter-spacing="0.8">NATIVE EDITIONS: ENGLISH · 简体中文 · 日本語 · 한국어</text>
+  <text x="48" y="338" fill="#8A99AD" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="11" font-weight="600" letter-spacing="0.6">217 PAGES TOTAL · THREE.JS r185 (0.185.0) · ZERO EXTERNAL BINARY ASSETS · 21 AGENT CARDS</text>
+  <text x="1212" y="338" fill="#D49B4B" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="11" font-weight="700" text-anchor="end" letter-spacing="0.6">NATIVE EDITIONS: ENGLISH (EN) · ZH-CN · JA · KO</text>
 </svg>

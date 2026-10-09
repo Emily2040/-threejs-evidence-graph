@@ -2,11 +2,25 @@
 
 # 『ペリヘリオン・ブリーチ』（Perihelion Breach）：FPSアドベンチャー開発仕様・設計ガイド
 
-[English](PERIHELION_BREACH_GUIDE.md) | [简体中文](PERIHELION_BREACH_GUIDE.zh-CN.md) | [日本語](PERIHELION_BREACH_GUIDE.ja.md) | [한국어](PERIHELION_BREACH_GUIDE.ko.md)
+<div align="center">
 
-![『ペリヘリオン・ブリーチ』の太陽接近型軌道ステーション「イカロス9号」ヘリオスタット・トラスを高速機動するSoren Kestrel](../assets/perihelion-breach-world-hero.jpg)
+[![English](https://img.shields.io/badge/Language-English-38C6D9?style=for-the-badge)](PERIHELION_BREACH_GUIDE.md)
+[![Simplified Chinese](https://img.shields.io/badge/语言-简体中文-F08A24?style=for-the-badge)](PERIHELION_BREACH_GUIDE.zh-CN.md)
+[![Japanese](https://img.shields.io/badge/言語-日本語-E54848?style=for-the-badge)](PERIHELION_BREACH_GUIDE.ja.md)
+[![Korean](https://img.shields.io/badge/언어-한국어-38C6D9?style=for-the-badge)](PERIHELION_BREACH_GUIDE.ko.md)
 
-*本画像は仕様書向けのコンセプトアートであり、実機プレイ画面や実装完了を示す証跡ではありません。*
+[![スイート総覧へ戻る](https://img.shields.io/badge/←_スイート総覧-README.ja-1A2433?style=flat-square&borderColor=38C6D9)](../README.ja.md)
+[![ジャンル](https://img.shields.io/badge/ジャンル-一人称SFシューターアドベンチャー-38C6D9?style=flat-square)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
+[![仕様書頁数](https://img.shields.io/badge/仕様書-全36頁_PDF-F08A24?style=flat-square)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
+[![ゴールデン検証](https://img.shields.io/badge/検証Fixture-examples%2Frun--0003-3DBE8B?style=flat-square)](../examples/run-0003/run-manifest.json)
+
+| 仕様書カバー（全36頁） | 軌道エリアコンセプト（`Heliostat Truss`） | ボス戦コンセプト（`The Heliarch Warden`） |
+| :---: | :---: | :---: |
+| <a href="../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf"><img src="../assets/perihelion-breach-cover.jpg" width="210" alt="『ペリヘリオン・ブリーチ』v1.0 カバー" /></a> | <img src="../assets/perihelion-breach-world-hero.jpg" width="340" alt="イカロス9号のヘリオスタット・トラスを高速機動するSoren Kestrel" /> | <img src="../assets/perihelion-breach-combat-hero.jpg" width="340" alt="コアチャンバー内でヘリアーク・ウォーデンと交戦するSoren Kestrel" /> |
+
+*本画像群は仕様書向けのコンセプトアートであり、実機プレイ画面や実装完了を示す証跡ではありません。*
+
+</div>
 
 > **ガイドの位置づけ**
 >
@@ -42,6 +56,8 @@
 | **チェレンコフシアン（Cherenkov Cyan）** | `#38C6D9` | 電離レールスラッグ軌跡、極低温冷却導管、アクティブ排熱アーク |
 | **オーバーヒートプラズマレッド（Overheat Plasma Red）** | `#E54848` | コア過熱警報（`>= 85 Heat`）、敵の排熱弱点ベント、迫撃砲弾道 |
 
+*パレットガードレール*：汎用AIパープル（`#7567F5`）および高彩度ネオンマゼンタは、手続き型シェーダー、戦術HUDレティクル、プラズマエフェクトを含め全面的に使用禁止です。
+
 ---
 
 ## 3. 10ビート軌道ミッション進行ルート（`restore_perihelion_attitude`）
@@ -65,6 +81,10 @@
 
 すべての射撃レート、チャージ時間、アクティブリロード判定、移動インパルスは60 Hz整数ティック（`1 tick = 16.6667 ms`）で動作します。上半身のリロード進行カウンタは下半身のグラップル離脱やスライディング遷移から独立しており、空中機動中の排熱リロードが不発にならない設計です（`FPS-N06A-COMBAT-019`）。
 
+<div align="center">
+  <img src="../assets/svg/game-03-telemetry-ja.svg" width="100%" alt="『ペリヘリオン・ブリーチ』60 Hz 銃器・排熱リロード・グラップルフレームタイムライン・カラーパレット" />
+</div>
+
 | アクション | 発生（Startup） | 持続・受付（Active） | 硬直（Recovery） | 合計フレーム | 熱量・ダメージ・メカニカル効果 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **カービン3点バースト（`Carbine 3-Burst`）** | `2 ticks` | `Ticks 3..11`（3発） | `10 ticks` | `21 ticks` | `+12 Heat`、`3 x 14 dmg` ヒットスキャン（弱点倍率 `1.5x`） |
@@ -78,10 +98,6 @@
 ---
 
 ## 5. エネミー編成と二段階ボス：ヘリアーク・ウォーデン（The Heliarch Warden）
-
-![『ペリヘリオン・ブリーチ』のコアチャンバー内で「ヘリアーク・ウォーデン」と交戦するSoren Kestrel](../assets/perihelion-breach-combat-hero.jpg)
-
-*本画像は仕様書向けのコンセプトアートであり、実機プレイ画面や実装完了を示す証跡ではありません。*
 
 ### 3種の機械兵（Synth）アーキタイプ
 1. **ボルト・スキッター（`Volt Skitter`）**：壁面やトラス梁を疾走する四脚保守シンス（`90 Hull`、移動速度`6.8 m/s`）。遮蔽物に隠れたプレイヤーを炙り出します。

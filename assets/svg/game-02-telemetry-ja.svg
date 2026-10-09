@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 320" width="100%" role="img" aria-label="GAME 02 テレメトリ // 『硝子の納骨堂』 · 鑑識ツール判定窓・沿岸パレット・6ノード推理ボード">
+  <defs>
+    <linearGradient id="telBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B11"/>
+      <stop offset="100%" stop-color="#0D1520"/>
+    </linearGradient>
+    <pattern id="telGrid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#142030" stroke-width="0.6" stroke-opacity="0.55"/>
+    </pattern>
+  </defs>
+
+  <rect width="1260" height="320" rx="10" fill="url(#telBg)" stroke="#1E2D40" stroke-width="1.5"/>
+  <rect width="1260" height="320" rx="10" fill="url(#telGrid)"/>
+  <rect x="0" y="0" width="1260" height="4" rx="2" fill="#4FA89B"/>
+
+  <!-- Header Bar -->
+  <circle cx="34" cy="24" r="4" fill="#4FA89B"/>
+  <text x="46" y="28" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="11" font-weight="700" letter-spacing="1.0">GAME 02 テレメトリ // 『硝子の納骨堂』 · 鑑識ツール判定窓・沿岸パレット・6ノード推理ボード</text>
+  <text x="1228" y="28" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10.5" font-weight="600" text-anchor="end">全36頁 · シード 1894 · EXAMPLES/RUN-0002/</text>
+  <line x1="28" y1="40" x2="1232" y2="40" stroke="#1E2C3E" stroke-width="1"/>
+
+  <!-- Left Panel: 60 Hz Frame Timeline -->
+  <rect x="28" y="50" width="616" height="252" rx="7" fill="#0F1723" stroke="#223144" stroke-width="1.1"/>
+  <text x="44" y="72" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="12.5" font-weight="700">60 Hz 鑑識ツール &amp; ステルス時間軸</text>
+  <text x="616" y="72" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="600" text-anchor="end">直交光学+音響ビットマスク · 壁透視禁止</text>
+  
+    <!-- Bar 1 -->
+    <text x="44" y="105" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11.5" font-weight="700">ランタン・シャッター</text>
+    <text x="44" y="122" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5">6t発生 · トグル維持 (7..) · 6t閉鎖（0 Oil）</text>
+    <rect x="198" y="96" width="418" height="16" rx="4" fill="#0B1018" stroke="#1E2C3E" stroke-width="1"/>
+    <rect x="198" y="96" width="100" height="16" rx="4" fill="#182434"/>
+    <rect x="214" y="96" width="58" height="16" rx="3" fill="#C89B54"/>
+    <text x="616" y="125" fill="#C89B54" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="700" text-anchor="end">6t切替（光錐遮断・光学ヘイト切断）</text>
+    <!-- Bar 2 -->
+    <text x="44" y="157" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11.5" font-weight="700">真鍮ルーペ焦点合わせ</text>
+    <text x="44" y="174" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5">9t構え · 10..69tプリズム刻印解読 · 6t収納</text>
+    <rect x="198" y="148" width="418" height="16" rx="4" fill="#0B1018" stroke="#1E2C3E" stroke-width="1"/>
+    <rect x="198" y="148" width="326" height="16" rx="4" fill="#182434"/>
+    <rect x="256" y="148" width="200" height="16" rx="3" fill="#4FA89B"/>
+    <text x="616" y="177" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="700" text-anchor="end">10..69t（60ティック刻印解読）</text>
+    <!-- Bar 3 -->
+    <text x="44" y="209" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11.5" font-weight="700">蝋管蓄音機（逆位相）</text>
+    <text x="44" y="226" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5">24t巻上 · 25..114t逆位相消音 · 36t硬直</text>
+    <rect x="198" y="200" width="418" height="16" rx="4" fill="#0B1018" stroke="#1E2C3E" stroke-width="1"/>
+    <rect x="198" y="200" width="401" height="16" rx="4" fill="#182434"/>
+    <rect x="289" y="200" width="242" height="16" rx="3" fill="#63C7C2"/>
+    <text x="616" y="229" fill="#63C7C2" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="700" text-anchor="end">25..114t（90t 逆位相足音隠蔽）</text>
+    <!-- Bar 4 -->
+    <text x="44" y="261" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11.5" font-weight="700">銀塩湿板UVフラッシュ</text>
+    <text x="44" y="278" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5">18t充填 · 19..24t紫外線閃光 · 66t冷却</text>
+    <rect x="198" y="252" width="418" height="16" rx="4" fill="#0B1018" stroke="#1E2C3E" stroke-width="1"/>
+    <rect x="198" y="252" width="300" height="16" rx="4" fill="#182434"/>
+    <rect x="298" y="252" width="58" height="16" rx="3" fill="#9E2A2B"/>
+    <text x="616" y="281" fill="#9E2A2B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="700" text-anchor="end">19..24t（150ティック怪異スタン）</text>
+
+  <!-- Right Top Panel: Palette Swatches & Guardrail -->
+  <rect x="662" y="50" width="570" height="114" rx="7" fill="#0F1723" stroke="#223144" stroke-width="1.1"/>
+  <text x="676" y="70" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="12" font-weight="700">潮汐納骨堂マテリアル配色トークン &amp; 禁止色ガードレール</text>
+  
+    <g transform="translate(676, 78)">
+      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
+      <rect x="6" y="6" width="74" height="28" rx="3" fill="#070B10" stroke="#334155" stroke-width="0.8"/>
+      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10" font-weight="700">#070B10</text>
+      <text x="8" y="65" fill="#94A3B8" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="9.5">潮汐玄武岩</text>
+    </g>
+    <g transform="translate(769, 78)">
+      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
+      <rect x="6" y="6" width="74" height="28" rx="3" fill="#132226" stroke="#334155" stroke-width="0.8"/>
+      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10" font-weight="700">#132226</text>
+      <text x="8" y="65" fill="#94A3B8" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="9.5">塩霧スレート</text>
+    </g>
+    <g transform="translate(862, 78)">
+      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
+      <rect x="6" y="6" width="74" height="28" rx="3" fill="#4FA89B" stroke="#334155" stroke-width="0.8"/>
+      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10" font-weight="700">#4FA89B</text>
+      <text x="8" y="65" fill="#94A3B8" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="9.5">緑青ブラス</text>
+    </g>
+    <g transform="translate(955, 78)">
+      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
+      <rect x="6" y="6" width="74" height="28" rx="3" fill="#C89B54" stroke="#334155" stroke-width="0.8"/>
+      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10" font-weight="700">#C89B54</text>
+      <text x="8" y="65" fill="#94A3B8" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="9.5">琥珀ナトリウム</text>
+    </g>
+    <g transform="translate(1048, 78)">
+      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
+      <rect x="6" y="6" width="74" height="28" rx="3" fill="#9E2A2B" stroke="#334155" stroke-width="0.8"/>
+      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10" font-weight="700">#9E2A2B</text>
+      <text x="8" y="65" fill="#94A3B8" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="9.5">封蝋カーマイン</text>
+    </g>
+    <g transform="translate(1141, 78)">
+      <rect x="0" y="0" width="86" height="74" rx="5" fill="#160D1C" stroke="#D8564A" stroke-width="1.1"/>
+      <rect x="6" y="6" width="74" height="28" rx="3" fill="#7567F5" fill-opacity="0.35" stroke="#D8564A" stroke-width="1"/>
+      <line x1="8" y1="32" x2="78" y2="8" stroke="#EF4444" stroke-width="2"/>
+      <text x="8" y="49" fill="#FCA5A5" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10" font-weight="700">#7567F5</text>
+      <text x="8" y="65" fill="#F87171" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="9.5" font-weight="700">使用禁止</text>
+    </g>
+
+  <!-- Right Bottom Panel: Architecture & Boss Telemetry Cards -->
+  <rect x="662" y="172" width="570" height="130" rx="7" fill="#0F1723" stroke="#223144" stroke-width="1.1"/>
+  <text x="676" y="188" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10" font-weight="700" letter-spacing="0.6">5つの納骨堂区画 · 6ノード推理ボード · ボス共鳴テレメトリ</text>
+  
+    <g transform="translate(676, 194)">
+      <rect x="0" y="0" width="178" height="98" rx="6" fill="#0B111A" stroke="#243347" stroke-width="1.1"/>
+      <rect x="0" y="0" width="3.5" height="98" rx="1.5" fill="#4FA89B"/>
+      <text x="12" y="21" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="700">5区画 · 10ビート</text>
+      <text x="12" y="42" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11.5" font-weight="700">沿岸聖遺物院ルート</text>
+      <text x="12" y="63" fill="#CBD5E1" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="10">桟橋 -&gt; 屈折回廊 -&gt; 地下室</text>
+      <text x="12" y="83" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9">Beat 10: 公表か水没封鎖か</text>
+    </g>
+    <g transform="translate(864, 194)">
+      <rect x="0" y="0" width="178" height="98" rx="6" fill="#0B111A" stroke="#243347" stroke-width="1.1"/>
+      <rect x="0" y="0" width="3.5" height="98" rx="1.5" fill="#4FA89B"/>
+      <text x="12" y="21" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="700">6証拠 · 3仮説分岐</text>
+      <text x="12" y="42" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11.5" font-weight="700">推理ボードDAG</text>
+      <text x="12" y="63" fill="#CBD5E1" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="10">lens_sabotage · quarantine</text>
+      <text x="12" y="83" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9">acoustic_calling 仮説検証</text>
+    </g>
+    <g transform="translate(1052, 194)">
+      <rect x="0" y="0" width="178" height="98" rx="6" fill="#0B111A" stroke="#243347" stroke-width="1.1"/>
+      <rect x="0" y="0" width="3.5" height="98" rx="1.5" fill="#4FA89B"/>
+      <text x="12" y="21" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="700">BEAT 09 ボス戦</text>
+      <text x="12" y="42" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11.5" font-weight="700">硝子の中の聖歌隊</text>
+      <text x="12" y="63" fill="#CBD5E1" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="10">耐久値 600 -&gt; 300 第2段階</text>
+      <text x="12" y="83" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9">逆位相消去 + UV閃光亀裂露光</text>
+    </g>
+</svg>

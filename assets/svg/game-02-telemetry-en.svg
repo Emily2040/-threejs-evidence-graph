@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 320" width="100%" role="img" aria-label="GAME 02 TELEMETRY // THE GLASS OSSUARY · DIEGETIC FORENSICS, PALETTE &amp; INQUEST BOARD">
+  <defs>
+    <linearGradient id="telBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B11"/>
+      <stop offset="100%" stop-color="#0D1520"/>
+    </linearGradient>
+    <pattern id="telGrid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#142030" stroke-width="0.6" stroke-opacity="0.55"/>
+    </pattern>
+  </defs>
+
+  <rect width="1260" height="320" rx="10" fill="url(#telBg)" stroke="#1E2D40" stroke-width="1.5"/>
+  <rect width="1260" height="320" rx="10" fill="url(#telGrid)"/>
+  <rect x="0" y="0" width="1260" height="4" rx="2" fill="#4FA89B"/>
+
+  <!-- Header Bar -->
+  <circle cx="34" cy="24" r="4" fill="#4FA89B"/>
+  <text x="46" y="28" fill="#4FA89B" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="11" font-weight="700" letter-spacing="1.0">GAME 02 TELEMETRY // THE GLASS OSSUARY · DIEGETIC FORENSICS, PALETTE &amp; INQUEST BOARD</text>
+  <text x="1228" y="28" fill="#8A99AD" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="10.5" font-weight="600" text-anchor="end">36 PAGES · SEED 1894 · EXAMPLES/RUN-0002/</text>
+  <line x1="28" y1="40" x2="1232" y2="40" stroke="#1E2C3E" stroke-width="1"/>
+
+  <!-- Left Panel: 60 Hz Frame Timeline -->
+  <rect x="28" y="50" width="616" height="252" rx="7" fill="#0F1723" stroke="#223144" stroke-width="1.1"/>
+  <text x="44" y="72" fill="#F8FAFC" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="700">60 Hz Forensic &amp; Stealth Timeline</text>
+  <text x="616" y="72" fill="#4FA89B" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9.5" font-weight="600" text-anchor="end">OPTICAL + ACOUSTIC BITMASKS · ZERO WALLHACKS</text>
+  
+    <!-- Bar 1 -->
+    <text x="44" y="105" fill="#F8FAFC" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11.5" font-weight="700">Storm-Lantern Shutter</text>
+    <text x="44" y="122" fill="#8A99AD" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9.5">6t startup · toggle hold (7..) · 6t close (0 Oil)</text>
+    <rect x="198" y="96" width="418" height="16" rx="4" fill="#0B1018" stroke="#1E2C3E" stroke-width="1"/>
+    <rect x="198" y="96" width="100" height="16" rx="4" fill="#182434"/>
+    <rect x="214" y="96" width="58" height="16" rx="3" fill="#C89B54"/>
+    <text x="616" y="125" fill="#C89B54" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9.5" font-weight="700" text-anchor="end">6T SHUTTER (CUTS SIGHT CONE)</text>
+    <!-- Bar 2 -->
+    <text x="44" y="157" fill="#F8FAFC" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11.5" font-weight="700">Brass Acoustic Loupe</text>
+    <text x="44" y="174" fill="#8A99AD" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9.5">9t raise · 10..69t prism/glyph focus · 6t lower</text>
+    <rect x="198" y="148" width="418" height="16" rx="4" fill="#0B1018" stroke="#1E2C3E" stroke-width="1"/>
+    <rect x="198" y="148" width="326" height="16" rx="4" fill="#182434"/>
+    <rect x="256" y="148" width="200" height="16" rx="3" fill="#4FA89B"/>
+    <text x="616" y="177" fill="#4FA89B" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9.5" font-weight="700" text-anchor="end">TICKS 10..69 (60-TICK FOCUS)</text>
+    <!-- Bar 3 -->
+    <text x="44" y="209" fill="#F8FAFC" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11.5" font-weight="700">Cylinder Phonograph</text>
+    <text x="44" y="226" fill="#8A99AD" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9.5">24t wind-up · 25..114t phase-cancel · 36t rec</text>
+    <rect x="198" y="200" width="418" height="16" rx="4" fill="#0B1018" stroke="#1E2C3E" stroke-width="1"/>
+    <rect x="198" y="200" width="401" height="16" rx="4" fill="#182434"/>
+    <rect x="289" y="200" width="242" height="16" rx="3" fill="#63C7C2"/>
+    <text x="616" y="229" fill="#63C7C2" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9.5" font-weight="700" text-anchor="end">TICKS 25..114 (90T PHASE CANCEL)</text>
+    <!-- Bar 4 -->
+    <text x="44" y="261" fill="#F8FAFC" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11.5" font-weight="700">Ferrotype UV Flash</text>
+    <text x="44" y="278" fill="#8A99AD" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9.5">18t charge · 19..24t UV burst · 66t cooldown</text>
+    <rect x="198" y="252" width="418" height="16" rx="4" fill="#0B1018" stroke="#1E2C3E" stroke-width="1"/>
+    <rect x="198" y="252" width="300" height="16" rx="4" fill="#182434"/>
+    <rect x="298" y="252" width="58" height="16" rx="3" fill="#9E2A2B"/>
+    <text x="616" y="281" fill="#9E2A2B" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9.5" font-weight="700" text-anchor="end">TICKS 19..24 (150-TICK STUN)</text>
+
+  <!-- Right Top Panel: Palette Swatches & Guardrail -->
+  <rect x="662" y="50" width="570" height="114" rx="7" fill="#0F1723" stroke="#223144" stroke-width="1.1"/>
+  <text x="676" y="70" fill="#F8FAFC" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="700">Coastal Ossuary Material Tokens &amp; Guardrail</text>
+  
+    <g transform="translate(676, 78)">
+      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
+      <rect x="6" y="6" width="74" height="28" rx="3" fill="#070B10" stroke="#334155" stroke-width="0.8"/>
+      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="10" font-weight="700">#070B10</text>
+      <text x="8" y="65" fill="#94A3B8" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9.5">Tidal Basalt</text>
+    </g>
+    <g transform="translate(769, 78)">
+      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
+      <rect x="6" y="6" width="74" height="28" rx="3" fill="#132226" stroke="#334155" stroke-width="0.8"/>
+      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="10" font-weight="700">#132226</text>
+      <text x="8" y="65" fill="#94A3B8" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9.5">Salt-Fog Slate</text>
+    </g>
+    <g transform="translate(862, 78)">
+      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
+      <rect x="6" y="6" width="74" height="28" rx="3" fill="#4FA89B" stroke="#334155" stroke-width="0.8"/>
+      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="10" font-weight="700">#4FA89B</text>
+      <text x="8" y="65" fill="#94A3B8" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9.5">Verdigris Brass</text>
+    </g>
+    <g transform="translate(955, 78)">
+      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
+      <rect x="6" y="6" width="74" height="28" rx="3" fill="#C89B54" stroke="#334155" stroke-width="0.8"/>
+      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="10" font-weight="700">#C89B54</text>
+      <text x="8" y="65" fill="#94A3B8" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9.5">Amber Sodium</text>
+    </g>
+    <g transform="translate(1048, 78)">
+      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
+      <rect x="6" y="6" width="74" height="28" rx="3" fill="#9E2A2B" stroke="#334155" stroke-width="0.8"/>
+      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="10" font-weight="700">#9E2A2B</text>
+      <text x="8" y="65" fill="#94A3B8" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9.5">Carmine Wax</text>
+    </g>
+    <g transform="translate(1141, 78)">
+      <rect x="0" y="0" width="86" height="74" rx="5" fill="#160D1C" stroke="#D8564A" stroke-width="1.1"/>
+      <rect x="6" y="6" width="74" height="28" rx="3" fill="#7567F5" fill-opacity="0.35" stroke="#D8564A" stroke-width="1"/>
+      <line x1="8" y1="32" x2="78" y2="8" stroke="#EF4444" stroke-width="2"/>
+      <text x="8" y="49" fill="#FCA5A5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="10" font-weight="700">#7567F5</text>
+      <text x="8" y="65" fill="#F87171" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9.5" font-weight="700">FORBIDDEN</text>
+    </g>
+
+  <!-- Right Bottom Panel: Architecture & Boss Telemetry Cards -->
+  <rect x="662" y="172" width="570" height="130" rx="7" fill="#0F1723" stroke="#223144" stroke-width="1.1"/>
+  <text x="676" y="188" fill="#8A99AD" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="10" font-weight="700" letter-spacing="0.6">5 OSSUARY WARDS · 6-NODE INQUEST BOARD · BOSS RESONANCE</text>
+  
+    <g transform="translate(676, 194)">
+      <rect x="0" y="0" width="178" height="98" rx="6" fill="#0B111A" stroke="#243347" stroke-width="1.1"/>
+      <rect x="0" y="0" width="3.5" height="98" rx="1.5" fill="#4FA89B"/>
+      <text x="12" y="21" fill="#4FA89B" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9.5" font-weight="700">5 WARDS · 10 BEATS</text>
+      <text x="12" y="42" fill="#F8FAFC" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11.5" font-weight="700">Coastal Reliquary</text>
+      <text x="12" y="63" fill="#CBD5E1" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10">Causeway -&gt; Gallery -&gt; Crypt</text>
+      <text x="12" y="83" fill="#94A3B8" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9">Beat 10: Publish vs Submerge</text>
+    </g>
+    <g transform="translate(864, 194)">
+      <rect x="0" y="0" width="178" height="98" rx="6" fill="#0B111A" stroke="#243347" stroke-width="1.1"/>
+      <rect x="0" y="0" width="3.5" height="98" rx="1.5" fill="#4FA89B"/>
+      <text x="12" y="21" fill="#4FA89B" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9.5" font-weight="700">6 CLUES · 3 HYPOTHESES</text>
+      <text x="12" y="42" fill="#F8FAFC" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11.5" font-weight="700">Inquest Board DAG</text>
+      <text x="12" y="63" fill="#CBD5E1" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10">lens_sabotage · quarantine</text>
+      <text x="12" y="83" fill="#94A3B8" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9">acoustic_calling branch</text>
+    </g>
+    <g transform="translate(1052, 194)">
+      <rect x="0" y="0" width="178" height="98" rx="6" fill="#0B111A" stroke="#243347" stroke-width="1.1"/>
+      <rect x="0" y="0" width="3.5" height="98" rx="1.5" fill="#4FA89B"/>
+      <text x="12" y="21" fill="#4FA89B" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9.5" font-weight="700">BEAT 09 BOSS GATE</text>
+      <text x="12" y="42" fill="#F8FAFC" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11.5" font-weight="700">Choir in the Glass</text>
+      <text x="12" y="63" fill="#CBD5E1" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10">600 -&gt; 300 Resonance Int</text>
+      <text x="12" y="83" fill="#94A3B8" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-size="9">Phase-Cancel + UV Flash Stun</text>
+    </g>
+</svg>

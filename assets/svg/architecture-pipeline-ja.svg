@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 348" width="100%" role="img" aria-label="15ノード決定論的エビデンスグラフ・トポロジー (N00 .. N14) と3ジャンル垂直スライス実装">
+  <defs>
+    <linearGradient id="pipeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080C12"/>
+      <stop offset="100%" stop-color="#0E1622"/>
+    </linearGradient>
+    <pattern id="pipeGrid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#142030" stroke-width="0.6" stroke-opacity="0.6"/>
+    </pattern>
+  </defs>
+  <rect width="1260" height="348" rx="10" fill="url(#pipeBg)" stroke="#1E2D40" stroke-width="1.5"/>
+  <rect width="1260" height="348" rx="10" fill="url(#pipeGrid)"/>
+
+  <text x="36" y="32" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="11" font-weight="700" letter-spacing="1.0">15ノード決定論的エビデンスグラフ・トポロジー (N00 .. N14) と3ジャンル垂直スライス実装</text>
+  <text x="1224" y="32" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10.5" font-weight="700" text-anchor="end">レジームA（固定Chromiumビット一致）+ レジームB（クロスプラットフォーム検証）</text>
+
+  <!-- Top Pipeline Row: 5 Core Stages Grouping N00..N14 -->
+  <g transform="translate(36, 48)">
+    
+    <rect x="0" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#45B29D" stroke-width="1.3"/>
+    <rect x="0" y="0" width="222" height="3" rx="1.5" fill="#45B29D"/>
+    <text x="12" y="23" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10.5" font-weight="700">N00 .. N02 // 契約と予算</text>
+    <text x="12" y="46" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="12.5" font-weight="700">ブリーフ・世界構造・描画予算</text>
+    <text x="12" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10">WebGPURenderer + WebGL2 両対応</text>
+    <line x1="222" y1="42" x2="238" y2="42" stroke="#45B29D" stroke-width="2"/>
+    <polygon points="233,38 238,42 233,46" fill="#45B29D"/>
+    <rect x="238" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#D49B4B" stroke-width="1.3"/>
+    <rect x="238" y="0" width="222" height="3" rx="1.5" fill="#D49B4B"/>
+    <text x="250" y="23" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10.5" font-weight="700">N03 .. N05 // 決定論的シム</text>
+    <text x="250" y="46" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="12.5" font-weight="700">60 Hz固定ティック &amp; PRNG</text>
+    <text x="250" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10">16.6667 ms刻み · 状態ハッシュ検証</text>
+    <line x1="460" y1="42" x2="476" y2="42" stroke="#45B29D" stroke-width="2"/>
+    <polygon points="471,38 476,42 471,46" fill="#45B29D"/>
+    <rect x="476" y="0" width="236" height="84" rx="6" fill="#111A28" stroke="#38C6D9" stroke-width="1.3"/>
+    <rect x="476" y="0" width="236" height="3" rx="1.5" fill="#38C6D9"/>
+    <text x="488" y="23" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10.5" font-weight="700">N06A + N06B // 並列フォーク</text>
+    <text x="488" y="46" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="12.5" font-weight="700">プロシージャル美術 &amp; Audio</text>
+    <text x="488" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10">TSLシェーダー · -16 LUFS音響合成</text>
+    <line x1="712" y1="42" x2="728" y2="42" stroke="#45B29D" stroke-width="2"/>
+    <polygon points="723,38 728,42 723,46" fill="#45B29D"/>
+    <rect x="728" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#C89B54" stroke-width="1.3"/>
+    <rect x="728" y="0" width="222" height="3" rx="1.5" fill="#C89B54"/>
+    <text x="740" y="23" fill="#C89B54" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10.5" font-weight="700">N07 .. N10 // ゲームプレイ</text>
+    <text x="740" y="46" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="12.5" font-weight="700">戦闘・推理ループ &amp; HUD統合</text>
+    <text x="740" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10">WCAG 2.2 AA · DOMリークゼロ</text>
+    <line x1="950" y1="42" x2="966" y2="42" stroke="#45B29D" stroke-width="2"/>
+    <polygon points="961,38 966,42 961,46" fill="#45B29D"/>
+    <rect x="966" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#45B29D" stroke-width="1.3"/>
+    <rect x="966" y="0" width="222" height="3" rx="1.5" fill="#45B29D"/>
+    <text x="978" y="23" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10.5" font-weight="700">N11 .. N14 // 検証と出荷</text>
+    <text x="978" y="46" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="12.5" font-weight="700">QA監査・自動修復・出荷ゲート</text>
+    <text x="978" y="68" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10">SHA-256 RunManifest 証跡署名</text>
+  </g>
+
+  <!-- Fan-Out Bus Lines from Pipeline to Three Genre Slices -->
+  <line x1="630" y1="132" x2="630" y2="156" stroke="#45B29D" stroke-width="1.5"/>
+  <line x1="227" y1="156" x2="1033" y2="156" stroke="#2A3C54" stroke-width="1.5"/>
+  <line x1="227" y1="156" x2="227" y2="178" stroke="#D49B4B" stroke-width="1.5"/>
+  <line x1="630" y1="156" x2="630" y2="178" stroke="#4FA89B" stroke-width="1.5"/>
+  <line x1="1033" y1="156" x2="1033" y2="178" stroke="#38C6D9" stroke-width="1.5"/>
+  <rect x="420" y="145" width="420" height="20" rx="4" fill="#0B111A" stroke="#24354A" stroke-width="1"/>
+  <text x="630" y="159" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10" font-weight="600" text-anchor="middle">共通15ノードDAG基盤 -&gt; 3つの外部アセットゼロ垂直スライスへ展開</text>
+
+  <!-- Bottom Row: Three Genre Vertical Slice Instantiations -->
+  <g transform="translate(36, 180)">
+    
+    <rect x="0" y="0" width="382" height="140" rx="7" fill="#101926" stroke="#28384E" stroke-width="1.2"/>
+    <rect x="0" y="0" width="382" height="4" rx="2" fill="#D49B4B"/>
+    <circle cx="16" cy="24" r="3.5" fill="#D49B4B"/>
+    <text x="26" y="28" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10.5" font-weight="700">GAME 01 · 三人称アクションRPG（全81頁）</text>
+    <text x="16" y="54" fill="#F8FAFC" font-family="'Noto Serif JP', 'Source Han Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif" font-size="17" font-weight="700">『虚ろの子午線』 The Hollow Meridian</text>
+    <text x="16" y="79" fill="#CBD5E1" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11.5">Sable Veren · 60 Hzパリィ(6..12t) · 5つの観測所エリア</text>
+    <text x="16" y="101" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10">ボス：名もなき鐘 (850 HP / 467 HP) · examples/run-0001/</text>
+    <text x="16" y="122" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5">プロンプト：prompts/hollow-meridian/orchestrator.md + 7枚</text>
+    <rect x="403" y="0" width="382" height="140" rx="7" fill="#101926" stroke="#28384E" stroke-width="1.2"/>
+    <rect x="403" y="0" width="382" height="4" rx="2" fill="#4FA89B"/>
+    <circle cx="419" cy="24" r="3.5" fill="#4FA89B"/>
+    <text x="429" y="28" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10.5" font-weight="700">GAME 02 · 一人称ミステリーホラー（全36頁）</text>
+    <text x="419" y="54" fill="#F8FAFC" font-family="'Noto Serif JP', 'Source Han Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif" font-size="17" font-weight="700">『硝子の納骨堂』 The Glass Ossuary</text>
+    <text x="419" y="79" fill="#CBD5E1" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11.5">Clara Vane · 音響ルーペ &amp; 湿板閃光 · 6ノード推理ボード</text>
+    <text x="419" y="101" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10">ボス：硝子の中の聖歌隊 (耐久値 600 / 300) · examples/run-0002/</text>
+    <text x="419" y="122" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5">プロンプト：prompts/glass-ossuary/orchestrator.md + 7枚</text>
+    <rect x="806" y="0" width="382" height="140" rx="7" fill="#101926" stroke="#28384E" stroke-width="1.2"/>
+    <rect x="806" y="0" width="382" height="4" rx="2" fill="#38C6D9"/>
+    <circle cx="822" cy="24" r="3.5" fill="#38C6D9"/>
+    <text x="832" y="28" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10.5" font-weight="700">GAME 03 · 一人称SFシューター（全36頁）</text>
+    <text x="822" y="54" fill="#F8FAFC" font-family="'Noto Serif JP', 'Source Han Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif" font-size="17" font-weight="700">『ペリヘリオン・ブリーチ』 (Perihelion)</text>
+    <text x="822" y="79" fill="#CBD5E1" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11.5">Soren Kestrel · 磁気グラップル &amp; 排熱リロード(14..20t)</text>
+    <text x="822" y="101" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10">ボス：ウォーデン (装甲 1,000 / 500) · examples/run-0003/</text>
+    <text x="822" y="122" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5">プロンプト：prompts/perihelion-breach/orchestrator.md + 7枚</text>
+  </g>
+</svg>

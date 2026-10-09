@@ -2,9 +2,23 @@
 
 # 《虚空子午线》（The Hollow Meridian）：动作 RPG 生产规范与设计指南
 
-[English](THE_HOLLOW_MERIDIAN_GUIDE.md) | [简体中文](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
+<div align="center">
 
-![The Hollow Meridian 废弃天文台中的经编排路线](../assets/hollow-meridian-world-hero.jpg)
+[![Native English](https://img.shields.io/badge/Edition-Native_English-D49B4B?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.md)
+[![简体中文](https://img.shields.io/badge/语言-简体中文_(原生母语版)-45B29D?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md)
+[![日本語](https://img.shields.io/badge/言語-日本語_(ネイティブ版)-38C6D9?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.ja.md)
+[![한국어](https://img.shields.io/badge/언어-한국어_(네이티브판)-C89B54?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
+
+[![Game 01 Action RPG](https://img.shields.io/badge/游戏_01-第三人称暗黑奇幻动作RPG-0F1722?style=flat-square)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)
+[![Pages 81](https://img.shields.io/badge/页数-81页_(357,144字节)-D49B4B?style=flat-square)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)
+[![Seed 1337](https://img.shields.io/badge/黄金样本-run--0001_(seed%3D1337)-45B29D?style=flat-square)](../examples/run-0001/)
+[![Back to README](https://img.shields.io/badge/返回总览-README.zh--CN.md-38C6D9?style=flat-square)](../README.zh-CN.md)
+
+</div>
+
+| 卷 02 出版物封面图（`81 页`） | 废弃观测站五区空间路线概念图 | 双阶段首领：“无名之钟”概念图 |
+| :---: | :---: | :---: |
+| [![虚空子午线封面](../assets/the-hollow-meridian-cover.jpg)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) | ![The Hollow Meridian 废弃天文台中的经编排路线](../assets/hollow-meridian-world-hero.jpg) | ![The Bell Without a Name 在 Meridian Chamber 中进入第二阶段](../assets/hollow-meridian-boss-hero.jpg) |
 
 *用于出版物说明的概念美术，并非游戏实机截图或实现证据。*
 
@@ -33,17 +47,18 @@
 
 玩家操控 **Cartographer**，一名没有面孔的成年守卫者，身着由骨质陶瓷与失泽黄铜构成的层叠护甲。Cartographer 使用一柄分节长柄刃，并携带 Echo Lantern。这里的玩家幻想并非不受约束的力量，而是对方向与秩序的掌控：阅读空间、学习时机、找回名字，并决定天文台应该继续束缚还是释放其中封存之物。
 
-主要材质族具有彼此不同的职责：
+主要材质族具有彼此不同的职责与规范性 `#HEX` 色值：
 
-| 材质 | 预期视觉表现 |
-|---|---|
-| 深色玄武岩 | 大面积粗糙质感、强烈体量感，朝上的表面积有浅色积尘 |
-| 失泽黄铜 | 建立结构节奏，局部带铜绿，频繁接触处形成抛光痕迹 |
-| 骨质陶瓷 | 用于面具和护甲，裂纹由种子控制，暴露边缘呈暖色 |
-| 余烬玻璃 | 在独立的自发光核心周围形成有边界的透明层 |
-| Name-light | 由程序生成的线性字形与浅青白色引导光，不使用下载字体 |
+| 材质 | `#HEX` 色值 | 预期视觉表现 |
+| :--- | :--- | :--- |
+| 深色玄武岩 (`Dark basalt`) | `#1E242B` | 大面积粗糙质感、强烈体量感，朝上的表面积有浅色积尘 |
+| 失泽黄铜 (`Tarnished brass`) | `#B88A44` | 建立结构节奏，局部带铜绿，频繁接触处形成抛光痕迹 |
+| 骨质陶瓷 (`Bone ceramic`) | `#DDD4C6` | 用于面具和护甲，裂纹由种子控制，暴露边缘呈暖色 |
+| 余烬玻璃 (`Ember glass`) | `#D4662A` | 在独立的自发光核心周围形成有边界的透明层 |
+| 真名微光 (`Name-light`) | `#7FD4E6` | 由程序生成的线性字形与浅青白色引导光，不使用下载字体 |
+| **禁用默认魔法紫** | `#7567F5` | 严禁在着色器与 UI 中使用高饱和度的泛滥紫色光效 |
 
-稳定的 Name-light 为浅青白色。不稳定的钟体能量为琥珀白色。深红色仅用于伤害与严重警告。高饱和紫色不是默认的魔法视觉语言。
+稳定的 Name-light 为浅青白色（`#7FD4E6`）。不稳定的钟体能量为琥珀白色（`#D4662A`）。深红色（`#C83E3B`）仅用于伤害与严重警告。高饱和紫色（`#7567F5`）绝不作为默认的魔法视觉语言。
 
 ## 十个节拍的玩家旅程
 
@@ -82,16 +97,17 @@
 
 ## 战斗模型
 
-Cartographer 拥有一套数量有限且易于读取的行动：
+![游戏 01《虚空子午线》60 Hz 战斗帧数表、材质色板与架构遥测卡片](../assets/svg/game-01-telemetry-zh-CN.svg)
 
-- 相对于镜头方向的移动与战斗横移；
-- 轻攻击连段；
-- 蓄力重攻击；
-- 具有明确动作承诺时间的闪避；
-- 格挡，以及限定时机窗口内的弹反；
-- 以耐力作为主要行动约束；
-- 通过弹反、造成伤害和已定义的遗物效果获得 Resonance；
-- 以 Echo Brand 作为消耗 Resonance 的定向行动。
+Cartographer 拥有一套受 60 Hz 整数步进（`1 tick = 16.6667 ms`）严格约束的动作集：
+
+| 动作 | 前摇 | 判定 / 无敌帧 | 后摇 | 总帧数 | 消耗与战斗机制效果 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `轻攻击三连 1 / 2 / 3` | `10 / 11 / 15t` | `5 / 7 / 9t` | `12 / 12 / 18t` | `27 / 30 / 42t` | `10 / 11 / 14 精力`；造成 `16 / 18 / 25` 点伤害 |
+| `蓄力重击` | `27..38t` | `10..11t` | `12..14t` | `49..63t` | `28 精力`；造成 `28..42` 点伤害与高额削韧 |
+| `翻滚闪避` | `7t` | `Ticks 7..18`（`12t`） | `12t` | `31t` | `22 精力`；在 `ticks 7..18` 期间完全无敌 |
+| `弹反偏转` | `5t`（`0..4`） | `Ticks 6..12`（`7t`） | `18t` | `31t` | `12 精力`；按住至 `tick 13` 自动转为持续格挡 |
+| `回响烙印 (Echo Brand)` | `12t` | `360t 标记` | `0t` | `12t 施放` | `50 共鸣值`；目标易伤 `+25%` 并暴露首领弱点 |
 
 所有战斗数值都应放在集中管理的类型化数据中，并配有测试。攻击判定框与受击判定框必须在视觉上与程序化骨骼关节及武器分段保持一致。允许输入缓冲，但不允许违反动作条件的不可能取消。镜头碰撞、锁定、狭窄空间、多敌人场景和首领构图均需要诊断证据。
 
@@ -105,33 +121,27 @@ Cartographer 拥有一套数量有限且易于读取的行动：
 
 遭遇控制器负责分配攻击机会，避免多名敌人同时施压而造成无法读取的局面。
 
-## The Bell Without a Name
-
-![The Bell Without a Name 在 Meridian Chamber 中进入第二阶段](../assets/hollow-meridian-boss-hero.jpg)
-
-*用于出版物说明的概念美术，并非游戏实机截图或实现证据。*
+## The Bell Without a Name（无名之钟）
 
 该首领是一个独立系统，而不是体型更大的 Bell Sentinel。它约高 4.5 米，由不对称环形框架、悬挂的深色钟核、三条可动敲击臂、拖曳的索引链，以及会在阶段转换时裂开的空白陶瓷面甲组成。
 
-第一阶段教授四种具有清晰预兆的攻击：大范围子午线横扫、垂直鸣钟打击及其随后扩张的地面环、窄幅锁链突刺，以及蓄力共振脉冲。部分攻击可以弹反，稳定执行重攻击或弹反能够击破架势。
+第一阶段（`850 HP`）教授四种具有清晰预兆的攻击：大范围子午线横扫、垂直鸣钟打击及其随后扩张的地面环、窄幅锁链突刺，以及蓄力共振脉冲。部分攻击可以弹反，稳定执行重攻击或弹反能够击破架势。
 
-首领生命值降至 55% 时，攻击选择会暂停并进入受保护的阶段转换。面甲裂开，钟核脱离并悬浮环绕，冰冷的 Name-light 转为不稳定的琥珀白色，旋转的子午线危险区域则引入清晰可见的安全扇区。第二阶段改变空间规则与战斗节奏，但不会丢弃玩家已经学会的战斗原则。
+首领生命值降至 55%（`467 HP`）时，攻击选择会暂停并进入受保护的阶段转换。面甲裂开，钟核脱离并悬浮环绕，冰冷的 Name-light 转为不稳定的琥珀白色，旋转的子午线危险区域则引入清晰可见的安全扇区。第二阶段改变空间规则与战斗节奏，但不会丢弃玩家已经学会的战斗原则。
 
 首领契约禁止无法避免的固定伤害、无法读取的攻击组合、隐藏的危险扇区，以及完全移除所有恢复机会的最终阶段。
 
 ## RPG 状态、遗物与后果
 
-RPG 深度来自少量但会实际影响玩法的状态变化：
+RPG 深度来自少量但会实际影响玩法的状态变化。在第 07 拍（`Shrine Choice`）中，玩家将在三件互斥的祭坛遗物中选择一件锁定流派：
 
-- 接受任务会开启路线；
-- 每取回一枚印记都会改变推进状态；
-- 三件遗物中选择的一件会改变真实的战斗决策；
-- 消耗品具有明确且有限的用途；
-- 检查点与死亡恢复会保留已声明的状态；
-- 最终的束缚或释放选择会改变视觉与文本结果；
-- 玩家返回枢纽后，完成状态仍会持续保存。
+| 遗物 ID | 遗物名称 | 战斗与资源机制改写效果 |
+| :--- | :--- | :--- |
+| `brass_vow` | **黄铜誓约（Brass Vow）** | 将 `Parry`（弹反）有效判定窗口拓宽 `+2 ticks`（`ticks 5..13`），弹反削韧从 `30` 提升至 `45`；代价是持续 `Guard`（格挡）精力消耗增加 `+15%`。 |
+| `ash_thread` | **灰烬丝线（Ash Thread）** | 将 `Dodge`（翻滚）无敌帧延长 `+2 ticks`（`ticks 6..19`），翻滚精力消耗从 `22` 降至 `18`；代价是持续 `Guard` 正面减伤率从 `70%` 降至 `55%`。 |
+| `vacant_name` | **空缺真名（Vacant Name）** | 将 `Echo Brand`（回响烙印）持续时间从 `360 ticks`（`6.0 s`）延长至 `540 ticks`（`9.0 s`），蓄力重击命中被标记目标时触发 `24 HP` / `18 Poise` 共鸣引爆；代价是施放消耗从 `50` 增至 `60 共鸣值`。 |
 
-成长系统是一项有意义的遗物选择，而不是等级刷取。存档 schema 具有版本控制，保存任务状态、印记、已选遗物、消耗品、检查点标识、完成状态、结局选择、设置与重映射控制。临时粒子、敌人动画阶段及偶发战斗状态不会持久化，除非检查点设计明确要求。
+成长系统是一项有意义的遗物选择，而不是等级刷取。存档 schema 具有版本控制，保存任务状态、印记、已选遗物、消耗品、检查点标识、完成状态、结局选择（`CHOICE_BIND` 或 `CHOICE_RELEASE`）、设置与重映射控制。临时粒子、敌人动画阶段及偶发战斗状态不会持久化，除非检查点设计明确要求。
 
 ## 源码生成的美术、动画与音频
 

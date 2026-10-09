@@ -11,7 +11,7 @@ This repository publishes a four-volume, `217`-page engineering specification, m
 3. **Game 02 - The Glass Ossuary: Mystery Horror Full Multi-Agent Production Prompt v1.0** (`36` pages) - first-person investigative psychological horror vertical slice specification;
 4. **Game 03 - Perihelion Breach: FPS Adventure Full Multi-Agent Production Prompt v1.0** (`36` pages) - first-person kinetic sci-fi shooter adventure vertical slice specification;
 5. **Standalone JSON Schema Draft 2020-12 Contracts & Golden Fixtures**: `schemas/*.schema.json`, `schemas/graph-state.d.ts`, 25 copy-pasteable prompts in `prompts/`, and three validated golden reference runs (`examples/run-0001/`, `examples/run-0002/`, `examples/run-0003/`);
-6. **Native Four-Language Documentation Suite (`en`, `zh-CN`, `ja`, `ko`)**: 4 repository READMEs (`README*.md`) and 16 native companion guides (`docs/*_GUIDE*.md`), backed by 13 zero-EXIF concept/cover JPEGs and 5 bespoke typographic SVGs.
+6. **Native Four-Language Documentation Suite (`en`, `zh-CN`, `ja`, `ko`)**: 4 repository READMEs (`README*.md`) and 16 native companion guides (`docs/*_GUIDE*.md`), backed by 13 zero-EXIF concept/cover JPEGs and 21 bespoke native-localized typographic, architectural, and 60 Hz telemetry SVGs.
 
 | # | Publication Title | File Path | Edition | Pages | Size (Bytes) | SHA-256 Digest |
 | :-: | :--- | :--- | :---: | ---: | ---: | :--- |

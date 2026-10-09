@@ -2,9 +2,23 @@
 
 # Three.js Evidence Graph：運用マニュアル v2.0 コンパニオンガイド
 
-[English](EVIDENCE_GRAPH_GUIDE.md) | [简体中文](EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [日本語](EVIDENCE_GRAPH_GUIDE.ja.md) | [한국어](EVIDENCE_GRAPH_GUIDE.ko.md)
+<div align="center">
 
-![プロダクト契約から範囲を限定した専門作業、エビデンス取得、リリース判定へ分岐するコントロールプレーン](../assets/evidence-graph-control-hero.jpg)
+[![Native English](https://img.shields.io/badge/Edition-Native_English-D49B4B?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.md)
+[![简体中文](https://img.shields.io/badge/语言-简体中文_(原生母语版)-45B29D?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.zh-CN.md)
+[![日本語](https://img.shields.io/badge/言語-日本語_(ネイティブ版)-38C6D9?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.ja.md)
+[![한국어](https://img.shields.io/badge/언어-한국어_(네이티브판)-C89B54?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.ko.md)
+
+[![Volume 01](https://img.shields.io/badge/第01巻-制御プレーンマニュアル_v2.0-0F1722?style=flat-square)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf)
+[![Pages 64](https://img.shields.io/badge/ページ数-64頁_(416,827_B)-D49B4B?style=flat-square)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf)
+[![JSON Schema Draft 2020-12](https://img.shields.io/badge/JSON_Schema-Draft_2020--12-38C6D9?style=flat-square)](../schemas/)
+[![Back to README](https://img.shields.io/badge/総合ガイドへ戻る-README.ja.md-45B29D?style=flat-square)](../README.ja.md)
+
+</div>
+
+| 第01巻 仕様書カバープレート（`64頁`） | マルチエージェント制御プレーン ヒーロープレート |
+| :---: | :---: |
+| [![Three.js Evidence Graph v2.0 カバー](../assets/threejs-evidence-graph-cover.jpg)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf) | ![プロダクト契約から範囲を限定した専門作業、エビデンス取得、リリース判定へ分岐するコントロールプレーン](../assets/evidence-graph-control-hero.jpg) |
 
 ## 1. 目的と中核テーゼ
 
@@ -39,6 +53,8 @@
 ---
 
 ## 3. 正準15ノード制作グラフ（`N00` から `N14`）
+
+![15ノード・エビデンスグラフトポロジーと3ジャンル垂直スライス構成図](../assets/svg/architecture-pipeline-ja.svg)
 
 1. `N00_BRIEF`（`01 BRIEF_COMPILE`）：プロダクト要件、除外範囲、スライス目標時間の確定。
 2. `N01_CONTRACTS`（`02 CONSTITUTION_AUDIT`）：JSON Schema（`task-packet`、`defect-record`、`run-manifest`）およびシード不変条件の凍結。

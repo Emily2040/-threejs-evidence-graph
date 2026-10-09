@@ -9,13 +9,13 @@ Automated Release & Contract Verification Suite for the Four-Publication Suite (
 Validates:
 1. SHA256SUMS.txt LF line endings and bit-exact SHA-256 digests for all listed files.
 2. release-manifest.json repository URL, SHA-256 digests, byte sizes, PDF page counts (217 total),
-   13 zero-EXIF JPEG assets, and 5 SVG vector assets.
+   13 zero-EXIF JPEG assets, and 21 SVG vector assets.
 3. Draft 2020-12 JSON Schema validity (schemas/*.schema.json and orchestration/*.schema.json)
    and validation of all 9 golden fixtures across examples/run-0001..0003/*.json.
 4. PDF structural metadata (/Lang, /MarkInfo), zero "/-" ligature corruption in extracted text,
    and clickable /URI link annotations on page 64 of Evidence Graph v2.0, page 36 of The Glass Ossuary,
    and page 36 of Perihelion Breach.
-5. Zero EXIF metadata (exif_len == 0) across all 13 JPEGs in assets/*.jpg and valid XML across assets/svg/*.svg.
+5. Zero EXIF metadata (exif_len == 0) across all 13 JPEGs in assets/*.jpg and valid XML across 21 SVGs in assets/svg/*.svg.
 6. Local Markdown link resolution and 4-language native documentation parity across README*.md and docs/*.md.
 """
 
@@ -109,7 +109,7 @@ def check_release_manifest() -> int:
         checked += 1
 
     svg_items = artwork.get("svg_items", []) if isinstance(artwork, dict) else []
-    assert len(svg_items) == 5, f"Expected 5 SVG items in release-manifest.json, got {len(svg_items)}"
+    assert len(svg_items) == 21, f"Expected 21 SVG items in release-manifest.json, got {len(svg_items)}"
     for svg in svg_items:
         p = os.path.join(ROOT, svg["path"])
         assert sha256_file(p) == svg["sha256"], f"Manifest SHA mismatch for {svg['path']}"
@@ -275,24 +275,73 @@ def check_markdown_and_multilingual() -> int:
                 f"Missing or outdated provenance header in localized file: {md_path}"
             )
         if md_path.endswith((".ja.md", ".zh-CN.md")):
-            stripped_nav = re.sub(r"\[한국어\]|badge/언어-한국어_\(네이티브판\)", "", text)
+            stripped_nav = re.sub(r"\[한국어\]|badge/언어-한국어[^\s)]*", "", text)
             assert not hangul_re.search(stripped_nav), f"Found stray Korean Hangul character in {md_path}"
         if md_path.endswith(".ja.md"):
-            assert "遗" not in text, f"Found Simplified Chinese character '遗' in {md_path}"
-            assert "银" not in text, f"Found Simplified Chinese character '银' in {md_path}"
+            stripped_ja = re.sub(r"简体中文|语言-简体中文[^\s)]*", "", text)
+            for sc_char in ("遗", "银", "设", "计", "证", "据", "帧", "实", "现", "图", "谱"):
+                assert sc_char not in stripped_ja, f"Found Simplified Chinese character '{sc_char}' in {md_path}"
         for m in link_re.finditer(text):
             target = m.group(1).strip()
             if target.startswith(("http://", "https://", "mailto:")):
                 continue
             resolved = os.path.normpath(os.path.join(os.path.dirname(md_path), target))
             assert os.path.exists(resolved), f"Broken relative link '{target}' in {md_path}"
+        for html_target in re.findall(r'(?:src|href)="([^"#]+)(?:#[^"]*)?"', text):
+            if html_target.startswith(("http://", "https://", "mailto:")):
+                continue
+            resolved = os.path.normpath(os.path.join(os.path.dirname(md_path), html_target))
+            assert os.path.exists(resolved), f"Broken HTML src/href '{html_target}' in {md_path}"
 
-    # Verify 4-publication 217-page suite parity across all 4 READMEs
-    for readme_rel in ("README.md", "README.zh-CN.md", "README.ja.md", "README.ko.md"):
+    # Verify Japanese SVG script purity
+    for ja_svg in (
+        "assets/svg/masthead-ja.svg",
+        "assets/svg/architecture-pipeline-ja.svg",
+        "assets/svg/game-01-telemetry-ja.svg",
+        "assets/svg/game-02-telemetry-ja.svg",
+        "assets/svg/game-03-telemetry-ja.svg",
+    ):
+        svg_txt = open(os.path.join(ROOT, ja_svg), "r", encoding="utf-8").read()
+        for sc_char in ("遗", "银", "设", "计", "证", "据", "帧", "实", "现", "图", "谱"):
+            assert sc_char not in svg_txt, f"Found Simplified Chinese character '{sc_char}' in {ja_svg}"
+
+    # Verify 4-publication 217-page suite and localized SVG parity across all 4 READMEs and 16 guides
+    lang_map = [
+        ("en", "README.md", ".md"),
+        ("zh-CN", "README.zh-CN.md", ".zh-CN.md"),
+        ("ja", "README.ja.md", ".ja.md"),
+        ("ko", "README.ko.md", ".ko.md"),
+    ]
+    for lang, readme_rel, suffix in lang_map:
         content = open(os.path.join(ROOT, readme_rel), "r", encoding="utf-8").read()
         assert "217" in content, f"Expected total page count 217 in {readme_rel}"
-        assert "the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf" in content, f"Missing Glass Ossuary PDF in {readme_rel}"
-        assert "perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf" in content, f"Missing Perihelion Breach PDF in {readme_rel}"
+        assert f"assets/svg/masthead-{lang}.svg" in content, f"Missing masthead-{lang}.svg in {readme_rel}"
+        assert f"assets/svg/architecture-pipeline-{lang}.svg" in content, f"Missing architecture-pipeline-{lang}.svg in {readme_rel}"
+        assert f"assets/svg/game-01-telemetry-{lang}.svg" in content, f"Missing game-01-telemetry-{lang}.svg in {readme_rel}"
+        assert f"assets/svg/game-02-telemetry-{lang}.svg" in content, f"Missing game-02-telemetry-{lang}.svg in {readme_rel}"
+        assert f"assets/svg/game-03-telemetry-{lang}.svg" in content, f"Missing game-03-telemetry-{lang}.svg in {readme_rel}"
+        for cover_jpg in (
+            "assets/threejs-evidence-graph-cover.jpg",
+            "assets/the-hollow-meridian-cover.jpg",
+            "assets/the-glass-ossuary-cover.jpg",
+            "assets/perihelion-breach-cover.jpg",
+        ):
+            assert cover_jpg in content, f"Missing {cover_jpg} in {readme_rel}"
+
+        eg_guide = open(os.path.join(ROOT, "docs", f"EVIDENCE_GRAPH_GUIDE{suffix}"), "r", encoding="utf-8").read()
+        assert f"../assets/svg/architecture-pipeline-{lang}.svg" in eg_guide, f"Missing architecture-pipeline-{lang}.svg in EVIDENCE_GRAPH_GUIDE{suffix}"
+        assert "../assets/threejs-evidence-graph-cover.jpg" in eg_guide, f"Missing cover in EVIDENCE_GRAPH_GUIDE{suffix}"
+
+        for idx, (guide_stem, cover_name) in enumerate([
+            ("THE_HOLLOW_MERIDIAN_GUIDE", "the-hollow-meridian-cover.jpg"),
+            ("THE_GLASS_OSSUARY_GUIDE", "the-glass-ossuary-cover.jpg"),
+            ("PERIHELION_BREACH_GUIDE", "perihelion-breach-cover.jpg"),
+        ], start=1):
+            g_txt = open(os.path.join(ROOT, "docs", f"{guide_stem}{suffix}"), "r", encoding="utf-8").read()
+            assert f"../assets/svg/game-0{idx}-telemetry-{lang}.svg" in g_txt, f"Missing game-0{idx}-telemetry-{lang}.svg in {guide_stem}{suffix}"
+            assert f"../assets/{cover_name}" in g_txt, f"Missing {cover_name} in {guide_stem}{suffix}"
+            assert "#7567F5" in g_txt, f"Missing #7567F5 banned palette guardrail in {guide_stem}{suffix}"
+
     return len(md_files)
 
 

@@ -1,8 +1,22 @@
 # The Hollow Meridian: Explanatory Game Guide
 
-[English](THE_HOLLOW_MERIDIAN_GUIDE.md) | [简体中文](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
+<div align="center">
 
-![The authored route through the ruined observatory of The Hollow Meridian](../assets/hollow-meridian-world-hero.jpg)
+[![Native English](https://img.shields.io/badge/Edition-Native_English-D49B4B?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.md)
+[![简体中文](https://img.shields.io/badge/语言-简体中文_(原生母语版)-45B29D?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md)
+[![日本語](https://img.shields.io/badge/言語-日本語_(ネイティブ版)-38C6D9?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.ja.md)
+[![한국어](https://img.shields.io/badge/언어-한국어_(네이티브판)-C89B54?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
+
+[![Game 01 Action RPG](https://img.shields.io/badge/Game_01-Third--Person_Action_RPG-0F1722?style=flat-square)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)
+[![Pages 81](https://img.shields.io/badge/Pages-81_(357,144_B)-D49B4B?style=flat-square)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)
+[![Seed 1337](https://img.shields.io/badge/Golden_Fixture-run--0001_(seed%3D1337)-45B29D?style=flat-square)](../examples/run-0001/)
+[![Back to README](https://img.shields.io/badge/Suite_Index-README.md-38C6D9?style=flat-square)](../README.md)
+
+</div>
+
+| Publication Cover Plate (`81 Pages`) | Ruined Observatory World Route Plate | Two-Phase Boss: *The Bell Without a Name* |
+| :---: | :---: | :---: |
+| [![The Hollow Meridian Cover](../assets/the-hollow-meridian-cover.jpg)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) | ![The authored route through the ruined observatory of The Hollow Meridian](../assets/hollow-meridian-world-hero.jpg) | ![The Bell Without a Name entering its second phase inside the Meridian Chamber](../assets/hollow-meridian-boss-hero.jpg) |
 
 *Concept artwork for the publication. Not a gameplay capture or implementation evidence.*
 
@@ -31,17 +45,18 @@ The setting is a ruined observatory that once preserved the true names of vanish
 
 The player controls the **Cartographer**, a faceless adult warden wearing layered bone-ceramic and tarnished-brass armor. The Cartographer carries a segmented poleblade and an Echo Lantern. The fantasy is not unrestricted power. It is controlled orientation: reading space, learning timing, recovering names, and deciding whether the observatory should bind or release what it has stored.
 
-The main material families have distinct roles:
+The main material families have distinct roles and normative `#HEX` tokens:
 
-| Material | Intended visual behavior |
-|---|---|
-| Dark basalt | Broad roughness, strong mass, pale dust on upward faces |
-| Tarnished brass | Structural rhythm, localized verdigris, polished contact points |
-| Bone ceramic | Masks and armor, seeded cracking, warm exposed edges |
-| Ember glass | Bounded transparency around a separate emissive core |
-| Name-light | Generated line glyphs and pale cyan-white guidance, not a downloaded font |
+| Material | `#HEX` Token | Intended visual behavior |
+| :--- | :--- | :--- |
+| Dark basalt | `#1E242B` | Broad roughness, strong mass, pale dust on upward faces |
+| Tarnished brass | `#B88A44` | Structural rhythm, localized verdigris, polished contact points |
+| Bone ceramic | `#DDD4C6` | Masks and armor, seeded cracking, warm exposed edges |
+| Ember glass | `#D4662A` | Bounded transparency around a separate emissive core |
+| Name-light | `#7FD4E6` | Generated line glyphs and pale cyan-white guidance, not a downloaded font |
+| **Forbidden default** | `#7567F5` | Saturated purple magic-slop is explicitly banned across shaders and UI |
 
-Stable name-light is pale cyan-white. Unstable bell energy is amber-white. Deep red is reserved for damage and critical warnings. Saturated purple is not the default magic language.
+Stable name-light is pale cyan-white (`#7FD4E6`). Unstable bell energy is amber-white (`#D4662A`). Deep red (`#C83E3B`) is reserved for damage and critical warnings. Saturated purple (`#7567F5`) is never used as the default magic language.
 
 ## The ten-beat player journey
 
@@ -80,16 +95,19 @@ The specification rejects click-to-damage combat, decorative inventory statistic
 
 ## Combat model
 
-The Cartographer has a limited, readable action set:
+<div align="center">
+  <img src="../assets/svg/game-01-telemetry-en.svg" width="100%" alt="Game 01 The Hollow Meridian: 60 Hz Combat Frame Timeline, Palette Swatches, and Architecture Telemetry" />
+</div>
 
-- camera-relative movement and combat strafing;
-- a light attack chain;
-- a charged heavy attack;
-- dodge with committed timing;
-- guard and selected parry windows;
-- stamina as the primary action constraint;
-- Resonance earned through parries, damage, and defined relic effects;
-- Echo Brand as a targeted Resonance-spending action.
+The Cartographer has a limited, readable action set governed by integer 60 Hz ticks (`1 tick = 16.6667 ms`):
+
+| Action | Startup | Active / Window | Recovery | Total Ticks | Stamina / Resonance & Combat Effect |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `Light Attack 1 / 2 / 3` | `10 / 11 / 15t` | `5 / 7 / 9t` | `12 / 12 / 18t` | `27 / 30 / 42t` | `10 / 11 / 14 Stamina`; `16 / 18 / 25 HP` damage |
+| `Charged Heavy` | `27..38t` | `10..11t` | `12..14t` | `49..63t` | `28 Stamina`; `28..42 HP` damage + poise break |
+| `Dodge Roll` | `7t` | `Ticks 7..18` (`12t`) | `12t` | `31t` | `22 Stamina`; full invulnerability during `ticks 7..18` |
+| `Parry Deflect` | `5t` (`0..4`) | `Ticks 6..12` (`7t`) | `18t` | `31t` | `12 Stamina`; transitions to sustained `Guard` at `tick 13` if held |
+| `Echo Brand` | `12t` | `360t mark` | `0t` | `12t cast` | `50 Resonance`; `+25%` target vulnerability + exposes boss weak point |
 
 Combat values belong in centralized typed data and require tests. Hitboxes and hurtboxes must remain visibly aligned with procedural rig joints and weapon segments. Input buffering is allowed, but impossible cancellation is not. Camera collision, lock-on, narrow spaces, multiple enemies, and boss framing each require diagnostic evidence.
 
@@ -105,31 +123,25 @@ The encounter director controls attack opportunities so that multiple enemies do
 
 ## The Bell Without a Name
 
-![The Bell Without a Name entering its second phase inside the Meridian Chamber](../assets/hollow-meridian-boss-hero.jpg)
-
-*Concept artwork for the publication. Not a gameplay capture or implementation evidence.*
-
 The boss is a separate system, not a larger Bell Sentinel. Its approximately 4.5-meter construction combines an asymmetric ring frame, a suspended dark bell core, three articulated striking arms, trailing index chains, and a blank ceramic face plate that cracks between phases.
 
-Phase one teaches four readable attacks: a broad meridian sweep, a vertical tolling strike followed by an expanding floor ring, a narrow chain thrust, and a charged resonance pulse. Selected attacks can be parried, and disciplined heavy attacks or parries can break poise.
+Phase one (`850 HP`) teaches four readable attacks: a broad meridian sweep, a vertical tolling strike followed by an expanding floor ring, a narrow chain thrust, and a charged resonance pulse. Selected attacks can be parried, and disciplined heavy attacks or parries can break poise.
 
-At 55 percent health, attack selection pauses for a protected transition. The face plate cracks, the bell core detaches into a hovering orbit, cold name-light shifts toward unstable amber-white, and a rotating meridian hazard introduces visible safe sectors. Phase two changes space and cadence without discarding the combat rules the player has learned.
+At 55 percent health (`467 HP`), attack selection pauses for a protected transition. The face plate cracks, the bell core detaches into a hovering orbit, cold name-light shifts toward unstable amber-white, and a rotating meridian hazard introduces visible safe sectors. Phase two changes space and cadence without discarding the combat rules the player has learned.
 
 The boss contract forbids unavoidable recorded damage, unreadable attack combinations, hidden hazard sectors, and a final phase that removes every recovery opportunity.
 
 ## RPG state, relics, and consequences
 
-RPG depth comes from a small number of state changes that affect play:
+RPG depth comes from a small number of state changes that affect play. At Beat 07 (`Shrine Choice`), the player locks in one of three mutually exclusive relics:
 
-- quest acceptance opens the route;
-- each recovered seal changes progression state;
-- one of three relics modifies a real combat decision;
-- consumables have bounded roles;
-- checkpoint and death recovery preserve declared state;
-- the final bind-or-release decision changes the visual and textual outcome;
-- completion state persists when the player returns to the hub.
+| Relic ID | Name | Combat & Resource Modification |
+| :--- | :--- | :--- |
+| `brass_vow` | **Brass Vow** | Widens the `Parry` active deflect window by `+2 ticks` (`ticks 5..13`) and increases Parry poise damage from `30` to `45`, while increasing continuous `Guard` stamina drain by `+15%`. |
+| `ash_thread` | **Ash Thread** | Extends `Dodge` invulnerability by `+2 ticks` (`ticks 6..19`) and reduces `Dodge` stamina cost from `22` to `18`, while reducing continuous `Guard` frontal damage mitigation from `70%` to `55%`. |
+| `vacant_name` | **Vacant Name** | Extends `Echo Brand` mark duration from `360 ticks` (`6.0 s`) to `540 ticks` (`9.0 s`) and triggers a `24 HP` / `18 Poise` Resonance detonation on `Charged Heavy` hits against a marked target, while increasing `Echo Brand` cost from `50` to `60 Resonance`. |
 
-Progression is one meaningful relic decision, not a level grind. The save schema is versioned and stores quest state, seals, the selected relic, consumables, checkpoint identity, completion, ending choice, settings, and remapped controls. Temporary particles, enemy animation phases, and incidental combat state are not persisted unless checkpoint design requires them.
+Progression is one meaningful relic decision, not a level grind. The save schema is versioned and stores quest state, seals, the selected relic, consumables, checkpoint identity, completion, ending choice (`CHOICE_BIND` or `CHOICE_RELEASE`), settings, and remapped controls. Temporary particles, enemy animation phases, and incidental combat state are not persisted unless checkpoint design requires them.
 
 ## Source-generated art, animation, and audio
 
