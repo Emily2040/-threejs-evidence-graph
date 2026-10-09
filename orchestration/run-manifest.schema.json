@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/Emily2040/-threejs-evidence-graph/schemas/run-manifest.schema.json",
   "title": "RunManifest",
-  "description": "Normative Evidence Graph v2.0 RunManifest contract recording determinism regime, metrics, critic verdicts, cost ledger, and human sign-off.",
+  "description": "Normative Evidence Graph v2.0 RunManifest contract recording determinism regime, metrics, critic verdicts, cost ledger, and human sign-off across The Hollow Meridian (run-0001), The Glass Ossuary (run-0002), and Perihelion Breach (run-0003).",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -111,7 +111,13 @@
               "none",
               "brass_vow",
               "ash_thread",
-              "vacant_name"
+              "vacant_name",
+              "lens_sabotage",
+              "tidal_quarantine",
+              "acoustic_calling",
+              "recoil_gyro",
+              "thermal_siphon",
+              "grapple_overdrive"
             ]
           },
           "seed": {

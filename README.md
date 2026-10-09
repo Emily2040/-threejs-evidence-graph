@@ -1,285 +1,268 @@
-# Three.js Evidence Graph
+# Three.js Evidence Graph & Multi-Genre Zero-Asset Game Production Suite
 
-Evidence-driven multi-agent production for source-generated Three.js vertical slices, with *The Hollow Meridian* as an applied RPG specification.
+<div align="center">
 
-[English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
+[![Native English](https://img.shields.io/badge/Edition-Native_English-D49B4B?style=for-the-badge)](README.md)
+[![简体中文](https://img.shields.io/badge/语言-简体中文_(原生母语版)-45B29D?style=for-the-badge)](README.zh-CN.md)
+[![日本語](https://img.shields.io/badge/言語-日本語_(ネイティブ版)-38C6D9?style=for-the-badge)](README.ja.md)
+[![한국어](https://img.shields.io/badge/언어-한국어_(네이티브판)-C89B54?style=for-the-badge)](README.ko.md)
 
-![An abstract evidence graph converging with meridian geometry and an authored game route](assets/readme-hero.jpg)
+[![Release 2026.07.5](https://img.shields.io/badge/Release-2026.07.5-0F1722?style=flat-square&logo=github)](RELEASE_NOTES.md)
+[![Three.js r185](https://img.shields.io/badge/Three.js-r185_(0.185.0)-45B29D?style=flat-square)](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)
+[![Publications 4 PDFs / 217 Pages](https://img.shields.io/badge/Publications-4_PDFs_·_217_Pages-D49B4B?style=flat-square)](docs/PUBLICATION_STATUS.md)
+[![JSON Schema Draft 2020-12](https://img.shields.io/badge/Schemas-Draft_2020--12-38C6D9?style=flat-square)](schemas/)
+[![License MIT](https://img.shields.io/badge/License-MIT-CBD5E1?style=flat-square)](LICENSE)
 
-> **Publication status**
+</div>
+
+![Three.js Evidence Graph & Multi-Genre Game Production Suite Masthead](assets/svg/masthead-en.svg)
+
+> **What This Repository Is**
 >
-> This repository contains two design specifications and production prompts. It does not contain a playable game, a completed reference implementation, benchmark results, or a full evidence run. Performance charts and budgets in the publications are targets unless explicitly identified as measured data.
-
-## The publication set
-
-| Publication | Role | Edition | Download |
-|---|---|---:|---|
-| **Three.js Evidence Graph** | General operational method for governing, testing, repairing, and releasing an agent-built browser vertical slice | v2.0, 64 pages | [Read the PDF](publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf) |
-| **The Hollow Meridian** | Game-specific product contract and multi-agent production prompt for a procedural third-person action RPG | v1.0, 81 pages | [Read the PDF](publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) |
-
-![The covers of Three.js Evidence Graph and The Hollow Meridian](assets/publication-set.jpg)
-
-The first document defines how production decisions become evidence-backed transitions. The second defines what one ambitious RPG slice should contain. They share the same evidence-graph lineage, but they are not fully version-aligned. *The Hollow Meridian* incorporates many core ideas from the framework and predates several v2 safeguards.
-
-## Why this work exists
-
-Large game-generation prompts often combine product direction, architecture, implementation, quality judgment, repair, and release authority inside one conversation. That produces a familiar failure mode: a system can write a large amount of code and then describe its own work as successful without producing independent proof.
-
-This publication proposes a different control model:
-
-```mermaid
-flowchart TD
-    A["Product contract"] --> B["Bounded specialist work"]
-    B --> C["Independent evidence capture"]
-    C --> D["Mechanical gates and calibrated review"]
-    D --> E["Accept, repair, branch, or roll back"]
-    E --> F["Evidence-backed release decision"]
-```
-
-The prompt is an interface to the control plane. It is not the control plane itself. Repository state, typed task packets, deterministic checks, evidence manifests, budgets, and release predicates carry the authority that a conversation cannot safely hold.
-
-## Three.js Evidence Graph at a glance
-
-![A product contract branching into bounded work, evidence capture, release gates, repair, and rejection](assets/evidence-graph-control-hero.jpg)
-
-*Three.js Evidence Graph v2.0* describes a repository-local production system for a narrow browser-game vertical slice. Its core contributions are:
-
-1. **A canonical production graph.** Work advances through typed nodes and explicit transition predicates, not through optimistic status messages.
-2. **Repository authority.** Product, art, architecture, and quality contracts outrank conversation memory and individual agent judgment.
-3. **Bounded delegation.** Every specialist receives one objective, permitted and forbidden files, invariants, acceptance commands, evidence requirements, retries, and a resource budget.
-4. **Separated authority.** Builders implement. Read-only critics evaluate captured artifacts. A provenance auditor can block release. A named human director can change the constitution but cannot waive a failed gate.
-5. **Two evidence regimes.** Simulation state and other controlled data may use bit-exact comparison. GPU-rasterized output and cross-profile visual evidence use declared tolerances.
-6. **Renderer selection by proof.** WebGPU/TSL and WebGL 2 are treated as candidates to test against representative materials, effects, devices, browsers, and traces.
-7. **Procedural generation as compilation.** A generator needs a grammar, bounded parameters, seeds, rejection tests, collision and LOD policy, provenance, and diagnostic output. Randomness does not replace composition.
-8. **Supply-chain-aware provenance.** The asset policy examines source files, dependencies, built bundles, fonts, opaque blobs, encoded media, runtime requests, and generated outputs.
-9. **Calibrated evaluation.** Critics must detect known defects, survive presentation-order reversal, cite evidence, and report observable failures rather than generic taste.
-10. **Root-cause repair.** Every repair records the defect, evidence, hypothesis, intervention, expected change, protected metrics, acceptance test, cost, and rollback condition.
-11. **Performance distributions.** The method evaluates frame-time percentiles, long frames, CPU and GPU cost, memory growth, compilation stalls, and renderer statistics rather than relying on average FPS.
-12. **Compute economics.** Mechanical checks use no model. Model calls are routed by task value and recorded in a run-level cost ledger.
-
-The manual includes a v1-to-v2 defect ledger, a 15-node control graph, a four-part orchestrator prompt, and JSON Schemas (upgraded in [`schemas/`](schemas/) to Draft 2020-12) for task packets, defect records, and run manifests.
-
-> [Read the expanded English Evidence Graph v2.0 guide](docs/EVIDENCE_GRAPH_GUIDE.md) and [Technical Errata & v2.0 Alignment](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) for the 15-node topology (`N00_BRIEF` to `N14_RELEASE_CANDIDATE`), dual determinism regimes, standalone Draft 2020-12 JSON schemas ([`schemas/`](schemas/)), golden `run-0001` fixtures ([`examples/run-0001/`](examples/run-0001/)), and copy-pasteable prompts ([`prompts/`](prompts/)).
+> This repository publishes a **four-volume, `217`-page engineering specification and multi-agent prompt suite** authored by **Emily Paradox (`@iamemily2050`)** for building deterministic, source-generated Three.js `r185` (`0.185.0`) browser games with **zero downloaded runtime assets**. It pairs one general control-plane methodology (*Three.js Evidence Graph: Operational Manual v2.0*, `64` pages) with three complete genre vertical-slice production specifications:
+> 1. **Game 01 - Third-Person Action RPG**: ***The Hollow Meridian*** (`81` pages)
+> 2. **Game 02 - Mystery on Horror**: ***The Glass Ossuary*** (`36` pages)
+> 3. **Game 03 - First-Person Shooter Adventure**: ***Perihelion Breach*** (`36` pages)
 >
-> Evidence Graph guide languages: [English](docs/EVIDENCE_GRAPH_GUIDE.md) | [简体中文](docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [日本語](docs/EVIDENCE_GRAPH_GUIDE.ja.md) | [한국어](docs/EVIDENCE_GRAPH_GUIDE.ko.md)
+> Every publication is backed by standalone JSON Schema Draft 2020-12 contracts (`schemas/`), copy-pasteable orchestrator and specialist agent prompts (`prompts/`), validated golden reference runs (`examples/run-0001/` through `examples/run-0003/`), and native-authored companion guides in **English**, **Simplified Chinese (`简体中文`)**, **Japanese (`日本語`)**, and **Korean (`한국어`)**.
 
-## The Hollow Meridian at a glance
+---
 
-![The authored route through the ruined observatory of The Hollow Meridian](assets/hollow-meridian-world-hero.jpg)
+## Four-Publication Suite Overview (`217` Pages Total)
 
-*Concept artwork for the publication. Not a gameplay capture or implementation evidence.*
+![The Four-Publication Suite: Three.js Evidence Graph v2.0, The Hollow Meridian, The Glass Ossuary, and Perihelion Breach](assets/publication-set.jpg)
 
-*The Hollow Meridian v1.0* is an 81-page product contract and orchestration prompt for a desktop-browser, third-person dark-fantasy action RPG built in Three.js without downloaded final art, audio, models, textures, fonts, or asset packs.
+*Composite plate of the four PDF publications in this repository. All covers and section heroes are publication plates and concept artwork rather than captures from a finished runtime build.*
 
-> [Read the expanded English game guide](docs/THE_HOLLOW_MERIDIAN_GUIDE.md) for the world premise, ten-beat route, combat model, enemies, boss phases, relic and save systems, procedural-media rules, accessibility targets, evidence surface, and practical use sequence.
->
-> Game guide languages: [English](docs/THE_HOLLOW_MERIDIAN_GUIDE.md) | [简体中文](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
+| # | Publication & Genre | PDF Artifact (`publications/`) | Pages | Size (Bytes) | Native Companion Guides (`docs/`) | Prompts & Fixtures |
+| :-: | :--- | :--- | ---: | ---: | :--- | :--- |
+| **01** | **Three.js Evidence Graph v2.0**<br/>*Multi-Agent Control Plane & Determinism Manual* | [`threejs-evidence-graph-operational-manual-v2.0-en.pdf`](publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf)<br/>`sha256[0..16]: d3830d411a61c52c` | `64` | `416,827` | [EN](docs/EVIDENCE_GRAPH_GUIDE.md) · [中文](docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md) · [日本語](docs/EVIDENCE_GRAPH_GUIDE.ja.md) · [한국어](docs/EVIDENCE_GRAPH_GUIDE.ko.md) | [`prompts/evidence-graph/`](prompts/evidence-graph/)<br/>[`schemas/`](schemas/) |
+| **02** | **The Hollow Meridian v1.0**<br/>*Game 01 · Third-Person Dark-Fantasy Action RPG* | [`the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf`](publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)<br/>`sha256[0..16]: c4f8fe83995d526b` | `81` | `357,144` | [EN](docs/THE_HOLLOW_MERIDIAN_GUIDE.md) · [中文](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) · [日本語](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md) · [한국어](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md) | [`prompts/hollow-meridian/`](prompts/hollow-meridian/)<br/>[`examples/run-0001/`](examples/run-0001/) |
+| **03** | **The Glass Ossuary v1.0**<br/>*Game 02 · First-Person Investigative Mystery Horror* | [`the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf`](publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)<br/>`sha256[0..16]: efead090be003782` | `36` | `98,649` | [EN](docs/THE_GLASS_OSSUARY_GUIDE.md) · [中文](docs/THE_GLASS_OSSUARY_GUIDE.zh-CN.md) · [日本語](docs/THE_GLASS_OSSUARY_GUIDE.ja.md) · [한국어](docs/THE_GLASS_OSSUARY_GUIDE.ko.md) | [`prompts/glass-ossuary/`](prompts/glass-ossuary/)<br/>[`examples/run-0002/`](examples/run-0002/) |
+| **04** | **Perihelion Breach v1.0**<br/>*Game 03 · First-Person Sci-Fi Shooter Adventure* | [`perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf`](publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)<br/>`sha256[0..16]: 75bdfff21c905122` | `36` | `95,265` | [EN](docs/PERIHELION_BREACH_GUIDE.md) · [中文](docs/PERIHELION_BREACH_GUIDE.zh-CN.md) · [日本語](docs/PERIHELION_BREACH_GUIDE.ja.md) · [한국어](docs/PERIHELION_BREACH_GUIDE.ko.md) | [`prompts/perihelion-breach/`](prompts/perihelion-breach/)<br/>[`examples/run-0003/`](examples/run-0003/) |
 
-The player is the Cartographer, a faceless adult warden exploring a ruined observatory that stores the true names of vanished cities. The intended first playthrough is 10 to 14 minutes and includes:
+---
 
-- one safe hub and one authored route;
-- five principal spaces;
-- one quest giver and one three-ring spatial puzzle;
-- three enemy archetypes;
-- one three-choice relic decision;
-- one two-phase boss, *The Bell Without a Name*;
-- two ending outcomes;
-- local checkpoint, save, death, recovery, victory, and return-to-hub loops.
+## Core Architecture: The 15-Node Evidence Graph (`N00` .. `N14`)
 
-The specification deliberately excludes open-world expansion, crafting, shops, random loot, companions, multiplayer, and character creation. Its purpose is to resolve one compact experience instead of hiding weak interaction beneath feature volume.
+![15-Node Evidence Graph Topology and Three-Genre Game Instantiation](assets/svg/architecture-pipeline.svg)
 
-Its production prompt defines specialist roles for architecture, gameplay and combat, procedural world construction, enemy and boss behavior, RPG and UI systems, audio and effects, integration, QA and performance, visual criticism, and provenance audit. It also defines fixed-tick simulation, replay capture, state hashes, stable diagnostic URLs, evidence folders, bounded repair tasks, isolated candidates, rollback, and final release gates.
+Single-conversation LLM game generation routinely collapses when the same context window invents scope, writes shaders, edits combat math, and grades its own output. *Three.js Evidence Graph v2.0* replaces self-certified chat loops with four structural invariants:
 
-### What the player does
+1. **Deterministic Orchestrator (`orchestrator`)**: Advances a 15-node directed cyclic graph (`N00_BRIEF` through `N14_RELEASE_CANDIDATE`) governed by [`schemas/graph-state.d.ts`](schemas/graph-state.d.ts). No node advances without a schema-valid [`TaskPacket`](schemas/task-packet.schema.json) and passing acceptance commands.
+2. **File-Ownership-Isolated Specialist Workers (7 Cards per Game)**: `combat_gameplay`, `world_quest`, `procedural_art_vfx`, `procedural_audio`, `ui_hud_accessibility`, `qa_perf_playwright`, and read-only `independent_critic`. Specialists cannot edit outside their `allowed_paths` or modify verification schemas.
+3. **Dual Determinism Regimes (`A-PinnedBrowser` & `B-CrossPlatform`)**:
+   - **Regime A (`A-PinnedBrowser`)**: Bit-exact SHA-256 verification inside a pinned Chromium + GPU/SwiftShader harness for 60 Hz integer simulation ticks (`state_hash`), 16-bit PCM quantized `OfflineAudioContext` renders (`audio_hash`), and `1e-5` quantized procedural vertex buffers (`geometry_hash`).
+   - **Regime B (`B-CrossPlatform`)**: Bounded invariant and perceptual tolerance gates (`P50 <= 8.3 ms`, `P95 <= 16.6 ms`, `P99 <= 22.0 ms`, `-16 LUFS +- 1.0 LU`, `<= -1.0 dBTP`) across `THREE.WebGPURenderer` and `{ forceWebGL: true }` fallback.
+4. **Zero Downloaded Runtime Assets (`provenance_critic`)**: Every mesh, TSL (`Three.js Shading Language`) surface shader, skeletal rig, UI glyph, and Web Audio stem is compiled deterministically from code. `external_network_requests` and `downloaded_assets_count` are locked to `0`.
 
-The route begins in the Ash Court, where movement, interaction, the Mnemonic Keeper, and a resting checkpoint establish the world. The player accepts a two-seal quest, crosses the Orrery Bridge combat tutorial, explores the Archive Nave, solves a deterministic three-ring alignment puzzle, defeats the Bell Sentinel in the Foundry, selects one combat-changing relic, opens the Meridian Chamber, confronts *The Bell Without a Name*, chooses to bind or release the stolen names, and returns to the hub with the consequence saved.
+---
 
-Moment to moment, the player reads architecture and light, manages spacing and stamina, commits to attacks or defense, earns Resonance through effective timing, uses Echo Brand or relic-modified actions, resolves one authored obstacle, and preserves meaningful state at checkpoints. Combat combines light and heavy attacks, guard, a bounded parry window, target lock, stamina, and Resonance; the three enemy archetypes teach spacing, ranged pressure, and guard-breaking, while the three-ring puzzle is deterministically solvable and the three-choice relic alters real combat decisions.
+## Side-by-Side Comparison of the Three Flagship Games
 
-A versioned local save schema preserves quest state, both seals, the chosen relic, consumables, checkpoints, completion state, ending choice, settings, and remapped controls. The boss is an independent system rather than a scaled-up regular enemy, with its own attack grammar, poise, a protected phase transition at 55 percent health, and readable safe sectors. All of these elements define the specification and acceptance contract for the intended game; this repository provides standalone schemas, prompts, and golden reference fixtures in `examples/run-0001/`, not a playable runtime build.
+| Dimension | Game 01: *The Hollow Meridian* | Game 02: *The Glass Ossuary* | Game 03: *Perihelion Breach* |
+| :--- | :--- | :--- | :--- |
+| **Genre & Camera** | Third-Person Dark-Fantasy Action RPG | First-Person Investigative Mystery Horror | First-Person Sci-Fi Shooter Adventure |
+| **Target Playtime** | 10 to 14 minutes | 12 to 16 minutes | 12 to 15 minutes |
+| **Protagonist** | `The Cartographer` (`Sable Veren`) | `Clara Vane` (`The Acoustic Archivist`) | `Soren Kestrel` (`The Relay Vanguard`) |
+| **Core Resources** | `100 Health` · `100 Stamina` · `0-100 Resonance` | `100 Composure` · `100 Lantern Oil` · `0-100 Exposure` | `100 Shield` · `100 Hull Integrity` · `0-100 Core Heat` |
+| **Signature 60 Hz Mechanic** | Button-down `Parry` deflect (`ticks 6..12`) vs. held `Guard` (`tick >= 13`) | Orthogonal optical `Lantern Shutter` (`6t`) + `Phonograph Cancel` (`ticks 25..114`) + `Ferrotype Flash` (`ticks 19..24`) | `Thermal Vent Reload` (`ticks 14..20` purges `100% Heat`) + `Magnetic Grapple` (`18.0 m/s`) + `Slide-Boost` (`11.5 m/s`) |
+| **Five Authored Spaces** | `Ash Court` -> `Orrery Bridge` -> `Archive Nave` -> `Bell Foundry` -> `Meridian Chamber` | `Tidewater Causeway` -> `Caretaker's Stripping Room` -> `Refraction Gallery` -> `Submerged Crypt` -> `The Glass Ossuary` | `Umbilical Airlock` -> `Heliostat Truss` -> `Cryo-Coolant Manifold` -> `Ballistic Foundry` -> `Perihelion Core Chamber` |
+| **Spatial Puzzle (Beat 05)** | `Meridian Alignment` (3 concentric brass rings -> `North Seal`) | `Prism Triangulation` (`45/135/270 deg` Fresnel rings -> `Tide Ledger Fragment`) + `110/220/330 Hz` sluices | `Conduit Phase Routing` (3 plasma anchors within `180-tick` decay window -> `Coolant Bypass Core`) |
+| **Three Enemy Archetypes** | `Ashbound Skirmisher`, `Lantern Wraith`, `Bell Sentinel` | `Mire Listener` (acoustic), `Glass Septum Watcher` (optical), `Drowned Chorister` (aura) | `Volt Skitter` (wall-runner), `Aegis Drone` (shield sniper), `Slag Enforcer` (mortar heavy) |
+| **Build-Defining Choice (Beat 07)** | **Shrine Relic**: `brass_vow` · `ash_thread` · `vacant_name` | **Inquest Hypothesis**: `lens_sabotage` · `tidal_quarantine` · `acoustic_calling` | **Exo-Rig Core**: `recoil_gyro` · `thermal_siphon` · `grapple_overdrive` |
+| **Two-Phase Boss (Beat 09)** | **The Bell Without a Name** (`850 HP`, Phase 2 at `55%` / `467 HP`) | **The Choir in the Glass** (`600 Resonance Integrity`, Phase 2 at `300 Integrity`) | **The Heliarch Warden** (`1,000 Armor Integrity`, Phase 2 at `500 Integrity`) |
+| **Dual Endings (Beat 10)** | `CHOICE_BIND` or `CHOICE_RELEASE` | `VERDICT_PUBLISH` or `VERDICT_SUBMERGE` | `DIRECTIVE_DIVERT` or `DIRECTIVE_VENT` |
+| **Performance Budget** | `<= 300` draw calls · `<= 500,000` tris | `<= 280` draw calls · `<= 460,000` tris | `<= 300` draw calls · `<= 500,000` tris |
+| **Golden Fixture** | [`examples/run-0001/`](examples/run-0001/) (`seed=1337`) | [`examples/run-0002/`](examples/run-0002/) (`seed=1894`) | [`examples/run-0003/`](examples/run-0003/) (`seed=2142`) |
 
-## How the two editions relate
+---
 
-*The Hollow Meridian* is best understood as a core-aligned reference specification from the Evidence Graph lineage, not as a certified implementation of every v2 rule. Standalone v2.0 contract reconciliation is provided in [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) and [`schemas/`](schemas/).
+## Deep Dive into Each Flagship Game
 
-| Area | Evidence Graph v2.0 | Hollow Meridian v1.0 |
-|---|---|---|
-| Product scope | Recommends a very narrow 45 to 90 second baseline slice | Specifies an ambitious 10 to 14 minute RPG route |
-| Evidence regimes | Explicit bit-exact and tolerance-based regimes | Deterministic evidence exists, but the two regimes are not fully integrated in the v1.0 PDF (reconciled in [`schemas/`](schemas/)) |
-| Critic controls | Calibration, both-order review, and drift rechecks | Independent critics are present; calibration is not fully specified |
-| Compute economics | Model tiers and mandatory cost ledger | Reconciled in [`schemas/run-manifest.schema.json`](schemas/run-manifest.schema.json) |
-| Human authority | Named director with bounded amendment power | Reconciled in [`schemas/run-manifest.schema.json`](schemas/run-manifest.schema.json) |
-| Cross-engine determinism | Requires a controlled deterministic math kernel for exact claims | Specified in [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) |
-| Audio evidence | Offline render, loudness, true-peak, dropout, and voice-budget gates | Procedural audio is specified; 16-bit PCM quantization rules are documented in [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) |
-| Accessibility | Evidence-backed release gate | Substantial accessibility requirements are included |
-| Provenance | Source, dependency, bundle, network, and output auditing | Strong source-generated media and provenance rules are included |
+### 1. Game 01 - *The Hollow Meridian* (Third-Person Dark-Fantasy Action RPG · 81 Pages)
 
-This distinction matters. The companion errata and standalone schemas bridge the two publications without pretending that the historical PDF editions were identical at print time.
+| World & Exploration Concept Plate | Two-Phase Boss Concept Plate |
+| :---: | :---: |
+| ![The Hollow Meridian World Route](assets/hollow-meridian-world-hero.jpg) | ![The Bell Without a Name Boss Encounter](assets/hollow-meridian-boss-hero.jpg) |
 
-## What “AAA-grade” means here
+*The Hollow Meridian* sets the player inside a ruined brass-and-basalt observatory that once preserved the true names of vanished cities. Playing as **The Cartographer**, you navigate five interconnected spaces, master committed 60 Hz melee parries and stamina discipline, solve the three-ring `Meridian Alignment` puzzle, choose one of three build-defining Shrine relics, and confront **The Bell Without a Name**.
 
-The phrase is used as an internal release contract for a deliberately narrow slice. It refers to resolved presentation, game feel, coherence, performance, accessibility, provenance, and evidence. It does not claim the content volume, budget, team scale, market status, or completed quality of a commercial AAA title.
+<details>
+<summary><strong>Inspect The Hollow Meridian 10-Beat Route, 60 Hz Combat Frame Table & Relic Branches</strong></summary>
 
-No document in this repository proves that the target has been achieved. Such a claim would require a runnable implementation, declared device profiles, complete evidence manifests, calibrated evaluation, reproducible resources, clean regression cycles, and a release candidate tied to one accepted commit.
+#### Authored 10-Beat Route (`recover_orientation`)
+1. `01 Ash Court Arrival` (safe hub, `Mnemonic Keeper`, checkpoint) -> 2. `02 Quest Acceptance` (`North Seal` & `Depth Seal`) -> 3. `03 Orrery Bridge Tutorial` (`Ashbound Skirmisher`, `Ash Salve`) -> 4. `04 Archive Nave` (`Lantern Wraith` vertical pressure) -> 5. `05 Meridian Alignment` (3-ring puzzle -> `North Seal`) -> 6. `06 Bell Foundry` (`Bell Sentinel` guard-break -> `Depth Seal` & `Meridian Shard`) -> 7. `07 Shrine Choice` (`brass_vow`, `ash_thread`, or `vacant_name`) -> 8. `08 Chamber Opening` -> 9. `09 The Unnamed Bell` (`850 HP`, Phase 2 at `467 HP`) -> 10. `10 Bind or Release` (`CHOICE_BIND` / `CHOICE_RELEASE`).
 
-## Technical baseline and boundaries
+#### 60 Hz Integer Combat Timing Table (`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`)
+| Action | Startup | Active / I-Frames | Recovery | Total | Cost & Effect |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `Light Attack 1 / 2 / 3` | `10 / 11 / 15t` | `5 / 7 / 9t` | `12 / 12 / 18t` | `27 / 30 / 42t` | `10 / 11 / 14 Stamina`; `16 / 18 / 25 HP` |
+| `Charged Heavy` | `27..38t` | `10..11t` | `12..14t` | `49..63t` | `28 Stamina`; `28..42 HP` + high poise damage |
+| `Dodge Roll` | `7t` | `Ticks 7..18` (`12t`) | `12t` | `31t` | `22 Stamina`; full i-frames during `ticks 7..18` |
+| `Parry Deflect` | `5t` (`0..4`) | `Ticks 6..12` (`7t`) | `18t` | `31t` | `12 Stamina`; transitions to `Guard` at `tick 13` if held |
+| `Echo Brand` | `12t` | `360t mark` | `0t` | `12t cast` | `50 Resonance`; `+25%` damage vulnerability & exposes boss weak point |
 
-- The publications were authored against a **Three.js r185 baseline** (`0.185.0`).
-- WebGPU/TSL and WebGL 2 are evaluated through a renderer decision gate (`THREE.WebGPURenderer` with `{ forceWebGL: true }` fallback; see [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)).
-- “No downloaded assets” applies to final visible and audible media. Pinned development dependencies, browser APIs, build tools, test tools, and profilers remain permitted and must be audited.
-- Bit-exact claims are reserved for controlled data classes. Browser and GPU output can vary across operating systems, drivers, hardware, browsers, and settings.
-- Accessibility requirements in the documents are engineering targets. They do not establish formal WCAG conformance.
-- Provenance controls improve traceability. They are not a proof of copyright originality or software security.
-- Host agents need repository access, shell execution, browser automation, capture infrastructure, isolated branches or worktrees, and structured task dispatch. A basic chat interface is not enough.
+- **PDF Specification**: [`publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf`](publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)
+- **Native Guides**: [English](docs/THE_HOLLOW_MERIDIAN_GUIDE.md) · [简体中文](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) · [日本語](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md) · [한국어](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
+- **Prompts & Fixtures**: [`prompts/hollow-meridian/`](prompts/hollow-meridian/) · [`examples/run-0001/`](examples/run-0001/)
 
-## Recommended reading paths
+</details>
 
-### Technical directors and researchers
+---
 
-1. Read the Evidence Graph defect ledger, [Technical Errata & v2.0 Alignment](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md), and [Publication Status](docs/PUBLICATION_STATUS.md).
-2. Review the control graph, authority hierarchy, evidence regimes, critic calibration, operations, and normative schemas in [`schemas/`](schemas/).
-3. Read the compatibility table above before treating *The Hollow Meridian* as an applied example.
+### 2. Game 02 - *The Glass Ossuary* (First-Person Investigative Mystery Horror · 36 Pages)
 
-### Game and technical-art teams
+| Forensic Investigation Concept Plate | Apparition & Ossuary Boss Concept Plate |
+| :---: | :---: |
+| ![The Glass Ossuary Forensic Investigation](assets/glass-ossuary-investigation-hero.jpg) | ![The Choir in the Glass Apparition Encounter](assets/glass-ossuary-apparition-hero.jpg) |
 
-1. Read *The Hollow Meridian* game contract, route, experience pillars, and anti-slop rules.
-2. Continue through game systems, procedural-media policy, and QA gates.
-3. Use the specialist cards in [`prompts/hollow-meridian/agents/`](prompts/hollow-meridian/agents/) only after repository authority documents and acceptance commands exist.
+*The Glass Ossuary* places acoustic archivist **Clara Vane** on a storm-lashed tidal island in 1894 where a coastal lighthouse has been fused with a subterranean bone-glass ossuary. Instead of combat weapons or scripted jump scares, survival and revelation depend on three physical 19th-century forensic instruments (`Split-Diopter Brass Loupe`, `Wax-Cylinder Phonograph`, and `Silver-Salt Ferrotype Plate`), a 6-node `Inquest Board`, and strict light/sound discipline against **The Choir in the Glass**.
 
-### Agent-system builders
+<details>
+<summary><strong>Inspect The Glass Ossuary 10-Beat Route, 60 Hz Instrument Frame Table & Inquest Hypotheses</strong></summary>
 
-1. Begin with the standalone orchestrator prompts in [`prompts/`](prompts/) and Draft 2020-12 schemas in [`schemas/`](schemas/).
-2. Inspect the golden reference fixtures in [`examples/run-0001/`](examples/run-0001/) and run `python scripts/verify_release.py`.
-3. Add one real end-to-end runtime implementation with captured artifacts, a repaired defect, a rollback, frame-time distributions, cost accounting, and an accepted commit.
+#### Authored 10-Beat Investigative Route (`case_saint_vane`)
+1. `01 Causeway Landfall` (`Tidewater Causeway`, hydrophone footsteps, `Lantern Shutter`) -> 2. `02 The Sealed Inquest` (`Caretaker's Stripping Room`, 6-node `Inquest Board`, `Caretaker Moreau` cylinder) -> 3. `03 Ferrotype Calibration` (`Silver-Salt Ferrotype Plate` UV flash stun) -> 4. `04 Refraction Gallery` (`Glass Septum Watcher` optical evasion & `Brass Loupe`) -> 5. `05 Prism Triangulation` (`45/135/270 deg` Fresnel rings -> `Tide Ledger Fragment`) -> 6. `06 Submerged Crypt` (`Mire Listener` & `Drowned Chorister`, `110/220/330 Hz` sluices -> `Hydrophone Cylinder`) -> 7. `07 Inquest Board Deduction` (`lens_sabotage`, `tidal_quarantine`, or `acoustic_calling`) -> 8. `08 Ossuary Unsealing` -> 9. `09 The Choir in the Glass` (`600 Resonance Integrity`, Phase 2 at `300 Integrity`) -> 10. `10 Publish or Submerge` (`VERDICT_PUBLISH` / `VERDICT_SUBMERGE`).
 
-## Repository map
+#### 60 Hz Integer Forensic Instrument Timing Table
+| Action | Startup | Active Window | Recovery | Total | Cost & Mechanical Effect |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `Lantern Shutter` | `6 ticks` | Toggle (`7..`) | `6 ticks` | `12 ticks` | `0 Oil`; cuts light cone and optical sight-cone aggro |
+| `Brass Loupe Focus` | `9 ticks` | Hold (`10..69`) | `6 ticks` | `75 ticks` | `0 Oil`; decodes prism markings and bone-glass glyphs |
+| `Phonograph Cancel` | `24 ticks` | `Ticks 25..114` | `36 ticks` | `150 ticks` | Cancels room harmonic; masks footsteps from `Mire Listener` |
+| `Ferrotype Flash` | `18 ticks` | `Ticks 19..24` | `66 ticks` | `90 ticks` | Stuns apparitions `150 ticks` within `6.5 m`; exposes seams |
+| `Crouch Sidestep` | `5 ticks` | `Ticks 6..16` | `12 ticks` | `28 ticks` | Keeps footstep noise `<= -38 dBFS` across wet stone |
+| `Smelling Salts` | `15 ticks` | `Ticks 16..45` | `10 ticks` | `55 ticks` | Restores `+40 Composure` and purges `-25 Exposure` |
+
+- **PDF Specification**: [`publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf`](publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
+- **Native Guides**: [English](docs/THE_GLASS_OSSUARY_GUIDE.md) · [简体中文](docs/THE_GLASS_OSSUARY_GUIDE.zh-CN.md) · [日本語](docs/THE_GLASS_OSSUARY_GUIDE.ja.md) · [한국어](docs/THE_GLASS_OSSUARY_GUIDE.ko.md)
+- **Prompts & Fixtures**: [`prompts/glass-ossuary/`](prompts/glass-ossuary/) · [`examples/run-0002/`](examples/run-0002/)
+
+</details>
+
+---
+
+### 3. Game 03 - *Perihelion Breach* (First-Person Sci-Fi Shooter Adventure · 36 Pages)
+
+| Orbital Solar-Relay Traversal Concept Plate | High-Velocity Boss Combat Concept Plate |
+| :---: | :---: |
+| ![Perihelion Breach World Route](assets/perihelion-breach-world-hero.jpg) | ![The Heliarch Warden Boss Combat](assets/perihelion-breach-combat-hero.jpg) |
+
+*Perihelion Breach* drops vanguard specialist **Soren Kestrel** aboard the sun-grazing **Icarus-9 Orbital Solar Relay** at `0.09 AU` after its autonomous defense grid locks the heliostat mirrors into a thermal runaway cascade. Built for high-velocity 60 Hz gunplay and three-dimensional traversal, it combines electromagnetic coilguns and piercing rail-slugs with active `Thermal Vent Reload` timings (`ticks 14..20`), `Magnetic Grapple` slingshots (`18.0 m/s`), `240-tick` solar flare shadow corridors, and a two-phase aerial arena battle against **The Heliarch Warden**.
+
+<details>
+<summary><strong>Inspect Perihelion Breach 10-Beat Route, 60 Hz Ballistics/Grapple Frame Table & Exo-Rig Cores</strong></summary>
+
+#### Authored 10-Beat Orbital Route (`restore_perihelion_attitude`)
+1. `01 Airlock Breach` (`Umbilical Airlock`, `Station AI Vesper`, `Kestrel-9 Twin-Coil Carbine`) -> 2. `02 Lockdown Override` (`Slide-Boost` & `Thermal Vent Reload` calibration) -> 3. `03 Heliostat Skirmish` (`240-tick` solar flare cycle, `Volt Skitter` packs, `Magnetic Grapple` unlock) -> 4. `04 Cryo-Coolant Ascent` (vertical grapple shaft against `Aegis Drone`, `Arc-Vane Breach Launcher`) -> 5. `05 Conduit Phase Routing` (3 plasma anchors within `180 ticks` -> `Coolant Bypass Core`) -> 6. `06 Ballistic Foundry Siege` (`Slag Enforcer` arena -> `Helios Scatter-Rail` & `Ignition Keycard`) -> 7. `07 Suit Rig Calibration` (`recoil_gyro`, `thermal_siphon`, or `grapple_overdrive`) -> 8. `08 Shutter Retraction` -> 9. `09 The Heliarch Warden` (`1,000 Armor Integrity`, Phase 2 at `500 Integrity`) -> 10. `10 Divert or Vent` (`DIRECTIVE_DIVERT` / `DIRECTIVE_VENT`).
+
+#### 60 Hz Integer Weapon, Thermal Vent & Grapple Timing Table
+| Action | Startup | Active / Window | Recovery | Total | Heat / Damage / Mechanical Effect |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `Carbine 3-Burst` | `2 ticks` | `Ticks 3..11` (3x) | `10 ticks` | `21 ticks` | `+12 Heat`; `3 x 14 dmg` hitscan (`1.5x` weak-point multiplier) |
+| `Scatter Uncharged` | `3 ticks` | `Tick 4` (`5x12`) | `15 ticks` | `18 ticks` | `+18 Heat`; `60 dmg` close spread; strips energy shields |
+| `Scatter ADS Slug` | `30..54 ticks` | `Tick 31..55` | `18 ticks` | `48..72 ticks` | `+28 Heat`; `55..85 dmg` piercing rail slug (`1.75x` weak point) |
+| `Breach Anchor` | `6 ticks` | Projectile | `24 ticks` | `30 ticks` | `+30 Heat`; `60 AoE dmg` armor crack or conduit link |
+| `Thermal Vent Reload` | `13 ticks` | `Ticks 14..20` | `16 ticks` | `36 ticks` | Active input in `14..20t` clears `100% Heat` + `90t` overcharge |
+| `Slide-Boost` | `3 ticks` | `Ticks 4..18` | `6 ticks` | `24 ticks` | `11.5 m/s` slide; jump-cancel window at `ticks 8..18` |
+| `Magnetic Grapple` | `6 ticks` | `18..42 ticks` pull | `12 ticks` | `36..60 ticks` | `18.0 m/s` pull to anchor; preserves tangential slingshot velocity |
+
+- **PDF Specification**: [`publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf`](publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
+- **Native Guides**: [English](docs/PERIHELION_BREACH_GUIDE.md) · [简体中文](docs/PERIHELION_BREACH_GUIDE.zh-CN.md) · [日本語](docs/PERIHELION_BREACH_GUIDE.ja.md) · [한국어](docs/PERIHELION_BREACH_GUIDE.ko.md)
+- **Prompts & Fixtures**: [`prompts/perihelion-breach/`](prompts/perihelion-breach/) · [`examples/run-0003/`](examples/run-0003/)
+
+</details>
+
+---
+
+## Native Four-Language Documentation Matrix
+
+Every README and companion guide in this repository is written natively for professional game developers and graphics engineers in **English**, **Simplified Chinese (`简体中文`)**, **Japanese (`日本語`)**, and **Korean (`한국어`)**, while keeping canonical code identifiers, CLI commands, and schema keys intact for unambiguous cross-referencing:
+
+| Document Surface | Native English (`en`) | Native Simplified Chinese (`zh-CN`) | Native Japanese (`ja`) | Native Korean (`ko`) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Repository Overview & Suite Guide** | [`README.md`](README.md) | [`README.zh-CN.md`](README.zh-CN.md) | [`README.ja.md`](README.ja.md) | [`README.ko.md`](README.ko.md) |
+| **Pub 01: Evidence Graph v2.0 Manual (64 pp)** | [`EVIDENCE_GRAPH_GUIDE.md`](docs/EVIDENCE_GRAPH_GUIDE.md) | [`EVIDENCE_GRAPH_GUIDE.zh-CN.md`](docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [`EVIDENCE_GRAPH_GUIDE.ja.md`](docs/EVIDENCE_GRAPH_GUIDE.ja.md) | [`EVIDENCE_GRAPH_GUIDE.ko.md`](docs/EVIDENCE_GRAPH_GUIDE.ko.md) |
+| **Pub 02: The Hollow Meridian - Action RPG (81 pp)** | [`THE_HOLLOW_MERIDIAN_GUIDE.md`](docs/THE_HOLLOW_MERIDIAN_GUIDE.md) | [`THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md`](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [`THE_HOLLOW_MERIDIAN_GUIDE.ja.md`](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [`THE_HOLLOW_MERIDIAN_GUIDE.ko.md`](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md) |
+| **Pub 03: The Glass Ossuary - Mystery Horror (36 pp)** | [`THE_GLASS_OSSUARY_GUIDE.md`](docs/THE_GLASS_OSSUARY_GUIDE.md) | [`THE_GLASS_OSSUARY_GUIDE.zh-CN.md`](docs/THE_GLASS_OSSUARY_GUIDE.zh-CN.md) | [`THE_GLASS_OSSUARY_GUIDE.ja.md`](docs/THE_GLASS_OSSUARY_GUIDE.ja.md) | [`THE_GLASS_OSSUARY_GUIDE.ko.md`](docs/THE_GLASS_OSSUARY_GUIDE.ko.md) |
+| **Pub 04: Perihelion Breach - FPS Adventure (36 pp)** | [`PERIHELION_BREACH_GUIDE.md`](docs/PERIHELION_BREACH_GUIDE.md) | [`PERIHELION_BREACH_GUIDE.zh-CN.md`](docs/PERIHELION_BREACH_GUIDE.zh-CN.md) | [`PERIHELION_BREACH_GUIDE.ja.md`](docs/PERIHELION_BREACH_GUIDE.ja.md) | [`PERIHELION_BREACH_GUIDE.ko.md`](docs/PERIHELION_BREACH_GUIDE.ko.md) |
+| **Multilingual Terminology & Policy** | [`docs/GLOSSARY.md`](docs/GLOSSARY.md) · [`docs/TRANSLATION_POLICY.md`](docs/TRANSLATION_POLICY.md) | [`docs/GLOSSARY.md`](docs/GLOSSARY.md) | [`docs/GLOSSARY.md`](docs/GLOSSARY.md) | [`docs/GLOSSARY.md`](docs/GLOSSARY.md) |
+
+---
+
+## Repository Architecture & File Map
 
 ```text
-.
-├── .gitattributes
-├── .github/
-│   └── workflows/
-│       └── verify-release.yml
-├── AUTHORS.md
-├── LICENSE
-├── README.md
-├── README.zh-CN.md
-├── README.ja.md
-├── README.ko.md
-├── agents/
-├── assets/
-│   ├── publication-set.jpg
-│   ├── readme-hero.jpg
-│   ├── readme-hero.prompt.md
-│   ├── section-heroes.prompt.md
-│   ├── evidence-graph-control-hero.jpg
-│   ├── hollow-meridian-world-hero.jpg
-│   ├── hollow-meridian-boss-hero.jpg
-│   ├── threejs-evidence-graph-cover.jpg
-│   └── the-hollow-meridian-cover.jpg
-├── docs/
-│   ├── EVIDENCE_GRAPH_GUIDE.md
-│   ├── EVIDENCE_GRAPH_GUIDE.zh-CN.md
-│   ├── EVIDENCE_GRAPH_GUIDE.ja.md
-│   ├── EVIDENCE_GRAPH_GUIDE.ko.md
-│   ├── GLOSSARY.md
-│   ├── PUBLICATION_STATUS.md
-│   ├── TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md
-│   ├── THE_HOLLOW_MERIDIAN_GUIDE.md
-│   ├── THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md
-│   ├── THE_HOLLOW_MERIDIAN_GUIDE.ja.md
-│   ├── THE_HOLLOW_MERIDIAN_GUIDE.ko.md
-│   └── TRANSLATION_POLICY.md
-├── examples/
-│   └── run-0001/
-│       ├── defect-record.json
-│       ├── run-manifest.json
-│       └── task-packet.json
-├── orchestration/
-├── prompts/
-│   ├── evidence-graph/
-│   │   └── orchestrator.md
-│   └── hollow-meridian/
-│       ├── orchestrator.md
-│       └── agents/
-├── publications/
-│   ├── threejs-evidence-graph-operational-manual-v2.0-en.pdf
-│   └── the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf
-├── schemas/
+threejs-evidence-graph/
+├── publications/                                                     # 4 Normative English PDFs (217 pages total)
+│   ├── threejs-evidence-graph-operational-manual-v2.0-en.pdf         # 64 pages · Control Plane & Determinism Manual
+│   ├── the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf               # 81 pages · Game 01: Third-Person Action RPG
+│   ├── the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf      # 36 pages · Game 02: First-Person Mystery Horror
+│   └── perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf       # 36 pages · Game 03: First-Person Shooter Adventure
+├── schemas/                                                          # Normative Draft 2020-12 JSON Schemas & TypeScript State
+│   ├── task-packet.schema.json
 │   ├── defect-record.schema.json
-│   ├── graph-state.d.ts
 │   ├── run-manifest.schema.json
-│   └── task-packet.schema.json
-├── scripts/
-│   └── verify_release.py
-├── CHANGELOG.md
-├── CITATION.cff
-├── CITATIONS.md
-├── CONTRIBUTING.md
-├── RELEASE_NOTES.md
-├── release-manifest.json
-└── SHA256SUMS.txt
+│   └── graph-state.d.ts
+├── orchestration/                                                    # Drop-in mirror for agent runtime working directories
+│   ├── *.schema.json & graph-state.d.ts
+│   └── prompts/{orchestrator,hollow-meridian-orchestrator,glass-ossuary-orchestrator,perihelion-breach-orchestrator}.md
+├── prompts/                                                          # Copy-pasteable Orchestrator + 21 Specialist Agent Cards
+│   ├── evidence-graph/orchestrator.md
+│   ├── hollow-meridian/{orchestrator.md, agents/*.md}              # 7 specialist cards for Game 01
+│   ├── glass-ossuary/{orchestrator.md, agents/*.md}                # 7 specialist cards for Game 02
+│   └── perihelion-breach/{orchestrator.md, agents/*.md}            # 7 specialist cards for Game 03
+├── examples/                                                         # Schema-validated Golden Reference Fixtures
+│   ├── run-0001/{task-packet,defect-record,run-manifest}.json      # Game 01 fixtures (3 Shrine Relic branches)
+│   ├── run-0002/{task-packet,defect-record,run-manifest}.json      # Game 02 fixtures (3 Inquest Hypothesis branches)
+│   └── run-0003/{task-packet,defect-record,run-manifest}.json      # Game 03 fixtures (3 Exo-Rig Core branches)
+├── docs/                                                             # 16 Native Companion Guides + Errata + Governance
+│   ├── EVIDENCE_GRAPH_GUIDE.{md,zh-CN.md,ja.md,ko.md}
+│   ├── THE_HOLLOW_MERIDIAN_GUIDE.{md,zh-CN.md,ja.md,ko.md}
+│   ├── THE_GLASS_OSSUARY_GUIDE.{md,zh-CN.md,ja.md,ko.md}
+│   ├── PERIHELION_BREACH_GUIDE.{md,zh-CN.md,ja.md,ko.md}
+│   ├── TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md
+│   ├── GLOSSARY.md, TRANSLATION_POLICY.md, PUBLICATION_STATUS.md
+│   └── ARTWORK_PROVENANCE.md
+├── assets/                                                           # 13 Zero-EXIF JPEGs + 5 Custom Typographic SVGs
+│   ├── svg/{masthead-en,masthead-zh-CN,masthead-ja,masthead-ko,architecture-pipeline}.svg
+│   └── *.jpg
+├── scripts/verify_release.py                                         # Automated SHA-256, Schema, PDF, EXIF & Link Verifier
+├── SHA256SUMS.txt                                                    # Bit-exact SHA-256 checksums (LF line endings)
+└── release-manifest.json                                             # Machine-readable suite & asset inventory
 ```
 
-## Current roadmap
+---
 
-Release `2026.07.4` ships standalone Draft 2020-12 JSON schemas (`schemas/*.schema.json`), `schemas/graph-state.d.ts`, copy-pasteable orchestrator and specialist prompts (`prompts/`), golden contract fixtures (`examples/run-0001/`), and an automated release verifier (`scripts/verify_release.py`). The next milestones for a live runtime harness are:
+## Quick Verification & Usage
 
-- renderer proof harness;
-- deterministic replay and state hashing runtime;
-- asset and provenance scanners;
-- Playwright capture profiles;
-- critic calibration fixtures;
-- one accepted runtime repair, one rejected candidate, and one verified rollback.
+Run the automated release and contract verifier from the repository root to validate every SHA-256 digest, JSON Schema Draft 2020-12 contract, golden fixture (`run-0001` through `run-0003`), PDF catalog `/Lang` and `/URI` annotation, zero-EXIF JPEG asset, and localized Markdown link:
 
-Until a live runtime build exists, this repository claims design, specification, and contract-schema value, not empirical game-runtime benchmark results.
+```bash
+sha256sum -c SHA256SUMS.txt
+python scripts/verify_release.py
+```
 
-## Translation policy
+---
 
-English is the normative edition. Simplified Chinese, Japanese, and Korean versions are provided for the repository guide, the *Three.js Evidence Graph v2.0* companion guide, and the expanded *The Hollow Meridian* companion guide. Publication titles, game proper nouns, filenames, commands, schema keys, graph-node identifiers, paths, enum values, and code identifiers remain in canonical English.
+## Scope, Epistemic Honesty & Non-Claims
 
-These companion guides explain the production methodology and game specification in detail, but they are not word-for-word translations of the complete `145` PDF pages (`64 + 81` pages). If a translation and the English edition differ, use the English edition for technical interpretation and report the discrepancy through an issue. See the [Translation Policy](docs/TRANSLATION_POLICY.md) and [Multilingual Technical Glossary](docs/GLOSSARY.md).
+This repository publishes **architecture specifications, production prompts, JSON Schemas, and golden contract fixtures**. It intentionally does **not** claim to ship:
 
-## Integrity
+- a compiled or playable Three.js game runtime;
+- measured GPU frame-time benchmarks from a live build;
+- a live Playwright browser capture package; or
+- certified WCAG conformance for an implemented UI.
 
-The SHA-256 values in [SHA256SUMS.txt](SHA256SUMS.txt) cover every published PDF, JPEG artwork file, standalone JSON schema, golden fixture, prompt, and documentation artifact in this release (`39` verified files). Run `sha256sum -c SHA256SUMS.txt` and `python scripts/verify_release.py` from the repository root to verify the entire release package.
+All frame-time percentiles (`P50 <= 8.3 ms`, `P95 <= 16.6 ms`, `P99 <= 22.0 ms`), draw-call ceilings, and loudness targets (`-16 LUFS +- 1.0 LU`, `<= -1.0 dBTP`) are **normative acceptance gates** that an implementation must pass before `N14_RELEASE_CANDIDATE` sign-off.
 
-## Contributing
+---
 
-Focused contributions are welcome for:
+## Authorship, Citation & License
 
-- factual or editorial defects with page references;
-- broken source links;
-- translation corrections;
-- terminology improvements;
-- accessibility improvements;
-- reproducible implementation reports;
-- machine-readable contracts that preserve the published authority model.
-
-Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening an issue or pull request.
-
-## Citation
-
-Use the metadata in [CITATION.cff](CITATION.cff). A concise citation is:
-
-> Emily Paradox. *Three.js Evidence Graph v2.0 and The Hollow Meridian RPG Full Prompt v1.0*. Technical Systems and Game Systems Series, July 2026.
-
-## License
-
-This repository is released under the [MIT License](LICENSE).
-
-Copyright (c) 2026 Iamemily2050 (@iamemily2050).
-
-Unless a file states otherwise, the license covers the repository documentation, PDFs, and original concept artwork. Copies or substantial portions must retain the copyright and permission notices. Citation is requested for academic, editorial, and technical discussion, but it is not an additional license condition.
-
-## Author and rights holder
-
-- **Publication byline:** Emily Paradox
-- **Creator and copyright holder:** Iamemily2050 (@iamemily2050)
-- **Role:** AI Digital Artist
-- **GitHub:** [Emily2040](https://github.com/Emily2040)
-- **Website:** [iamemily2050.com](https://iamemily2050.com)
-- **X:** [@iamemily2050](https://x.com/iamemily2050)
-- **Instagram:** [@iamemily2050](https://instagram.com/iamemily2050)
-
-See [AUTHORS.md](AUTHORS.md) for the identity distinction, contact address, and attribution guidance.
+- **Publication Byline**: Emily Paradox
+- **Creator & Copyright Holder**: **Iamemily2050 (`@iamemily2050`)**
+- **GitHub**: [Emily2040](https://github.com/Emily2040) · **Website**: [iamemily2050.com](https://iamemily2050.com) · **X**: [`@iamemily2050`](https://x.com/iamemily2050) · **Instagram**: [`@iamemily2050`](https://instagram.com/iamemily2050)
+- **Citation Metadata**: [`CITATION.cff`](CITATION.cff) and [`CITATIONS.md`](CITATIONS.md)
+- **License**: Released under the [MIT License](LICENSE). See [`AUTHORS.md`](AUTHORS.md) for the complete attribution record.

@@ -1,5 +1,6 @@
-<!-- source_version: 2026.07.4; translation_status: reviewed; language: ko -->
-# The Hollow Meridian: 게임 해설 가이드
+<!-- source_version: 2026.07.5; translation_status: reviewed; language: ko -->
+
+# 《공허의 자오선》 (The Hollow Meridian): 액션 RPG 제작 규격 및 설계 가이드
 
 [English](THE_HOLLOW_MERIDIAN_GUIDE.md) | [简体中文](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
 
@@ -52,7 +53,7 @@
 |---:|---|---|
 | 1 | **Ash Court 도착** | 이동, 카메라, 상호작용, Mnemonic Keeper, 휴식 체크포인트를 익힘 |
 | 2 | **퀘스트 수락** | 두 개의 방향 인장이 필요하다는 사실을 알고 경로를 개방함 |
-| 3 | **Orrery Bridge 튜토리얼** | Ashbound Skirmisher를 만나고 표적 고정, 회피, 방어, 받아치기, 첫 소모품을 익힘 |
+| 3 | **Orrery Bridge 튜토리얼** | Ashbound Skirmisher를 만나고 표적 고정, 회피, 가드, 패링, 첫 소모품을 익힘 |
 | 4 | **Archive Nave** | 수직 공간의 연출을 읽고, Lantern Wraith의 압박을 관리하며, 선택형 배경 이야기를 발견함 |
 | 5 | **Meridian 정렬** | 결정론적인 3중 고리 공간 퍼즐을 풀고 North Seal을 획득함 |
 | 6 | **Bell Foundry** | Bell Sentinel의 방어를 무너뜨리고 Depth Seal을 획득함 |
@@ -87,9 +88,9 @@ Cartographer의 행동 집합은 제한적이며 쉽게 판독할 수 있어야 
 - 약공격 연계
 - 차지 강공격
 - 타이밍을 확정해서 실행하는 회피
-- 방어와 지정된 받아치기 판정 구간
+- 가드와 지정된 패링 판정 구간
 - 행동을 제한하는 핵심 자원인 스태미나
-- 받아치기, 피해, 정의된 유물 효과로 획득하는 Resonance
+- 패링, 피해, 정의된 유물 효과로 획득하는 Resonance
 - Resonance를 소비하는 표적 지정 행동인 Echo Brand
 
 전투 수치는 중앙에서 관리하는 형식화된 데이터에 두고 테스트해야 합니다. 공격 판정 영역과 피격 판정 영역은 절차적 리그 관절 및 무기 분절과 시각적으로 일치해야 합니다. 입력 버퍼링은 허용하지만 규칙상 불가능한 동작 취소는 허용하지 않습니다. 카메라 충돌, 표적 고정, 좁은 공간, 다수 적, 보스 화면 구성에는 각각 진단 증거가 필요합니다.
@@ -98,9 +99,9 @@ Cartographer의 행동 집합은 제한적이며 쉽게 판독할 수 있어야 
 
 각 적은 서로 다른 규칙을 가르칩니다.
 
-- **Ashbound Skirmisher:** 기본 거리 조절, 읽을 수 있는 근접 공격 타이밍, 회피, 받아치기
+- **Ashbound Skirmisher:** 기본 거리 조절, 읽을 수 있는 근접 공격 타이밍, 회피, 패링
 - **Lantern Wraith:** 원거리 압박, 충전 동작 인지, 측면 이동, 통제된 표적 선택
-- **Bell Sentinel:** 방어 압박, 강공격, 강인도, 보스전에 대한 준비
+- **Bell Sentinel:** 가드 압박, 강공격, 강인도, 보스전에 대한 준비
 
 조우 디렉터는 공격 기회를 통제하여 여러 적이 동시에 판독 불가능한 압박을 만들지 않도록 합니다.
 
@@ -112,7 +113,7 @@ Cartographer의 행동 집합은 제한적이며 쉽게 판독할 수 있어야 
 
 보스는 더 큰 Bell Sentinel이 아니라 별개의 시스템입니다. 높이 약 4.5미터인 구조체는 비대칭 고리 프레임, 매달린 어두운 종 코어, 관절이 있는 세 개의 타격용 팔, 늘어진 인덱스 체인, 단계 전환 때 갈라지는 무표정한 세라믹 얼굴판으로 구성됩니다.
 
-1단계에서는 판독 가능한 네 가지 공격을 학습시킵니다. 넓은 자오선 휩쓸기, 수직 타종 공격 뒤에 이어지는 확장형 바닥 고리, 좁은 사슬 찌르기, 충전식 공명 파동입니다. 지정된 공격은 받아칠 수 있으며, 절제된 강공격이나 받아치기로 강인도를 무너뜨릴 수 있습니다.
+1단계에서는 판독 가능한 네 가지 공격을 학습시킵니다. 넓은 자오선 휩쓸기, 수직 타종 공격 뒤에 이어지는 확장형 바닥 고리, 좁은 사슬 찌르기, 충전식 공명 파동입니다. 지정된 공격은 패링할 수 있으며, 절제된 강공격이나 패링으로 강인도를 무너뜨릴 수 있습니다.
 
 체력이 55퍼센트에 도달하면 보호된 단계 전환을 위해 공격 선택을 중단합니다. 얼굴판이 갈라지고, 종 코어가 분리되어 공중 궤도를 돌며, 차가운 Name-light가 불안정한 호박빛 백색으로 바뀌고, 회전하는 자오선 위험 요소가 눈에 보이는 안전 구역을 만듭니다. 2단계는 플레이어가 익힌 전투 규칙을 폐기하지 않으면서 공간과 리듬을 변화시킵니다.
 
@@ -203,7 +204,7 @@ GPU와 브라우저가 달라도 시각적 출력이 비트 단위로 완전히 
 - 결정론적 리플레이 및 캡처 하네스
 - 소스에서 생성된 에셋과 실행 코드
 - 측정된 성능 결과
-- 승인된 `run-0001` 증거 패키지
+- 플레이 가능한 실기 빌드에서 캡처된 `run-0001` 런타임 증거 패키지 (`examples/run-0001/`은 스키마 검증을 통과한 골든 계약 픽스처를 수록)
 - 문서화된 수정과 검증된 롤백
 - 선언된 게이트를 통과한 릴리스 후보
 
@@ -236,3 +237,4 @@ PDF, 명령어, 파일명, 스키마, 식별자, 게임 고유명사에 대해�
 - **규범적 JSON Schema 및 TypeScript 계약**: [`schemas/task-packet.schema.json`](../schemas/task-packet.schema.json), [`schemas/defect-record.schema.json`](../schemas/defect-record.schema.json), [`schemas/run-manifest.schema.json`](../schemas/run-manifest.schema.json), [`schemas/graph-state.d.ts`](../schemas/graph-state.d.ts)
 - **복사 가능한 프롬프트**: [`prompts/hollow-meridian/orchestrator.md`](../prompts/hollow-meridian/orchestrator.md) 및 [`prompts/hollow-meridian/agents/`](../prompts/hollow-meridian/agents/)
 - **골든 검증 픽스처**: [`examples/run-0001/`](../examples/run-0001/)
+- **동일 시리즈 타 장르 버티컬 슬라이스 가이드**：[docs/THE_GLASS_OSSUARY_GUIDE.ko.md](THE_GLASS_OSSUARY_GUIDE.ko.md) (《유리 납골당 v1.0》) 및 [docs/PERIHELION_BREACH_GUIDE.ko.md](PERIHELION_BREACH_GUIDE.ko.md) (《근일점 돌파 v1.0》)

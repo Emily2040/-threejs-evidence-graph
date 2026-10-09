@@ -1,6 +1,6 @@
 # Technical Errata & Evidence Graph v2.0 Alignment Specification
 
-This normative errata document reconciles the contracts, schemas, node identifiers, Three.js `r185` (`0.185.0`) APIs, determinism quantization rules, and combat/RPG mathematical tables across *Three.js Evidence Graph: Operational Manual v2.0* (64 pages) and *The Hollow Meridian: Full Multi-Agent Production Prompt v1.0* (81 pages).
+This normative errata document reconciles the contracts, schemas, node identifiers, Three.js `r185` (`0.185.0`) APIs, determinism quantization rules, and combat/RPG mathematical tables across all four publications in the suite (*Three.js Evidence Graph: Operational Manual v2.0*, 64 pages; *The Hollow Meridian v1.0*, 81 pages; *The Glass Ossuary v1.0*, 36 pages; and *Perihelion Breach v1.0*, 36 pages; 217 pages total).
 
 ---
 
@@ -57,7 +57,7 @@ To eliminate naming drift between the 16-box diagram on page 11 of *Evidence Gra
 
 ### Charge Interpolation & Parry/Guard Disambiguation Rules
 - **Charged Heavy Interpolation (`t_release` in `[27, 63]`)**: Releasing the heavy input at integer tick `t_release` (`27 <= t_release <= 63`) interpolates damage and poise damage linearly: `alpha = (t_release - 27) / 36`, `damage = Math.round(28 + 14 * alpha)`, `poise_damage = Math.round(30 + 15 * alpha)`.
-- **Parry vs. Guard Input Disambiguation**: Because `Parry` and `Guard` share the defensive input (`Right Mouse Button` / `Left Bumper` / `Key F`), pressing the defensive input immediately enters `Parry` at tick `0` (`5` startup ticks `0..4`, `7` active deflect ticks `6..12`). If an incoming eligible attack intersects ticks `6..12`, a `Parry` deflect triggers. If no deflect triggers and the defensive input remains held at tick `13`, the state machine transitions seamlessly into continuous `Guard` without incurring a second startup penalty.
+- **Parry vs. Guard Input Disambiguation**: Because `Parry` and `Guard` share the defensive input (`Right Mouse Button` / `Left Bumper` / `Key F`), pressing the defensive input immediately enters `Parry` at tick `0` (`5` startup ticks `0..4`, `7` active deflect ticks `6..12`). If an incoming eligible attack intersects ticks `6..12`, a `Parry` deflect triggers. If no deflect triggers and the defensive input remains held at tick `13`, the state machine transitions continuously into continuous `Guard` without incurring a second startup penalty.
 
 ---
 
@@ -99,3 +99,22 @@ At Beat 07 (`Shrine Choice`), the player spends the authored `Meridian Shard` to
    - Import `WebGPURenderer`, `PostProcessing`, and `MeshStandardNodeMaterial` from `three/webgpu` and TSL nodes (`Fn`, `uniform`, `attribute`, `vec3`, `vec4`, `color`, `pass`, `mrt`, `output`, `emissive`) from `three/tsl`.
    - For the WebGL 2 fallback path, instantiate `new THREE.WebGPURenderer({ forceWebGL: true, antialias: true })` so the same TSL `NodeMaterial` and `THREE.PostProcessing` graph runs across both backends without maintaining a separate GLSL `ShaderMaterial` + legacy `EffectComposer` tree.
    - During the loading screen (before `N10_PERF_GATE` frame-time capture begins), execute both `await renderer.compileAsync(scene, camera)` and one offscreen `await postProcessing.renderAsync()` pass so all full-screen post-processing pipelines are compiled before frame 0.
+---
+
+## 6. Multi-Genre Extensions: *The Glass Ossuary v1.0* (Mystery Horror) & *Perihelion Breach v1.0* (FPS Adventure)
+
+### 6.1 Extended Branching Modifiers in `schemas/` (`2026.07.5`)
+To support all three flagship genres under a single unified JSON Schema Draft 2020-12 contract layer (`schemas/task-packet.schema.json`, `schemas/run-manifest.schema.json`, and `schemas/graph-state.d.ts`), the branching modifier enums (`shrine_relics_tested`, `branching_modifiers_tested`, and `BranchingChoiceId`) accept all nine canonical Beat 07 build choices:
+- **Game 01 (*The Hollow Meridian* - Shrine Relics)**: `brass_vow`, `ash_thread`, `vacant_name`
+- **Game 02 (*The Glass Ossuary* - Inquest Hypotheses)**: `lens_sabotage`, `tidal_quarantine`, `acoustic_calling`
+- **Game 03 (*Perihelion Breach* - Exo-Rig Cores)**: `recoil_gyro`, `thermal_siphon`, `grapple_overdrive`
+
+### 6.2 *The Glass Ossuary*: Orthogonal Optical/Acoustic Stealth Bitmask (`HOR-N06A-AUDIO-008`)
+In *The Glass Ossuary*, `Lantern Shutter` (`ticks 1..6` toggle) and `Phonograph Phase-Cancel` (`ticks 25..114` active window) operate simultaneously during Beat 06 (`Submerged Crypt`) and Beat 09 (`The Choir in the Glass`). Storing stealth state as a single mutually exclusive enum causes `Lantern Shutter` toggles at `tick 40` to overwrite an active `Phonograph Phase-Cancel` window (`HOR-N06A-AUDIO-008`).
+- **Normative Rule**: Represent optical and acoustic stealth states as orthogonal bitmask flags in the integer tick state (`OPTICAL_SHUTTER_CLOSED = 1 << 0`, `ACOUSTIC_PHASE_CANCEL_ACTIVE = 1 << 1`, `FERROTYPE_UV_FLASH_ACTIVE = 1 << 2`) and expose deterministic QA hooks at `window.__horrorReady === true` and `window.__horrorQA` (`getState()`, `getMetrics()`, `stepTicks(n)`, `loadScenario(id, seed)`).
+- **Three-Branch Replay Scenario `rep-11`**: Verified in `examples/run-0002/run-manifest.json` (`seed = 1894`) via `rep-11a-inquest-lens-sabotage`, `rep-11b-inquest-tidal-quarantine`, and `rep-11c-inquest-acoustic-calling`.
+
+### 6.3 *Perihelion Breach*: Upper/Lower-Body State Decoupling (`FPS-N06A-COMBAT-019`)
+In *Perihelion Breach*, players routinely trigger `Magnetic Grapple` (`18.0 m/s` pull) or `Slide-Boost` (`11.5 m/s`) while mid-reload. Coupling upper-body weapon actions and lower-body traversal into a single state machine causes `Magnetic Grapple` activation at `tick 12` to reset the reload timer without clearing `Core Heat`, locking out the `ticks 14..20` `Thermal Vent Reload` input window (`FPS-N06A-COMBAT-019`).
+- **Normative Rule**: Decouple the upper-body weapon state machine (`weaponState`, `reloadTick`, `coreHeat`, `overchargeTicks`) from the lower-body locomotion/grapple state machine (`locomotionState`, `grappleTick`, `velocityVec3`) so `Thermal Vent Reload` (`ticks 14..20`) remains responsive during `Magnetic Grapple` pulls and `Slide-Boost` trajectories. Expose deterministic QA hooks at `window.__fpsReady === true` and `window.__fpsQA` (`getState()`, `getMetrics()`, `stepTicks(n)`, `loadScenario(id, seed)`).
+- **Three-Branch Replay Scenario `rep-11`**: Verified in `examples/run-0003/run-manifest.json` (`seed = 2142`) via `rep-11a-rig-recoil-gyro`, `rep-11b-rig-thermal-siphon`, and `rep-11c-rig-grapple-overdrive`.

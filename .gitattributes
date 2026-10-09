@@ -9,6 +9,8 @@ SHA256SUMS.txt text eol=lf
 *.yml text eol=lf
 *.yaml text eol=lf
 *.txt text eol=lf
+*.svg text eol=lf
+LICENSE text eol=lf
 
 # Binary publication and artwork assets
 *.pdf binary

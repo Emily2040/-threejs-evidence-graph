@@ -1,15 +1,22 @@
 #!/usr/bin/env python3
 """
-Automated Release & Contract Verification Suite for Three.js Evidence Graph & The Hollow Meridian.
+Automated Release & Contract Verification Suite for the Four-Publication Suite (2026.07.5):
+1. Three.js Evidence Graph: Operational Manual v2.0 (64 pages)
+2. Game 01 - The Hollow Meridian: RPG Full Multi-Agent Production Prompt v1.0 (81 pages)
+3. Game 02 - The Glass Ossuary: Mystery Horror Full Multi-Agent Production Prompt v1.0 (36 pages)
+4. Game 03 - Perihelion Breach: FPS Adventure Full Multi-Agent Production Prompt v1.0 (36 pages)
+
 Validates:
 1. SHA256SUMS.txt LF line endings and bit-exact SHA-256 digests for all listed files.
-2. release-manifest.json repository URL, SHA-256 digests, byte sizes, PDF page counts, and JPEG dimensions.
+2. release-manifest.json repository URL, SHA-256 digests, byte sizes, PDF page counts (217 total),
+   13 zero-EXIF JPEG assets, and 5 SVG vector assets.
 3. Draft 2020-12 JSON Schema validity (schemas/*.schema.json and orchestration/*.schema.json)
-   and validation of golden fixtures in examples/run-0001/*.json.
+   and validation of all 9 golden fixtures across examples/run-0001..0003/*.json.
 4. PDF structural metadata (/Lang, /MarkInfo), zero "/-" ligature corruption in extracted text,
-   and clickable /URI link annotations on page 64 of the Operational Manual.
-5. Zero EXIF metadata (exif_len == 0) across all JPEGs in assets/*.jpg.
-6. Local Markdown link resolution and 4-language translation parity across README*.md and docs/*.md.
+   and clickable /URI link annotations on page 64 of Evidence Graph v2.0, page 36 of The Glass Ossuary,
+   and page 36 of Perihelion Breach.
+5. Zero EXIF metadata (exif_len == 0) across all 13 JPEGs in assets/*.jpg and valid XML across assets/svg/*.svg.
+6. Local Markdown link resolution and 4-language native documentation parity across README*.md and docs/*.md.
 """
 
 import hashlib
@@ -17,6 +24,7 @@ import json
 import os
 import re
 import sys
+import xml.etree.ElementTree as ET
 
 try:
     import jsonschema
@@ -48,6 +56,9 @@ def check_sha256sums() -> int:
         full_path = os.path.join(ROOT, rel_path)
         assert os.path.isfile(full_path), f"Missing file listed in SHA256SUMS.txt: {rel_path}"
         assert os.path.getsize(full_path) > 0, f"Zero-byte file listed in SHA256SUMS.txt: {rel_path}"
+        if not rel_path.endswith((".pdf", ".jpg", ".jpeg", ".png", ".webp")):
+            with open(full_path, "rb") as tf:
+                assert b"\r\n" not in tf.read(), f"Text file {rel_path} must use LF line endings (found CRLF)"
         assert digest != "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", (
             f"Empty-file SHA-256 digest in SHA256SUMS.txt for {rel_path}"
         )
@@ -68,7 +79,10 @@ def check_release_manifest() -> int:
             f"Invalid suite.repository URL in release-manifest.json: {manifest['suite'].get('repository')}"
         )
     checked = 0
-    for pub in manifest.get("publications", []):
+    total_pages = 0
+    pubs = manifest.get("publications", [])
+    assert len(pubs) == 4, f"Expected 4 publications in release-manifest.json, found {len(pubs)}"
+    for pub in pubs:
         rel_p = pub.get("path") or pub.get("file")
         p = os.path.join(ROOT, rel_p)
         assert sha256_file(p) == pub["sha256"], f"Manifest SHA mismatch for {rel_p}"
@@ -76,9 +90,13 @@ def check_release_manifest() -> int:
             assert os.path.getsize(p) == pub["bytes"], f"Manifest byte size mismatch for {rel_p}"
         reader = pypdf.PdfReader(p)
         assert len(reader.pages) == pub["pages"], f"Page count mismatch for {rel_p}"
+        total_pages += len(reader.pages)
         checked += 1
+    assert total_pages == 217, f"Expected 217 total PDF pages across 4 publications, got {total_pages}"
+
     artwork = manifest.get("artwork", {})
     art_items = artwork.get("items", []) if isinstance(artwork, dict) else artwork
+    assert len(art_items) == 13, f"Expected 13 JPEG items in release-manifest.json, got {len(art_items)}"
     for art in art_items:
         p = os.path.join(ROOT, art["path"])
         assert sha256_file(p) == art["sha256"], f"Manifest SHA mismatch for {art['path']}"
@@ -89,6 +107,17 @@ def check_release_manifest() -> int:
         assert f"{w}x{h}" == art["dimensions"], f"Dimensions mismatch for {art['path']}"
         assert exif_len == 0, f"Expected 0 EXIF bytes in {art['path']}, found {exif_len}"
         checked += 1
+
+    svg_items = artwork.get("svg_items", []) if isinstance(artwork, dict) else []
+    assert len(svg_items) == 5, f"Expected 5 SVG items in release-manifest.json, got {len(svg_items)}"
+    for svg in svg_items:
+        p = os.path.join(ROOT, svg["path"])
+        assert sha256_file(p) == svg["sha256"], f"Manifest SHA mismatch for {svg['path']}"
+        assert os.path.getsize(p) == svg["bytes"], f"Manifest byte size mismatch for {svg['path']}"
+        tree = ET.parse(p)
+        assert tree.getroot().tag.endswith("svg"), f"Invalid SVG root element in {svg['path']}"
+        checked += 1
+
     return checked
 
 
@@ -155,15 +184,16 @@ def _validate_schema_node(instance, schema: dict, path: str = "$") -> None:
 
 
 def check_schemas_and_fixtures() -> int:
-    schema_pairs = [
-        ("schemas/task-packet.schema.json", "examples/run-0001/task-packet.json"),
-        ("schemas/defect-record.schema.json", "examples/run-0001/defect-record.json"),
-        ("schemas/run-manifest.schema.json", "examples/run-0001/run-manifest.json"),
+    schema_files = [
+        ("schemas/task-packet.schema.json", "task-packet.json"),
+        ("schemas/defect-record.schema.json", "defect-record.json"),
+        ("schemas/run-manifest.schema.json", "run-manifest.json"),
     ]
-    for schema_rel, fixture_rel in schema_pairs:
+    runs = ["examples/run-0001", "examples/run-0002", "examples/run-0003"]
+    validated = 0
+    for schema_rel, fixture_name in schema_files:
         s_path = os.path.join(ROOT, schema_rel)
         o_path = os.path.join(ROOT, "orchestration", os.path.basename(schema_rel))
-        f_path = os.path.join(ROOT, fixture_rel)
         with open(s_path, "r", encoding="utf-8") as sf:
             schema = json.load(sf)
         with open(o_path, "r", encoding="utf-8") as of:
@@ -172,35 +202,50 @@ def check_schemas_and_fixtures() -> int:
         assert schema.get("$schema") == "https://json-schema.org/draft/2020-12/schema", (
             f"Missing Draft 2020-12 $schema URI in {schema_rel}"
         )
-        with open(f_path, "r", encoding="utf-8") as ff:
-            instance = json.load(ff)
-        _validate_schema_node(instance, schema)
         if jsonschema is not None:
             jsonschema.Draft202012Validator.check_schema(schema)
-            jsonschema.validate(instance=instance, schema=schema)
-    return len(schema_pairs)
+        for run_dir in runs:
+            f_path = os.path.join(ROOT, run_dir, fixture_name)
+            with open(f_path, "r", encoding="utf-8") as ff:
+                instance = json.load(ff)
+            _validate_schema_node(instance, schema)
+            if jsonschema is not None:
+                jsonschema.validate(instance=instance, schema=schema)
+            validated += 1
+    return validated
 
 
 def check_pdfs() -> int:
-    eg_path = os.path.join(ROOT, "publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf")
-    hm_path = os.path.join(ROOT, "publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf")
-    for path in (eg_path, hm_path):
+    pdf_specs = [
+        ("publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf", 64, 23),
+        ("publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf", 81, 0),
+        ("publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf", 36, 20),
+        ("publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf", 36, 20),
+    ]
+    for rel_path, expected_pages, min_last_page_annots in pdf_specs:
+        path = os.path.join(ROOT, rel_path)
         reader = pypdf.PdfReader(path)
+        assert len(reader.pages) == expected_pages, f"Expected {expected_pages} pages in {rel_path}, got {len(reader.pages)}"
         root = reader.trailer["/Root"].get_object()
-        assert root.get("/Lang") == "en-US", f"Missing /Lang (en-US) in {path}"
+        assert root.get("/Lang") == "en-US", f"Missing /Lang (en-US) in {rel_path}"
         assert "/MarkInfo" in root and bool(root["/MarkInfo"].get_object().get("/Marked")) is True, (
-            f"Missing /MarkInfo /Marked true in {path}"
+            f"Missing /MarkInfo /Marked true in {rel_path}"
         )
         for idx, page in enumerate(reader.pages):
             txt = page.extract_text() or ""
-            assert "/-" not in txt, f"Found '/-' ligature corruption on page {idx + 1} of {path}"
-    eg_reader = pypdf.PdfReader(eg_path)
+            assert not re.search(r"(?<!\+)(?<!Emily2040)/-(?!threejs)", txt), (
+                f"Found '/-' ligature corruption on page {idx + 1} of {rel_path}"
+            )
+        if min_last_page_annots > 0:
+            last_page = reader.pages[-1]
+            annots = last_page.get("/Annots", [])
+            assert len(annots) >= min_last_page_annots, (
+                f"Expected >= {min_last_page_annots} clickable /URI link annotations on last page of {rel_path}, got {len(annots)}"
+            )
+    eg_reader = pypdf.PdfReader(os.path.join(ROOT, pdf_specs[0][0]))
     p16_txt = eg_reader.pages[15].extract_text()
     assert "npm run test:perf -- hero-prewarm" in p16_txt, "Expected '--' on page 16 of EG PDF"
-    p64 = eg_reader.pages[63]
-    annots = p64.get("/Annots", [])
-    assert len(annots) >= 23, f"Expected >= 23 clickable /URI link annotations on EG page 64, got {len(annots)}"
-    return 2
+    return len(pdf_specs)
 
 
 def check_markdown_and_multilingual() -> int:
@@ -213,6 +258,7 @@ def check_markdown_and_multilingual() -> int:
                 md_files.append(os.path.join(dirpath, fn))
 
     link_re = re.compile(r"\[[^\]]+\]\(([^)#]+)(?:#[^)]*)?\)")
+    hangul_re = re.compile(r"[\uAC00-\uD7AF]")
     for md_path in md_files:
         assert os.path.getsize(md_path) >= 200, f"Markdown file too small or empty ({os.path.getsize(md_path)} bytes): {md_path}"
         with open(md_path, "r", encoding="utf-8") as f:
@@ -224,6 +270,16 @@ def check_markdown_and_multilingual() -> int:
         assert "translation_status: unreviewed" not in text, (
             f"Found unreviewed translation status in {md_path}"
         )
+        if md_path.endswith((".zh-CN.md", ".ja.md", ".ko.md")):
+            assert text.startswith("<!-- source_version: 2026.07.5; translation_status: reviewed; language:"), (
+                f"Missing or outdated provenance header in localized file: {md_path}"
+            )
+        if md_path.endswith((".ja.md", ".zh-CN.md")):
+            stripped_nav = re.sub(r"\[한국어\]|badge/언어-한국어_\(네이티브판\)", "", text)
+            assert not hangul_re.search(stripped_nav), f"Found stray Korean Hangul character in {md_path}"
+        if md_path.endswith(".ja.md"):
+            assert "遗" not in text, f"Found Simplified Chinese character '遗' in {md_path}"
+            assert "银" not in text, f"Found Simplified Chinese character '银' in {md_path}"
         for m in link_re.finditer(text):
             target = m.group(1).strip()
             if target.startswith(("http://", "https://", "mailto:")):
@@ -231,14 +287,12 @@ def check_markdown_and_multilingual() -> int:
             resolved = os.path.normpath(os.path.join(os.path.dirname(md_path), target))
             assert os.path.exists(resolved), f"Broken relative link '{target}' in {md_path}"
 
-    # Specific multilingual regression checks
-    ja_readme = open(os.path.join(ROOT, "README.ja.md"), "r", encoding="utf-8").read()
-    assert "遗" not in ja_readme, "Found Simplified Chinese character '遗' in README.ja.md"
-    assert "`145` ページ" in ja_readme, "Expected `145` ページ in README.ja.md"
-    ko_readme = open(os.path.join(ROOT, "README.ko.md"), "r", encoding="utf-8").read()
-    assert "`145`페이지" in ko_readme, "Expected `145`페이지 in README.ko.md"
-    zh_readme = open(os.path.join(ROOT, "README.zh-CN.md"), "r", encoding="utf-8").read()
-    assert "`145` 页" in zh_readme, "Expected `145` 页 in README.zh-CN.md"
+    # Verify 4-publication 217-page suite parity across all 4 READMEs
+    for readme_rel in ("README.md", "README.zh-CN.md", "README.ja.md", "README.ko.md"):
+        content = open(os.path.join(ROOT, readme_rel), "r", encoding="utf-8").read()
+        assert "217" in content, f"Expected total page count 217 in {readme_rel}"
+        assert "the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf" in content, f"Missing Glass Ossuary PDF in {readme_rel}"
+        assert "perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf" in content, f"Missing Perihelion Breach PDF in {readme_rel}"
     return len(md_files)
 
 
@@ -250,7 +304,7 @@ def main() -> int:
     md_count = check_markdown_and_multilingual()
     print(
         f"PASS: Verified {sums_count} SHA-256 entries, {manifest_count} manifest assets, "
-        f"{schema_count} JSON schemas/fixtures, {pdf_count} PDFs, and {md_count} Markdown files."
+        f"{schema_count} schema/fixture validations, {pdf_count} PDFs (217 pages), and {md_count} Markdown files."
     )
     return 0
 

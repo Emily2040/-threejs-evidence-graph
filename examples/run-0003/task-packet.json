@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/task-packet.schema.json",
+  "packet_id": "TP-0003-N06A-BALLISTICS",
+  "run_id": "run-0003",
+  "node": "N06A_GAMEPLAY_COMBAT",
+  "owner_agent": "combat_gameplay",
+  "goal": "Implement deterministic 60 Hz FPS adventure state machine for Soren Kestrel (Shield, Hull Integrity, Core Heat), weapons (Kestrel-9 Twin-Coil Carbine, Helios Scatter-Rail, Arc-Vane Breach Launcher), Thermal Vent active reload (ticks 14..20), Magnetic Grapple kinematics, and two-phase boss The Heliarch Warden.",
+  "allowed_paths": [
+    "src/weapons/",
+    "src/kinematics/",
+    "tests/replay/"
+  ],
+  "forbidden_paths": [
+    "src/render/",
+    "src/audio/",
+    "schemas/",
+    "orchestration/"
+  ],
+  "inputs": [
+    "docs/PERIHELION_BREACH_GUIDE.md",
+    "schemas/task-packet.schema.json"
+  ],
+  "required_outputs": [
+    "src/weapons/ballistics-state-machine.ts",
+    "evidence/run-0003/ballistics-replay-summary.json"
+  ],
+  "acceptance_commands": [
+    "npm run test:unit -- ballistics",
+    "npm run test:replay -- --seed=2142 --scenario=rep-07"
+  ],
+  "critic_gates": [
+    "gameplay_critic",
+    "visual_critic"
+  ],
+  "max_repair_iterations": 3,
+  "budget": {
+    "max_wall_clock_minutes": 25,
+    "max_subagent_calls": 4,
+    "max_tokens": 125000
+  },
+  "domain_parameters": {
+    "fixed_tick_hz": 60,
+    "thermal_vent_active_window_ticks": [
+      14,
+      20
+    ],
+    "scatter_rail_charge_window_ticks": [
+      30,
+      54
+    ],
+    "exo_rig_core_branches": [
+      "recoil_gyro",
+      "thermal_siphon",
+      "grapple_overdrive"
+    ],
+    "boss_id": "the_heliarch_warden"
+  }
+}

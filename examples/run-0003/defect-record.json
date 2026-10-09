@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/defect-record.schema.json",
+  "issue_id": "FPS-N06A-COMBAT-019",
+  "run_id": "run-0003",
+  "severity": "P1",
+  "category": "combat_feel",
+  "node": "N06A_GAMEPLAY_COMBAT",
+  "owner_agent": "combat_gameplay",
+  "summary": "Thermal Vent active reload input during ticks 14..20 failed to clear Core Heat when triggered mid-grapple detach on Heliostat Truss.",
+  "evidence": [
+    "evidence/run-0003/replays/rep-03-grapple-vent-trace.json",
+    "evidence/run-0003/metrics/weapon-heat-audit.json"
+  ],
+  "root_cause_hypothesis": "Grapple detach impulse reset the weapon sub-state timer at tick 15, cancelling the active reload window before the vent check evaluated.",
+  "proposed_repair": "Decouple upper-body weapon reload tick counter from lower-body/tether locomotion state transitions so Thermal Vent (ticks 14..20) remains uninterrupted across grapple detach and slide-boost.",
+  "affected_paths": [
+    "src/weapons/ballistics-state-machine.ts",
+    "src/kinematics/grapple-controller.ts"
+  ],
+  "regression_check": "npm run test:replay -- --seed=2142 --scenario=rep-03",
+  "status": "verified_fixed"
+}

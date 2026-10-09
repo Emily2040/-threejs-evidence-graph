@@ -1,4 +1,5 @@
-<!-- source_version: 2026.07.4; translation_status: reviewed; language: ko -->
+<!-- source_version: 2026.07.5; translation_status: reviewed; language: ko -->
+
 # Three.js Evidence Graph: 운영 매뉴얼 v2.0 동반 가이드
 
 [English](EVIDENCE_GRAPH_GUIDE.md) | [简体中文](EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [日本語](EVIDENCE_GRAPH_GUIDE.ja.md) | [한국어](EVIDENCE_GRAPH_GUIDE.ko.md)
@@ -64,3 +65,7 @@
 - **복사 가능한 오케스트레이터 프롬프트**: [`prompts/evidence-graph/orchestrator.md`](../prompts/evidence-graph/orchestrator.md)
 - **골든 검증 픽스처**: [`examples/run-0001/`](../examples/run-0001/)
 - **기술 정오표 및 v2.0 정렬 명세**: [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)
+- **3종 장르 버티컬 슬라이스 동반 가이드**：
+  - [docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md](THE_HOLLOW_MERIDIAN_GUIDE.ko.md) (《공허의 자오선 v1.0》 액션 RPG, 81쪽, examples/run-0001/)
+  - [docs/THE_GLASS_OSSUARY_GUIDE.ko.md](THE_GLASS_OSSUARY_GUIDE.ko.md) (《유리 납골당 v1.0》 미스터리 호러, 36쪽, examples/run-0002/)
+  - [docs/PERIHELION_BREACH_GUIDE.ko.md](PERIHELION_BREACH_GUIDE.ko.md) (《근일점 돌파 v1.0》 FPS 어드벤처, 36쪽, examples/run-0003/)

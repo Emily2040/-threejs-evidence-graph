@@ -1,0 +1,78 @@
+{
+  "$schema": "../../schemas/run-manifest.schema.json",
+  "run_id": "run-0003",
+  "git_commit": "f3d8cf3",
+  "three_version": "0.185.0",
+  "determinism_regime": "A-PinnedBrowser",
+  "backend": "webgpu",
+  "seed": 2142,
+  "viewport": {
+    "width": 1920,
+    "height": 1080,
+    "device_pixel_ratio": 1.0
+  },
+  "device_tier": "tier-1-discrete-gpu",
+  "scenarios": [
+    {
+      "scenario_id": "rep-07a-rig-recoil-gyro",
+      "relic_branch": "recoil_gyro",
+      "seed": 2142,
+      "state_hash": "sha256:b4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b4",
+      "audio_hash": "sha256:66f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5",
+      "geometry_hash": "sha256:7708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6",
+      "passed": true
+    },
+    {
+      "scenario_id": "rep-07b-rig-thermal-siphon",
+      "relic_branch": "thermal_siphon",
+      "seed": 2142,
+      "state_hash": "sha256:c5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c5",
+      "audio_hash": "sha256:66f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5",
+      "geometry_hash": "sha256:7708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6",
+      "passed": true
+    },
+    {
+      "scenario_id": "rep-07c-rig-grapple-overdrive",
+      "relic_branch": "grapple_overdrive",
+      "seed": 2142,
+      "state_hash": "sha256:d6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d6",
+      "audio_hash": "sha256:66f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5",
+      "geometry_hash": "sha256:7708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6",
+      "passed": true
+    }
+  ],
+  "metrics": {
+    "frame_time_p50_ms": 8.2,
+    "frame_time_p95_ms": 14.0,
+    "frame_time_p99_ms": 17.9,
+    "max_draw_calls": 238,
+    "max_triangles": 389600,
+    "gpu_memory_mb": 296.4,
+    "integrated_lufs": -16.0,
+    "true_peak_dbtp": -1.2
+  },
+  "critic_verdicts": {
+    "visual_critic": "pass",
+    "audio_critic": "pass",
+    "gameplay_critic": "pass",
+    "provenance_critic": "pass"
+  },
+  "human_signoff": {
+    "authority": "Emily Paradox (@iamemily2050)",
+    "status": "approved",
+    "signed_at": "2026-07-28T12:00:00Z",
+    "notes": "Golden reference fixture for Perihelion Breach v1.0 validating all 3 Exo-Rig Core branches (Recoil Gyro, Thermal Siphon, Grapple Overdrive)."
+  },
+  "cost_ledger": {
+    "total_tokens": 368400,
+    "wall_clock_seconds": 1085,
+    "subagent_invocations": 9,
+    "repair_cycles": 1
+  },
+  "provenance": {
+    "external_network_requests": 0,
+    "downloaded_assets_count": 0,
+    "procedural_generators_verified": true
+  },
+  "verdict": "accepted"
+}

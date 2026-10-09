@@ -1,5 +1,6 @@
-<!-- source_version: 2026.07.4; translation_status: reviewed; language: ja -->
-# The Hollow Meridian：ゲーム解説ガイド
+<!-- source_version: 2026.07.5; translation_status: reviewed; language: ja -->
+
+# 『虚ろの子午線』（The Hollow Meridian）：アクションRPG開発仕様・設計ガイド
 
 [English](THE_HOLLOW_MERIDIAN_GUIDE.md) | [简体中文](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
 
@@ -203,7 +204,7 @@ GPU とブラウザをまたぐ視覚出力がビット単位で一致すると�
 - 決定論的リプレイと取得基盤
 - 生成されたソース・アセットと実行時コード
 - 測定済み性能結果
-- 受理済みの `run-0001` エビデンス・パッケージ
+- プレイ可能な実機ビルドから取得された `run-0001` ランタイム・エビデンスパッケージ（`examples/run-0001/` はスキーマ検証済みのゴールデン契約フィクスチャを収録）
 - 記録済みの修復と検証済みのロールバック
 - 宣言済みの判定条件を通過したリリース候補
 
@@ -236,3 +237,4 @@ PDF、コマンド、ファイル名、スキーマ、識別子、ゲーム固�
 - **規範的 JSON Schema & TypeScript 型定義**：[`schemas/task-packet.schema.json`](../schemas/task-packet.schema.json)、[`schemas/defect-record.schema.json`](../schemas/defect-record.schema.json)、[`schemas/run-manifest.schema.json`](../schemas/run-manifest.schema.json)、[`schemas/graph-state.d.ts`](../schemas/graph-state.d.ts)
 - **コピー＆ペースト可能なプロンプト**：[`prompts/hollow-meridian/orchestrator.md`](../prompts/hollow-meridian/orchestrator.md)、[`prompts/hollow-meridian/agents/`](../prompts/hollow-meridian/agents/)
 - **ゴールデン検証フィクスチャ**：[`examples/run-0001/`](../examples/run-0001/)
+- **同シリーズ別ジャンル垂直スライスガイド**：[docs/THE_GLASS_OSSUARY_GUIDE.ja.md](THE_GLASS_OSSUARY_GUIDE.ja.md)（『硝子の納骨堂 v1.0』）および [docs/PERIHELION_BREACH_GUIDE.ja.md](PERIHELION_BREACH_GUIDE.ja.md)（『ペリヘリオン・ブリーチ v1.0』）

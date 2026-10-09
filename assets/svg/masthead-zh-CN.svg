@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 356" width="100%" role="img" aria-label="Three.js 证据图谱与多品类无资产游戏研发套件 - 四部工程级规范出版物 · 三款零外部资产可玩切片 · 四语种母语级技术文档">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B11"/>
+      <stop offset="55%" stop-color="#0C131D"/>
+      <stop offset="100%" stop-color="#091019"/>
+    </linearGradient>
+    <linearGradient id="goldCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D49B4B"/>
+      <stop offset="50%" stop-color="#45B29D"/>
+      <stop offset="100%" stop-color="#38C6D9"/>
+    </linearGradient>
+    <pattern id="archGrid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M 42 0 L 0 0 0 42" fill="none" stroke="#162232" stroke-width="0.7" stroke-opacity="0.65"/>
+    </pattern>
+  </defs>
+
+  <!-- Background & Precision Grid -->
+  <rect width="1260" height="356" rx="10" fill="url(#bgGrad)" stroke="#1E2D40" stroke-width="1.5"/>
+  <rect width="1260" height="356" rx="10" fill="url(#archGrid)"/>
+  <rect x="0" y="0" width="1260" height="4" rx="2" fill="url(#goldCyan)"/>
+
+  <!-- Decorative Orbital & Acoustic Telemetry Rings -->
+  <g transform="translate(1070, 102)" opacity="0.85">
+    <circle cx="0" cy="0" r="118" fill="none" stroke="#D49B4B" stroke-width="1.1" stroke-opacity="0.35" stroke-dasharray="6 4"/>
+    <circle cx="0" cy="0" r="84" fill="none" stroke="#45B29D" stroke-width="1.2" stroke-opacity="0.45"/>
+    <circle cx="0" cy="0" r="48" fill="none" stroke="#38C6D9" stroke-width="1.2" stroke-opacity="0.55"/>
+    <line x1="-132" y1="0" x2="132" y2="0" stroke="#243447" stroke-width="0.9"/>
+    <line x1="0" y1="-132" x2="0" y2="132" stroke="#243447" stroke-width="0.9"/>
+    <circle cx="0" cy="0" r="5" fill="#D49B4B"/>
+    <circle cx="59" cy="-59" r="4" fill="#45B29D"/>
+    <circle cx="-34" cy="34" r="3.5" fill="#38C6D9"/>
+  </g>
+
+  <!-- Eyebrow Pill -->
+  <rect x="48" y="30" width="12" height="12" rx="2" fill="#D49B4B"/>
+  <text x="68" y="40" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'PingFang SC', monospace" font-size="11.5" font-weight="700" letter-spacing="1.8">EMILY PARADOX 技术档案 // 2026.07.5 版本 // THREE.JS r185 确定性多智能体研发套件</text>
+
+  <!-- Main Editorial Headline -->
+  <text x="48" y="92" fill="#F8FAFC" font-family="'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSong', serif" font-size="40" font-weight="700" letter-spacing="-0.4">Three.js 证据图谱与多品类无资产游戏研发套件</text>
+  <text x="48" y="134" fill="#38C6D9" font-family="'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSong', serif" font-size="28" font-weight="600">四部工程级规范出版物 · 三款零外部资产可玩切片 · 四语种母语级技术文档</text>
+
+  <!-- Subtitle -->
+  <text x="48" y="168" fill="#B8C4D4" font-family="'PingFang SC', 'HarmonyOS Sans SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-size="14.5" font-weight="400">基于 15 节点有向无环图（DAG）、WebGPURenderer + TSL 程序化着色器、Web Audio 离线音频合成与 JSON Schema 强契约。</text>
+
+  <!-- Four Publication Cards -->
+  
+  <g transform="translate(48, 204)">
+    <rect x="0" y="0" width="278" height="96" rx="6" fill="#101824" stroke="#243246" stroke-width="1.2"/>
+    <rect x="0" y="0" width="4" height="96" rx="2" fill="#D49B4B"/>
+    <text x="16" y="24" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'PingFang SC', monospace" font-size="11" font-weight="700" letter-spacing="1.2">卷一 · 64 页</text>
+    <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'PingFang SC', monospace" font-size="10.5" font-weight="600" text-anchor="end">核心架构规范</text>
+    <text x="16" y="52" fill="#F8FAFC" font-family="'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSong', serif" font-size="17.5" font-weight="700">Evidence Graph v2.0</text>
+    <text x="16" y="76" fill="#94A3B8" font-family="'PingFang SC', 'HarmonyOS Sans SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="500">15 节点 DAG · 双重确定性体制 · 三大 Schema</text>
+  </g>
+  <g transform="translate(342, 204)">
+    <rect x="0" y="0" width="278" height="96" rx="6" fill="#101824" stroke="#243246" stroke-width="1.2"/>
+    <rect x="0" y="0" width="4" height="96" rx="2" fill="#45B29D"/>
+    <text x="16" y="24" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'PingFang SC', monospace" font-size="11" font-weight="700" letter-spacing="1.2">卷二 · 81 页</text>
+    <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'PingFang SC', monospace" font-size="10.5" font-weight="600" text-anchor="end">第三人称动作 RPG</text>
+    <text x="16" y="52" fill="#F8FAFC" font-family="'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSong', serif" font-size="17.5" font-weight="700">《虚空子午线》</text>
+    <text x="16" y="76" fill="#94A3B8" font-family="'PingFang SC', 'HarmonyOS Sans SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="500">Sable Veren · 60 Hz 精确弹反 · 五大观测站区域</text>
+  </g>
+  <g transform="translate(636, 204)">
+    <rect x="0" y="0" width="278" height="96" rx="6" fill="#101824" stroke="#243246" stroke-width="1.2"/>
+    <rect x="0" y="0" width="4" height="96" rx="2" fill="#C89B54"/>
+    <text x="16" y="24" fill="#C89B54" font-family="'JetBrains Mono', Consolas, 'PingFang SC', monospace" font-size="11" font-weight="700" letter-spacing="1.2">卷三 · 36 页</text>
+    <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'PingFang SC', monospace" font-size="10.5" font-weight="600" text-anchor="end">第一人称悬疑恐怖</text>
+    <text x="16" y="52" fill="#F8FAFC" font-family="'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSong', serif" font-size="17.5" font-weight="700">《琉璃骸骨堂》</text>
+    <text x="16" y="76" fill="#94A3B8" font-family="'PingFang SC', 'HarmonyOS Sans SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="500">Clara Vane · 声学取证仪器 · 六节点推理板</text>
+  </g>
+  <g transform="translate(930, 204)">
+    <rect x="0" y="0" width="278" height="96" rx="6" fill="#101824" stroke="#243246" stroke-width="1.2"/>
+    <rect x="0" y="0" width="4" height="96" rx="2" fill="#38C6D9"/>
+    <text x="16" y="24" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'PingFang SC', monospace" font-size="11" font-weight="700" letter-spacing="1.2">卷四 · 36 页</text>
+    <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'PingFang SC', monospace" font-size="10.5" font-weight="600" text-anchor="end">第一人称科幻射击</text>
+    <text x="16" y="52" fill="#F8FAFC" font-family="'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSong', serif" font-size="17.5" font-weight="700">《近日点破袭》</text>
+    <text x="16" y="76" fill="#94A3B8" font-family="'PingFang SC', 'HarmonyOS Sans SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="500">Soren Kestrel · 磁力抓钩机动 · 主动散热装填</text>
+  </g>
+
+  <!-- Footer Telemetry Bar -->
+  <line x1="48" y1="318" x2="1212" y2="318" stroke="#1E2C3E" stroke-width="1"/>
+  <text x="48" y="338" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'PingFang SC', monospace" font-size="11" font-weight="600" letter-spacing="0.8">总计 217 页工程规范 · THREE.JS r185 (0.185.0) · 零外部二进制资产 · 21 张专家智能体卡</text>
+  <text x="1212" y="338" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'PingFang SC', monospace" font-size="11" font-weight="700" text-anchor="end" letter-spacing="0.8">原生母语版本：ENGLISH · 简体中文 · 日本語 · 한국어</text>
+</svg>

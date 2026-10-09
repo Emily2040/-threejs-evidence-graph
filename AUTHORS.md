@@ -6,7 +6,7 @@
 - **Creator and copyright holder:** Iamemily2050 (@iamemily2050)
 - **Role:** AI Digital Artist
 
-The publication byline identifies the name used inside the two PDF works and
+The publication byline identifies the name used inside the four PDF works and
 their formal citations. Iamemily2050 is the creator identity and rights holder
 used for the repository, licensing, and public profiles.
 

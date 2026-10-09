@@ -1,30 +1,39 @@
 /**
  * Normative Evidence Graph v2.0 TypeScript State & Cross-Publication Node Mapping
- * Reconciles Three.js Evidence Graph Operational Manual v2.0 (pp. 11-12)
- * and The Hollow Meridian Full Production Prompt v1.0 (p. 14 & p. 79).
+ * Shared across Three.js Evidence Graph Operational Manual v2.0 (64 pp),
+ * The Hollow Meridian v1.0 (81 pp), The Glass Ossuary v1.0 (36 pp),
+ * and Perihelion Breach v1.0 (36 pp).
  */
 
 export type CanonicalNodeId =
-  | "N00_BRIEF"                    // EG p.11: 01 BRIEF_COMPILE               | HM p.14: BRIEF + CONSTITUTION
-  | "N01_CONTRACTS"                // EG p.11: 02 CONSTITUTION_AUDIT          | HM p.14: PRODUCT + ART FREEZE
-  | "N02_SCAFFOLD"                 // EG p.11: 03 ARCHITECTURE_DECISION       | HM p.14: RENDERER PROOF
-  | "N03_ASSET_COMPILER"           // EG p.11: 04 ART+GAMEPLAY_BIBLE_FREEZE   | HM p.14: PLAN + FOUNDATION
-  | "N04_WORLD_GRAPH"              // EG p.11: 05 MILESTONE_PLAN              | HM p.14: FIXED SIM + QA
-  | "N05_RENDER_PIPELINE"          // EG p.11: 06B PROCEDURAL + RENDER + AUDIO| HM p.14: PARALLEL WORKERS (Render/Art)
-  | "N06A_GAMEPLAY_COMBAT"         // EG p.11: 06A GAMEPLAY + CAMERA WORKERS  | HM p.14: PARALLEL WORKERS (Combat/AI)
-  | "N06B_AUDIO_SYNTH"             // EG p.11: 06B PROCEDURAL + RENDER + AUDIO| HM p.14: PARALLEL WORKERS (Audio/FX)
-  | "N07_UI_HUD_A11Y"              // EG p.11: 07 INTEGRATION                 | HM p.14: INTEGRATION
-  | "N08_TELEMETRY_HARNESS"        // EG p.11: 08 STATIC_VERIFICATION         | HM p.14: STATIC + REPLAY
-  | "N09_REPLAY_RUNNER"            // EG p.11: 09 DETERMINISTIC_REPLAY        | HM p.14: CAPTURE
-  | "N10_PERF_GATE"                // EG p.11: 10 EVIDENCE_CAPTURE            | HM p.14: READ-ONLY CRITICS
-  | "N11_VISUAL_AUDIO_CRITIC"      // EG p.11: 11 INDEPENDENT_CRITICISM       | HM p.14: EVIDENCE REDUCER
-  | "N12_PROVENANCE_AUDIT"         // EG p.11: 12 EVIDENCE_REDUCTION          | HM p.14: ACCEPT / REPAIR / ROLLBACK
-  | "N13_REPAIR_ROUTER"            // EG p.11: 13 DECIDE / 14 CROSS-BROWSER   | HM p.14: BROWSER + PROVENANCE AUDIT / TWO CLEAN CYCLES
-  | "N14_RELEASE_CANDIDATE";       // EG p.11: 15 RELEASE_CANDIDATE           | HM p.14: RELEASE CANDIDATE
+  | "N00_BRIEF"                    // EG p.11: 01 BRIEF_COMPILE               | Slice: BRIEF + CONSTITUTION
+  | "N01_CONTRACTS"                // EG p.11: 02 CONSTITUTION_AUDIT          | Slice: PRODUCT + ART FREEZE
+  | "N02_SCAFFOLD"                 // EG p.11: 03 ARCHITECTURE_DECISION       | Slice: RENDERER PROOF
+  | "N03_ASSET_COMPILER"           // EG p.11: 04 ART+GAMEPLAY_BIBLE_FREEZE   | Slice: PLAN + FOUNDATION
+  | "N04_WORLD_GRAPH"              // EG p.11: 05 MILESTONE_PLAN              | Slice: FIXED SIM + QA
+  | "N05_RENDER_PIPELINE"          // EG p.11: 06B PROCEDURAL + RENDER + AUDIO| Slice: PARALLEL WORKERS (Render/Art)
+  | "N06A_GAMEPLAY_COMBAT"         // EG p.11: 06A GAMEPLAY + CAMERA WORKERS  | Slice: PARALLEL WORKERS (Combat/Forensics/Ballistics)
+  | "N06B_AUDIO_SYNTH"             // EG p.11: 06B PROCEDURAL + RENDER + AUDIO| Slice: PARALLEL WORKERS (Audio/FX)
+  | "N07_UI_HUD_A11Y"              // EG p.11: 07 INTEGRATION                 | Slice: INTEGRATION
+  | "N08_TELEMETRY_HARNESS"        // EG p.11: 08 STATIC_VERIFICATION         | Slice: STATIC + REPLAY
+  | "N09_REPLAY_RUNNER"            // EG p.11: 09 DETERMINISTIC_REPLAY        | Slice: CAPTURE
+  | "N10_PERF_GATE"                // EG p.11: 10 EVIDENCE_CAPTURE            | Slice: READ-ONLY CRITICS
+  | "N11_VISUAL_AUDIO_CRITIC"      // EG p.11: 11 INDEPENDENT_CRITICISM       | Slice: EVIDENCE REDUCER
+  | "N12_PROVENANCE_AUDIT"         // EG p.11: 12 EVIDENCE_REDUCTION          | Slice: ACCEPT / REPAIR / ROLLBACK
+  | "N13_REPAIR_ROUTER"            // EG p.11: 13 DECIDE / 14 CROSS-BROWSER   | Slice: BROWSER + PROVENANCE AUDIT / TWO CLEAN CYCLES
+  | "N14_RELEASE_CANDIDATE";       // EG p.11: 15 RELEASE_CANDIDATE           | Slice: RELEASE CANDIDATE
 
 export type DeterminismRegime = "A-PinnedBrowser" | "B-CrossPlatform";
 
-export type RelicId = "none" | "brass_vow" | "ash_thread" | "vacant_name";
+export type HollowMeridianRelicId = "brass_vow" | "ash_thread" | "vacant_name";
+export type GlassOssuaryHypothesisId = "lens_sabotage" | "tidal_quarantine" | "acoustic_calling";
+export type PerihelionBreachRigCoreId = "recoil_gyro" | "thermal_siphon" | "grapple_overdrive";
+
+export type RelicId =
+  | "none"
+  | HollowMeridianRelicId
+  | GlassOssuaryHypothesisId
+  | PerihelionBreachRigCoreId;
 
 export interface NodeExecutionRecord {
   node: CanonicalNodeId;

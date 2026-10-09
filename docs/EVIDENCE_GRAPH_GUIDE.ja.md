@@ -1,4 +1,5 @@
-<!-- source_version: 2026.07.4; translation_status: reviewed; language: ja -->
+<!-- source_version: 2026.07.5; translation_status: reviewed; language: ja -->
+
 # Three.js Evidence Graph：運用マニュアル v2.0 コンパニオンガイド
 
 [English](EVIDENCE_GRAPH_GUIDE.md) | [简体中文](EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [日本語](EVIDENCE_GRAPH_GUIDE.ja.md) | [한국어](EVIDENCE_GRAPH_GUIDE.ko.md)
@@ -64,3 +65,7 @@
 - **コピー＆ペースト可能なオーケストレーター・プロンプト**：[`prompts/evidence-graph/orchestrator.md`](../prompts/evidence-graph/orchestrator.md)
 - **ゴールデン検証フィクスチャ**：[`examples/run-0001/`](../examples/run-0001/)
 - **技術正誤表および v2.0 整合仕様**：[`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)
+- **3ジャンル垂直スライス・コンパニオンガイド**：
+  - [docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md](THE_HOLLOW_MERIDIAN_GUIDE.ja.md)（『虚ろの子午線 v1.0』アクションRPG、81頁、examples/run-0001/）
+  - [docs/THE_GLASS_OSSUARY_GUIDE.ja.md](THE_GLASS_OSSUARY_GUIDE.ja.md)（『硝子の納骨堂 v1.0』ミステリーホラー、36頁、examples/run-0002/）
+  - [docs/PERIHELION_BREACH_GUIDE.ja.md](PERIHELION_BREACH_GUIDE.ja.md)（『ペリヘリオン・ブリーチ v1.0』FPSアドベンチャー、36頁、examples/run-0003/）

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/Emily2040/-threejs-evidence-graph/schemas/task-packet.schema.json",
   "title": "TaskPacket",
-  "description": "Normative Evidence Graph v2.0 TaskPacket contract shared by Three.js Evidence Graph Operational Manual v2.0 and The Hollow Meridian v1.0.",
+  "description": "Normative Evidence Graph v2.0 TaskPacket contract shared by Three.js Evidence Graph v2.0, The Hollow Meridian v1.0, The Glass Ossuary v1.0, and Perihelion Breach v1.0.",
   "type": "object",
   "additionalProperties": false,
   "required": [

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 340" width="100%" role="img" aria-label="Three.js Evidence Graph v2.0 15-Node DAG and Three-Genre Game Suite">
+  <defs>
+    <linearGradient id="pipeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080C12"/>
+      <stop offset="100%" stop-color="#0E1622"/>
+    </linearGradient>
+  </defs>
+  <rect width="1260" height="340" rx="10" fill="url(#pipeBg)" stroke="#1E2D40" stroke-width="1.5"/>
+
+  <text x="36" y="34" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, monospace" font-size="11" font-weight="700" letter-spacing="1.5">DETERMINISTIC 15-NODE EVIDENCE GRAPH TOPOLOGY (N00 .. N14) &amp; GENRE INSTANTIATION</text>
+  <text x="1224" y="34" fill="#45B29D" font-family="'JetBrains Mono', Consolas, monospace" font-size="11" font-weight="700" text-anchor="end">REGIME A (PINNED CHROMIUM) + REGIME B (CROSS-PLATFORM)</text>
+
+  <!-- Top Pipeline Row: 5 Core Stages Grouping N00..N14 -->
+  <g transform="translate(36, 54)">
+    <!-- Stage 1 -->
+    <rect x="0" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#D49B4B" stroke-width="1.3"/>
+    <text x="14" y="22" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5" font-weight="700">N00 .. N02 // CONTRACTS</text>
+    <text x="14" y="44" fill="#F8FAFC" font-family="'Inter', 'PingFang SC', 'Hiragino Sans', 'Pretendard', sans-serif" font-size="13.5" font-weight="700">Brief, World &amp; Render Budget</text>
+    <text x="14" y="66" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, monospace" font-size="10">WebGPURenderer + WebGL2 Parity</text>
+    <line x1="222" y1="42" x2="238" y2="42" stroke="#45B29D" stroke-width="2"/>
+
+    <!-- Stage 2 -->
+    <rect x="238" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#45B29D" stroke-width="1.3"/>
+    <text x="252" y="22" fill="#45B29D" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5" font-weight="700">N03 .. N05 // SIMULATION</text>
+    <text x="252" y="44" fill="#F8FAFC" font-family="'Inter', 'PingFang SC', 'Hiragino Sans', 'Pretendard', sans-serif" font-size="13.5" font-weight="700">60 Hz Fixed-Tick &amp; PRNG</text>
+    <text x="252" y="66" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, monospace" font-size="10">16.6667 ms Step · Seeded State</text>
+    <line x1="460" y1="42" x2="476" y2="42" stroke="#45B29D" stroke-width="2"/>
+
+    <!-- Stage 3 -->
+    <rect x="476" y="0" width="236" height="84" rx="6" fill="#111A28" stroke="#38C6D9" stroke-width="1.3"/>
+    <text x="490" y="22" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5" font-weight="700">N06A + N06B // PARALLEL FORK</text>
+    <text x="490" y="44" fill="#F8FAFC" font-family="'Inter', 'PingFang SC', 'Hiragino Sans', 'Pretendard', sans-serif" font-size="13.5" font-weight="700">Procedural Art &amp; Web Audio</text>
+    <text x="490" y="66" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, monospace" font-size="10">TSL Shaders · -16 LUFS PCM Synth</text>
+    <line x1="712" y1="42" x2="728" y2="42" stroke="#45B29D" stroke-width="2"/>
+
+    <!-- Stage 4 -->
+    <rect x="728" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#C89B54" stroke-width="1.3"/>
+    <text x="742" y="22" fill="#C89B54" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5" font-weight="700">N07 .. N10 // GAMEPLAY &amp; UI</text>
+    <text x="742" y="44" fill="#F8FAFC" font-family="'Inter', 'PingFang SC', 'Hiragino Sans', 'Pretendard', sans-serif" font-size="13.5" font-weight="700">Combat, Deduction &amp; HUD</text>
+    <text x="742" y="66" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, monospace" font-size="10">WCAG 2.2 AA · Zero DOM Leaks</text>
+    <line x1="950" y1="42" x2="966" y2="42" stroke="#45B29D" stroke-width="2"/>
+
+    <!-- Stage 5 -->
+    <rect x="966" y="0" width="222" height="84" rx="6" fill="#111A28" stroke="#D49B4B" stroke-width="1.3"/>
+    <text x="980" y="22" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5" font-weight="700">N11 .. N14 // VERIFICATION</text>
+    <text x="980" y="44" fill="#F8FAFC" font-family="'Inter', 'PingFang SC', 'Hiragino Sans', 'Pretendard', sans-serif" font-size="13.5" font-weight="700">QA, Soak, Repair &amp; Release</text>
+    <text x="980" y="66" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, monospace" font-size="10">SHA-256 RunManifest Gate</text>
+  </g>
+
+  <!-- Bottom Row: Three Genre Vertical Slice Instantiations -->
+  <g transform="translate(36, 168)">
+    <!-- Game 01 -->
+    <rect x="0" y="0" width="382" height="142" rx="7" fill="#101926" stroke="#28384E" stroke-width="1.2"/>
+    <rect x="0" y="0" width="382" height="4" rx="2" fill="#D49B4B"/>
+    <text x="18" y="28" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, monospace" font-size="11" font-weight="700">GAME 01 · THIRD-PERSON ACTION RPG (81 PAGES)</text>
+    <text x="18" y="54" fill="#F8FAFC" font-family="'Instrument Serif', 'Noto Serif SC', 'Noto Serif JP', 'Noto Serif KR', Georgia, serif" font-size="21" font-weight="700">The Hollow Meridian · 虚空子午线 · 虚ろの子午線 · 공허의 자오선</text>
+    <text x="18" y="80" fill="#CBD5E1" font-family="'Inter', 'PingFang SC', 'Hiragino Sans', 'Pretendard', sans-serif" font-size="12.5">The Cartographer · 60 Hz melee parry (ticks 6..12) · 5 observatory zones</text>
+    <text x="18" y="102" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">Boss: The Bell Without a Name (850 HP) · Fixture: examples/run-0001/</text>
+    <text x="18" y="124" fill="#45B29D" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5">Prompts: prompts/hollow-meridian/orchestrator.md + 7 agents</text>
+
+    <!-- Game 02 -->
+    <rect x="403" y="0" width="382" height="142" rx="7" fill="#101926" stroke="#28384E" stroke-width="1.2"/>
+    <rect x="403" y="0" width="382" height="4" rx="2" fill="#4FA89B"/>
+    <text x="421" y="28" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, monospace" font-size="11" font-weight="700">GAME 02 · MYSTERY ON HORROR (36 PAGES)</text>
+    <text x="421" y="54" fill="#F8FAFC" font-family="'Instrument Serif', 'Noto Serif SC', 'Noto Serif JP', 'Noto Serif KR', Georgia, serif" font-size="21" font-weight="700">The Glass Ossuary · 琉璃骸骨堂 · 硝子の納骨堂 · 유리 납골당</text>
+    <text x="421" y="80" fill="#CBD5E1" font-family="'Inter', 'PingFang SC', 'Hiragino Sans', 'Pretendard', sans-serif" font-size="12.5">Clara Vane · Loupe, Phonograph &amp; Ferrotype Flash · 6-Node Inquest Board</text>
+    <text x="421" y="102" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">Boss: The Choir in the Glass (600 Int) · Fixture: examples/run-0002/</text>
+    <text x="421" y="124" fill="#45B29D" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5">Prompts: prompts/glass-ossuary/orchestrator.md + 7 agents</text>
+
+    <!-- Game 03 -->
+    <rect x="806" y="0" width="382" height="142" rx="7" fill="#101926" stroke="#28384E" stroke-width="1.2"/>
+    <rect x="806" y="0" width="382" height="4" rx="2" fill="#38C6D9"/>
+    <text x="824" y="28" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, monospace" font-size="11" font-weight="700">GAME 03 · FIRST-PERSON SHOOTER ADVENTURE (36 PAGES)</text>
+    <text x="824" y="54" fill="#F8FAFC" font-family="'Instrument Serif', 'Noto Serif SC', 'Noto Serif JP', 'Noto Serif KR', Georgia, serif" font-size="21" font-weight="700">Perihelion Breach · 近日点破袭 · ペリヘリオン・ブリーチ · 근일점 돌파</text>
+    <text x="824" y="80" fill="#CBD5E1" font-family="'Inter', 'PingFang SC', 'Hiragino Sans', 'Pretendard', sans-serif" font-size="12.5">Soren Kestrel · Coil Carbine, Scatter-Rail &amp; Grapple · Thermal Vent (14..20t)</text>
+    <text x="824" y="102" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">Boss: The Heliarch Warden (1,000 Armor) · Fixture: examples/run-0003/</text>
+    <text x="824" y="124" fill="#45B29D" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5">Prompts: prompts/perihelion-breach/orchestrator.md + 7 agents</text>
+  </g>
+</svg>

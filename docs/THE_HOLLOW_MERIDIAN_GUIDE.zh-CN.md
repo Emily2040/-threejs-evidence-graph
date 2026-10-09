@@ -1,6 +1,6 @@
-<!-- source_version: 2026.07.4; translation_status: reviewed; language: zh-CN -->
+<!-- source_version: 2026.07.5; translation_status: reviewed; language: zh-CN -->
 
-# The Hollow Meridian：游戏说明指南
+# 《虚空子午线》（The Hollow Meridian）：动作 RPG 生产规范与设计指南
 
 [English](THE_HOLLOW_MERIDIAN_GUIDE.md) | [简体中文](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
 
@@ -53,7 +53,7 @@
 |---:|---|---|
 | 1 | **抵达 Ash Court（`Ash Court Arrival`）** | 学习移动、镜头、交互、Mnemonic Keeper，以及作为检查点的休息机制 |
 | 2 | **接受任务（`Quest Acceptance`）** | 得知需要取得两枚方位印记，并开启前进路线 |
-| 3 | **Orrery Bridge 教程（`Orrery Bridge Tutorial`）** | 遭遇 Ashbound Skirmisher，学习锁定、闪避、防御、招架及第一种消耗品 |
+| 3 | **Orrery Bridge 教程（`Orrery Bridge Tutorial`）** | 遭遇 Ashbound Skirmisher，学习锁定、闪避、格挡、弹反及第一种消耗品 |
 | 4 | **Archive Nave（`Archive Nave`）** | 体验纵向空间揭示，应对 Lantern Wraith 的压力，并寻找可选背景信息 |
 | 5 | **Meridian 对齐（`Meridian Alignment`）** | 解开一个确定性的三环空间谜题，取得 North Seal |
 | 6 | **Bell Foundry（`Bell Foundry`）** | 击破 Bell Sentinel 的防御，取得 Depth Seal |
@@ -88,9 +88,9 @@ Cartographer 拥有一套数量有限且易于读取的行动：
 - 轻攻击连段；
 - 蓄力重攻击；
 - 具有明确动作承诺时间的闪避；
-- 防御，以及限定时机窗口内的招架；
+- 格挡，以及限定时机窗口内的弹反；
 - 以耐力作为主要行动约束；
-- 通过招架、造成伤害和已定义的遗物效果获得 Resonance；
+- 通过弹反、造成伤害和已定义的遗物效果获得 Resonance；
 - 以 Echo Brand 作为消耗 Resonance 的定向行动。
 
 所有战斗数值都应放在集中管理的类型化数据中，并配有测试。攻击判定框与受击判定框必须在视觉上与程序化骨骼关节及武器分段保持一致。允许输入缓冲，但不允许违反动作条件的不可能取消。镜头碰撞、锁定、狭窄空间、多敌人场景和首领构图均需要诊断证据。
@@ -113,7 +113,7 @@ Cartographer 拥有一套数量有限且易于读取的行动：
 
 该首领是一个独立系统，而不是体型更大的 Bell Sentinel。它约高 4.5 米，由不对称环形框架、悬挂的深色钟核、三条可动敲击臂、拖曳的索引链，以及会在阶段转换时裂开的空白陶瓷面甲组成。
 
-第一阶段教授四种具有清晰预兆的攻击：大范围子午线横扫、垂直鸣钟打击及其随后扩张的地面环、窄幅锁链突刺，以及蓄力共振脉冲。部分攻击可以招架，稳定执行重攻击或招架能够击破架势。
+第一阶段教授四种具有清晰预兆的攻击：大范围子午线横扫、垂直鸣钟打击及其随后扩张的地面环、窄幅锁链突刺，以及蓄力共振脉冲。部分攻击可以弹反，稳定执行重攻击或弹反能够击破架势。
 
 首领生命值降至 55% 时，攻击选择会暂停并进入受保护的阶段转换。面甲裂开，钟核脱离并悬浮环绕，冰冷的 Name-light 转为不稳定的琥珀白色，旋转的子午线危险区域则引入清晰可见的安全扇区。第二阶段改变空间规则与战斗节奏，但不会丢弃玩家已经学会的战斗原则。
 
@@ -204,7 +204,7 @@ RPG 深度来自少量但会实际影响玩法的状态变化：
 - 确定性回放与捕获工具链；
 - 生成的源码资产和运行时代码；
 - 实测性能结果；
-- 一个已通过验收的 `run-0001` 证据包；
+- 来自可游玩实机构建版本的 `run-0001` 运行时证据包（`examples/run-0001/` 提供的是通过 Schema 校验的黄金契约参考样本）；
 - 一次有文档记录的修复与一次经过验证的回滚；
 - 通过已声明关卡的候选发布版本。
 
@@ -230,10 +230,11 @@ PDF、命令、文件名、schema、标识符及游戏专有名称均以英文�
 
 ---
 
-## 独立模式文件、提示词与 v2.0 对齐勘误表
+## 独立 Schema 契约、提示词与 v2.0 对齐勘误表
 
 - **技术勘误与 60 Hz 整数帧表**：[`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)
 - **Evidence Graph v2.0 配套导读指南**：[`docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md`](EVIDENCE_GRAPH_GUIDE.zh-CN.md)
 - **规范性 JSON Schema 与状态接口**：[`schemas/task-packet.schema.json`](../schemas/task-packet.schema.json)、[`schemas/defect-record.schema.json`](../schemas/defect-record.schema.json)、[`schemas/run-manifest.schema.json`](../schemas/run-manifest.schema.json)、[`schemas/graph-state.d.ts`](../schemas/graph-state.d.ts)
 - **可直接复制的提示词**：[`prompts/hollow-meridian/orchestrator.md`](../prompts/hollow-meridian/orchestrator.md) 与 [`prompts/hollow-meridian/agents/`](../prompts/hollow-meridian/agents/)
 - **黄金参考运行样例**：[`examples/run-0001/`](../examples/run-0001/)
+- **同系列跨品类切片指南**：[docs/THE_GLASS_OSSUARY_GUIDE.zh-CN.md](THE_GLASS_OSSUARY_GUIDE.zh-CN.md)（《琉璃骸骨堂 v1.0》）与 [docs/PERIHELION_BREACH_GUIDE.zh-CN.md](PERIHELION_BREACH_GUIDE.zh-CN.md)（《近日点破袭 v1.0》）
