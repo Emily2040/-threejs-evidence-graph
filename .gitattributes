@@ -1,2 +1,18 @@
+# Normalize all text files to LF so sha256sum -c SHA256SUMS.txt succeeds across Windows, macOS, and Linux
+* text=auto eol=lf
+SHA256SUMS.txt text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.cff text eol=lf
+*.ts text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.txt text eol=lf
+
+# Binary publication and artwork assets
 *.pdf binary
+*.png binary
 *.jpg binary
+*.jpeg binary
+*.webp binary

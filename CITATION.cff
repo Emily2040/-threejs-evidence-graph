@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "If you use or discuss this publication set, please cite it using this metadata."
 title: "Three.js Evidence Graph v2.0 and The Hollow Meridian RPG Full Prompt v1.0"
-type: generic
-version: 2026.07.3
+type: software
+version: 2026.07.4
 date-released: 2026-07-27
 license: MIT
 authors:
@@ -11,8 +11,8 @@ authors:
     alias: "Iamemily2050"
     email: "191656017+Emily2040@users.noreply.github.com"
     website: "https://iamemily2050.com"
-repository-code: "https://github.com/Emily2040/threejs-evidence-graph"
-url: "https://github.com/Emily2040/threejs-evidence-graph"
+repository-code: "https://github.com/Emily2040/-threejs-evidence-graph"
+url: "https://github.com/Emily2040/-threejs-evidence-graph"
 keywords:
   - Three.js
   - WebGPU
@@ -28,5 +28,7 @@ abstract: >-
   A two-document publication set describing an evidence-driven, repository-local
   multi-agent production framework for narrow Three.js browser-game vertical
   slices and an applied action-RPG production specification titled The Hollow
-  Meridian. This release contains design specifications and prompts, not a
-  playable implementation or benchmark result.
+  Meridian, accompanied by standalone JSON Schema Draft 2020-12 contracts,
+  copy-pasteable agent prompts, and golden reference fixtures. This release
+  contains design specifications, schemas, and prompts, not a playable runtime
+  implementation or empirical benchmark result.

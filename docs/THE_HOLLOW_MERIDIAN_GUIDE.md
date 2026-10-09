@@ -226,3 +226,13 @@ If a localized guide differs from the English publication, use the English editi
 Unless a file states otherwise, this repository is released under the
 [MIT License](../LICENSE). See [AUTHORS.md](../AUTHORS.md) for the complete
 identity and attribution record.
+
+---
+
+## Standalone Schemas, Prompts & Technical Errata (v2.0 Alignment)
+
+- **Technical Errata & Integer 60 Hz Combat Frame Table**: [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)
+- **Evidence Graph v2.0 Companion Guide**: [`docs/EVIDENCE_GRAPH_GUIDE.md`](EVIDENCE_GRAPH_GUIDE.md)
+- **Normative JSON Schemas & TypeScript State**: [`schemas/task-packet.schema.json`](../schemas/task-packet.schema.json), [`schemas/defect-record.schema.json`](../schemas/defect-record.schema.json), [`schemas/run-manifest.schema.json`](../schemas/run-manifest.schema.json), [`schemas/graph-state.d.ts`](../schemas/graph-state.d.ts)
+- **Standalone Copy-Paste Prompts**: [`prompts/hollow-meridian/orchestrator.md`](../prompts/hollow-meridian/orchestrator.md) and [`prompts/hollow-meridian/agents/`](../prompts/hollow-meridian/agents/)
+- **Golden Reference Fixtures**: [`examples/run-0001/`](../examples/run-0001/)

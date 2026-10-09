@@ -1,4 +1,4 @@
-<!-- source_version: 2026.07.3; translation_status: unreviewed; language: ko -->
+<!-- source_version: 2026.07.4; translation_status: reviewed; language: ko -->
 # The Hollow Meridian: 게임 해설 가이드
 
 [English](THE_HOLLOW_MERIDIAN_GUIDE.md) | [简体中文](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
@@ -225,3 +225,14 @@ PDF, 명령어, 파일명, 스키마, 식별자, 게임 고유명사에 대해�
 - Instagram: [@iamemily2050](https://instagram.com/iamemily2050)
 
 이 저장소는 개별 파일에 달리 명시되어 있지 않은 한 [MIT 라이선스](../LICENSE)에 따라 배포됩니다. 자세한 저자 및 권리 정보는 [AUTHORS.md](../AUTHORS.md)를 참조하십시오.
+
+
+---
+
+## 독립 실행형 스키마, 프롬프트 및 기술 정오표(v2.0 정렬)
+
+- **기술 정오표 및 60 Hz 정수 틱 전투 프레임 표**: [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)
+- **Evidence Graph v2.0 동반자 가이드**: [`docs/EVIDENCE_GRAPH_GUIDE.ko.md`](EVIDENCE_GRAPH_GUIDE.ko.md)
+- **규범적 JSON Schema 및 TypeScript 계약**: [`schemas/task-packet.schema.json`](../schemas/task-packet.schema.json), [`schemas/defect-record.schema.json`](../schemas/defect-record.schema.json), [`schemas/run-manifest.schema.json`](../schemas/run-manifest.schema.json), [`schemas/graph-state.d.ts`](../schemas/graph-state.d.ts)
+- **복사 가능한 프롬프트**: [`prompts/hollow-meridian/orchestrator.md`](../prompts/hollow-meridian/orchestrator.md) 및 [`prompts/hollow-meridian/agents/`](../prompts/hollow-meridian/agents/)
+- **골든 검증 픽스처**: [`examples/run-0001/`](../examples/run-0001/)

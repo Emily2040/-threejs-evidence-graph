@@ -57,7 +57,11 @@ The prompt is an interface to the control plane. It is not the control plane its
 11. **Performance distributions.** The method evaluates frame-time percentiles, long frames, CPU and GPU cost, memory growth, compilation stalls, and renderer statistics rather than relying on average FPS.
 12. **Compute economics.** Mechanical checks use no model. Model calls are routed by task value and recorded in a run-level cost ledger.
 
-The manual includes a v1-to-v2 defect ledger, a 15-node control graph, a four-part orchestrator prompt, and draft-07 schemas for task packets, defect records, and run manifests.
+The manual includes a v1-to-v2 defect ledger, a 15-node control graph, a four-part orchestrator prompt, and JSON Schemas (upgraded in [`schemas/`](schemas/) to Draft 2020-12) for task packets, defect records, and run manifests.
+
+> [Read the expanded English Evidence Graph v2.0 guide](docs/EVIDENCE_GRAPH_GUIDE.md) and [Technical Errata & v2.0 Alignment](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) for the 15-node topology (`N00_BRIEF` to `N14_RELEASE_CANDIDATE`), dual determinism regimes, standalone Draft 2020-12 JSON schemas ([`schemas/`](schemas/)), golden `run-0001` fixtures ([`examples/run-0001/`](examples/run-0001/)), and copy-pasteable prompts ([`prompts/`](prompts/)).
+>
+> Evidence Graph guide languages: [English](docs/EVIDENCE_GRAPH_GUIDE.md) | [简体中文](docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [日本語](docs/EVIDENCE_GRAPH_GUIDE.ja.md) | [한국어](docs/EVIDENCE_GRAPH_GUIDE.ko.md)
 
 ## The Hollow Meridian at a glance
 
@@ -90,25 +94,27 @@ Its production prompt defines specialist roles for architecture, gameplay and co
 
 The route begins in the Ash Court, where movement, interaction, the Mnemonic Keeper, and a resting checkpoint establish the world. The player accepts a two-seal quest, crosses the Orrery Bridge combat tutorial, explores the Archive Nave, solves a deterministic three-ring alignment puzzle, defeats the Bell Sentinel in the Foundry, selects one combat-changing relic, opens the Meridian Chamber, confronts *The Bell Without a Name*, chooses to bind or release the stolen names, and returns to the hub with the consequence saved.
 
-Moment to moment, the player reads architecture and light, manages spacing and stamina, commits to attacks or defense, earns Resonance through effective timing, resolves one authored obstacle, and preserves meaningful state at checkpoints. Procedural systems construct bounded geometry and media, but they do not choose the dramatic route, encounter order, focal hierarchy, or narrative purpose.
+Moment to moment, the player reads architecture and light, manages spacing and stamina, commits to attacks or defense, earns Resonance through effective timing, uses Echo Brand or relic-modified actions, resolves one authored obstacle, and preserves meaningful state at checkpoints. Combat combines light and heavy attacks, guard, a bounded parry window, target lock, stamina, and Resonance; the three enemy archetypes teach spacing, ranged pressure, and guard-breaking, while the three-ring puzzle is deterministically solvable and the three-choice relic alters real combat decisions.
+
+A versioned local save schema preserves quest state, both seals, the chosen relic, consumables, checkpoints, completion state, ending choice, settings, and remapped controls. The boss is an independent system rather than a scaled-up regular enemy, with its own attack grammar, poise, a protected phase transition at 55 percent health, and readable safe sectors. All of these elements define the specification and acceptance contract for the intended game; this repository provides standalone schemas, prompts, and golden reference fixtures in `examples/run-0001/`, not a playable runtime build.
 
 ## How the two editions relate
 
-*The Hollow Meridian* is best understood as a core-aligned reference specification from the Evidence Graph lineage, not as a certified implementation of every v2 rule.
+*The Hollow Meridian* is best understood as a core-aligned reference specification from the Evidence Graph lineage, not as a certified implementation of every v2 rule. Standalone v2.0 contract reconciliation is provided in [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) and [`schemas/`](schemas/).
 
 | Area | Evidence Graph v2.0 | Hollow Meridian v1.0 |
 |---|---|---|
 | Product scope | Recommends a very narrow 45 to 90 second baseline slice | Specifies an ambitious 10 to 14 minute RPG route |
-| Evidence regimes | Explicit bit-exact and tolerance-based regimes | Deterministic evidence exists, but the two regimes are not fully integrated |
+| Evidence regimes | Explicit bit-exact and tolerance-based regimes | Deterministic evidence exists, but the two regimes are not fully integrated in the v1.0 PDF (reconciled in [`schemas/`](schemas/)) |
 | Critic controls | Calibration, both-order review, and drift rechecks | Independent critics are present; calibration is not fully specified |
-| Compute economics | Model tiers and mandatory cost ledger | Not yet integrated |
-| Human authority | Named director with bounded amendment power | Not yet integrated |
-| Cross-engine determinism | Requires a controlled deterministic math kernel for exact claims | Not yet fully specified |
-| Audio evidence | Offline render, loudness, true-peak, dropout, and voice-budget gates | Procedural audio is specified; equivalent measurement gates need an update |
+| Compute economics | Model tiers and mandatory cost ledger | Reconciled in [`schemas/run-manifest.schema.json`](schemas/run-manifest.schema.json) |
+| Human authority | Named director with bounded amendment power | Reconciled in [`schemas/run-manifest.schema.json`](schemas/run-manifest.schema.json) |
+| Cross-engine determinism | Requires a controlled deterministic math kernel for exact claims | Specified in [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) |
+| Audio evidence | Offline render, loudness, true-peak, dropout, and voice-budget gates | Procedural audio is specified; 16-bit PCM quantization rules are documented in [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) |
 | Accessibility | Evidence-backed release gate | Substantial accessibility requirements are included |
 | Provenance | Source, dependency, bundle, network, and output auditing | Strong source-generated media and provenance rules are included |
 
-This distinction matters. A future revision can bring the RPG specification into full alignment without pretending that compatibility already exists.
+This distinction matters. The companion errata and standalone schemas bridge the two publications without pretending that the historical PDF editions were identical at print time.
 
 ## What “AAA-grade” means here
 
@@ -118,8 +124,8 @@ No document in this repository proves that the target has been achieved. Such a 
 
 ## Technical baseline and boundaries
 
-- The publications were authored against a **Three.js r185 baseline**.
-- WebGPU/TSL and WebGL 2 are evaluated through a renderer decision gate.
+- The publications were authored against a **Three.js r185 baseline** (`0.185.0`).
+- WebGPU/TSL and WebGL 2 are evaluated through a renderer decision gate (`THREE.WebGPURenderer` with `{ forceWebGL: true }` fallback; see [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)).
 - “No downloaded assets” applies to final visible and audible media. Pinned development dependencies, browser APIs, build tools, test tools, and profilers remain permitted and must be audited.
 - Bit-exact claims are reserved for controlled data classes. Browser and GPU output can vary across operating systems, drivers, hardware, browsers, and settings.
 - Accessibility requirements in the documents are engineering targets. They do not establish formal WCAG conformance.
@@ -130,33 +136,37 @@ No document in this repository proves that the target has been achieved. Such a 
 
 ### Technical directors and researchers
 
-1. Read the Evidence Graph defect ledger and document-status page.
-2. Review the control graph, authority hierarchy, evidence regimes, critic calibration, operations, and normative schemas.
+1. Read the Evidence Graph defect ledger, [Technical Errata & v2.0 Alignment](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md), and [Publication Status](docs/PUBLICATION_STATUS.md).
+2. Review the control graph, authority hierarchy, evidence regimes, critic calibration, operations, and normative schemas in [`schemas/`](schemas/).
 3. Read the compatibility table above before treating *The Hollow Meridian* as an applied example.
 
 ### Game and technical-art teams
 
 1. Read *The Hollow Meridian* game contract, route, experience pillars, and anti-slop rules.
 2. Continue through game systems, procedural-media policy, and QA gates.
-3. Use the specialist cards only after repository authority documents and acceptance commands exist.
+3. Use the specialist cards in [`prompts/hollow-meridian/agents/`](prompts/hollow-meridian/agents/) only after repository authority documents and acceptance commands exist.
 
 ### Agent-system builders
 
-1. Begin with the Evidence Graph orchestrator prompt and schemas.
-2. Implement validation and state transitions before model routing.
-3. Add one real end-to-end run with captured artifacts, a repaired defect, a rollback, frame-time distributions, cost accounting, and an accepted commit.
+1. Begin with the standalone orchestrator prompts in [`prompts/`](prompts/) and Draft 2020-12 schemas in [`schemas/`](schemas/).
+2. Inspect the golden reference fixtures in [`examples/run-0001/`](examples/run-0001/) and run `python scripts/verify_release.py`.
+3. Add one real end-to-end runtime implementation with captured artifacts, a repaired defect, a rollback, frame-time distributions, cost accounting, and an accepted commit.
 
 ## Repository map
 
 ```text
 .
 ├── .gitattributes
+├── .github/
+│   └── workflows/
+│       └── verify-release.yml
 ├── AUTHORS.md
 ├── LICENSE
 ├── README.md
 ├── README.zh-CN.md
 ├── README.ja.md
 ├── README.ko.md
+├── agents/
 ├── assets/
 │   ├── publication-set.jpg
 │   ├── readme-hero.jpg
@@ -167,17 +177,41 @@ No document in this repository proves that the target has been achieved. Such a 
 │   ├── hollow-meridian-boss-hero.jpg
 │   ├── threejs-evidence-graph-cover.jpg
 │   └── the-hollow-meridian-cover.jpg
-├── publications/
-│   ├── threejs-evidence-graph-operational-manual-v2.0-en.pdf
-│   └── the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf
 ├── docs/
+│   ├── EVIDENCE_GRAPH_GUIDE.md
+│   ├── EVIDENCE_GRAPH_GUIDE.zh-CN.md
+│   ├── EVIDENCE_GRAPH_GUIDE.ja.md
+│   ├── EVIDENCE_GRAPH_GUIDE.ko.md
 │   ├── GLOSSARY.md
 │   ├── PUBLICATION_STATUS.md
+│   ├── TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md
 │   ├── THE_HOLLOW_MERIDIAN_GUIDE.md
 │   ├── THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md
 │   ├── THE_HOLLOW_MERIDIAN_GUIDE.ja.md
 │   ├── THE_HOLLOW_MERIDIAN_GUIDE.ko.md
 │   └── TRANSLATION_POLICY.md
+├── examples/
+│   └── run-0001/
+│       ├── defect-record.json
+│       ├── run-manifest.json
+│       └── task-packet.json
+├── orchestration/
+├── prompts/
+│   ├── evidence-graph/
+│   │   └── orchestrator.md
+│   └── hollow-meridian/
+│       ├── orchestrator.md
+│       └── agents/
+├── publications/
+│   ├── threejs-evidence-graph-operational-manual-v2.0-en.pdf
+│   └── the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf
+├── schemas/
+│   ├── defect-record.schema.json
+│   ├── graph-state.d.ts
+│   ├── run-manifest.schema.json
+│   └── task-packet.schema.json
+├── scripts/
+│   └── verify_release.py
 ├── CHANGELOG.md
 ├── CITATION.cff
 ├── CITATIONS.md
@@ -189,31 +223,26 @@ No document in this repository proves that the target has been achieved. Such a 
 
 ## Current roadmap
 
-The most valuable next release is not a larger prompt. It is an executable companion surface that makes the existing contracts testable:
+Release `2026.07.4` ships standalone Draft 2020-12 JSON schemas (`schemas/*.schema.json`), `schemas/graph-state.d.ts`, copy-pasteable orchestrator and specialist prompts (`prompts/`), golden contract fixtures (`examples/run-0001/`), and an automated release verifier (`scripts/verify_release.py`). The next milestones for a live runtime harness are:
 
-- canonical machine-readable schemas;
-- graph state and transition predicates;
-- task-packet and defect validators;
 - renderer proof harness;
-- deterministic replay and state hashing;
+- deterministic replay and state hashing runtime;
 - asset and provenance scanners;
 - Playwright capture profiles;
 - critic calibration fixtures;
-- run manifest and cost ledger;
-- one complete `run-0001` evidence package;
-- one accepted repair, one rejected candidate, and one verified rollback.
+- one accepted runtime repair, one rejected candidate, and one verified rollback.
 
-Until that exists, this repository claims design and specification value, not empirical production results.
+Until a live runtime build exists, this repository claims design, specification, and contract-schema value, not empirical game-runtime benchmark results.
 
 ## Translation policy
 
-English is the normative edition. Simplified Chinese, Japanese, and Korean versions are provided for both the repository guide and the expanded *The Hollow Meridian* companion guide. Publication titles, game proper nouns, filenames, commands, schema keys, graph-node identifiers, paths, enum values, and code identifiers remain in canonical English.
+English is the normative edition. Simplified Chinese, Japanese, and Korean versions are provided for the repository guide, the *Three.js Evidence Graph v2.0* companion guide, and the expanded *The Hollow Meridian* companion guide. Publication titles, game proper nouns, filenames, commands, schema keys, graph-node identifiers, paths, enum values, and code identifiers remain in canonical English.
 
-These companion guides explain the game and production system in more detail, but they are not translations of the complete 145 PDF pages. If a translation and the English edition differ, use the English edition for technical interpretation and report the discrepancy through an issue. See the [Translation Policy](docs/TRANSLATION_POLICY.md) and [Multilingual Technical Glossary](docs/GLOSSARY.md).
+These companion guides explain the production methodology and game specification in detail, but they are not word-for-word translations of the complete `145` PDF pages (`64 + 81` pages). If a translation and the English edition differ, use the English edition for technical interpretation and report the discrepancy through an issue. See the [Translation Policy](docs/TRANSLATION_POLICY.md) and [Multilingual Technical Glossary](docs/GLOSSARY.md).
 
 ## Integrity
 
-The SHA-256 values in [SHA256SUMS.txt](SHA256SUMS.txt) cover every published PDF and JPEG asset in this release. Run `sha256sum -c SHA256SUMS.txt` from the repository root to verify all nine binary files.
+The SHA-256 values in [SHA256SUMS.txt](SHA256SUMS.txt) cover every published PDF, JPEG artwork file, standalone JSON schema, golden fixture, prompt, and documentation artifact in this release (`39` verified files). Run `sha256sum -c SHA256SUMS.txt` and `python scripts/verify_release.py` from the repository root to verify the entire release package.
 
 ## Contributing
 

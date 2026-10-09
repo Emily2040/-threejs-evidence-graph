@@ -1,0 +1,55 @@
+{
+  "$schema": "../../schemas/task-packet.schema.json",
+  "packet_id": "TP-0001-N06A-COMBAT",
+  "run_id": "run-0001",
+  "node": "N06A_GAMEPLAY_COMBAT",
+  "owner_agent": "combat_gameplay",
+  "goal": "Implement deterministic 60 Hz integer-tick combat state machine for The Cartographer against Ashbound Skirmisher, Bell Sentinel, Lantern Wraith, and two-phase boss The Bell Without a Name.",
+  "allowed_paths": [
+    "src/combat/",
+    "src/entities/",
+    "tests/replay/"
+  ],
+  "forbidden_paths": [
+    "src/render/",
+    "src/audio/",
+    "schemas/",
+    "orchestration/"
+  ],
+  "inputs": [
+    "docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md",
+    "schemas/task-packet.schema.json"
+  ],
+  "required_outputs": [
+    "src/combat/state-machine.ts",
+    "evidence/run-0001/combat-replay-summary.json"
+  ],
+  "acceptance_commands": [
+    "npm run test:unit -- combat",
+    "npm run test:replay -- --seed=1337 --scenario=rep-09"
+  ],
+  "critic_gates": [
+    "gameplay_critic",
+    "visual_critic"
+  ],
+  "max_repair_iterations": 3,
+  "budget": {
+    "max_wall_clock_minutes": 25,
+    "max_subagent_calls": 4,
+    "max_tokens": 120000
+  },
+  "domain_parameters": {
+    "fixed_tick_hz": 60,
+    "parry_button_down_window_ticks": [
+      6,
+      12
+    ],
+    "guard_hold_threshold_ticks": 13,
+    "shrine_relic_branches": [
+      "brass_vow",
+      "ash_thread",
+      "vacant_name"
+    ],
+    "boss_id": "the_bell_without_a_name"
+  }
+}

@@ -1,5 +1,5 @@
 # Three.js Evidence Graph
-<!-- source_version: 2026.07.3; translation_status: unreviewed; language: ko -->
+<!-- source_version: 2026.07.4; translation_status: reviewed; language: ko -->
 
 소스만으로 생성되는 Three.js 버티컬 슬라이스를 위한 증거 기반 멀티 에이전트 제작 체계이며, *The Hollow Meridian*을 RPG 적용 명세로 제시합니다.
 
@@ -58,7 +58,11 @@ flowchart TD
 11. **성능 분포.** 이 방법은 평균 FPS에 의존하지 않고 프레임 시간 백분위수, 장시간 프레임, CPU 및 GPU 비용, 메모리 증가, 컴파일 지연, 렌더러 통계를 평가합니다.
 12. **컴퓨팅 경제성.** 기계적 검사에는 모델을 사용하지 않습니다. 모델 호출은 작업 가치에 따라 라우팅되며 실행 단위 비용 원장에 기록됩니다.
 
-이 운영 매뉴얼에는 v1에서 v2로 이어지는 결함 원장, 15개 노드로 구성된 제어 그래프, 4부 구성의 오케스트레이터 프롬프트, 작업 패킷, 결함 기록, 실행 매니페스트를 위한 draft-07 스키마가 포함되어 있습니다.
+이 운영 매뉴얼에는 v1에서 v2로 이어지는 결함 원장, 15개 노드로 구성된 제어 그래프, 4부 구성의 오케스트레이터 프롬프트, 작업 패킷, 결함 기록, 실행 매니페스트를 위한 JSON Schema([`schemas/`](schemas/)에서 Draft 2020-12로 업그레이드됨)가 포함되어 있습니다.
+
+> **상세 아키텍처 가이드:** [Evidence Graph v2.0 한국어 가이드](docs/EVIDENCE_GRAPH_GUIDE.ko.md) 및 [기술 정오표와 v2.0 정렬 명세](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)에서 15개 노드 제어 토폴로지(`N00_BRIEF`부터 `N14_RELEASE_CANDIDATE`), 이중 결정론 체계, 독립형 Draft 2020-12 JSON Schema([`schemas/`](schemas/)), 골든 검증 픽스처([`examples/run-0001/`](examples/run-0001/)), 복사 가능한 프롬프트([`prompts/`](prompts/))를 확인하십시오.
+>
+> Evidence Graph 가이드 언어: [English](docs/EVIDENCE_GRAPH_GUIDE.md) | [简体中文](docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [日本語](docs/EVIDENCE_GRAPH_GUIDE.ja.md) | [한국어](docs/EVIDENCE_GRAPH_GUIDE.ko.md)
 
 ## The Hollow Meridian 개요
 
@@ -66,9 +70,9 @@ flowchart TD
 
 *출판물 설명을 위한 콘셉트 아트입니다. 게임플레이 캡처나 구현 증거가 아닙니다.*
 
-> **상세 한국어 가이드:** [세계관, 열 개 비트의 진행 경로, 전투, 퍼즐, 유물, 저장 상태, 보스, 제작 그래프 설명 읽기](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
+> **상세 한국어 가이드:** [세계관, 열 개 비트의 진행 경로, 전투, 퍼즐, 유물, 저장 상태, 보스, 제작 그래프 설명 읽기](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md) | [Evidence Graph v2.0 가이드](docs/EVIDENCE_GRAPH_GUIDE.ko.md) | [기술 정오표](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)
 >
-> 이 가이드는 독자를 위한 설명형 동반 문서입니다. 81페이지 영문 PDF 전체의 번역본도, 플레이 가능한 게임 빌드도 아닙니다.
+> 게임 가이드 언어: [English](docs/THE_HOLLOW_MERIDIAN_GUIDE.md) | [简体中文](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
 
 *The Hollow Meridian v1.0*은 다운로드한 최종 아트, 오디오, 모델, 텍스처, 글꼴, 에셋 팩을 사용하지 않고 Three.js로 구축하는 데스크톱 브라우저용 3인칭 다크 판타지 액션 RPG의 81페이지 제품 계약 및 오케스트레이션 프롬프트입니다.
 
@@ -93,25 +97,25 @@ flowchart TD
 
 순간순간의 루프는 건축과 빛으로 방향 파악하기, 조우 읽기, 이동·방어·공격에 전념하기, 스태미나 관리하기, 효과적인 플레이로 Resonance 얻기, Echo Brand 또는 유물로 변경된 행동 사용하기, 인장·퍼즐·퀘스트 상태 진행하기, 체크포인트에서 의미 있는 상태 보존하기로 구성됩니다. 전투에는 약공격 연계, 차지 강공격, 회피, 방어, 지정된 받아치기 판정 구간, 표적 고정, 스태미나, Resonance가 포함됩니다. 퍼즐 해답과 핵심 진행은 시드로 재현 가능해야 하며, 유물 선택은 장식 수치가 아니라 실제 전투 의사결정을 바꿔야 합니다.
 
-버전이 관리되는 로컬 저장은 퀘스트 상태, 두 인장, 선택한 유물, 소모품, 체크포인트, 완료 여부, 엔딩 선택, 설정, 재매핑한 조작을 보존하도록 명세되어 있습니다. 보스는 일반 적을 확대한 형태가 아니라 별도의 공격 문법, 55퍼센트 체력 전환, 회전하는 위험 구역과 눈에 보이는 안전 구역을 갖춘 독립 시스템입니다. 이 모든 내용은 구현 대상과 인수 조건을 정의하는 **명세**입니다. 이 저장소에 해당 시스템을 실행할 수 있는 플레이 가능한 빌드나 이를 입증하는 `run-0001`은 아직 없습니다.
+버전이 관리되는 로컬 저장은 퀘스트 상태, 두 인장, 선택한 유물, 소모품, 체크포인트, 완료 여부, 엔딩 선택, 설정, 재매핑한 조작을 보존하도록 명세되어 있습니다. 보스는 일반 적을 확대한 형태가 아니라 별도의 공격 문법, 55퍼센트 체력 전환, 회전하는 위험 구역과 눈에 보이는 안전 구역을 갖춘 독립 시스템입니다. 이 모든 내용은 구현 대상과 인수 조건을 정의하는 **명세 및 인수 계약**입니다. 이 저장소는 독립 실행형 스키마, 프롬프트, `examples/run-0001/` 골든 검증 픽스처를 제공하며 플레이 가능한 런타임 빌드는 포함하지 않습니다.
 
 ## 두 판본의 관계
 
-*The Hollow Meridian*은 Evidence Graph 계보의 핵심 원칙에는 부합하지만, 모든 v2 규칙을 충족한다고 인증받은 구현은 아닙니다. 핵심에 부합하는 참조 명세로 이해하는 것이 가장 정확합니다.
+*The Hollow Meridian*은 Evidence Graph 계보의 핵심 원칙에는 부합하지만, 모든 v2 규칙을 충족한다고 인증받은 구현은 아닙니다. 두 출판물 간의 v2.0 계약 통합은 [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)와 [`schemas/`](schemas/)에서 제공됩니다.
 
 | 영역 | Evidence Graph v2.0 | Hollow Meridian v1.0 |
 |---|---|---|
 | 제품 범위 | 매우 좁은 45초에서 90초의 기준 슬라이스 권장 | 야심 찬 10분에서 14분 길이의 RPG 경로 명세 |
-| 증거 체계 | 비트 단위 완전 일치 체계와 허용 오차 기반 체계를 명시적으로 구분 | 결정론적 증거는 존재하지만 두 체계가 완전히 통합되지는 않음 |
+| 증거 체계 | 비트 단위 완전 일치 체계와 허용 오차 기반 체계를 명시적으로 구분 | 결정론적 증거는 존재하며 [`schemas/`](schemas/)에서 두 체계로 통합됨 |
 | 비평가 통제 | 보정, 양방향 순서 검토, 판단 편향 재검사 | 독립 비평가는 존재하지만 보정 절차가 완전히 명시되지는 않음 |
-| 컴퓨팅 경제성 | 모델 등급과 필수 비용 원장 | 아직 통합되지 않음 |
-| 인간 권한 | 제한된 개정 권한을 가진 지정 디렉터 | 아직 통합되지 않음 |
-| 엔진 간 결정론 | 완전 일치 주장을 위해 제어된 결정론적 수학 커널 요구 | 아직 완전히 명시되지 않음 |
-| 오디오 증거 | 오프라인 렌더링, 음량, 진첨두값, 신호 끊김, 음성 예산 게이트 | 절차적 오디오는 명시되어 있으나 동등한 측정 게이트는 업데이트가 필요함 |
+| 컴퓨팅 경제성 | 모델 등급과 필수 비용 원장 | [`schemas/run-manifest.schema.json`](schemas/run-manifest.schema.json)에서 통합됨 |
+| 인간 권한 | 제한된 개정 권한을 가진 지정 디렉터 | [`schemas/run-manifest.schema.json`](schemas/run-manifest.schema.json)에서 통합됨 |
+| 엔진 간 결정론 | 완전 일치 주장을 위해 제어된 결정론적 수학 커널 요구 | [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)에 명시됨 |
+| 오디오 증거 | 오프라인 렌더링, 음량, 진첨두값, 신호 끊김, 음성 예산 게이트 | 절차적 오디오는 명시되어 있으며 16비트 PCM 양자화 규칙은 [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)에 문서화됨 |
 | 접근성 | 증거 기반 릴리스 게이트 | 상당한 접근성 요구사항이 포함됨 |
 | 출처 관리 | 소스, 의존성, 번들, 네트워크, 출력 감사 | 소스 생성 미디어와 출처 관리에 대한 강력한 규칙이 포함됨 |
 
-이 구분은 중요합니다. 향후 개정판은 아직 존재하지 않는 호환성을 이미 갖춘 것처럼 주장하지 않으면서 RPG 명세를 완전히 정렬할 수 있습니다.
+이 구분은 중요합니다. 동반 정오표와 독립형 스키마는 인쇄 시점의 역사적 PDF 판본 차이를 숨기지 않으면서 두 출판물의 계약을 정렬합니다.
 
 ## 여기서 “AAA급(AAA-grade)”이 의미하는 것
 
@@ -121,8 +125,8 @@ flowchart TD
 
 ## 기술 기준선과 경계
 
-- 출판물은 **Three.js r185 기준선**을 바탕으로 작성되었습니다.
-- WebGPU/TSL과 WebGL 2는 렌더러 결정 게이트를 통해 평가합니다.
+- 출판물은 **Three.js r185 기준선**(`0.185.0`)을 바탕으로 작성되었습니다.
+- WebGPU/TSL과 WebGL 2는 렌더러 결정 게이트를 통해 평가합니다(`THREE.WebGPURenderer` 및 `{ forceWebGL: true }` 폴백; 자세한 내용은 [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) 참조).
 - “다운로드 에셋 금지(No downloaded assets)”는 최종적으로 보이거나 들리는 미디어에 적용됩니다. 버전이 고정된 개발 의존성, 브라우저 API, 빌드 도구, 테스트 도구, 프로파일러는 계속 허용되며 반드시 감사 대상에 포함해야 합니다.
 - 비트 단위 완전 일치 주장은 제어된 데이터 클래스에만 적용합니다. 브라우저 및 GPU 출력은 운영체제, 드라이버, 하드웨어, 브라우저, 설정에 따라 달라질 수 있습니다.
 - 문서의 접근성 요구사항은 엔지니어링 목표입니다. 공식적인 WCAG 준수를 확립하지 않습니다.
@@ -133,54 +137,82 @@ flowchart TD
 
 ### 기술 디렉터 및 연구자
 
-1. Evidence Graph의 결함 원장과 문서 상태 페이지를 읽습니다.
-2. 제어 그래프, 권한 계층, 증거 체계, 비평가 보정, 운영 절차, 규범 스키마를 검토합니다.
+1. Evidence Graph의 결함 원장, [기술 정오표와 v2.0 정렬 명세](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md), [문서 출판 상태 페이지](docs/PUBLICATION_STATUS.md)를 읽습니다.
+2. 제어 그래프, 권한 계층, 증거 체계, 비평가 보정, 운영 절차, [`schemas/`](schemas/)의 규범 스키마를 검토합니다.
 3. *The Hollow Meridian*을 적용 사례로 다루기 전에 위의 호환성 표를 읽습니다.
 
 ### 게임 및 테크니컬 아트 팀
 
 1. *The Hollow Meridian*의 게임 계약, 경로, 경험 원칙, 품질 저하 방지(anti-slop) 규칙을 읽습니다.
 2. 게임 시스템, 절차적 미디어 정책, QA 게이트를 이어서 읽습니다.
-3. 저장소 권한 문서와 인수 명령이 마련된 후에만 전문 역할 카드를 사용합니다.
+3. 저장소 권한 문서와 인수 명령이 마련된 후에만 [`prompts/hollow-meridian/agents/`](prompts/hollow-meridian/agents/)의 전문 역할 카드를 사용합니다.
 
 ### 에이전트 시스템 구축자
 
-1. Evidence Graph 오케스트레이터 프롬프트와 스키마부터 시작합니다.
-2. 모델 라우팅 전에 유효성 검사와 상태 전이를 구현합니다.
-3. 캡처된 산출물, 수정된 결함, 롤백, 프레임 시간 분포, 비용 회계, 승인된 커밋을 포함하는 실제 종단 간 실행 한 건을 추가합니다.
+1. [`prompts/`](prompts/)의 독립형 오케스트레이터 프롬프트와 [`schemas/`](schemas/)의 Draft 2020-12 스키마부터 시작합니다.
+2. [`examples/run-0001/`](examples/run-0001/)의 골든 검증 픽스처를 확인하고 `python scripts/verify_release.py`를 실행합니다.
+3. 캡처된 산출물, 수정된 결함, 롤백, 프레임 시간 분포, 비용 회계, 승인된 커밋을 포함하는 실제 종단 간 런타임 실행 한 건을 추가합니다.
 
 ## 저장소 구성
 
 ```text
 .
 ├── .gitattributes
+├── .github/
+│   └── workflows/
+│       └── verify-release.yml
 ├── AUTHORS.md
 ├── LICENSE
 ├── README.md
 ├── README.zh-CN.md
 ├── README.ja.md
 ├── README.ko.md
+├── agents/
 ├── assets/
-│   ├── evidence-graph-control-hero.jpg
-│   ├── hollow-meridian-boss-hero.jpg
-│   ├── hollow-meridian-world-hero.jpg
 │   ├── publication-set.jpg
 │   ├── readme-hero.jpg
 │   ├── readme-hero.prompt.md
 │   ├── section-heroes.prompt.md
+│   ├── evidence-graph-control-hero.jpg
+│   ├── hollow-meridian-world-hero.jpg
+│   ├── hollow-meridian-boss-hero.jpg
 │   ├── threejs-evidence-graph-cover.jpg
 │   └── the-hollow-meridian-cover.jpg
-├── publications/
-│   ├── threejs-evidence-graph-operational-manual-v2.0-en.pdf
-│   └── the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf
 ├── docs/
+│   ├── EVIDENCE_GRAPH_GUIDE.md
+│   ├── EVIDENCE_GRAPH_GUIDE.zh-CN.md
+│   ├── EVIDENCE_GRAPH_GUIDE.ja.md
+│   ├── EVIDENCE_GRAPH_GUIDE.ko.md
 │   ├── GLOSSARY.md
 │   ├── PUBLICATION_STATUS.md
+│   ├── TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md
 │   ├── THE_HOLLOW_MERIDIAN_GUIDE.md
 │   ├── THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md
 │   ├── THE_HOLLOW_MERIDIAN_GUIDE.ja.md
 │   ├── THE_HOLLOW_MERIDIAN_GUIDE.ko.md
 │   └── TRANSLATION_POLICY.md
+├── examples/
+│   └── run-0001/
+│       ├── defect-record.json
+│       ├── run-manifest.json
+│       └── task-packet.json
+├── orchestration/
+├── prompts/
+│   ├── evidence-graph/
+│   │   └── orchestrator.md
+│   └── hollow-meridian/
+│       ├── orchestrator.md
+│       └── agents/
+├── publications/
+│   ├── threejs-evidence-graph-operational-manual-v2.0-en.pdf
+│   └── the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf
+├── schemas/
+│   ├── defect-record.schema.json
+│   ├── graph-state.d.ts
+│   ├── run-manifest.schema.json
+│   └── task-packet.schema.json
+├── scripts/
+│   └── verify_release.py
 ├── CHANGELOG.md
 ├── CITATION.cff
 ├── CITATIONS.md
@@ -192,31 +224,26 @@ flowchart TD
 
 ## 현재 로드맵
 
-가장 가치 있는 다음 릴리스는 더 큰 프롬프트가 아닙니다. 기존 계약을 테스트할 수 있게 만드는 실행 가능한 동반 시스템입니다.
+릴리스 `2026.07.4`는 독립형 Draft 2020-12 JSON Schema(`schemas/*.schema.json`), `schemas/graph-state.d.ts`, 복사 가능한 오케스트레이터 및 전문 에이전트 프롬프트(`prompts/`), 골든 계약 픽스처(`examples/run-0001/`), 자동 릴리스 검증기(`scripts/verify_release.py`)를 제공합니다. 라이브 런타임 하네스를 위한 다음 마일스톤은 다음과 같습니다.
 
-- 표준 기계 판독형 스키마
-- 그래프 상태 및 전이 조건
-- 작업 패킷 및 결함 검증기
 - 렌더러 증명 하네스
-- 결정론적 리플레이 및 상태 해싱
+- 결정론적 리플레이 및 상태 해싱 런타임
 - 에셋 및 출처 스캐너
 - Playwright 캡처 프로필
 - 비평가 보정 픽스처
-- 실행 매니페스트 및 비용 원장
-- 완전한 `run-0001` 증거 패키지 한 건
-- 승인된 수정 한 건, 거부된 후보안 한 건, 검증된 롤백 한 건
+- 승인된 런타임 수정 한 건, 거부된 후보안 한 건, 검증된 롤백 한 건
 
-이 시스템이 존재하기 전까지 이 저장소가 주장하는 가치는 설계와 명세에 있으며, 경험적 제작 결과에는 있지 않습니다.
+라이브 런타임 빌드가 존재하기 전까지 이 저장소가 주장하는 가치는 설계, 명세, 계약 스키마에 있으며, 경험적 게임 런타임 벤치마크 결과에는 있지 않습니다.
 
 ## 번역 정책
 
-영문판이 규범적 판본입니다. 중국어 간체, 일본어, 한국어 README는 이 저장소 안내서의 완전한 설명형 번역입니다. *The Hollow Meridian*에는 [영어](docs/THE_HOLLOW_MERIDIAN_GUIDE.md), [중국어 간체](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md), [일본어](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md), [한국어](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md) 동반 가이드가 별도로 제공됩니다. 이 가이드들은 게임과 제작 명세를 설명하지만 81페이지 PDF 전체를 번역한 문서는 아닙니다. 출판물 제목, 게임 고유명사, 파일명, 명령어, 스키마 키, 그래프 노드 식별자, 경로, 열거형 값, 코드 식별자는 표준 영문 표기를 유지합니다.
+영문판이 규범적 판본입니다. 중국어 간체, 일본어, 한국어 버전은 이 저장소 안내서, *Three.js Evidence Graph v2.0* 동반 가이드, 확장형 *The Hollow Meridian* 동반 가이드 모두에 제공됩니다. 이 가이드들은 제작 방법론과 게임 명세를 자세히 설명하지만 전체 `145`페이지(`64 + 81`페이지) 영문 PDF를 축어 번역한 문서는 아닙니다. 출판물 제목, 게임 고유명사, 파일명, 명령어, 스키마 키, 그래프 노드 식별자, 경로, 열거형 값, 코드 식별자는 표준 영문 표기를 유지합니다.
 
 번역본과 영문판이 다를 경우 기술적 해석에는 영문판을 사용하고 이슈를 통해 차이를 보고해 주십시오. [Translation Policy](docs/TRANSLATION_POLICY.md)와 [다국어 기술 용어집](docs/GLOSSARY.md)을 참조하십시오.
 
 ## 무결성
 
-[SHA256SUMS.txt](SHA256SUMS.txt)의 SHA-256 값은 이 릴리스에 포함된 모든 PDF 및 JPEG 자산을 대상으로 합니다. 저장소 루트에서 `sha256sum -c SHA256SUMS.txt`를 실행하여 9개 바이너리 파일을 모두 검증할 수 있습니다.
+[SHA256SUMS.txt](SHA256SUMS.txt)의 SHA-256 값은 이 릴리스에 포함된 모든 PDF, JPEG 아트워크 자산, 독립형 JSON Schema, 골든 픽스처, 프롬프트, 문서 산출물(총 `39`개 검증 파일)을 대상으로 합니다. 저장소 루트에서 `sha256sum -c SHA256SUMS.txt` 및 `python scripts/verify_release.py`를 실행하여 전체 릴리스 패키지를 검증할 수 있습니다.
 
 ## 기여
 
