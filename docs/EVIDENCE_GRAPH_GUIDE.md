@@ -1,22 +1,12 @@
 # Three.js Evidence Graph: Operational Manual v2.0 - Companion Guide
 
-<div align="center">
+| **MONOGRAPH EDITIONS** | [**English**](EVIDENCE_GRAPH_GUIDE.md) | [**简体中文**](EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [**日本語**](EVIDENCE_GRAPH_GUIDE.ja.md) | [**한국어**](EVIDENCE_GRAPH_GUIDE.ko.md) |
+| :--- | :---: | :---: | :---: | :---: |
+| **VOLUME COLOPHON** | `VOLUME I · 64 PAGES · CONTROL PLANE & DETERMINISM MANUAL v2.0` | [Normative PDF](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf) | [Master Folio](../README.md) | `Three.js r185 · Zero External Assets` |
 
-[![Native English](https://img.shields.io/badge/Edition-Native_English-D49B4B?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.md)
-[![简体中文](https://img.shields.io/badge/语言-简体中文_(原生母语版)-45B29D?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.zh-CN.md)
-[![日本語](https://img.shields.io/badge/言語-日本語_(ネイティブ版)-38C6D9?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.ja.md)
-[![한국어](https://img.shields.io/badge/언어-한국어_(네이티브판)-C89B54?style=for-the-badge)](EVIDENCE_GRAPH_GUIDE.ko.md)
-
-[![Volume 01](https://img.shields.io/badge/Volume_01-Control_Plane_Manual_v2.0-0F1722?style=flat-square)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf)
-[![Pages 64](https://img.shields.io/badge/Pages-64_(416,827_B)-D49B4B?style=flat-square)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf)
-[![JSON Schema Draft 2020-12](https://img.shields.io/badge/Contracts-JSON_Schema_2020--12-38C6D9?style=flat-square)](../schemas/)
-[![Back to README](https://img.shields.io/badge/Suite_Index-README.md-45B29D?style=flat-square)](../README.md)
-
-</div>
-
-| Publication Cover Plate (`64 Pages`) | Multi-Agent Control Plane Hero Plate |
-| :---: | :---: |
-| [![Three.js Evidence Graph v2.0 Cover](../assets/threejs-evidence-graph-cover.jpg)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf) | ![Control plane branching from product contract to bounded specialist work, evidence capture, and release gates](../assets/evidence-graph-control-hero.jpg) |
+| Cover Plate (Vol. I · 64 pp) | Plate I-A: Horological Verification Atelier | Plate I-B: Procedural Geometry & TSL Studio |
+| :---: | :---: | :---: |
+| [![Cover Plate (Vol. I · 64 pp)](../assets/threejs-evidence-graph-cover.jpg)](../publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf) | ![Plate I-A: Horological Verification Atelier](../assets/evidence-graph-control-hero.jpg) | ![Plate I-B: Procedural Geometry & TSL Studio](../assets/evidence-graph-atelier-hero.jpg) |
 
 ## 1. Purpose & Core Thesis
 

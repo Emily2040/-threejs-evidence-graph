@@ -11,7 +11,7 @@ This repository publishes a four-volume, `217`-page engineering specification, m
 3. **Game 02 - The Glass Ossuary: Mystery Horror Full Multi-Agent Production Prompt v1.0** (`36` pages) - first-person investigative psychological horror vertical slice specification;
 4. **Game 03 - Perihelion Breach: FPS Adventure Full Multi-Agent Production Prompt v1.0** (`36` pages) - first-person kinetic sci-fi shooter adventure vertical slice specification;
 5. **Standalone JSON Schema Draft 2020-12 Contracts & Golden Fixtures**: `schemas/*.schema.json`, `schemas/graph-state.d.ts`, 25 copy-pasteable prompts in `prompts/`, and three validated golden reference runs (`examples/run-0001/`, `examples/run-0002/`, `examples/run-0003/`);
-6. **Native Four-Language Documentation Suite (`en`, `zh-CN`, `ja`, `ko`)**: 4 repository READMEs (`README*.md`) and 16 native companion guides (`docs/*_GUIDE*.md`), backed by 13 zero-EXIF concept/cover JPEGs and 21 bespoke native-localized typographic, architectural, and 60 Hz telemetry SVGs.
+6. **Native Four-Language Collector's Monograph Suite (`en`, `zh-CN`, `ja`, `ko`)**: 4 repository READMEs (`README*.md`) and 16 native companion guides (`docs/*_GUIDE*.md`), backed by 17 zero-EXIF Collector's Monograph cover and concept JPEGs (`assets/*.jpg`) and 21 warm archival vellum & copperplate engineering blueprint SVGs (`assets/svg/*.svg`).
 
 | # | Publication Title | File Path | Edition | Pages | Size (Bytes) | SHA-256 Digest |
 | :-: | :--- | :--- | :---: | ---: | ---: | :--- |
@@ -37,4 +37,4 @@ This release ships validated golden contract fixtures in `examples/run-0001/` th
 
 ## Accessibility & Security Verification
 
-All four PDFs include root `/Lang (en-US)` and `/MarkInfo << /Marked true >>` catalog declarations and clickable `/Subtype /Link` `/URI` reference annotations on their closing bibliography pages (page 64 of *Evidence Graph v2.0*, page 36 of *The Glass Ossuary v1.0*, and page 36 of *Perihelion Breach v1.0*). All 13 JPEG assets in `assets/*.jpg` contain `0` EXIF bytes. Run `python scripts/verify_release.py` and `sha256sum -c SHA256SUMS.txt` from the repository root to verify every file.
+All four PDFs include root `/Lang (en-US)` and `/MarkInfo << /Marked true >>` catalog declarations and clickable `/Subtype /Link` `/URI` reference annotations on their closing bibliography pages (page 64 of *Evidence Graph v2.0*, page 36 of *The Glass Ossuary v1.0*, and page 36 of *Perihelion Breach v1.0*). All 17 JPEG assets in `assets/*.jpg` contain `0` EXIF bytes. Run `python scripts/verify_release.py` and `sha256sum -c SHA256SUMS.txt` from the repository root to verify every file.

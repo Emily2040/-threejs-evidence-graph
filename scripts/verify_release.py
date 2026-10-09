@@ -9,14 +9,14 @@ Automated Release & Contract Verification Suite for the Four-Publication Suite (
 Validates:
 1. SHA256SUMS.txt LF line endings and bit-exact SHA-256 digests for all listed files.
 2. release-manifest.json repository URL, SHA-256 digests, byte sizes, PDF page counts (217 total),
-   13 zero-EXIF JPEG assets, and 21 SVG vector assets.
+   17 zero-EXIF JPEG assets, and 21 SVG vector assets.
 3. Draft 2020-12 JSON Schema validity (schemas/*.schema.json and orchestration/*.schema.json)
    and validation of all 9 golden fixtures across examples/run-0001..0003/*.json.
 4. PDF structural metadata (/Lang, /MarkInfo), zero "/-" ligature corruption in extracted text,
    and clickable /URI link annotations on page 64 of Evidence Graph v2.0, page 36 of The Glass Ossuary,
    and page 36 of Perihelion Breach.
-5. Zero EXIF metadata (exif_len == 0) across all 13 JPEGs in assets/*.jpg and valid XML across 21 SVGs in assets/svg/*.svg.
-6. Local Markdown link resolution and 4-language native documentation parity across README*.md and docs/*.md.
+5. Zero EXIF metadata (exif_len == 0) across all 17 JPEGs in assets/*.jpg and valid XML across 21 SVGs in assets/svg/*.svg.
+6. Local Markdown link resolution, zero img.shields.io badge clutter, and 4-language native Monograph parity across README*.md and docs/*.md.
 """
 
 import hashlib
@@ -96,7 +96,7 @@ def check_release_manifest() -> int:
 
     artwork = manifest.get("artwork", {})
     art_items = artwork.get("items", []) if isinstance(artwork, dict) else artwork
-    assert len(art_items) == 13, f"Expected 13 JPEG items in release-manifest.json, got {len(art_items)}"
+    assert len(art_items) == 17, f"Expected 17 JPEG items in release-manifest.json, got {len(art_items)}"
     for art in art_items:
         p = os.path.join(ROOT, art["path"])
         assert sha256_file(p) == art["sha256"], f"Manifest SHA mismatch for {art['path']}"
@@ -116,6 +116,10 @@ def check_release_manifest() -> int:
         assert os.path.getsize(p) == svg["bytes"], f"Manifest byte size mismatch for {svg['path']}"
         tree = ET.parse(p)
         assert tree.getroot().tag.endswith("svg"), f"Invalid SVG root element in {svg['path']}"
+        raw_svg = open(p, "r", encoding="utf-8").read()
+        assert any(c in raw_svg for c in ("#F5F0E6", "#F4EFE5", "#F4EFE6")), (
+            f"Expected archival vellum palette (#F5F0E6, #F4EFE5, or #F4EFE6) in {svg['path']}"
+        )
         checked += 1
 
     return checked
@@ -275,10 +279,10 @@ def check_markdown_and_multilingual() -> int:
                 f"Missing or outdated provenance header in localized file: {md_path}"
             )
         if md_path.endswith((".ja.md", ".zh-CN.md")):
-            stripped_nav = re.sub(r"\[한국어\]|badge/언어-한국어[^\s)]*", "", text)
+            stripped_nav = re.sub(r"\[[^\]]*한국어[^\]]*\]\([^)]*\.ko\.md\)|\[한국어\]|badge/언어-한국어[^\s)]*", "", text)
             assert not hangul_re.search(stripped_nav), f"Found stray Korean Hangul character in {md_path}"
         if md_path.endswith(".ja.md"):
-            stripped_ja = re.sub(r"简体中文|语言-简体中文[^\s)]*", "", text)
+            stripped_ja = re.sub(r"\[[^\]]*简体中文[^\]]*\]\([^)]*\.zh-CN\.md\)|简体中文|语言-简体中文[^\s)]*", "", text)
             for sc_char in ("遗", "银", "设", "计", "证", "据", "帧", "实", "现", "图", "谱"):
                 assert sc_char not in stripped_ja, f"Found Simplified Chinese character '{sc_char}' in {md_path}"
         for m in link_re.finditer(text):
@@ -314,32 +318,44 @@ def check_markdown_and_multilingual() -> int:
     ]
     for lang, readme_rel, suffix in lang_map:
         content = open(os.path.join(ROOT, readme_rel), "r", encoding="utf-8").read()
+        assert "img.shields.io" not in content, f"Found banned img.shields.io badge in {readme_rel}"
         assert "217" in content, f"Expected total page count 217 in {readme_rel}"
         assert f"assets/svg/masthead-{lang}.svg" in content, f"Missing masthead-{lang}.svg in {readme_rel}"
         assert f"assets/svg/architecture-pipeline-{lang}.svg" in content, f"Missing architecture-pipeline-{lang}.svg in {readme_rel}"
         assert f"assets/svg/game-01-telemetry-{lang}.svg" in content, f"Missing game-01-telemetry-{lang}.svg in {readme_rel}"
         assert f"assets/svg/game-02-telemetry-{lang}.svg" in content, f"Missing game-02-telemetry-{lang}.svg in {readme_rel}"
         assert f"assets/svg/game-03-telemetry-{lang}.svg" in content, f"Missing game-03-telemetry-{lang}.svg in {readme_rel}"
-        for cover_jpg in (
+        for required_jpg in (
+            "assets/readme-hero.jpg",
+            "assets/publication-set.jpg",
             "assets/threejs-evidence-graph-cover.jpg",
             "assets/the-hollow-meridian-cover.jpg",
             "assets/the-glass-ossuary-cover.jpg",
             "assets/perihelion-breach-cover.jpg",
+            "assets/evidence-graph-control-hero.jpg",
+            "assets/evidence-graph-atelier-hero.jpg",
+            "assets/hollow-meridian-sanctum-hero.jpg",
+            "assets/glass-ossuary-inquest-hero.jpg",
+            "assets/perihelion-breach-arsenal-hero.jpg",
         ):
-            assert cover_jpg in content, f"Missing {cover_jpg} in {readme_rel}"
+            assert required_jpg in content, f"Missing {required_jpg} in {readme_rel}"
 
         eg_guide = open(os.path.join(ROOT, "docs", f"EVIDENCE_GRAPH_GUIDE{suffix}"), "r", encoding="utf-8").read()
+        assert "img.shields.io" not in eg_guide, f"Found banned img.shields.io badge in EVIDENCE_GRAPH_GUIDE{suffix}"
         assert f"../assets/svg/architecture-pipeline-{lang}.svg" in eg_guide, f"Missing architecture-pipeline-{lang}.svg in EVIDENCE_GRAPH_GUIDE{suffix}"
         assert "../assets/threejs-evidence-graph-cover.jpg" in eg_guide, f"Missing cover in EVIDENCE_GRAPH_GUIDE{suffix}"
+        assert "../assets/evidence-graph-atelier-hero.jpg" in eg_guide, f"Missing evidence-graph-atelier-hero.jpg in EVIDENCE_GRAPH_GUIDE{suffix}"
 
-        for idx, (guide_stem, cover_name) in enumerate([
-            ("THE_HOLLOW_MERIDIAN_GUIDE", "the-hollow-meridian-cover.jpg"),
-            ("THE_GLASS_OSSUARY_GUIDE", "the-glass-ossuary-cover.jpg"),
-            ("PERIHELION_BREACH_GUIDE", "perihelion-breach-cover.jpg"),
+        for idx, (guide_stem, cover_name, new_hero) in enumerate([
+            ("THE_HOLLOW_MERIDIAN_GUIDE", "the-hollow-meridian-cover.jpg", "hollow-meridian-sanctum-hero.jpg"),
+            ("THE_GLASS_OSSUARY_GUIDE", "the-glass-ossuary-cover.jpg", "glass-ossuary-inquest-hero.jpg"),
+            ("PERIHELION_BREACH_GUIDE", "perihelion-breach-cover.jpg", "perihelion-breach-arsenal-hero.jpg"),
         ], start=1):
             g_txt = open(os.path.join(ROOT, "docs", f"{guide_stem}{suffix}"), "r", encoding="utf-8").read()
+            assert "img.shields.io" not in g_txt, f"Found banned img.shields.io badge in {guide_stem}{suffix}"
             assert f"../assets/svg/game-0{idx}-telemetry-{lang}.svg" in g_txt, f"Missing game-0{idx}-telemetry-{lang}.svg in {guide_stem}{suffix}"
             assert f"../assets/{cover_name}" in g_txt, f"Missing {cover_name} in {guide_stem}{suffix}"
+            assert f"../assets/{new_hero}" in g_txt, f"Missing {new_hero} in {guide_stem}{suffix}"
             assert "#7567F5" in g_txt, f"Missing #7567F5 banned palette guardrail in {guide_stem}{suffix}"
 
     return len(md_files)

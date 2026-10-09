@@ -1,99 +1,84 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 356" width="100%" role="img" aria-label="Three.js 에비던스 그래프 &amp; 멀티 장르 프로덕션 스위트 - 4권의 엔지니어링 규격서 · 3종의 무에셋 버티컬 슬라이스 · 4개국어 네이티브 기술 문서">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 350" width="100%" height="100%">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#070B11"/>
-      <stop offset="55%" stop-color="#0C131D"/>
-      <stop offset="100%" stop-color="#091019"/>
-    </linearGradient>
-    <linearGradient id="goldCyan" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#45B29D"/>
-      <stop offset="35%" stop-color="#D49B4B"/>
-      <stop offset="70%" stop-color="#4FA89B"/>
-      <stop offset="100%" stop-color="#38C6D9"/>
-    </linearGradient>
-    <pattern id="archGrid" width="42" height="42" patternUnits="userSpaceOnUse">
-      <path d="M 42 0 L 0 0 0 42" fill="none" stroke="#162232" stroke-width="0.7" stroke-opacity="0.65"/>
+    <pattern id="vellum-grid-ko" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#E5DEC9" stroke-width="0.8"/>
     </pattern>
   </defs>
 
-  <!-- Background & Precision Grid -->
-  <rect width="1260" height="356" rx="10" fill="url(#bgGrad)" stroke="#1E2D40" stroke-width="1.5"/>
-  <rect width="1260" height="356" rx="10" fill="url(#archGrid)"/>
-  <rect x="0" y="0" width="1260" height="4" rx="2" fill="url(#goldCyan)"/>
+  <!-- Warm Archival Vellum Background -->
+  <rect width="1200" height="350" fill="#F5F0E6"/>
+  <rect width="1200" height="350" fill="url(#vellum-grid-ko)"/>
 
-  <!-- Decorative Orbital & Acoustic Telemetry Rings -->
-  <g transform="translate(1118, 96)" opacity="0.85">
-    <circle cx="0" cy="0" r="106" fill="none" stroke="#D49B4B" stroke-width="1.1" stroke-opacity="0.32" stroke-dasharray="6 4"/>
-    <circle cx="0" cy="0" r="76" fill="none" stroke="#45B29D" stroke-width="1.2" stroke-opacity="0.42"/>
-    <circle cx="0" cy="0" r="44" fill="none" stroke="#38C6D9" stroke-width="1.2" stroke-opacity="0.52"/>
-    <line x1="-118" y1="0" x2="118" y2="0" stroke="#243447" stroke-width="0.9"/>
-    <line x1="0" y1="-118" x2="0" y2="118" stroke="#243447" stroke-width="0.9"/>
-    <line x1="-70" y1="34" x2="82" y2="-40" stroke="#D8564A" stroke-width="1.2" stroke-opacity="0.65"/>
-    <circle cx="0" cy="0" r="4.5" fill="#D49B4B"/>
-    <circle cx="53" cy="-53" r="3.8" fill="#45B29D"/>
-    <circle cx="-31" cy="31" r="3.5" fill="#38C6D9"/>
+  <!-- Subtle Right-Side Horological Astrolabe Drafting Lines -->
+  <g transform="translate(1010, 145)" opacity="0.28">
+    <circle cx="0" cy="0" r="135" fill="none" stroke="#8C6239" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="102" fill="none" stroke="#1B435D" stroke-width="1.2" stroke-dasharray="6 4"/>
+    <circle cx="0" cy="0" r="68" fill="none" stroke="#B83227" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="28" fill="none" stroke="#151412" stroke-width="1.5"/>
+    <line x1="-155" y1="0" x2="155" y2="0" stroke="#8C6239" stroke-width="1"/>
+    <line x1="0" y1="-155" x2="0" y2="155" stroke="#8C6239" stroke-width="1"/>
+    <line x1="-110" y1="-110" x2="110" y2="110" stroke="#1B435D" stroke-width="0.8"/>
+    <line x1="-110" y1="110" x2="110" y2="-110" stroke="#B83227" stroke-width="0.8"/>
   </g>
 
-  <!-- Eyebrow Pill -->
-  <rect x="48" y="28" width="12" height="12" rx="2" fill="#D49B4B"/>
-  <text x="68" y="38" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="11.5" font-weight="700" letter-spacing="1.4">EMILY PARADOX 기술 아카이브 // 2026.07.5 릴리스 // THREE.JS r185 결정론적 멀티 에이전트 제작 스위트</text>
+  <!-- Double Copperplate Monograph Border -->
+  <rect x="16" y="16" width="1168" height="318" fill="none" stroke="#B5A690" stroke-width="2"/>
+  <rect x="24" y="24" width="1152" height="302" fill="none" stroke="#D5CBB8" stroke-width="1"/>
 
-  <!-- Main Editorial Headline -->
-  <text x="48" y="88" fill="#F8FAFC" font-family="'Noto Serif KR', 'Source Han Serif KR', 'Batang', serif" font-size="36" font-weight="700" letter-spacing="-0.3">Three.js 에비던스 그래프 &amp; 멀티 장르 프로덕션 스위트</text>
-  <text x="48" y="126" fill="#38C6D9" font-family="'Noto Serif KR', 'Source Han Serif KR', 'Batang', serif" font-size="23.5" font-weight="600">4권의 엔지니어링 규격서 · 3종의 무에셋 버티컬 슬라이스 · 4개국어 네이티브 기술 문서</text>
+  <!-- Top Editorial Spine Rule (Cinnabar + Prussian Blue + Ochre) -->
+  <rect x="16" y="16" width="760" height="8" fill="#B83227"/>
+  <rect x="776" y="16" width="240" height="8" fill="#1B435D"/>
+  <rect x="1016" y="16" width="168" height="8" fill="#A84B24"/>
+
+  <!-- Corner Registration Marks -->
+  <g stroke="#151412" stroke-width="1.5">
+    <path d="M 8 16 L 24 16 M 16 8 L 16 24"/>
+    <path d="M 1176 16 L 1192 16 M 1184 8 L 1184 24"/>
+    <path d="M 8 334 L 24 334 M 16 326 L 16 342"/>
+    <path d="M 1176 334 L 1192 334 M 1184 326 L 1184 342"/>
+  </g>
+
+  <!-- Kicker & Cinnabar Seal -->
+  <text x="48" y="56" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12.5" font-weight="700" fill="#B83227" letter-spacing="1.2">EMILY PARADOX 아키텍처 마스터북 아카이브  //  전4권 공식 설정집 &amp; 엔지니어링 총서  //  RELEASE 2026.07.5</text>
+  <rect x="890" y="38" width="262" height="28" fill="#B83227"/>
+  <text x="1021" y="57" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12" font-weight="700" fill="#FAF6EE" letter-spacing="0.8">전4권 217페이지 · 외부 에셋 제로</text>
+  <line x1="48" y1="74" x2="1152" y2="74" stroke="#C8BCA8" stroke-width="1.2"/>
+
+  <!-- Main Monograph Display Title -->
+  <text x="48" y="128" font-family="'Georgia', 'Times New Roman', 'Noto Serif CJK SC', 'Source Han Serif SC', 'Yu Mincho', 'Hiragino Mincho ProN', 'Batang', serif" font-size="40" font-weight="700" fill="#151412">Three.js 에비던스 그래프 &amp; 3대 장르</text>
+  <text x="48" y="178" font-family="'Georgia', 'Times New Roman', 'Noto Serif CJK SC', 'Source Han Serif SC', 'Yu Mincho', 'Hiragino Mincho ProN', 'Batang', serif" font-size="40" font-weight="700" fill="#151412">제로 에셋 플래그십 게임 제작 명세서</text>
 
   <!-- Subtitle -->
-  <text x="48" y="162" fill="#B8C4D4" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="13.5" font-weight="400">15노드 DAG 오케스트레이션, WebGPURenderer + TSL 절차적 셰이더, Web Audio 오프라인 음향 합성 및 JSON Schema 검증 하네스.</text>
+  <text x="48" y="214" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="15.5" font-weight="500" fill="#4A433B">15노드 결정론적 멀티 에이전트 오케스트레이션(N00..N14), Three.js r185 WebGPU + TSL 셰이더 및 60 Hz 고정 틱 명세.</text>
 
-  <!-- Four Publication Cards -->
-  
-  <g transform="translate(48, 198)">
-    <rect x="0" y="0" width="278" height="104" rx="7" fill="#0F1723" stroke="#243347" stroke-width="1.2"/>
-    <rect x="0" y="0" width="4" height="104" rx="2" fill="#45B29D"/>
-    <circle cx="16" cy="20" r="3.5" fill="#45B29D"/>
-    <text x="26" y="24" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="11" font-weight="700" letter-spacing="1.0">제1권 · 64쪽</text>
-    <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="600" text-anchor="end">코어 아키텍처 규격</text>
-    <text x="16" y="52" fill="#F8FAFC" font-family="'Noto Serif KR', 'Source Han Serif KR', 'Batang', serif" font-size="17" font-weight="700">Evidence Graph v2.0</text>
-    <text x="16" y="73" fill="#B8C4D4" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="11" font-weight="500">15노드 DAG · 이중 결정론 · 3대 스키마</text>
-    <rect x="16" y="82" width="246" height="15" rx="3" fill="#090E16" stroke="#1C293A" stroke-width="0.8"/>
-    <text x="22" y="93" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5" font-weight="600">64쪽 규격 · SHA-256: d3830d41..</text>
-  </g>
-  <g transform="translate(342, 198)">
-    <rect x="0" y="0" width="278" height="104" rx="7" fill="#0F1723" stroke="#243347" stroke-width="1.2"/>
-    <rect x="0" y="0" width="4" height="104" rx="2" fill="#D49B4B"/>
-    <circle cx="16" cy="20" r="3.5" fill="#D49B4B"/>
-    <text x="26" y="24" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="11" font-weight="700" letter-spacing="1.0">제2권 · 81쪽</text>
-    <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="600" text-anchor="end">3인칭 액션 RPG</text>
-    <text x="16" y="52" fill="#F8FAFC" font-family="'Noto Serif KR', 'Source Han Serif KR', 'Batang', serif" font-size="17" font-weight="700">《공허의 자오선》</text>
-    <text x="16" y="73" fill="#B8C4D4" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="11" font-weight="500">Sable Veren · 60 Hz 패링 · 5개 구역</text>
-    <rect x="16" y="82" width="246" height="15" rx="3" fill="#090E16" stroke="#1C293A" stroke-width="0.8"/>
-    <text x="22" y="93" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5" font-weight="600">81쪽 규격 · SHA-256: c4f8fe83..</text>
-  </g>
-  <g transform="translate(636, 198)">
-    <rect x="0" y="0" width="278" height="104" rx="7" fill="#0F1723" stroke="#243347" stroke-width="1.2"/>
-    <rect x="0" y="0" width="4" height="104" rx="2" fill="#4FA89B"/>
-    <circle cx="16" cy="20" r="3.5" fill="#4FA89B"/>
-    <text x="26" y="24" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="11" font-weight="700" letter-spacing="1.0">제3권 · 36쪽</text>
-    <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="600" text-anchor="end">1인칭 미스터리 호러</text>
-    <text x="16" y="52" fill="#F8FAFC" font-family="'Noto Serif KR', 'Source Han Serif KR', 'Batang', serif" font-size="17" font-weight="700">《유리 납골당》</text>
-    <text x="16" y="73" fill="#B8C4D4" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="11" font-weight="500">Clara Vane · 음향 포렌식 · 6노드 보드</text>
-    <rect x="16" y="82" width="246" height="15" rx="3" fill="#090E16" stroke="#1C293A" stroke-width="0.8"/>
-    <text x="22" y="93" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5" font-weight="600">36쪽 규격 · SHA-256: efead090..</text>
-  </g>
-  <g transform="translate(930, 198)">
-    <rect x="0" y="0" width="278" height="104" rx="7" fill="#0F1723" stroke="#243347" stroke-width="1.2"/>
-    <rect x="0" y="0" width="4" height="104" rx="2" fill="#38C6D9"/>
-    <circle cx="16" cy="20" r="3.5" fill="#38C6D9"/>
-    <text x="26" y="24" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="11" font-weight="700" letter-spacing="1.0">제4권 · 36쪽</text>
-    <text x="264" y="24" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="600" text-anchor="end">1인칭 SF 슈팅 어드벤처</text>
-    <text x="16" y="52" fill="#F8FAFC" font-family="'Noto Serif KR', 'Source Han Serif KR', 'Batang', serif" font-size="17" font-weight="700">《근일점 돌파》</text>
-    <text x="16" y="73" fill="#B8C4D4" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="11" font-weight="500">Soren Kestrel · 자기 그래플 · 방열 재장전</text>
-    <rect x="16" y="82" width="246" height="15" rx="3" fill="#090E16" stroke="#1C293A" stroke-width="0.8"/>
-    <text x="22" y="93" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5" font-weight="600">36쪽 규격 · SHA-256: 75bdfff2..</text>
+  <line x1="48" y1="234" x2="1152" y2="234" stroke="#C8BCA8" stroke-width="1.2"/>
+
+  <!-- Four Volume Index Stamps -->
+  <g transform="translate(48, 248)">
+    <rect x="0" y="0" width="264" height="62" fill="#EAE1D0" stroke="#B5A690" stroke-width="1.2"/>
+    <rect x="0" y="0" width="7" height="62" fill="#B83227"/>
+    <text x="18" y="24" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#B83227">제1권 · 컨트롤 플레인 매뉴얼 (64P)</text>
+    <text x="18" y="47" font-family="'Georgia', 'Times New Roman', 'Noto Serif CJK SC', 'Source Han Serif SC', 'Yu Mincho', 'Hiragino Mincho ProN', 'Batang', serif" font-size="15" font-weight="700" fill="#151412">《에비던스 그래프 v2.0》</text>
   </g>
 
-  <!-- Footer Telemetry Bar -->
-  <line x1="48" y1="318" x2="1212" y2="318" stroke="#1E2C3E" stroke-width="1"/>
-  <text x="48" y="338" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="11" font-weight="600" letter-spacing="0.6">총 217쪽 엔지니어링 규격 · THREE.JS r185 (0.185.0) · 외부 바이너리 에셋 제로 · 21종 에이전트 카드</text>
-  <text x="1212" y="338" fill="#D49B4B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="11" font-weight="700" text-anchor="end" letter-spacing="0.6">4개국어 네이티브 에디션: 한국어 (KO) · EN · ZH-CN · JA</text>
+  <g transform="translate(328, 248)">
+    <rect x="0" y="0" width="264" height="62" fill="#EAE1D0" stroke="#B5A690" stroke-width="1.2"/>
+    <rect x="0" y="0" width="7" height="62" fill="#A84B24"/>
+    <text x="18" y="24" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#A84B24">제2권 · 다크 판타지 액션 RPG (81P)</text>
+    <text x="18" y="47" font-family="'Georgia', 'Times New Roman', 'Noto Serif CJK SC', 'Source Han Serif SC', 'Yu Mincho', 'Hiragino Mincho ProN', 'Batang', serif" font-size="15" font-weight="700" fill="#151412">《공허의 자오선》</text>
+  </g>
+
+  <g transform="translate(608, 248)">
+    <rect x="0" y="0" width="264" height="62" fill="#EAE1D0" stroke="#B5A690" stroke-width="1.2"/>
+    <rect x="0" y="0" width="7" height="62" fill="#17565E"/>
+    <text x="18" y="24" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#17565E">제3권 · 미스터리 호러 조사극 (36P)</text>
+    <text x="18" y="47" font-family="'Georgia', 'Times New Roman', 'Noto Serif CJK SC', 'Source Han Serif SC', 'Yu Mincho', 'Hiragino Mincho ProN', 'Batang', serif" font-size="15" font-weight="700" fill="#151412">《유리 납골당》</text>
+  </g>
+
+  <g transform="translate(888, 248)">
+    <rect x="0" y="0" width="264" height="62" fill="#EAE1D0" stroke="#B5A690" stroke-width="1.2"/>
+    <rect x="0" y="0" width="7" height="62" fill="#D6451B"/>
+    <text x="18" y="24" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#D6451B">제4권 · SF FPS 어드벤처 (36P)</text>
+    <text x="18" y="47" font-family="'Georgia', 'Times New Roman', 'Noto Serif CJK SC', 'Source Han Serif SC', 'Yu Mincho', 'Hiragino Mincho ProN', 'Batang', serif" font-size="15" font-weight="700" fill="#151412">《근일점 돌파》</text>
+  </g>
 </svg>

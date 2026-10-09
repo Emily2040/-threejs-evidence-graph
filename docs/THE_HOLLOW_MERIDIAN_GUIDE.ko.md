@@ -2,25 +2,13 @@
 
 # 《공허의 자오선》 (The Hollow Meridian): 액션 RPG 제작 규격 및 설계 가이드
 
-<div align="center">
+| **MONOGRAPH EDITIONS** | [**English**](THE_HOLLOW_MERIDIAN_GUIDE.md) | [**简体中文**](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [**日本語**](THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [**한국어**](THE_HOLLOW_MERIDIAN_GUIDE.ko.md) |
+| :--- | :---: | :---: | :---: | :---: |
+| **VOLUME COLOPHON** | `제2권 · 81페이지 · 게임 01: 3인칭 다크 판타지 액션 RPG 《공허의 자오선》 · SEED 1337` | [Normative PDF](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) | [Master Folio](../README.ko.md) | `Three.js r185 · Zero External Assets` |
 
-[![Native English](https://img.shields.io/badge/Edition-Native_English-D49B4B?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.md)
-[![简体中文](https://img.shields.io/badge/语言-简体中文_(原生母语版)-45B29D?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md)
-[![日本語](https://img.shields.io/badge/言語-日本語_(ネイティブ版)-38C6D9?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.ja.md)
-[![한국어](https://img.shields.io/badge/언어-한국어_(네이티브판)-C89B54?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
-
-[![Game 01 Action RPG](https://img.shields.io/badge/Game_01-3인칭_다크_판타지_액션_RPG-0F1722?style=flat-square)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)
-[![Pages 81](https://img.shields.io/badge/쪽수-81쪽_(357,144_B)-D49B4B?style=flat-square)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)
-[![Seed 1337](https://img.shields.io/badge/골든_픽스처-run--0001_(seed%3D1337)-45B29D?style=flat-square)](../examples/run-0001/)
-[![Back to README](https://img.shields.io/badge/전체_가이드로_돌아가기-README.ko.md-38C6D9?style=flat-square)](../README.ko.md)
-
-</div>
-
-| 제02권 출판물 표지 플레이트 (`81쪽`) | 폐허 천문대 5대 공간 루트 플레이트 | 2페이즈 보스: '이름 없는 종' 플레이트 |
-| :---: | :---: | :---: |
-| [![공허의 자오선 표지](../assets/the-hollow-meridian-cover.jpg)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) | ![The Hollow Meridian의 폐허가 된 천문대를 통과하도록 수작업으로 설계된 경로](../assets/hollow-meridian-world-hero.jpg) | ![Meridian Chamber 안에서 2단계에 진입하는 The Bell Without a Name](../assets/hollow-meridian-boss-hero.jpg) |
-
-*출판물 설명을 위한 콘셉트 아트입니다. 게임플레이 캡처나 구현 증거가 아닙니다.*
+| 제2권 모노그래프 표지 (81P) | 도판 II-1: 침몰한 아스트롤라베 회랑과 오러리 브리지 | 도판 II-2: 종 주조소와 3대 성물 제단 | 도판 II-3: 이름 없는 종 2페이즈 보스전 (850 HP) |
+| :---: | :---: | :---: | :---: |
+| [![제2권 모노그래프 표지 (81P)](../assets/the-hollow-meridian-cover.jpg)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) | ![도판 II-1: 침몰한 아스트롤라베 회랑과 오러리 브리지](../assets/hollow-meridian-world-hero.jpg) | ![도판 II-2: 종 주조소와 3대 성물 제단](../assets/hollow-meridian-sanctum-hero.jpg) | ![도판 II-3: 이름 없는 종 2페이즈 보스전 (850 HP)](../assets/hollow-meridian-boss-hero.jpg) |
 
 > **가이드 상태**
 >

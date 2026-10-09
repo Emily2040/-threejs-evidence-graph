@@ -1,126 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 320" width="100%" role="img" aria-label="GAME 03 テレメトリ // 『ペリヘリオン・ブリーチ』 · 60 HZ 機動・排熱リロード・コロナ周期">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 470" width="100%" height="100%">
   <defs>
-    <linearGradient id="telBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#070B11"/>
-      <stop offset="100%" stop-color="#0D1520"/>
-    </linearGradient>
-    <pattern id="telGrid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#142030" stroke-width="0.6" stroke-opacity="0.55"/>
+    <pattern id="g-grid-3-ja" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#E5DEC9" stroke-width="0.7"/>
     </pattern>
   </defs>
 
-  <rect width="1260" height="320" rx="10" fill="url(#telBg)" stroke="#1E2D40" stroke-width="1.5"/>
-  <rect width="1260" height="320" rx="10" fill="url(#telGrid)"/>
-  <rect x="0" y="0" width="1260" height="4" rx="2" fill="#38C6D9"/>
+  <!-- Warm Archival Vellum Background -->
+  <rect width="1200" height="470" fill="#F4EFE6"/>
+  <rect width="1200" height="470" fill="url(#g-grid-3-ja)"/>
 
-  <!-- Header Bar -->
-  <circle cx="34" cy="24" r="4" fill="#38C6D9"/>
-  <text x="46" y="28" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="11" font-weight="700" letter-spacing="1.0">GAME 03 テレメトリ // 『ペリヘリオン・ブリーチ』 · 60 HZ 機動・排熱リロード・コロナ周期</text>
-  <text x="1228" y="28" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10.5" font-weight="600" text-anchor="end">全36頁 · シード 2142 · EXAMPLES/RUN-0003/</text>
-  <line x1="28" y1="40" x2="1232" y2="40" stroke="#1E2C3E" stroke-width="1"/>
+  <!-- Double Monograph Frame -->
+  <rect x="16" y="16" width="1168" height="438" fill="none" stroke="#B5A690" stroke-width="2"/>
+  <rect x="24" y="24" width="1152" height="422" fill="none" stroke="#D5CBB8" stroke-width="1"/>
+  <rect x="16" y="16" width="820" height="7" fill="#D6451B"/>
+  <rect x="836" y="16" width="348" height="7" fill="#174B7A"/>
 
-  <!-- Left Panel: 60 Hz Frame Timeline -->
-  <rect x="28" y="50" width="616" height="252" rx="7" fill="#0F1723" stroke="#223144" stroke-width="1.1"/>
-  <text x="44" y="72" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="12.5" font-weight="700">60 Hz 機動・排熱リロード時間軸</text>
-  <text x="616" y="72" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="600" text-anchor="end">240t太陽フレア周期（180t安全 / 60t照射）</text>
-  
-    <!-- Bar 1 -->
-    <text x="44" y="105" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11.5" font-weight="700">スライディング推進</text>
-    <text x="44" y="122" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5">3t屈み · 4..18t 11.5 m/s 滑走 · 6t硬直（計24t）</text>
-    <rect x="198" y="96" width="418" height="16" rx="4" fill="#0B1018" stroke="#1E2C3E" stroke-width="1"/>
-    <rect x="198" y="96" width="200" height="16" rx="4" fill="#182434"/>
-    <rect x="223" y="96" width="117" height="16" rx="3" fill="#38C6D9"/>
-    <text x="616" y="125" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="700" text-anchor="end">4..18t（11.5 m/s · 8..18tジャンプ可）</text>
-    <!-- Bar 2 -->
-    <text x="44" y="157" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11.5" font-weight="700">磁気グラップル牽引</text>
-    <text x="44" y="174" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5">6t射出 · 18..42t 18.0 m/s 牽引 · 12t硬直</text>
-    <rect x="198" y="148" width="418" height="16" rx="4" fill="#0B1018" stroke="#1E2C3E" stroke-width="1"/>
-    <rect x="198" y="148" width="359" height="16" rx="4" fill="#182434"/>
-    <rect x="239" y="148" width="234" height="16" rx="3" fill="#45B29D"/>
-    <text x="616" y="177" fill="#45B29D" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="700" text-anchor="end">18..42t牽引（18.0 m/s スリング機動）</text>
-    <!-- Bar 3 -->
-    <text x="44" y="209" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11.5" font-weight="700">アクティブ排熱リロード</text>
-    <text x="44" y="226" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5">13t開放 · 14..20t完全排熱 · 16t硬直（計36t）</text>
-    <rect x="198" y="200" width="418" height="16" rx="4" fill="#0B1018" stroke="#1E2C3E" stroke-width="1"/>
-    <rect x="198" y="200" width="284" height="16" rx="4" fill="#182434"/>
-    <rect x="289" y="200" width="66" height="16" rx="3" fill="#F08A24"/>
-    <text x="616" y="229" fill="#F08A24" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="700" text-anchor="end">14..20t（100%排熱 + 90t過充填）</text>
-    <!-- Bar 4 -->
-    <text x="44" y="261" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11.5" font-weight="700">スキャッターADSスラッグ</text>
-    <text x="44" y="278" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5">30..54t充填 · 31..55t貫通弾射出 · 18t硬直</text>
-    <rect x="198" y="252" width="418" height="16" rx="4" fill="#0B1018" stroke="#1E2C3E" stroke-width="1"/>
-    <rect x="198" y="252" width="367" height="16" rx="4" fill="#182434"/>
-    <rect x="331" y="252" width="91" height="16" rx="3" fill="#E54848"/>
-    <text x="616" y="281" fill="#E54848" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="700" text-anchor="end">55..85 DMG 貫通弾（弱点 1.75倍）</text>
+  <!-- Header -->
+  <text x="44" y="48" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12" font-weight="700" fill="#D6451B" letter-spacing="0.8">0.09 AU 軌道弾道・熱力学青写真図版 IV-A  //  『ペリヘリオン・ブリーチ』 PERIHELION BREACH（第四巻 · 36頁）</text>
+  <text x="44" y="76" font-family="'Georgia', 'Times New Roman', 'Noto Serif CJK SC', 'Source Han Serif SC', 'Yu Mincho', 'Hiragino Mincho ProN', 'Batang', serif" font-size="23" font-weight="700" fill="#151412">60 Hz 排熱リロード、18 m/s 磁気グラップル、240ティック太陽フレア周期＆立体ボスゲート</text>
+  <line x1="44" y1="90" x2="1156" y2="90" stroke="#B5A690" stroke-width="1.4"/>
 
-  <!-- Right Top Panel: Palette Swatches & Guardrail -->
-  <rect x="662" y="50" width="570" height="114" rx="7" fill="#0F1723" stroke="#223144" stroke-width="1.1"/>
-  <text x="676" y="70" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="12" font-weight="700">近日点軌道ステーション配色トークン &amp; 禁止色ガードレール</text>
-  
-    <g transform="translate(676, 78)">
-      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
-      <rect x="6" y="6" width="74" height="28" rx="3" fill="#090D14" stroke="#334155" stroke-width="0.8"/>
-      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10" font-weight="700">#090D14</text>
-      <text x="8" y="65" fill="#94A3B8" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="9.5">ハード真空黒</text>
-    </g>
-    <g transform="translate(769, 78)">
-      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
-      <rect x="6" y="6" width="74" height="28" rx="3" fill="#1A2433" stroke="#334155" stroke-width="0.8"/>
-      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10" font-weight="700">#1A2433</text>
-      <text x="8" y="65" fill="#94A3B8" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="9.5">隔壁チタン</text>
-    </g>
-    <g transform="translate(862, 78)">
-      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
-      <rect x="6" y="6" width="74" height="28" rx="3" fill="#F08A24" stroke="#334155" stroke-width="0.8"/>
-      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10" font-weight="700">#F08A24</text>
-      <text x="8" y="65" fill="#94A3B8" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="9.5">太陽炉アンバー</text>
-    </g>
-    <g transform="translate(955, 78)">
-      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
-      <rect x="6" y="6" width="74" height="28" rx="3" fill="#38C6D9" stroke="#334155" stroke-width="0.8"/>
-      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10" font-weight="700">#38C6D9</text>
-      <text x="8" y="65" fill="#94A3B8" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="9.5">プラズマ青</text>
-    </g>
-    <g transform="translate(1048, 78)">
-      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
-      <rect x="6" y="6" width="74" height="28" rx="3" fill="#E54848" stroke="#334155" stroke-width="0.8"/>
-      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10" font-weight="700">#E54848</text>
-      <text x="8" y="65" fill="#94A3B8" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="9.5">過熱クリムゾン</text>
-    </g>
-    <g transform="translate(1141, 78)">
-      <rect x="0" y="0" width="86" height="74" rx="5" fill="#160D1C" stroke="#D8564A" stroke-width="1.1"/>
-      <rect x="6" y="6" width="74" height="28" rx="3" fill="#7567F5" fill-opacity="0.35" stroke="#D8564A" stroke-width="1"/>
-      <line x1="8" y1="32" x2="78" y2="8" stroke="#EF4444" stroke-width="2"/>
-      <text x="8" y="49" fill="#FCA5A5" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10" font-weight="700">#7567F5</text>
-      <text x="8" y="65" fill="#F87171" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="9.5" font-weight="700">使用禁止</text>
-    </g>
+  <!-- Left Panel: 60 Hz Timing Chart -->
+  <rect x="36" y="104" width="554" height="332" fill="#FAF7F0" stroke="#B5A690" stroke-width="1.4"/>
+  <text x="48" y="128" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#D6451B">パネル A — 60 HZ 銃器・排熱リロード・グラップル判定図（1 TICK = 16.6667 MS）</text>
+  <line x1="48" y1="138" x2="578" y2="138" stroke="#D5CBB8" stroke-width="1"/>
+  <g transform="translate(46, 152)"><text x="0" y="15" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12" font-weight="700" fill="#151412">Thermal Vent Reload</text><rect x="165" y="0" width="70" height="24" fill="#DFD6C5" stroke="#8C8272" stroke-width="1"/><text x="200.0" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#2C2925">13t</text><rect x="235" y="0" width="210" height="24" fill="#D6451B"/><text x="340.0" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#FAF6EE">Active Vent Ticks 14..20 (-100% Heat + 90t Buff)</text><rect x="445" y="0" width="70" height="24" fill="#EAE2D3" stroke="#8C8272" stroke-width="1"/><text x="480.0" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#4A433B">Rec 16t</text></g><g transform="translate(46, 210)"><text x="0" y="15" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12" font-weight="700" fill="#151412">Magnetic Grapple</text><rect x="165" y="0" width="55" height="24" fill="#DFD6C5" stroke="#8C8272" stroke-width="1"/><text x="192.5" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#2C2925">6t</text><rect x="220" y="0" width="220" height="24" fill="#174B7A"/><text x="330.0" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#FAF6EE">18.0 m/s Pull (Ticks 7..48) + Slingshot Impulse</text><rect x="440" y="0" width="75" height="24" fill="#EAE2D3" stroke="#8C8272" stroke-width="1"/><text x="477.5" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#4A433B">Rec 12t</text></g><g transform="translate(46, 268)"><text x="0" y="15" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12" font-weight="700" fill="#151412">Slide-Boost</text><rect x="165" y="0" width="45" height="24" fill="#DFD6C5" stroke="#8C8272" stroke-width="1"/><text x="187.5" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#2C2925">3t</text><rect x="210" y="0" width="230" height="24" fill="#26685E"/><text x="325.0" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#FAF6EE">11.5 m/s Slide (Ticks 4..18 · Jump Cancel 8..18)</text><rect x="440" y="0" width="75" height="24" fill="#EAE2D3" stroke="#8C8272" stroke-width="1"/><text x="477.5" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#4A433B">Rec 6t</text></g><g transform="translate(46, 326)"><text x="0" y="15" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12" font-weight="700" fill="#151412">Scatter ADS Slug</text><rect x="165" y="0" width="120" height="24" fill="#DFD6C5" stroke="#8C8272" stroke-width="1"/><text x="225.0" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#2C2925">30..54t</text><rect x="285" y="0" width="165" height="24" fill="#8C5828"/><text x="367.5" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#FAF6EE">Piercing Rail Slug (55..85 Dmg · 1.75x Weakpt)</text><rect x="450" y="0" width="65" height="24" fill="#EAE2D3" stroke="#8C8272" stroke-width="1"/><text x="482.5" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#4A433B">18t</text></g><g transform="translate(46, 384)"><text x="0" y="15" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12" font-weight="700" fill="#151412">Carbine 3-Burst</text><rect x="165" y="0" width="45" height="24" fill="#DFD6C5" stroke="#8C8272" stroke-width="1"/><text x="187.5" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#2C2925">2t</text><rect x="210" y="0" width="180" height="24" fill="#4A433B"/><text x="300.0" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#FAF6EE">Ticks 3..11 (3x14 Hitscan · 1.5x Weakpt)</text><rect x="390" y="0" width="125" height="24" fill="#EAE2D3" stroke="#8C8272" stroke-width="1"/><text x="452.5" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#4A433B">Rec 10t (Total 21t)</text></g>
 
-  <!-- Right Bottom Panel: Architecture & Boss Telemetry Cards -->
-  <rect x="662" y="172" width="570" height="130" rx="7" fill="#0F1723" stroke="#223144" stroke-width="1.1"/>
-  <text x="676" y="188" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="10" font-weight="700" letter-spacing="0.6">5つの軌道セクター · 3つのエクソリグ・コア · ボス戦テレメトリ</text>
-  
-    <g transform="translate(676, 194)">
-      <rect x="0" y="0" width="178" height="98" rx="6" fill="#0B111A" stroke="#243347" stroke-width="1.1"/>
-      <rect x="0" y="0" width="3.5" height="98" rx="1.5" fill="#38C6D9"/>
-      <text x="12" y="21" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="700">5セクター · 10ビート</text>
-      <text x="12" y="42" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11.5" font-weight="700">太陽集光アレイ攻略</text>
-      <text x="12" y="63" fill="#CBD5E1" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="10">エアロック -&gt; 鏡トラス -&gt; 炉心</text>
-      <text x="12" y="83" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9">Beat 10: 防衛か炉心パージか</text>
-    </g>
-    <g transform="translate(864, 194)">
-      <rect x="0" y="0" width="178" height="98" rx="6" fill="#0B111A" stroke="#243347" stroke-width="1.1"/>
-      <rect x="0" y="0" width="3.5" height="98" rx="1.5" fill="#38C6D9"/>
-      <text x="12" y="21" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="700">3つのExo-Rigコア</text>
-      <text x="12" y="42" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11.5" font-weight="700">高速機動 &amp; 熱制御</text>
-      <text x="12" y="63" fill="#CBD5E1" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="10">recoil_gyro · thermal_siphon</text>
-      <text x="12" y="83" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9">grapple_overdrive 分岐</text>
-    </g>
-    <g transform="translate(1052, 194)">
-      <rect x="0" y="0" width="178" height="98" rx="6" fill="#0B111A" stroke="#243347" stroke-width="1.1"/>
-      <rect x="0" y="0" width="3.5" height="98" rx="1.5" fill="#38C6D9"/>
-      <text x="12" y="21" fill="#38C6D9" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9.5" font-weight="700">BEAT 09 ボス戦</text>
-      <text x="12" y="42" fill="#F8FAFC" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="11.5" font-weight="700">ウォーデン (1,000)</text>
-      <text x="12" y="63" fill="#CBD5E1" font-family="'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', 'Meiryo', sans-serif" font-size="10">装甲500で第2段階へ移行</text>
-      <text x="12" y="83" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Hiragino Sans', 'Yu Gothic UI', monospace" font-size="9">240tフレア周期 &amp; 放熱フィン</text>
-    </g>
+  <!-- Upper-Right Panel: Palette Swatches -->
+  <rect x="604" y="104" width="556" height="140" fill="#FAF7F0" stroke="#B5A690" stroke-width="1.4"/>
+  <text x="618" y="128" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#174B7A">パネル B — 宇宙セラミック色彩トークン＆禁止色（#7567F5）ガードレール</text>
+  <line x1="618" y1="138" x2="1146" y2="138" stroke="#D5CBB8" stroke-width="1"/>
+  <g transform="translate(618, 152)"><rect width="78" height="44" fill="#080A0F" stroke="#8C8272" stroke-width="1.2"/><text x="39" y="60" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#151412">#080A0F</text><text x="39" y="74" text-anchor="middle" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="10" fill="#5C554C">Vacuum Pitch</text></g><g transform="translate(706, 152)"><rect width="78" height="44" fill="#121824" stroke="#8C8272" stroke-width="1.2"/><text x="39" y="60" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#151412">#121824</text><text x="39" y="74" text-anchor="middle" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="10" fill="#5C554C">Titanium Truss</text></g><g transform="translate(794, 152)"><rect width="78" height="44" fill="#FF6B2B" stroke="#8C8272" stroke-width="1.2"/><text x="39" y="60" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#151412">#FF6B2B</text><text x="39" y="74" text-anchor="middle" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="10" fill="#5C554C">Solar Corona</text></g><g transform="translate(882, 152)"><rect width="78" height="44" fill="#2BD9FE" stroke="#8C8272" stroke-width="1.2"/><text x="39" y="60" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#151412">#2BD9FE</text><text x="39" y="74" text-anchor="middle" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="10" fill="#5C554C">Cryo-Coolant</text></g><g transform="translate(970, 152)"><rect width="78" height="44" fill="#E63946" stroke="#8C8272" stroke-width="1.2"/><text x="39" y="60" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#151412">#E63946</text><text x="39" y="74" text-anchor="middle" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="10" fill="#5C554C">Breach Alert</text></g><g transform="translate(1062, 152)"><rect width="84" height="44" fill="#7567F5" stroke="#B83227" stroke-width="2"/><line x1="0" y1="0" x2="84" y2="44" stroke="#B83227" stroke-width="3"/><line x1="84" y1="0" x2="0" y2="44" stroke="#B83227" stroke-width="3"/><text x="42" y="60" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#B83227">#7567F5</text><text x="42" y="74" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10" font-weight="700" fill="#B83227">BANNED</text></g>
+
+  <!-- Lower-Right Panel: Boss & Build-Defining Choice -->
+  <rect x="604" y="258" width="556" height="178" fill="#FAF7F0" stroke="#B5A690" stroke-width="1.4"/>
+  <rect x="604" y="258" width="7" height="178" fill="#D6451B"/>
+  <text x="622" y="282" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#D6451B">パネル C — 240ティック（4.0秒）太陽フレア周期、外骨格コア＆ボス装甲ゲート</text>
+  <line x1="622" y1="292" x2="1146" y2="292" stroke="#D5CBB8" stroke-width="1"/>
+  <text x="622" y="318" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="13" font-weight="700" fill="#151412">太陽フレア周期：[150t 安全窓] -&gt; [45t フレア警報] -&gt; [45t コロナ掃射（40 Shield/s）]</text>
+  <text x="622" y="346" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" fill="#2C2925">外骨格コア：[recoil_gyro: 拡散ゼロ] · [thermal_siphon: 排熱+25盾] · [grapple_overdrive: CT-35%]</text>
+  <rect x="622" y="362" width="520" height="22" fill="#EAE1D0" stroke="#B5A690" stroke-width="1"/>
+  <rect x="622" y="362" width="270" height="22" fill="#D6451B"/>
+  <text x="757" y="377" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#FAF6EE">PHASE 1 (100% .. THRESHOLD)</text>
+  <text x="1007" y="377" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#174B7A">PHASE 2 (SPLIT / ENRAGE)</text>
+  <text x="622" y="414" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#174B7A">ボス＆指令：ヘリアーク・ウォーデン（1,000 -&gt; 500 装甲） · DIRECTIVE_DIVERT vs DIRECTIVE_VENT</text>
 </svg>

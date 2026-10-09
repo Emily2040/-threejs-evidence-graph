@@ -2,25 +2,13 @@
 
 # 『虚ろの子午線』（The Hollow Meridian）：アクションRPG開発仕様・設計ガイド
 
-<div align="center">
+| **MONOGRAPH EDITIONS** | [**English**](THE_HOLLOW_MERIDIAN_GUIDE.md) | [**简体中文**](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [**日本語**](THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [**한국어**](THE_HOLLOW_MERIDIAN_GUIDE.ko.md) |
+| :--- | :---: | :---: | :---: | :---: |
+| **VOLUME COLOPHON** | `第二巻 · 81頁 · ゲーム 01：三人称ダークファンタジー・アクションRPG『虚ろの子午線』 · SEED 1337` | [Normative PDF](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) | [Master Folio](../README.ja.md) | `Three.js r185 · Zero External Assets` |
 
-[![Native English](https://img.shields.io/badge/Edition-Native_English-D49B4B?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.md)
-[![简体中文](https://img.shields.io/badge/语言-简体中文_(原生母语版)-45B29D?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md)
-[![日本語](https://img.shields.io/badge/言語-日本語_(ネイティブ版)-38C6D9?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.ja.md)
-[![한국어](https://img.shields.io/badge/언어-한국어_(네이티브판)-C89B54?style=for-the-badge)](THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
-
-[![Game 01 Action RPG](https://img.shields.io/badge/Game_01-三人称アクションRPG-0F1722?style=flat-square)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)
-[![Pages 81](https://img.shields.io/badge/ページ数-81頁_(357,144_B)-D49B4B?style=flat-square)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)
-[![Seed 1337](https://img.shields.io/badge/検証フィクスチャ-run--0001_(seed%3D1337)-45B29D?style=flat-square)](../examples/run-0001/)
-[![Back to README](https://img.shields.io/badge/総合ガイドへ戻る-README.ja.md-38C6D9?style=flat-square)](../README.ja.md)
-
-</div>
-
-| 第02巻 仕様書カバープレート（`81頁`） | 廃墟観測所 5エリア進行ルート プレート | 二段階ボス「名もなき鐘」プレート |
-| :---: | :---: | :---: |
-| [![虚ろの子午線 カバー](../assets/the-hollow-meridian-cover.jpg)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) | ![The Hollow Meridian の廃墟となった天文台を通る設計済みルート](../assets/hollow-meridian-world-hero.jpg) | ![Meridian Chamber 内で第2段階へ移行する The Bell Without a Name](../assets/hollow-meridian-boss-hero.jpg) |
-
-*出版物の説明用コンセプトアートです。ゲームプレイのキャプチャや実装済みであることを示す証拠ではありません。*
+| 第二巻モノグラフ表紙 (81頁) | 図版 II-1：沈めるアストロラーベ参道と天体儀橋 | 図版 II-2：鋳鐘場と三聖遺物の祭壇 | 図版 II-3：名もなき鐘 2段階ボス戦 (850 HP) |
+| :---: | :---: | :---: | :---: |
+| [![第二巻モノグラフ表紙 (81頁)](../assets/the-hollow-meridian-cover.jpg)](../publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) | ![図版 II-1：沈めるアストロラーベ参道と天体儀橋](../assets/hollow-meridian-world-hero.jpg) | ![図版 II-2：鋳鐘場と三聖遺物の祭壇](../assets/hollow-meridian-sanctum-hero.jpg) | ![図版 II-3：名もなき鐘 2段階ボス戦 (850 HP)](../assets/hollow-meridian-boss-hero.jpg) |
 
 > **ガイドの位置付け**
 >

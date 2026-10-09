@@ -1,24 +1,12 @@
 # Perihelion Breach: FPS Adventure Companion Guide
 
-<div align="center">
+| **MONOGRAPH EDITIONS** | [**English**](PERIHELION_BREACH_GUIDE.md) | [**简体中文**](PERIHELION_BREACH_GUIDE.zh-CN.md) | [**日本語**](PERIHELION_BREACH_GUIDE.ja.md) | [**한국어**](PERIHELION_BREACH_GUIDE.ko.md) |
+| :--- | :---: | :---: | :---: | :---: |
+| **VOLUME COLOPHON** | `VOLUME IV · 36 PAGES · GAME 03: FIRST-PERSON SCI-FI SHOOTER ADVENTURE · SEED 2142` | [Normative PDF](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf) | [Master Folio](../README.md) | `Three.js r185 · Zero External Assets` |
 
-[![English](https://img.shields.io/badge/Language-English-38C6D9?style=for-the-badge)](PERIHELION_BREACH_GUIDE.md)
-[![Simplified Chinese](https://img.shields.io/badge/语言-简体中文-F08A24?style=for-the-badge)](PERIHELION_BREACH_GUIDE.zh-CN.md)
-[![Japanese](https://img.shields.io/badge/言語-日本語-E54848?style=for-the-badge)](PERIHELION_BREACH_GUIDE.ja.md)
-[![Korean](https://img.shields.io/badge/언어-한국어-38C6D9?style=for-the-badge)](PERIHELION_BREACH_GUIDE.ko.md)
-
-[![Back to Master Suite](https://img.shields.io/badge/←_Master_Suite-README-1A2433?style=flat-square&borderColor=38C6D9)](../README.md)
-[![Genre](https://img.shields.io/badge/Genre-1st--Person_Sci--Fi_Shooter_Adventure-38C6D9?style=flat-square)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
-[![Pages](https://img.shields.io/badge/Publication-36_Pages_PDF-F08A24?style=flat-square)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
-[![Golden Run](https://img.shields.io/badge/Golden_Fixture-examples%2Frun--0003-3DBE8B?style=flat-square)](../examples/run-0003/run-manifest.json)
-
-| Publication Cover (36 pp.) | World Hero (`Heliostat Truss`) | Boss Hero (`The Heliarch Warden`) |
-| :---: | :---: | :---: |
-| <a href="../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf"><img src="../assets/perihelion-breach-cover.jpg" width="210" alt="Perihelion Breach v1.0 cover" /></a> | <img src="../assets/perihelion-breach-world-hero.jpg" width="340" alt="Soren Kestrel traversing the sun-grazing Heliostat Truss aboard Icarus-9 in Perihelion Breach" /> | <img src="../assets/perihelion-breach-combat-hero.jpg" width="340" alt="Soren Kestrel engaging The Heliarch Warden inside the Perihelion Core Chamber" /> |
-
-*Concept artwork for the publication. Not a gameplay capture or implementation evidence.*
-
-</div>
+| Cover Plate (Vol. IV · 36 pp) | Plate IV-1: 0.09 AU Heliostat Spine | Plate IV-2: Cryo-Coolant Manifold & Thermal Vent | Plate IV-3: The Heliarch Warden (1,000 Int.) |
+| :---: | :---: | :---: | :---: |
+| [![Cover Plate (Vol. IV · 36 pp)](../assets/perihelion-breach-cover.jpg)](../publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf) | ![Plate IV-1: 0.09 AU Heliostat Spine](../assets/perihelion-breach-world-hero.jpg) | ![Plate IV-2: Cryo-Coolant Manifold & Thermal Vent](../assets/perihelion-breach-arsenal-hero.jpg) | ![Plate IV-3: The Heliarch Warden (1,000 Int.)](../assets/perihelion-breach-combat-hero.jpg) |
 
 > **Guide status**
 >

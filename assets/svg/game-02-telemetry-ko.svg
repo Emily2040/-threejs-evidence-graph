@@ -1,126 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 320" width="100%" role="img" aria-label="GAME 02 텔레메트리 // 《유리 납골당》 · 포렌식 장비 프레임·해안 팔레트·6노드 추리 보드">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 470" width="100%" height="100%">
   <defs>
-    <linearGradient id="telBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#070B11"/>
-      <stop offset="100%" stop-color="#0D1520"/>
-    </linearGradient>
-    <pattern id="telGrid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#142030" stroke-width="0.6" stroke-opacity="0.55"/>
+    <pattern id="g-grid-2-ko" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#E5DEC9" stroke-width="0.7"/>
     </pattern>
   </defs>
 
-  <rect width="1260" height="320" rx="10" fill="url(#telBg)" stroke="#1E2D40" stroke-width="1.5"/>
-  <rect width="1260" height="320" rx="10" fill="url(#telGrid)"/>
-  <rect x="0" y="0" width="1260" height="4" rx="2" fill="#4FA89B"/>
+  <!-- Warm Archival Vellum Background -->
+  <rect width="1200" height="470" fill="#F4EFE6"/>
+  <rect width="1200" height="470" fill="url(#g-grid-2-ko)"/>
 
-  <!-- Header Bar -->
-  <circle cx="34" cy="24" r="4" fill="#4FA89B"/>
-  <text x="46" y="28" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="11" font-weight="700" letter-spacing="1.0">GAME 02 텔레메트리 // 《유리 납골당》 · 포렌식 장비 프레임·해안 팔레트·6노드 추리 보드</text>
-  <text x="1228" y="28" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10.5" font-weight="600" text-anchor="end">36쪽 규격 · 시드 1894 · EXAMPLES/RUN-0002/</text>
-  <line x1="28" y1="40" x2="1232" y2="40" stroke="#1E2C3E" stroke-width="1"/>
+  <!-- Double Monograph Frame -->
+  <rect x="16" y="16" width="1168" height="438" fill="none" stroke="#B5A690" stroke-width="2"/>
+  <rect x="24" y="24" width="1152" height="422" fill="none" stroke="#D5CBB8" stroke-width="1"/>
+  <rect x="16" y="16" width="820" height="7" fill="#17565E"/>
+  <rect x="836" y="16" width="348" height="7" fill="#8E2422"/>
 
-  <!-- Left Panel: 60 Hz Frame Timeline -->
-  <rect x="28" y="50" width="616" height="252" rx="7" fill="#0F1723" stroke="#223144" stroke-width="1.1"/>
-  <text x="44" y="72" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="12.5" font-weight="700">60 Hz 포렌식 장비 &amp; 스텔스 타임라인</text>
-  <text x="616" y="72" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5" font-weight="600" text-anchor="end">직교 광학+음향 마스크 · 벽 투시 금지</text>
-  
-    <!-- Bar 1 -->
-    <text x="44" y="105" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="11.5" font-weight="700">랜턴 셔터 전환</text>
-    <text x="44" y="122" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5">6t 개방 · 토글 유지 (7..) · 6t 폐쇄 (0 Oil)</text>
-    <rect x="198" y="96" width="418" height="16" rx="4" fill="#0B1018" stroke="#1E2C3E" stroke-width="1"/>
-    <rect x="198" y="96" width="100" height="16" rx="4" fill="#182434"/>
-    <rect x="214" y="96" width="58" height="16" rx="3" fill="#C89B54"/>
-    <text x="616" y="125" fill="#C89B54" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5" font-weight="700" text-anchor="end">6틱 전환 (광학 시야 어그로 차단)</text>
-    <!-- Bar 2 -->
-    <text x="44" y="157" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="11.5" font-weight="700">황동 루페 초점</text>
-    <text x="44" y="174" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5">9t 조준 · 10..69t 프리즘/골유리 해독 · 6t 해제</text>
-    <rect x="198" y="148" width="418" height="16" rx="4" fill="#0B1018" stroke="#1E2C3E" stroke-width="1"/>
-    <rect x="198" y="148" width="326" height="16" rx="4" fill="#182434"/>
-    <rect x="256" y="148" width="200" height="16" rx="3" fill="#4FA89B"/>
-    <text x="616" y="177" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5" font-weight="700" text-anchor="end">10..69틱 (60틱 각인 해독)</text>
-    <!-- Bar 3 -->
-    <text x="44" y="209" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="11.5" font-weight="700">밀랍 축음기 위상 상쇄</text>
-    <text x="44" y="226" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5">24t 태엽 · 25..114t 역위상 상쇄 · 36t 복귀</text>
-    <rect x="198" y="200" width="418" height="16" rx="4" fill="#0B1018" stroke="#1E2C3E" stroke-width="1"/>
-    <rect x="198" y="200" width="401" height="16" rx="4" fill="#182434"/>
-    <rect x="289" y="200" width="242" height="16" rx="3" fill="#63C7C2"/>
-    <text x="616" y="229" fill="#63C7C2" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5" font-weight="700" text-anchor="end">25..114틱 (90틱 발소리 은폐)</text>
-    <!-- Bar 4 -->
-    <text x="44" y="261" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="11.5" font-weight="700">페로타입 UV 플래시</text>
-    <text x="44" y="278" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5">18t 충전 · 19..24t 자외선 섬광 · 66t 냉각</text>
-    <rect x="198" y="252" width="418" height="16" rx="4" fill="#0B1018" stroke="#1E2C3E" stroke-width="1"/>
-    <rect x="198" y="252" width="300" height="16" rx="4" fill="#182434"/>
-    <rect x="298" y="252" width="58" height="16" rx="3" fill="#9E2A2B"/>
-    <text x="616" y="281" fill="#9E2A2B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5" font-weight="700" text-anchor="end">19..24틱 (150틱 괴이 경직)</text>
+  <!-- Header -->
+  <text x="44" y="48" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12" font-weight="700" fill="#17565E" letter-spacing="0.8">1894 광학 &amp; 음향 포렌식 청사진 도판 III-A  //  《유리 납골당》 THE GLASS OSSUARY (제3권 · 36P)</text>
+  <text x="44" y="76" font-family="'Georgia', 'Times New Roman', 'Noto Serif CJK SC', 'Source Han Serif SC', 'Yu Mincho', 'Hiragino Mincho ProN', 'Batang', serif" font-size="23" font-weight="700" fill="#151412">60 Hz 디제틱 조사 기구 타이밍 윈도우, 페로타입 팔레트 &amp; 6노드 심문 추리 보드</text>
+  <line x1="44" y1="90" x2="1156" y2="90" stroke="#B5A690" stroke-width="1.4"/>
 
-  <!-- Right Top Panel: Palette Swatches & Guardrail -->
-  <rect x="662" y="50" width="570" height="114" rx="7" fill="#0F1723" stroke="#223144" stroke-width="1.1"/>
-  <text x="676" y="70" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="12" font-weight="700">해안 유리 납골당 머티리얼 토큰 &amp; 금지 색상 가드레일</text>
-  
-    <g transform="translate(676, 78)">
-      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
-      <rect x="6" y="6" width="74" height="28" rx="3" fill="#070B10" stroke="#334155" stroke-width="0.8"/>
-      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10" font-weight="700">#070B10</text>
-      <text x="8" y="65" fill="#94A3B8" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="9.5">조석 현무암</text>
-    </g>
-    <g transform="translate(769, 78)">
-      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
-      <rect x="6" y="6" width="74" height="28" rx="3" fill="#132226" stroke="#334155" stroke-width="0.8"/>
-      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10" font-weight="700">#132226</text>
-      <text x="8" y="65" fill="#94A3B8" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="9.5">염무 슬레이트</text>
-    </g>
-    <g transform="translate(862, 78)">
-      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
-      <rect x="6" y="6" width="74" height="28" rx="3" fill="#4FA89B" stroke="#334155" stroke-width="0.8"/>
-      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10" font-weight="700">#4FA89B</text>
-      <text x="8" y="65" fill="#94A3B8" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="9.5">청동 녹청</text>
-    </g>
-    <g transform="translate(955, 78)">
-      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
-      <rect x="6" y="6" width="74" height="28" rx="3" fill="#C89B54" stroke="#334155" stroke-width="0.8"/>
-      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10" font-weight="700">#C89B54</text>
-      <text x="8" y="65" fill="#94A3B8" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="9.5">나트륨 앰버</text>
-    </g>
-    <g transform="translate(1048, 78)">
-      <rect x="0" y="0" width="86" height="74" rx="5" fill="#0B111A" stroke="#243347" stroke-width="1"/>
-      <rect x="6" y="6" width="74" height="28" rx="3" fill="#9E2A2B" stroke="#334155" stroke-width="0.8"/>
-      <text x="8" y="49" fill="#F8FAFC" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10" font-weight="700">#9E2A2B</text>
-      <text x="8" y="65" fill="#94A3B8" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="9.5">봉랍 카마인</text>
-    </g>
-    <g transform="translate(1141, 78)">
-      <rect x="0" y="0" width="86" height="74" rx="5" fill="#160D1C" stroke="#D8564A" stroke-width="1.1"/>
-      <rect x="6" y="6" width="74" height="28" rx="3" fill="#7567F5" fill-opacity="0.35" stroke="#D8564A" stroke-width="1"/>
-      <line x1="8" y1="32" x2="78" y2="8" stroke="#EF4444" stroke-width="2"/>
-      <text x="8" y="49" fill="#FCA5A5" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10" font-weight="700">#7567F5</text>
-      <text x="8" y="65" fill="#F87171" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="9.5" font-weight="700">사용 금지</text>
-    </g>
+  <!-- Left Panel: 60 Hz Timing Chart -->
+  <rect x="36" y="104" width="554" height="332" fill="#FAF7F0" stroke="#B5A690" stroke-width="1.4"/>
+  <text x="48" y="128" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#17565E">패널 A — 60 HZ 포렌식 기구 프레임 타이밍 차트 (1 TICK = 16.6667 MS)</text>
+  <line x1="48" y1="138" x2="578" y2="138" stroke="#D5CBB8" stroke-width="1"/>
+  <g transform="translate(46, 152)"><text x="0" y="15" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12" font-weight="700" fill="#151412">Lantern Shutter</text><rect x="165" y="0" width="55" height="24" fill="#DFD6C5" stroke="#8C8272" stroke-width="1"/><text x="192.5" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#2C2925">6t</text><rect x="220" y="0" width="165" height="24" fill="#17565E"/><text x="302.5" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#FAF6EE">Toggle Optical Cut (Ticks 7..)</text><rect x="385" y="0" width="130" height="24" fill="#EAE2D3" stroke="#8C8272" stroke-width="1"/><text x="450.0" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#4A433B">Recovery 6t (0 Oil)</text></g><g transform="translate(46, 210)"><text x="0" y="15" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12" font-weight="700" fill="#151412">Brass Loupe Focus</text><rect x="165" y="0" width="75" height="24" fill="#DFD6C5" stroke="#8C8272" stroke-width="1"/><text x="202.5" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#2C2925">9t</text><rect x="240" y="0" width="195" height="24" fill="#8C6239"/><text x="337.5" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#FAF6EE">Refraction Decode (Ticks 10..69)</text><rect x="435" y="0" width="80" height="24" fill="#EAE2D3" stroke="#8C8272" stroke-width="1"/><text x="475.0" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#4A433B">Recovery 6t (Total 75t)</text></g><g transform="translate(46, 268)"><text x="0" y="15" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12" font-weight="700" fill="#151412">Phonograph Cancel</text><rect x="165" y="0" width="95" height="24" fill="#DFD6C5" stroke="#8C8272" stroke-width="1"/><text x="212.5" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#2C2925">24t</text><rect x="260" y="0" width="190" height="24" fill="#26685E"/><text x="355.0" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#FAF6EE">Anti-Phase Acoustic Mask (Ticks 25..114)</text><rect x="450" y="0" width="65" height="24" fill="#EAE2D3" stroke="#8C8272" stroke-width="1"/><text x="482.5" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#4A433B">Rec 36t</text></g><g transform="translate(46, 326)"><text x="0" y="15" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12" font-weight="700" fill="#151412">Ferrotype UV Flash</text><rect x="165" y="0" width="80" height="24" fill="#DFD6C5" stroke="#8C8272" stroke-width="1"/><text x="205.0" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#2C2925">18t</text><rect x="245" y="0" width="140" height="24" fill="#8E2422"/><text x="315.0" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#FAF6EE">UV Stun (Ticks 19..24 · 102t Stun)</text><rect x="385" y="0" width="130" height="24" fill="#EAE2D3" stroke="#8C8272" stroke-width="1"/><text x="450.0" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#4A433B">Cool 66t</text></g><g transform="translate(46, 384)"><text x="0" y="15" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="12" font-weight="700" fill="#151412">Smelling Salts</text><rect x="165" y="0" width="75" height="24" fill="#DFD6C5" stroke="#8C8272" stroke-width="1"/><text x="202.5" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#2C2925">15t</text><rect x="240" y="0" width="225" height="24" fill="#5C4033"/><text x="352.5" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#FAF6EE">Active Ticks 16..45 (+40 Composure / -25 Exposure)</text><rect x="465" y="0" width="50" height="24" fill="#EAE2D3" stroke="#8C8272" stroke-width="1"/><text x="490.0" y="16" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" fill="#4A433B">10t</text></g>
 
-  <!-- Right Bottom Panel: Architecture & Boss Telemetry Cards -->
-  <rect x="662" y="172" width="570" height="130" rx="7" fill="#0F1723" stroke="#223144" stroke-width="1.1"/>
-  <text x="676" y="188" fill="#8A99AD" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="10" font-weight="700" letter-spacing="0.6">5개 납골당 병동 · 6노드 추리 보드 · 보스 공명 텔레메트리</text>
-  
-    <g transform="translate(676, 194)">
-      <rect x="0" y="0" width="178" height="98" rx="6" fill="#0B111A" stroke="#243347" stroke-width="1.1"/>
-      <rect x="0" y="0" width="3.5" height="98" rx="1.5" fill="#4FA89B"/>
-      <text x="12" y="21" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5" font-weight="700">5개 병동 · 10비트</text>
-      <text x="12" y="42" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="11.5" font-weight="700">해안 성골당 루트</text>
-      <text x="12" y="63" fill="#CBD5E1" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="10">방파제 -&gt; 굴절 회랑 -&gt; 지하</text>
-      <text x="12" y="83" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9">Beat 10: 공개 vs 영구 수몰</text>
-    </g>
-    <g transform="translate(864, 194)">
-      <rect x="0" y="0" width="178" height="98" rx="6" fill="#0B111A" stroke="#243347" stroke-width="1.1"/>
-      <rect x="0" y="0" width="3.5" height="98" rx="1.5" fill="#4FA89B"/>
-      <text x="12" y="21" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5" font-weight="700">6종 단서 · 3대 가설</text>
-      <text x="12" y="42" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="11.5" font-weight="700">추리 보드 DAG</text>
-      <text x="12" y="63" fill="#CBD5E1" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="10">lens_sabotage · quarantine</text>
-      <text x="12" y="83" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9">acoustic_calling 가설 분기</text>
-    </g>
-    <g transform="translate(1052, 194)">
-      <rect x="0" y="0" width="178" height="98" rx="6" fill="#0B111A" stroke="#243347" stroke-width="1.1"/>
-      <rect x="0" y="0" width="3.5" height="98" rx="1.5" fill="#4FA89B"/>
-      <text x="12" y="21" fill="#4FA89B" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9.5" font-weight="700">BEAT 09 보스 게이트</text>
-      <text x="12" y="42" fill="#F8FAFC" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="11.5" font-weight="700">유리 속의 성가대</text>
-      <text x="12" y="63" fill="#CBD5E1" font-family="'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="10">무결성 600 -&gt; 300 2페이즈</text>
-      <text x="12" y="83" fill="#94A3B8" font-family="'JetBrains Mono', Consolas, 'Pretendard', 'Malgun Gothic', monospace" font-size="9">위상 상쇄 + UV 섬광 균열 노출</text>
-    </g>
+  <!-- Upper-Right Panel: Palette Swatches -->
+  <rect x="604" y="104" width="556" height="140" fill="#FAF7F0" stroke="#B5A690" stroke-width="1.4"/>
+  <text x="618" y="128" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#8E2422">패널 B — 골유리 색상 토큰 &amp; 금지 색상(#7567F5) 가드레일</text>
+  <line x1="618" y1="138" x2="1146" y2="138" stroke="#D5CBB8" stroke-width="1"/>
+  <g transform="translate(618, 152)"><rect width="78" height="44" fill="#070B0E" stroke="#8C8272" stroke-width="1.2"/><text x="39" y="60" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#151412">#070B0E</text><text x="39" y="74" text-anchor="middle" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="10" fill="#5C554C">Abyssal</text></g><g transform="translate(706, 152)"><rect width="78" height="44" fill="#111A21" stroke="#8C8272" stroke-width="1.2"/><text x="39" y="60" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#151412">#111A21</text><text x="39" y="74" text-anchor="middle" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="10" fill="#5C554C">Storm Slate</text></g><g transform="translate(794, 152)"><rect width="78" height="44" fill="#38C6D9" stroke="#8C8272" stroke-width="1.2"/><text x="39" y="60" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#151412">#38C6D9</text><text x="39" y="74" text-anchor="middle" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="10" fill="#5C554C">Bone-Glass</text></g><g transform="translate(882, 152)"><rect width="78" height="44" fill="#C89B54" stroke="#8C8272" stroke-width="1.2"/><text x="39" y="60" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#151412">#C89B54</text><text x="39" y="74" text-anchor="middle" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="10" fill="#5C554C">Brass Loupe</text></g><g transform="translate(970, 152)"><rect width="78" height="44" fill="#9E3B33" stroke="#8C8272" stroke-width="1.2"/><text x="39" y="60" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#151412">#9E3B33</text><text x="39" y="74" text-anchor="middle" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="10" fill="#5C554C">Crimson Wax</text></g><g transform="translate(1062, 152)"><rect width="84" height="44" fill="#7567F5" stroke="#B83227" stroke-width="2"/><line x1="0" y1="0" x2="84" y2="44" stroke="#B83227" stroke-width="3"/><line x1="84" y1="0" x2="0" y2="44" stroke="#B83227" stroke-width="3"/><text x="42" y="60" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#B83227">#7567F5</text><text x="42" y="74" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10" font-weight="700" fill="#B83227">BANNED</text></g>
+
+  <!-- Lower-Right Panel: Boss & Build-Defining Choice -->
+  <rect x="604" y="258" width="556" height="178" fill="#FAF7F0" stroke="#B5A690" stroke-width="1.4"/>
+  <rect x="604" y="258" width="7" height="178" fill="#17565E"/>
+  <text x="622" y="282" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#17565E">패널 C — 6노드 심문 보드 가설 분기 &amp; 보스 공명 무결성 게이트</text>
+  <line x1="622" y1="292" x2="1146" y2="292" stroke="#D5CBB8" stroke-width="1"/>
+  <text x="622" y="318" font-family="'Segoe UI', -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans', 'Yu Gothic', 'Malgun Gothic', sans-serif" font-size="13" font-weight="700" fill="#151412">보스: 유리 속의 성가대 The Choir in the Glass (600 공명 무결성 · 300에서 2페이즈 분열)</text>
+  <text x="622" y="346" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" fill="#2C2925">3대 가설: [lens_sabotage: 루페+35%/기절+30t] · [tidal_quarantine: 노출-30%/기름+25%] · [acoustic_calling: 축음기+24t/보스+20%]</text>
+  <rect x="622" y="362" width="520" height="22" fill="#EAE1D0" stroke="#B5A690" stroke-width="1"/>
+  <rect x="622" y="362" width="270" height="22" fill="#17565E"/>
+  <text x="757" y="377" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#FAF6EE">PHASE 1 (100% .. THRESHOLD)</text>
+  <text x="1007" y="377" text-anchor="middle" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="10.5" font-weight="700" fill="#8E2422">PHASE 2 (SPLIT / ENRAGE)</text>
+  <text x="622" y="414" font-family="'Consolas', 'JetBrains Mono', 'SFMono-Regular', 'Courier New', monospace" font-size="11.5" font-weight="700" fill="#8E2422">평결 분기: VERDICT_PUBLISH (심문 기록 공개)  vs  VERDICT_SUBMERGE (납골당 영구 수몰)</text>
 </svg>

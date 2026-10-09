@@ -2,25 +2,13 @@
 
 # 『硝子の納骨堂』（The Glass Ossuary）：ミステリーホラー開発仕様・設計ガイド
 
-<div align="center">
+| **MONOGRAPH EDITIONS** | [**English**](THE_GLASS_OSSUARY_GUIDE.md) | [**简体中文**](THE_GLASS_OSSUARY_GUIDE.zh-CN.md) | [**日本語**](THE_GLASS_OSSUARY_GUIDE.ja.md) | [**한국어**](THE_GLASS_OSSUARY_GUIDE.ko.md) |
+| :--- | :---: | :---: | :---: | :---: |
+| **VOLUME COLOPHON** | `第三巻 · 36頁 · ゲーム 02：一人称調査ミステリーホラー『硝子の納骨堂』 · SEED 1894` | [Normative PDF](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf) | [Master Folio](../README.ja.md) | `Three.js r185 · Zero External Assets` |
 
-[![English](https://img.shields.io/badge/Language-English-4FA89B?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.md)
-[![Simplified Chinese](https://img.shields.io/badge/语言-简体中文-C89B54?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.zh-CN.md)
-[![Japanese](https://img.shields.io/badge/言語-日本語-B8423A?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.ja.md)
-[![Korean](https://img.shields.io/badge/언어-한국어-4FA89B?style=for-the-badge)](THE_GLASS_OSSUARY_GUIDE.ko.md)
-
-[![スイート総覧へ戻る](https://img.shields.io/badge/←_スイート総覧-README.ja-16202A?style=flat-square&borderColor=4FA89B)](../README.ja.md)
-[![ジャンル](https://img.shields.io/badge/ジャンル-一人称調査型ミステリーホラー-4FA89B?style=flat-square)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
-[![仕様書頁数](https://img.shields.io/badge/仕様書-全36頁_PDF-C89B54?style=flat-square)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
-[![ゴールデン検証](https://img.shields.io/badge/検証Fixture-examples%2Frun--0002-3DBE8B?style=flat-square)](../examples/run-0002/run-manifest.json)
-
-| 仕様書カバー（全36頁） | 現場鑑識コンセプト（`Refraction Gallery`） | ボス戦コンセプト（`The Choir in the Glass`） |
-| :---: | :---: | :---: |
-| <a href="../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf"><img src="../assets/the-glass-ossuary-cover.jpg" width="210" alt="『硝子の納骨堂』v1.0 カバー" /></a> | <img src="../assets/glass-ossuary-investigation-hero.jpg" width="340" alt="『硝子の納骨堂』の屈折回廊で現場鑑識を行うClara Vane" /> | <img src="../assets/glass-ossuary-apparition-hero.jpg" width="340" alt="『硝子の納骨堂』最深部で顕現する二段階ボス「硝子の中の聖歌隊」" /> |
-
-*本画像群は仕様書向けのコンセプトアートであり、実機プレイ画面や実装完了を示す証跡ではありません。*
-
-</div>
+| 第三巻モノグラフ表紙 (36頁) | 図版 III-1：サン＝ヴェーヌ岩礁と屈折回廊 | 図版 III-2：灯台守の剥離室と1894年鑑識作業台 | 図版 III-3：硝子の聖歌隊 2段階ボス戦 (600 Int.) |
+| :---: | :---: | :---: | :---: |
+| [![第三巻モノグラフ表紙 (36頁)](../assets/the-glass-ossuary-cover.jpg)](../publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf) | ![図版 III-1：サン＝ヴェーヌ岩礁と屈折回廊](../assets/glass-ossuary-investigation-hero.jpg) | ![図版 III-2：灯台守の剥離室と1894年鑑識作業台](../assets/glass-ossuary-inquest-hero.jpg) | ![図版 III-3：硝子の聖歌隊 2段階ボス戦 (600 Int.)](../assets/glass-ossuary-apparition-hero.jpg) |
 
 > **ガイドの位置づけ**
 >
