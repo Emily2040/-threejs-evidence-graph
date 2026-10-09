@@ -23,7 +23,7 @@ The publication fixes the product before implementation begins:
 - one two-phase boss and two ending outcomes;
 - one local save slot with checkpoint, death, recovery, victory, and return-to-hub behavior.
 
-The goal is depth within a narrow route. Open-world expansion, crafting, shops, random loot, companions, multiplayer, mounts, character creation, and additional bosses are deliberately deferred.
+The goal is depth within a narrow route. Open-world expansion, crafting, shops, random loot, companions, multiplayer, mounts, character creation, and additional bosses are deferred by design.
 
 ## World and player fantasy
 
@@ -202,7 +202,7 @@ This publication describes the target and the control system. The repository doe
 - the deterministic replay and capture harness;
 - generated source assets and runtime code;
 - measured performance results;
-- an accepted `run-0001` evidence package;
+- a live runtime `run-0001` evidence package captured from a playable build (`examples/run-0001/` ships schema-validated golden contract fixtures);
 - a documented repair and verified rollback;
 - a release candidate that passes the declared gates.
 
@@ -236,3 +236,4 @@ identity and attribution record.
 - **Normative JSON Schemas & TypeScript State**: [`schemas/task-packet.schema.json`](../schemas/task-packet.schema.json), [`schemas/defect-record.schema.json`](../schemas/defect-record.schema.json), [`schemas/run-manifest.schema.json`](../schemas/run-manifest.schema.json), [`schemas/graph-state.d.ts`](../schemas/graph-state.d.ts)
 - **Standalone Copy-Paste Prompts**: [`prompts/hollow-meridian/orchestrator.md`](../prompts/hollow-meridian/orchestrator.md) and [`prompts/hollow-meridian/agents/`](../prompts/hollow-meridian/agents/)
 - **Golden Reference Fixtures**: [`examples/run-0001/`](../examples/run-0001/)
+- **Sibling Genre Vertical Slice Guides**: [docs/THE_GLASS_OSSUARY_GUIDE.md](THE_GLASS_OSSUARY_GUIDE.md) (*The Glass Ossuary v1.0*) and [docs/PERIHELION_BREACH_GUIDE.md](PERIHELION_BREACH_GUIDE.md) (*Perihelion Breach v1.0*)

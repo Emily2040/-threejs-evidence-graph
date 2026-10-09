@@ -72,3 +72,7 @@ Instead of allowing an LLM conversation to act as builder, reviewer, and release
   - [`examples/run-0001/run-manifest.json`](../examples/run-0001/run-manifest.json)
 - **Technical Errata & Cross-Edition Alignment**:
   - [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)
+- **Three Genre Vertical Slice Companion Guides**:
+  - [docs/THE_HOLLOW_MERIDIAN_GUIDE.md](THE_HOLLOW_MERIDIAN_GUIDE.md) (*The Hollow Meridian v1.0* - Action RPG, 81 pages, examples/run-0001/)
+  - [docs/THE_GLASS_OSSUARY_GUIDE.md](THE_GLASS_OSSUARY_GUIDE.md) (*The Glass Ossuary v1.0* - Mystery Horror, 36 pages, examples/run-0002/)
+  - [docs/PERIHELION_BREACH_GUIDE.md](PERIHELION_BREACH_GUIDE.md) (*Perihelion Breach v1.0* - FPS Adventure, 36 pages, examples/run-0003/)

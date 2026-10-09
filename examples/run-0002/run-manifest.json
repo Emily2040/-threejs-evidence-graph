@@ -1,0 +1,78 @@
+{
+  "$schema": "../../schemas/run-manifest.schema.json",
+  "run_id": "run-0002",
+  "git_commit": "f3d8cf3",
+  "three_version": "0.185.0",
+  "determinism_regime": "A-PinnedBrowser",
+  "backend": "webgpu",
+  "seed": 1894,
+  "viewport": {
+    "width": 1920,
+    "height": 1080,
+    "device_pixel_ratio": 1.0
+  },
+  "device_tier": "tier-1-discrete-gpu",
+  "scenarios": [
+    {
+      "scenario_id": "rep-07a-inquest-lens-sabotage",
+      "relic_branch": "lens_sabotage",
+      "seed": 1894,
+      "state_hash": "sha256:81a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f81",
+      "audio_hash": "sha256:33c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2",
+      "geometry_hash": "sha256:55e6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4",
+      "passed": true
+    },
+    {
+      "scenario_id": "rep-07b-inquest-tidal-quarantine",
+      "relic_branch": "tidal_quarantine",
+      "seed": 1894,
+      "state_hash": "sha256:92b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8092",
+      "audio_hash": "sha256:33c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2",
+      "geometry_hash": "sha256:55e6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4",
+      "passed": true
+    },
+    {
+      "scenario_id": "rep-07c-inquest-acoustic-calling",
+      "relic_branch": "acoustic_calling",
+      "seed": 1894,
+      "state_hash": "sha256:a3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a3",
+      "audio_hash": "sha256:33c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2",
+      "geometry_hash": "sha256:55e6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4",
+      "passed": true
+    }
+  ],
+  "metrics": {
+    "frame_time_p50_ms": 7.9,
+    "frame_time_p95_ms": 13.6,
+    "frame_time_p99_ms": 17.4,
+    "max_draw_calls": 212,
+    "max_triangles": 348200,
+    "gpu_memory_mb": 284.0,
+    "integrated_lufs": -16.1,
+    "true_peak_dbtp": -1.3
+  },
+  "critic_verdicts": {
+    "visual_critic": "pass",
+    "audio_critic": "pass",
+    "gameplay_critic": "pass",
+    "provenance_critic": "pass"
+  },
+  "human_signoff": {
+    "authority": "Emily Paradox (@iamemily2050)",
+    "status": "approved",
+    "signed_at": "2026-07-28T12:00:00Z",
+    "notes": "Golden reference fixture for The Glass Ossuary v1.0 validating all 3 Inquest Board deduction branches (Lens Sabotage, Tidal Quarantine, Acoustic Calling)."
+  },
+  "cost_ledger": {
+    "total_tokens": 342800,
+    "wall_clock_seconds": 1020,
+    "subagent_invocations": 8,
+    "repair_cycles": 1
+  },
+  "provenance": {
+    "external_network_requests": 0,
+    "downloaded_assets_count": 0,
+    "procedural_generators_verified": true
+  },
+  "verdict": "accepted"
+}

@@ -1,87 +1,47 @@
-# Translation Policy
+# Native Multilingual Documentation & Translation Policy
 
-## Normative language
+## Normative Language & Native Four-Language Architecture
 
-English is the normative language for this repository and its two PDF publications.
+English is the normative language for the four PDF specifications (`217` pages total), JSON Schema Draft 2020-12 contracts (`schemas/`), TypeScript state interfaces, and copy-pasteable agent prompts (`prompts/`).
 
-The Simplified Chinese, Japanese, and Korean README files translate the explanatory publication guide. Each language also has an expanded *Three.js Evidence Graph v2.0* companion guide and an expanded *The Hollow Meridian* companion guide that explain the control graph, determinism regimes, world premise, authored route, player loop, combat, puzzle, relic, save, boss, procedural-media, accessibility, and evidence contracts.
+Alongside the English specifications, this repository provides **native-authored documentation suites in four languages** - **English (`en`)**, **Simplified Chinese (`zh-CN`)**, **Japanese (`ja`)**, and **Korean (`ko`)** - across the main repository READMEs (`README*.md`) and all four publication companion guides (`docs/*_GUIDE*.md`). Rather than mechanical sentence-by-sentence translation (`翻译腔` / `直訳調` / `번역투`), each language edition is written in authentic, domain-native game-engine and graphics-engineering prose while keeping every code identifier, schema key, tick window, and CLI command identical.
 
-These localized guides do not replace the English PDFs and are not full translations of all 145 PDF pages.
+## Localized Surfaces (`2026.07.5`)
 
-## Localized surfaces
+| Surface | English (`en`) | Simplified Chinese (`zh-CN`) | Japanese (`ja`) | Korean (`ko`) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Repository Suite Overview (`README*.md`)** | [`README.md`](../README.md) | [`README.zh-CN.md`](../README.zh-CN.md) | [`README.ja.md`](../README.ja.md) | [`README.ko.md`](../README.ko.md) |
+| **Custom Typographic SVG Masthead (`assets/svg/masthead-*.svg`)** | [`masthead-en.svg`](../assets/svg/masthead-en.svg) | [`masthead-zh-CN.svg`](../assets/svg/masthead-zh-CN.svg) | [`masthead-ja.svg`](../assets/svg/masthead-ja.svg) | [`masthead-ko.svg`](../assets/svg/masthead-ko.svg) |
+| **Pub 01 Guide: Evidence Graph v2.0 (`docs/EVIDENCE_GRAPH_GUIDE*.md`)** | [EN](EVIDENCE_GRAPH_GUIDE.md) | [中文](EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [日本語](EVIDENCE_GRAPH_GUIDE.ja.md) | [한국어](EVIDENCE_GRAPH_GUIDE.ko.md) |
+| **Pub 02 Guide: The Hollow Meridian (`docs/THE_HOLLOW_MERIDIAN_GUIDE*.md`)** | [EN](THE_HOLLOW_MERIDIAN_GUIDE.md) | [中文](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](THE_HOLLOW_MERIDIAN_GUIDE.ko.md) |
+| **Pub 03 Guide: The Glass Ossuary (`docs/THE_GLASS_OSSUARY_GUIDE*.md`)** | [EN](THE_GLASS_OSSUARY_GUIDE.md) | [中文](THE_GLASS_OSSUARY_GUIDE.zh-CN.md) | [日本語](THE_GLASS_OSSUARY_GUIDE.ja.md) | [한국어](THE_GLASS_OSSUARY_GUIDE.ko.md) |
+| **Pub 04 Guide: Perihelion Breach (`docs/PERIHELION_BREACH_GUIDE*.md`)** | [EN](PERIHELION_BREACH_GUIDE.md) | [中文](PERIHELION_BREACH_GUIDE.zh-CN.md) | [日本語](PERIHELION_BREACH_GUIDE.ja.md) | [한국어](PERIHELION_BREACH_GUIDE.ko.md) |
+| **Multilingual Technical Glossary (`docs/GLOSSARY.md`)** | Yes | Yes | Yes | Yes |
+| **Normative PDFs (`publications/*.pdf`, 217 pages total)** | Yes (4 PDFs) | Companion Guides | Companion Guides | Companion Guides |
 
-| Surface | English | Simplified Chinese | Japanese | Korean |
-|---|---:|---:|---:|---:|
-| Repository publication guide (`README*.md`) | Yes | Yes | Yes | Yes |
-| Expanded Evidence Graph v2.0 companion guide (`docs/EVIDENCE_GRAPH_GUIDE*.md`) | Yes | Yes | Yes | Yes |
-| Expanded Hollow Meridian game guide (`docs/THE_HOLLOW_MERIDIAN_GUIDE*.md`) | Yes | Yes | Yes | Yes |
-| Technical glossary (`docs/GLOSSARY.md`) | Yes | Yes | Yes | Yes |
-| Technical errata and v2.0 alignment (`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`) | Yes | No | No | No |
-| Evidence Graph PDF (64 pages) | Yes | No | No | No |
-| Hollow Meridian PDF (81 pages) | Yes | No | No | No |
+All localized Markdown files carry a machine-checked provenance header (`<!-- source_version: 2026.07.5; translation_status: reviewed; language: ... -->`) verified by `python scripts/verify_release.py`.
 
-The localized Markdown files carry a provenance header (`<!-- source_version: 2026.07.4; translation_status: reviewed; language: ... -->`) verified by `python scripts/verify_release.py` for section parity, link resolution, and glossary adherence.
+## Content Retained in Canonical English Across All Editions
 
-## Content that remains in English
+To guarantee zero ambiguity when developers or LLM agents cross-reference localized guides against the schemas and prompts, the following items remain in canonical English across all four languages:
 
-The following items remain unchanged in every language:
+- filenames, directory paths, and URLs;
+- CLI commands (`npm run verify:all`, `python scripts/verify_release.py`, `sha256sum -c SHA256SUMS.txt`);
+- JSON Schema property names and enum values (`A-PinnedBrowser`, `B-CrossPlatform`, `brass_vow`, `ash_thread`, `vacant_name`, `lens_sabotage`, `tidal_quarantine`, `acoustic_calling`, `recoil_gyro`, `thermal_siphon`, `grapple_overdrive`);
+- 15-node graph identifiers (`N00_BRIEF` through `N14_RELEASE_CANDIDATE`);
+- defect identifiers (`RPG-N06A-COMBAT-014`, `HOR-N06A-AUDIO-008`, `FPS-N06A-COMBAT-019`);
+- browser QA globals (`window.__rpgQA`, `window.__horrorQA`, `window.__fpsQA`);
+- canonical English game, zone, beat, and enemy identifiers on first reference.
 
-- publication titles;
-- game proper nouns;
-- filenames and paths;
-- commands and code;
-- schema keys and enum values;
-- graph-node identifiers;
-- gate and defect identifiers;
-- API and product names;
-- URLs and citation metadata.
+## Quality & Native Readability Checklist
 
-Localized explanations may follow a canonical term when needed.
+Every localized document is verified against eight criteria:
 
-For game-specific explanations, introduce a canonical term once and then use the most natural local expression consistently. Do not translate away filenames, identifiers, diagnostic commands, or values that readers must locate in the English PDF or repository schemas.
-
-## Translation priorities
-
-Translations should preserve:
-
-1. the difference between a specification and a completed implementation;
-2. the difference between target budgets and measured results;
-3. the difference between bit-exact evidence and tolerance-based evidence;
-4. the authority separation between builders, critics, auditors, and the human director;
-5. the compatibility bridge between Evidence Graph v2.0 and Hollow Meridian v1.0;
-6. the precise scope of the no-downloaded-assets rule;
-7. all limitations and non-goals.
-
-Expanded game-guide translations should also preserve:
-
-8. the ten-beat authored route and its canonical English beat identifiers;
-9. the difference between procedural construction and authored dramatic structure;
-10. the combat lessons assigned to each enemy;
-11. the two-phase boss transition and its fairness constraints;
-12. the difference between a meaningful relic choice and feature-volume progression;
-13. the save-state boundary between persistent decisions and transient presentation;
-14. the distinction between concept artwork and captured gameplay evidence.
-
-## Language review checklist
-
-Reviewers should check:
-
-1. natural terminology for professional game-development readers;
-2. consistent treatment of canonical English proper nouns;
-3. preserved quantities, timings, version numbers, and exclusions;
-4. explicit non-implementation and non-benchmark caveats;
-5. image captions that identify concept artwork without presenting it as a screenshot;
-6. links between the four language editions;
-7. parity of headings, tables, warnings, and practical-use steps;
-8. no accidental broadening of scope or quality claims.
-
-## Resolving discrepancies
-
-If a translation conflicts with the English edition:
-
-1. treat the English edition as authoritative;
-2. identify the affected heading and sentence;
-3. propose a corrected translation without changing canonical identifiers;
-4. record terminology changes consistently across the full language edition.
-
-Use the [multilingual technical glossary](GLOSSARY.md) when reviewing terminology.
+1. **Native domain register**: Uses authentic terminology expected by Chinese (`前摇/后摇/帧数表/削韧/受击硬直`), Japanese (`発生・持続・硬直フレーム/ジャストパリィ/強靭削り/逆位相消音`), and Korean (`선딜레이/후딜레이/무적 틱/강인도/역위상 상쇄`) game engineers.
+2. **Script purity**: Zero Simplified Chinese characters (`遗`, `设`, etc.) leaking into Japanese `.ja.md` files.
+3. **Numeric & hash parity**: Every frame count, tick window, HP/Poise value, draw-call budget, page count (`217` total: `64 + 81 + 36 + 36`), and SHA-256 prefix matches the English source.
+4. **Epistemic honesty**: Preserves explicit statements that this repository ships specifications, schemas, prompts, and golden contract fixtures, not a finished runtime build or benchmark run.
+5. **Concept-artwork labeling**: Captions clearly state that cover and hero plates are concept artwork, not runtime screenshots.
+6. **Cross-language navigation**: Every README and companion guide links directly to all four language editions and all four publications.
+7. **Glossary alignment**: Adheres to [`docs/GLOSSARY.md`](GLOSSARY.md).
+8. **Automated verification**: Passes `python scripts/verify_release.py` with zero broken links or unreviewed headers.

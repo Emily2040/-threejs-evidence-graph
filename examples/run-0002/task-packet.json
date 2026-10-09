@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/task-packet.schema.json",
+  "packet_id": "TP-0002-N06A-FORENSICS",
+  "run_id": "run-0002",
+  "node": "N06A_GAMEPLAY_COMBAT",
+  "owner_agent": "combat_gameplay",
+  "goal": "Implement deterministic 60 Hz investigative horror state machine for Clara Vane (Composure, Lantern Oil, Exposure), diegetic instruments (Brass Loupe, Wax-Cylinder Phonograph, Silver-Salt Ferrotype Plate), apparitions (Mire Listener, Glass Septum Watcher, Drowned Chorister), and two-phase acoustic boss The Choir in the Glass.",
+  "allowed_paths": [
+    "src/forensics/",
+    "src/apparitions/",
+    "tests/replay/"
+  ],
+  "forbidden_paths": [
+    "src/render/",
+    "src/audio/",
+    "schemas/",
+    "orchestration/"
+  ],
+  "inputs": [
+    "docs/THE_GLASS_OSSUARY_GUIDE.md",
+    "schemas/task-packet.schema.json"
+  ],
+  "required_outputs": [
+    "src/forensics/instrument-state-machine.ts",
+    "evidence/run-0002/forensic-replay-summary.json"
+  ],
+  "acceptance_commands": [
+    "npm run test:unit -- forensics",
+    "npm run test:replay -- --seed=1894 --scenario=rep-07"
+  ],
+  "critic_gates": [
+    "gameplay_critic",
+    "visual_critic"
+  ],
+  "max_repair_iterations": 3,
+  "budget": {
+    "max_wall_clock_minutes": 25,
+    "max_subagent_calls": 4,
+    "max_tokens": 120000
+  },
+  "domain_parameters": {
+    "fixed_tick_hz": 60,
+    "ferrotype_flash_active_window_ticks": [
+      19,
+      24
+    ],
+    "phonograph_cancel_window_ticks": [
+      25,
+      114
+    ],
+    "inquest_hypothesis_branches": [
+      "lens_sabotage",
+      "tidal_quarantine",
+      "acoustic_calling"
+    ],
+    "boss_id": "the_choir_in_the_glass"
+  }
+}

@@ -1,284 +1,244 @@
-# Three.js Evidence Graph
-<!-- source_version: 2026.07.4; translation_status: reviewed; language: ko -->
+<!-- source_version: 2026.07.5; translation_status: reviewed; language: ko -->
 
-소스만으로 생성되는 Three.js 버티컬 슬라이스를 위한 증거 기반 멀티 에이전트 제작 체계이며, *The Hollow Meridian*을 RPG 적용 명세로 제시합니다.
+# Three.js 에비던스 그래프 & 멀티 장르 무에셋 게임 프로덕션 스위트
 
-[English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
+<div align="center">
 
-![추상 증거 그래프가 자오선 기하와 설계된 게임 경로로 수렴하는 장면](assets/readme-hero.jpg)
+[![Native English](https://img.shields.io/badge/Edition-Native_English-D49B4B?style=for-the-badge)](README.md)
+[![简体中文](https://img.shields.io/badge/语言-简体中文_(原生母语版)-45B29D?style=for-the-badge)](README.zh-CN.md)
+[![日本語](https://img.shields.io/badge/言語-日本語_(ネイティブ版)-38C6D9?style=for-the-badge)](README.ja.md)
+[![한국어](https://img.shields.io/badge/언어-한국어_(네이티브판)-C89B54?style=for-the-badge)](README.ko.md)
 
-> **출판 상태**
+[![Release 2026.07.5](https://img.shields.io/badge/릴리스-2026.07.5-0F1722?style=flat-square&logo=github)](RELEASE_NOTES.md)
+[![Three.js r185](https://img.shields.io/badge/Three.js-r185_(0.185.0)-45B29D?style=flat-square)](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)
+[![Publications 4 PDFs / 217 Pages](https://img.shields.io/badge/출판물-총4권_·_217쪽-D49B4B?style=flat-square)](docs/PUBLICATION_STATUS.md)
+[![JSON Schema Draft 2020-12](https://img.shields.io/badge/스키마-Draft_2020--12-38C6D9?style=flat-square)](schemas/)
+[![License MIT](https://img.shields.io/badge/라이선스-MIT-CBD5E1?style=flat-square)](LICENSE)
+
+</div>
+
+![Three.js 에비던스 그래프 & 멀티 장르 프로덕션 스위트 마스트헤드](assets/svg/masthead-ko.svg)
+
+> **저장소 핵심 개요**
 >
-> 이 저장소에는 두 개의 설계 명세와 제작 프롬프트가 들어 있습니다. 플레이 가능한 게임 빌드, 완성된 참조 구현, 벤치마크 결과, 전체 증거 실행 결과는 포함되어 있지 않습니다. 출판물의 성능 차트와 예산은 측정 데이터라고 명시된 경우를 제외하면 목표치입니다.
-
-## 출판물 구성
-
-| 출판물 | 역할 | 판 | 다운로드 |
-|---|---|---:|---|
-| **Three.js Evidence Graph** | 에이전트가 구축하는 브라우저 버티컬 슬라이스를 통제, 테스트, 수정, 릴리스하기 위한 범용 운영 방법 | v2.0, 64페이지 | [PDF 읽기](publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf) |
-| **The Hollow Meridian** | 절차적으로 생성되는 3인칭 액션 RPG를 위한 게임별 제품 계약 및 멀티 에이전트 제작 프롬프트 | v1.0, 81페이지 | [PDF 읽기](publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) |
-
-![Three.js Evidence Graph와 The Hollow Meridian 표지](assets/publication-set.jpg)
-
-첫 번째 문서는 제작상의 결정이 증거로 뒷받침되는 상태 전이로 바뀌는 방식을 정의합니다. 두 번째 문서는 하나의 야심 찬 RPG 슬라이스에 무엇이 포함되어야 하는지를 정의합니다. 두 문서는 동일한 Evidence Graph 계보를 공유하지만 버전이 완전히 일치하지는 않습니다. *The Hollow Meridian*은 프레임워크의 핵심 개념을 설계 명세에 다수 반영하지만, 몇몇 v2 보호 장치보다 먼저 작성되었습니다.
-
-## 이 작업이 존재하는 이유
-
-대규모 게임 생성 프롬프트는 흔히 제품 방향, 아키텍처, 구현, 품질 판단, 수정, 릴리스 권한을 하나의 대화 안에 결합합니다. 그 결과 익숙한 실패 양상이 나타납니다. 시스템이 방대한 코드를 작성한 뒤, 독립적인 증거를 만들지 않은 채 자기 작업이 성공했다고 설명할 수 있습니다.
-
-이 출판물은 다른 제어 모델을 제안합니다.
-
-```mermaid
-flowchart TD
-    A["제품 계약"] --> B["범위가 제한된 전문 작업"]
-    B --> C["독립적인 증거 수집"]
-    C --> D["기계적 게이트와 보정된 검토"]
-    D --> E["승인, 수정, 분기 또는 롤백"]
-    E --> F["증거 기반 릴리스 결정"]
-```
-
-프롬프트는 제어 계층을 위한 인터페이스이지, 제어 계층 자체가 아닙니다. 저장소 상태, 형식화된 작업 패킷, 결정론적 검사, 증거 매니페스트, 예산, 릴리스 조건이 대화만으로는 안전하게 유지할 수 없는 권한을 담당합니다.
-
-## Three.js Evidence Graph 개요
-
-![제품 계약이 범위가 제한된 작업, 증거 수집, 릴리스 게이트, 수정, 거부 경로로 분기되는 구조](assets/evidence-graph-control-hero.jpg)
-
-*Three.js Evidence Graph v2.0*은 범위가 좁은 브라우저 게임 버티컬 슬라이스를 위한 저장소 로컬 제작 시스템을 설명합니다. 핵심 기여는 다음과 같습니다.
-
-1. **표준 제작 그래프.** 작업은 낙관적인 상태 메시지가 아니라 타입이 정의된 노드와 명시적인 전이 조건을 따라 진행됩니다.
-2. **저장소 권한.** 제품, 아트, 아키텍처, 품질 계약은 대화 메모리와 개별 에이전트의 판단보다 우선합니다.
-3. **경계가 명확한 위임.** 각 전문 에이전트는 하나의 목표, 허용 및 금지 파일, 불변 조건, 인수 명령, 증거 요구사항, 재시도 횟수, 리소스 예산을 전달받습니다.
-4. **분리된 권한.** 빌더는 구현합니다. 읽기 전용 비평가는 캡처된 산출물을 평가합니다. 출처 감사자는 릴리스를 차단할 수 있습니다. 지정된 인간 디렉터는 운영 헌법을 변경할 수 있지만 실패한 게이트를 면제할 수는 없습니다.
-5. **두 가지 증거 체계.** 시뮬레이션 상태와 그 밖의 제어된 데이터에는 비트 단위 완전 일치 비교를 사용할 수 있습니다. GPU로 래스터화한 출력과 프로필 간 시각 증거에는 사전에 선언된 허용 오차를 사용합니다.
-6. **증명에 기반한 렌더러 선택.** WebGPU/TSL과 WebGL 2를 대표적인 머티리얼, 효과, 기기, 브라우저, 트레이스에 대해 검증할 후보로 취급합니다.
-7. **컴파일로서의 절차적 생성.** 생성기에는 문법, 범위가 제한된 매개변수, 시드, 거부 테스트, 충돌 및 LOD 정책, 출처 정보, 진단 출력이 필요합니다. 무작위성은 구성을 대신하지 못합니다.
-8. **공급망을 고려한 출처 관리.** 에셋 정책은 소스 파일, 의존성, 빌드 번들, 글꼴, 불투명 바이너리 데이터, 인코딩된 미디어, 런타임 요청, 생성 출력을 검사합니다.
-9. **보정된 평가.** 비평가는 알려진 결함을 탐지하고, 제시 순서를 뒤집어도 판단을 유지하며, 증거를 인용하고, 막연한 취향이 아니라 관찰 가능한 실패를 보고해야 합니다.
-10. **근본 원인 수정.** 모든 수정은 결함, 증거, 가설, 개입, 예상 변화, 보호할 지표, 인수 테스트, 비용, 롤백 조건을 기록합니다.
-11. **성능 분포.** 이 방법은 평균 FPS에 의존하지 않고 프레임 시간 백분위수, 장시간 프레임, CPU 및 GPU 비용, 메모리 증가, 컴파일 지연, 렌더러 통계를 평가합니다.
-12. **컴퓨팅 경제성.** 기계적 검사에는 모델을 사용하지 않습니다. 모델 호출은 작업 가치에 따라 라우팅되며 실행 단위 비용 원장에 기록됩니다.
-
-이 운영 매뉴얼에는 v1에서 v2로 이어지는 결함 원장, 15개 노드로 구성된 제어 그래프, 4부 구성의 오케스트레이터 프롬프트, 작업 패킷, 결함 기록, 실행 매니페스트를 위한 JSON Schema([`schemas/`](schemas/)에서 Draft 2020-12로 업그레이드됨)가 포함되어 있습니다.
-
-> **상세 아키텍처 가이드:** [Evidence Graph v2.0 한국어 가이드](docs/EVIDENCE_GRAPH_GUIDE.ko.md) 및 [기술 정오표와 v2.0 정렬 명세](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)에서 15개 노드 제어 토폴로지(`N00_BRIEF`부터 `N14_RELEASE_CANDIDATE`), 이중 결정론 체계, 독립형 Draft 2020-12 JSON Schema([`schemas/`](schemas/)), 골든 검증 픽스처([`examples/run-0001/`](examples/run-0001/)), 복사 가능한 프롬프트([`prompts/`](prompts/))를 확인하십시오.
+> 본 저장소는 **Emily Paradox(`@iamemily2050`)**가 집필한 Three.js `r185`(`0.185.0`) 기반 **총 4권, `217`쪽 분량의 엔지니어링 규격서 및 멀티 에이전트 제작 프롬프트 스위트**입니다. 외부 3D 모델(`.glb`), 텍스처, 폰트, 사전 녹음 오디오 파일을 일절 다운로드하지 않고, 오직 저장소 내 소스 코드와 시드(Seed)만으로 결정론적 브라우저 게임 버티컬 슬라이스를 제작하기 위한 범용 제어 평면 매뉴얼(《Three.js Evidence Graph: Operational Manual v2.0》, `64`쪽)과 3종의 장르별 플래그십 제작 규격서를 제공합니다.
+> 1. **Game 01 — 3인칭 다크 판타지 액션 RPG**: **《공허의 자오선》(*The Hollow Meridian*, 81쪽)**
+> 2. **Game 02 — 1인칭 음향 포렌식 미스터리 호러**: **《유리 납골당》(*The Glass Ossuary*, 36쪽)**
+> 3. **Game 03 — 1인칭 하이퍼 SF 슈팅 어드벤처**: **《근일점 돌파》(*Perihelion Breach*, 36쪽)**
 >
-> Evidence Graph 가이드 언어: [English](docs/EVIDENCE_GRAPH_GUIDE.md) | [简体中文](docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [日本語](docs/EVIDENCE_GRAPH_GUIDE.ja.md) | [한국어](docs/EVIDENCE_GRAPH_GUIDE.ko.md)
+> 모든 출판물에는 독립 실행형 JSON Schema Draft 2020-12 계약 파일(`schemas/`), 즉시 복사해 사용할 수 있는 마스터 오케스트레이터 및 21종의 전문 에이전트 카드(`prompts/`), 스키마 검증을 통과한 골든 레퍼런스 픽스처(`examples/run-0001/` ~ `examples/run-0003/`), 그리고 번역투가 아닌 **영어, 중국어 간체, 일본어, 한국어** 현업 게임 개발 용어로 집필된 네이티브 동반 가이드가 포함되어 있습니다.
 
-## The Hollow Meridian 개요
+---
 
-![The Hollow Meridian의 폐허가 된 천문대, 수작업으로 설계된 경로, 주요 조우 공간](assets/hollow-meridian-world-hero.jpg)
+## 4권 출판물 스위트 총람 (총 `217`쪽)
 
-*출판물 설명을 위한 콘셉트 아트입니다. 게임플레이 캡처나 구현 증거가 아닙니다.*
+![4권 출판물 세트: Three.js Evidence Graph v2.0, 《공허의 자오선》, 《유리 납골당》, 《근일점 돌파》](assets/publication-set.jpg)
 
-> **상세 한국어 가이드:** [세계관, 열 개 비트의 진행 경로, 전투, 퍼즐, 유물, 저장 상태, 보스, 제작 그래프 설명 읽기](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md) | [Evidence Graph v2.0 가이드](docs/EVIDENCE_GRAPH_GUIDE.ko.md) | [기술 정오표](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)
->
-> 게임 가이드 언어: [English](docs/THE_HOLLOW_MERIDIAN_GUIDE.md) | [简体中文](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
+*본 이미지는 저장소에 수록된 4권의 PDF 출판물 합본 플레이트입니다. 모든 표지와 섹션 히어로 이미지는 출판물용 컨셉 아트워크이며, 실제 게임플레이 스크린샷이나 런타임 벤치마크 증거가 아닙니다.*
 
-*The Hollow Meridian v1.0*은 다운로드한 최종 아트, 오디오, 모델, 텍스처, 글꼴, 에셋 팩을 사용하지 않고 Three.js로 구축하는 데스크톱 브라우저용 3인칭 다크 판타지 액션 RPG의 81페이지 제품 계약 및 오케스트레이션 프롬프트입니다.
+| 권호 | 출판물 제목 및 장르 | PDF 아티팩트 (`publications/`) | 쪽수 | 파일 크기 | 4개국어 네이티브 가이드 (`docs/`) | 프롬프트 및 골든 픽스처 |
+| :-: | :--- | :--- | ---: | ---: | :--- | :--- |
+| **01** | **Three.js Evidence Graph v2.0**<br/>*멀티 에이전트 제어 평면 및 결정론 운영 매뉴얼* | [`threejs-evidence-graph-operational-manual-v2.0-en.pdf`](publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf)<br/>`sha256[0..16]: d3830d411a61c52c` | `64`쪽 | `416,827` B | [EN](docs/EVIDENCE_GRAPH_GUIDE.md) · [中文](docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md) · [日本語](docs/EVIDENCE_GRAPH_GUIDE.ja.md) · [한국어](docs/EVIDENCE_GRAPH_GUIDE.ko.md) | [`prompts/evidence-graph/`](prompts/evidence-graph/)<br/>[`schemas/`](schemas/) |
+| **02** | **《공허의 자오선》 The Hollow Meridian v1.0**<br/>*Game 01 · 3인칭 다크 판타지 액션 RPG* | [`the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf`](publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)<br/>`sha256[0..16]: c4f8fe83995d526b` | `81`쪽 | `357,144` B | [EN](docs/THE_HOLLOW_MERIDIAN_GUIDE.md) · [中文](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) · [日本語](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md) · [한국어](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md) | [`prompts/hollow-meridian/`](prompts/hollow-meridian/)<br/>[`examples/run-0001/`](examples/run-0001/) |
+| **03** | **《유리 납골당》 The Glass Ossuary v1.0**<br/>*Game 02 · 1인칭 조사형 미스터리 호러* | [`the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf`](publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)<br/>`sha256[0..16]: efead090be003782` | `36`쪽 | `98,649` B | [EN](docs/THE_GLASS_OSSUARY_GUIDE.md) · [中文](docs/THE_GLASS_OSSUARY_GUIDE.zh-CN.md) · [日本語](docs/THE_GLASS_OSSUARY_GUIDE.ja.md) · [한국어](docs/THE_GLASS_OSSUARY_GUIDE.ko.md) | [`prompts/glass-ossuary/`](prompts/glass-ossuary/)<br/>[`examples/run-0002/`](examples/run-0002/) |
+| **04** | **《근일점 돌파》 Perihelion Breach v1.0**<br/>*Game 03 · 1인칭 SF 슈팅 어드벤처* | [`perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf`](publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)<br/>`sha256[0..16]: 75bdfff21c905122` | `36`쪽 | `95,265` B | [EN](docs/PERIHELION_BREACH_GUIDE.md) · [中文](docs/PERIHELION_BREACH_GUIDE.zh-CN.md) · [日本語](docs/PERIHELION_BREACH_GUIDE.ja.md) · [한국어](docs/PERIHELION_BREACH_GUIDE.ko.md) | [`prompts/perihelion-breach/`](prompts/perihelion-breach/)<br/>[`examples/run-0003/`](examples/run-0003/) |
 
-플레이어는 사라진 도시의 진짜 이름을 보관하는 폐허가 된 천문대를 탐험하는, 얼굴 없는 성인 감시자 Cartographer입니다. 목표로 하는 첫 플레이 시간은 10분에서 14분이며 다음 요소를 포함합니다.
+---
 
-- 안전한 허브 한 곳과 저작자가 설계한 경로 한 개
-- 주요 공간 다섯 곳
-- 퀘스트 제공자 한 명과 3중 고리 공간 퍼즐 한 개
-- 적 유형 세 종류
-- 세 가지 선택지가 있는 유물 결정 한 번
-- 2단계 보스 *The Bell Without a Name*
-- 두 가지 엔딩 결과
-- 로컬 체크포인트, 저장, 사망, 회복, 승리, 허브 복귀 루프
+## 코어 아키텍처: 15노드 에비던스 그래프 (`N00` .. `N14`)
 
-이 명세는 오픈 월드 확장, 제작, 상점, 무작위 전리품, 동료, 멀티플레이어, 캐릭터 생성을 의도적으로 제외합니다. 기능의 양으로 취약한 상호작용을 가리는 대신, 하나의 압축된 경험을 완결하는 것이 목적입니다.
+![15노드 에비던스 그래프 토폴로지 및 3대 장르 게임 인스턴스화 다이어그램](assets/svg/architecture-pipeline.svg)
 
-제작 프롬프트는 아키텍처, 게임플레이 및 전투, 절차적 세계 구축, 적 및 보스 행동, RPG 및 UI 시스템, 오디오 및 효과, 통합, QA 및 성능, 시각 비평, 출처 감사를 담당하는 전문 역할을 정의합니다. 또한 고정 틱 시뮬레이션, 리플레이 캡처, 상태 해시, 안정적인 진단 URL, 증거 폴더, 범위가 제한된 수정 작업, 격리된 후보안, 롤백, 최종 릴리스 게이트를 정의합니다.
+단일 LLM 대화창에서 기획, 셰이더 작성, 전투 수치 조정, 자체 검수를 동시에 수행하면 컨텍스트 드리프트와 셰이더 스파이크, 근거 없는 자기 승인 문제가 발생합니다. **Three.js Evidence Graph v2.0**은 권한과 검증을 다음 4계층으로 분리하여 이를 원천 차단합니다.
 
-### 의도된 플레이 구조
+1. **결정론적 마스터 오케스트레이터 (`orchestrator`)**: [`schemas/graph-state.d.ts`](schemas/graph-state.d.ts)를 기반으로 `N00_BRIEF`부터 `N14_RELEASE_CANDIDATE`까지 15노드 DAG 상태 전이를 제어합니다. [`task-packet.schema.json`](schemas/task-packet.schema.json) 규격을 통과한 작업 패킷과 인수 테스트 통과 없이는 다음 노드로 진행할 수 없습니다.
+2. **파일 쓰기 권한이 격리된 전담 서브에이전트 (게임당 7종 카드)**: `combat_gameplay`, `world_quest`, `procedural_art_vfx`, `procedural_audio`, `ui_hud_accessibility`, `qa_perf_playwright` 및 읽기 전용 `independent_critic`으로 구성됩니다. 각 작업 에이전트는 허용된 `allowed_paths` 외부의 파일을 수정할 수 없습니다.
+3. **이중 결정론 레짐 (`A-PinnedBrowser` & `B-CrossPlatform`)**:
+   - **레짐 A (`A-PinnedBrowser`, 고정 컨테이너 비트 일치)**: 고정 버전 Chromium 컨테이너에서 60 Hz 정수 틱 상태 해시(`state_hash`), 16-bit PCM 양자화된 `OfflineAudioContext` 오디오 해시(`audio_hash`), `1e-5` 양자화된 절차적 지오메트리 해시(`geometry_hash`)의 SHA-256 일치를 검증합니다.
+   - **레짐 B (`B-CrossPlatform`, 크로스 플랫폼 허용 오차)**: `THREE.WebGPURenderer` 주 경로 및 `{ forceWebGL: true }` 폴백 경로에서 프레임 시간 백분위수(`P50 <= 8.3 ms`, `P95 <= 16.6 ms`, `P99 <= 22.0 ms`)와 EBU R128 라우드니스(`-16 LUFS +- 1.0 LU`, 트루 피크 `<= -1.0 dBTP`)를 검증합니다.
+4. **외부 바이너리 에셋 제로 원칙 (`provenance_critic`)**: 모든 3D 메시, TSL(`Three.js Shading Language`) 셰이더, 스켈레탈 리그, UI 글리프, Web Audio 사운드는 코드에서 실시간 컴파일되며, `external_network_requests`와 `downloaded_assets_count`는 `0`으로 강제됩니다.
 
-수작업으로 설계된 경로는 열 개의 비트로 진행됩니다. Ash Court에서 이동과 체크포인트를 익히고 퀘스트를 수락한 뒤, Orrery Bridge에서 기본 전투를 학습합니다. Archive Nave의 수직 공간과 Lantern Wraith의 압박을 통과하고, 결정론적인 3중 고리 Meridian 퍼즐을 풀어 North Seal을 얻습니다. Bell Foundry에서 Bell Sentinel의 방어를 무너뜨려 Depth Seal을 획득하고, Shrine에서 전투 모델을 실제로 바꾸는 세 유물 중 하나를 선택합니다. 이후 Meridian Chamber가 열리고, 2단계 보스 *The Bell Without a Name*과 싸운 뒤, 관측소가 보관한 것을 **구속(bind)**할지 **해방(release)**할지 결정하고 허브로 돌아옵니다.
+---
 
-순간순간의 루프는 건축과 빛으로 방향 파악하기, 조우 읽기, 이동·방어·공격에 전념하기, 스태미나 관리하기, 효과적인 플레이로 Resonance 얻기, Echo Brand 또는 유물로 변경된 행동 사용하기, 인장·퍼즐·퀘스트 상태 진행하기, 체크포인트에서 의미 있는 상태 보존하기로 구성됩니다. 전투에는 약공격 연계, 차지 강공격, 회피, 방어, 지정된 받아치기 판정 구간, 표적 고정, 스태미나, Resonance가 포함됩니다. 퍼즐 해답과 핵심 진행은 시드로 재현 가능해야 하며, 유물 선택은 장식 수치가 아니라 실제 전투 의사결정을 바꿔야 합니다.
+## 3대 플래그십 게임 장르별 비교 매트릭스
 
-버전이 관리되는 로컬 저장은 퀘스트 상태, 두 인장, 선택한 유물, 소모품, 체크포인트, 완료 여부, 엔딩 선택, 설정, 재매핑한 조작을 보존하도록 명세되어 있습니다. 보스는 일반 적을 확대한 형태가 아니라 별도의 공격 문법, 55퍼센트 체력 전환, 회전하는 위험 구역과 눈에 보이는 안전 구역을 갖춘 독립 시스템입니다. 이 모든 내용은 구현 대상과 인수 조건을 정의하는 **명세 및 인수 계약**입니다. 이 저장소는 독립 실행형 스키마, 프롬프트, `examples/run-0001/` 골든 검증 픽스처를 제공하며 플레이 가능한 런타임 빌드는 포함하지 않습니다.
+| 비교 항목 | Game 01: 《공허의 자오선》 (*The Hollow Meridian*) | Game 02: 《유리 납골당》 (*The Glass Ossuary*) | Game 03: 《근일점 돌파》 (*Perihelion Breach*) |
+| :--- | :--- | :--- | :--- |
+| **장르 및 카메라 시점** | 3인칭 다크 판타지 액션 RPG | 1인칭 조사형 미스터리 호러 (Mystery on Horror) | 1인칭 하이퍼 SF 슈팅 어드벤처 (FPS Adventure) |
+| **목표 플레이 시간** | 10~14분 | 12~16분 | 12~15분 |
+| **주인공** | `The Cartographer` (측량사 `Sable Veren`) | `Clara Vane` (음향 기록 보관관 `The Acoustic Archivist`) | `Soren Kestrel` (릴레이 선봉대원 + 전술 AI `Vesper`) |
+| **핵심 생존 자원** | `100 체력` · `100 스태미나` · `0–100 공명` | `100 침착성` · `100 랜턴 오일` · `0–100 정신 침식도` | `100 실드` · `100 장갑 무결성` · `0–100 코어 열량` |
+| **60 Hz 핵심 메커니즘** | 버튼 다운 즉시 `패링`(`ticks 6..12`)과 홀드 `가드`(`tick >= 13`) 우선순위 분리 | 직교 비트마스크 `랜턴 셔터`(`6t`) + `축음기 위상 상쇄`(`25..114t`) + `페로타입 플래시`(`19..24t`) | `액티브 방열 재장전`(`14..20t` 열량 100% 배출 및 과충전) + `자기 그래플`(`18.0 m/s`) + `슬라이드 부스트`(`11.5 m/s`) |
+| **5개 연결 공간 루트** | `Ash Court` -> `Orrery Bridge` -> `Archive Nave` -> `Bell Foundry` -> `Meridian Chamber` | `Tidewater Causeway` -> `Caretaker's Stripping Room` -> `Refraction Gallery` -> `Submerged Crypt` -> `The Glass Ossuary` | `Umbilical Airlock` -> `Heliostat Truss` -> `Cryo-Coolant Manifold` -> `Ballistic Foundry` -> `Perihelion Core Chamber` |
+| **비트 05 공간 퍼즐** | `Meridian Alignment` (3중 황동 링 정렬 -> `North Seal`) | `Prism Triangulation` (`45/135/270 deg` 프레넬 링 -> 《조수 원장 단편》) + `110/220/330 Hz` 수문 동조 | `Conduit Phase Routing` (`180 ticks` 감쇠 시간 내 3개 플라즈마 앵커 연결 -> 《냉각 바이패스 코어》) |
+| **3종 적/괴이 아키타입** | `Ashbound Skirmisher`, `Lantern Wraith`, `Bell Sentinel` | `Mire Listener`(음향 추적), `Glass Septum Watcher`(시선 굴절), `Drowned Chorister`(저주파 오라) | `Volt Skitter`(벽면 질주), `Aegis Drone`(실드 저격), `Slag Enforcer`(용융 박격포) |
+| **비트 07 빌드 분기** | **제단 유물**: `brass_vow` · `ash_thread` · `vacant_name` | **추리 보드 가설**: `lens_sabotage` · `tidal_quarantine` · `acoustic_calling` | **엑소 리그 코어**: `recoil_gyro` · `thermal_siphon` · `grapple_overdrive` |
+| **비트 09 2페이즈 보스** | **이름 없는 종** (`The Bell Without a Name`, `850 HP`, `55%`에서 2페이즈) | **유리 속의 성가대** (`The Choir in the Glass`, `600 무결성`, `300`에서 2페이즈) | **헬리아크 워든** (`The Heliarch Warden`, `1,000 무결성`, `500`에서 2페이즈) |
+| **비트 10 멀티 엔딩** | `CHOICE_BIND`(구속) 또는 `CHOICE_RELEASE`(해방) | `VERDICT_PUBLISH`(공개) 또는 `VERDICT_SUBMERGE`(영구 수몰) | `DIRECTIVE_DIVERT`(전력망 수호) 또는 `DIRECTIVE_VENT`(코어 사출) |
+| **렌더링 예산 상한** | `<= 300` Draw Calls · `<= 500,000` Tris | `<= 280` Draw Calls · `<= 460,000` Tris | `<= 300` Draw Calls · `<= 500,000` Tris |
+| **골든 픽스처** | [`examples/run-0001/`](examples/run-0001/) (`seed=1337`) | [`examples/run-0002/`](examples/run-0002/) (`seed=1894`) | [`examples/run-0003/`](examples/run-0003/) (`seed=2142`) |
 
-## 두 판본의 관계
+---
 
-*The Hollow Meridian*은 Evidence Graph 계보의 핵심 원칙에는 부합하지만, 모든 v2 규칙을 충족한다고 인증받은 구현은 아닙니다. 두 출판물 간의 v2.0 계약 통합은 [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)와 [`schemas/`](schemas/)에서 제공됩니다.
+## 플래그십 3작품 상세 안내
 
-| 영역 | Evidence Graph v2.0 | Hollow Meridian v1.0 |
-|---|---|---|
-| 제품 범위 | 매우 좁은 45초에서 90초의 기준 슬라이스 권장 | 야심 찬 10분에서 14분 길이의 RPG 경로 명세 |
-| 증거 체계 | 비트 단위 완전 일치 체계와 허용 오차 기반 체계를 명시적으로 구분 | 결정론적 증거는 존재하며 [`schemas/`](schemas/)에서 두 체계로 통합됨 |
-| 비평가 통제 | 보정, 양방향 순서 검토, 판단 편향 재검사 | 독립 비평가는 존재하지만 보정 절차가 완전히 명시되지는 않음 |
-| 컴퓨팅 경제성 | 모델 등급과 필수 비용 원장 | [`schemas/run-manifest.schema.json`](schemas/run-manifest.schema.json)에서 통합됨 |
-| 인간 권한 | 제한된 개정 권한을 가진 지정 디렉터 | [`schemas/run-manifest.schema.json`](schemas/run-manifest.schema.json)에서 통합됨 |
-| 엔진 간 결정론 | 완전 일치 주장을 위해 제어된 결정론적 수학 커널 요구 | [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)에 명시됨 |
-| 오디오 증거 | 오프라인 렌더링, 음량, 진첨두값, 신호 끊김, 음성 예산 게이트 | 절차적 오디오는 명시되어 있으며 16비트 PCM 양자화 규칙은 [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)에 문서화됨 |
-| 접근성 | 증거 기반 릴리스 게이트 | 상당한 접근성 요구사항이 포함됨 |
-| 출처 관리 | 소스, 의존성, 번들, 네트워크, 출력 감사 | 소스 생성 미디어와 출처 관리에 대한 강력한 규칙이 포함됨 |
+### 1. Game 01 — 《공허의 자오선》 (*The Hollow Meridian* · 3인칭 액션 RPG · 81쪽)
 
-이 구분은 중요합니다. 동반 정오표와 독립형 스키마는 인쇄 시점의 역사적 PDF 판본 차이를 숨기지 않으면서 두 출판물의 계약을 정렬합니다.
+| 폐허 관측소 월드 루트 컨셉 플레이트 | 2페이즈 보스 '이름 없는 종' 컨셉 플레이트 |
+| :---: | :---: |
+| ![공허의 자오선 월드 루트](assets/hollow-meridian-world-hero.jpg) | ![이름 없는 종 보스전](assets/hollow-meridian-boss-hero.jpg) |
 
-## 여기서 “AAA급(AAA-grade)”이 의미하는 것
+사라진 도시들의 진짜 이름을 보존하던 황동과 현무암 폐허 관측소를 배경으로, 플레이어는 **The Cartographer(측량사)**가 되어 5개의 공간을 돌파합니다. 60 Hz 정수 틱 기반의 7틱 패링 판정, 스태미나 운영, 3중 링 자오선 정렬 퍼즐, 제단 유물 선택을 거쳐 2페이즈 보스 **The Bell Without a Name(이름 없는 종)**과 맞섭니다.
 
-이 표현은 의도적으로 범위를 좁힌 슬라이스의 내부 릴리스 계약으로 사용됩니다. 완결된 표현, 게임 감각, 일관성, 성능, 접근성, 출처 관리, 증거를 뜻합니다. 상업용 AAA 타이틀의 콘텐츠 규모, 예산, 팀 규모, 시장 지위, 완성된 품질을 주장하지 않습니다.
+<details>
+<summary><strong>《공허의 자오선》 10비트 진행 루트 · 60 Hz 전투 프레임 테이블 · 제단 유물 분기 펼치기</strong></summary>
 
-이 저장소의 어떤 문서도 목표가 달성되었음을 증명하지 않습니다. 그런 주장을 하려면 실행 가능한 구현, 명시된 기기 프로필, 완전한 증거 매니페스트, 보정된 평가, 재현 가능한 리소스, 결함 없는 회귀 주기, 하나의 승인된 커밋에 연결된 릴리스 후보가 필요합니다.
+| 액션 | 선딜레이 | 활성 / 무적 틱 | 후딜레이 | 총 틱 | 소모 자원 및 전투 효과 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+- **수작업 10비트 진행 루트 (`recover_orientation`)**: `01 Ash Court Arrival`(안전 허브 · `Mnemonic Keeper`) -> `02 Quest Acceptance`(방위 인장 2종 퀘스트) -> `03 Orrery Bridge Tutorial`(`Ashbound Skirmisher` 교전) -> `04 Archive Nave`(`Lantern Wraith` 원거리 압박) -> `05 Meridian Alignment`(3중 고리 퍼즐 -> `North Seal`) -> `06 Bell Foundry`(`Bell Sentinel` 가드 브레이크 -> `Depth Seal`) -> `07 Shrine Choice`(유물 3종 중 택1: `brass_vow` / `ash_thread` / `vacant_name`) -> `08 Chamber Opening` -> `09 The Unnamed Bell`(`850 HP` 2페이즈 보스전) -> `10 Bind or Release`(`CHOICE_BIND` / `CHOICE_RELEASE`).
 
-## 기술 기준선과 경계
+| 액션 | 선딜레이 | 활성 / 무적 틱 | 후딜레이 | 총 틱 | 소모 자원 및 전투 효과 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `Light Attack 1 / 2 / 3` | `10 / 11 / 15t` | `5 / 7 / 9t` | `12 / 12 / 18t` | `27 / 30 / 42t` | `10 / 11 / 14 Stamina`; `16 / 18 / 25 HP` |
+| `Charged Heavy` | `27..38t` | `10..11t` | `12..14t` | `49..63t` | `28 Stamina`; `28..42 HP` + 강인도 감쇄 |
+| `Dodge Roll` | `7t` | `Ticks 7..18` (`12t`) | `12t` | `31t` | `22 Stamina`; `ticks 7..18` 완전 무적 |
+| `Parry Deflect` | `5t` (`0..4`) | `Ticks 6..12` (`7t`) | `18t` | `31t` | `12 Stamina`; 홀드 시 `tick 13`부터 `Guard` 전환 |
+| `Echo Brand` | `12t` | `360t 표식` | `0t` | `12t 시전` | `50 Resonance`; 받는 피해 `+25%` + 보스 약점 노출 |
 
-- 출판물은 **Three.js r185 기준선**(`0.185.0`)을 바탕으로 작성되었습니다.
-- WebGPU/TSL과 WebGL 2는 렌더러 결정 게이트를 통해 평가합니다(`THREE.WebGPURenderer` 및 `{ forceWebGL: true }` 폴백; 자세한 내용은 [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) 참조).
-- “다운로드 에셋 금지(No downloaded assets)”는 최종적으로 보이거나 들리는 미디어에 적용됩니다. 버전이 고정된 개발 의존성, 브라우저 API, 빌드 도구, 테스트 도구, 프로파일러는 계속 허용되며 반드시 감사 대상에 포함해야 합니다.
-- 비트 단위 완전 일치 주장은 제어된 데이터 클래스에만 적용합니다. 브라우저 및 GPU 출력은 운영체제, 드라이버, 하드웨어, 브라우저, 설정에 따라 달라질 수 있습니다.
-- 문서의 접근성 요구사항은 엔지니어링 목표입니다. 공식적인 WCAG 준수를 확립하지 않습니다.
-- 출처 관리 장치는 추적 가능성을 높이지만 저작권상 독창성이나 소프트웨어 보안을 증명하지 않습니다.
-- 호스트 에이전트에는 저장소 접근, 셸 실행, 브라우저 자동화, 캡처 인프라, 격리된 브랜치 또는 워크트리(worktree), 구조화된 작업 배포 기능이 필요합니다. 기본적인 채팅 인터페이스만으로는 충분하지 않습니다.
+- **PDF 규격서**: [`publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf`](publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)
+- **한국어 상세 가이드**: [`docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md`](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
+- **프롬프트 및 골든 픽스처**: [`prompts/hollow-meridian/`](prompts/hollow-meridian/) · [`examples/run-0001/`](examples/run-0001/)
 
-## 권장 읽기 경로
+</details>
 
-### 기술 디렉터 및 연구자
+---
 
-1. Evidence Graph의 결함 원장, [기술 정오표와 v2.0 정렬 명세](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md), [문서 출판 상태 페이지](docs/PUBLICATION_STATUS.md)를 읽습니다.
-2. 제어 그래프, 권한 계층, 증거 체계, 비평가 보정, 운영 절차, [`schemas/`](schemas/)의 규범 스키마를 검토합니다.
-3. *The Hollow Meridian*을 적용 사례로 다루기 전에 위의 호환성 표를 읽습니다.
+### 2. Game 02 — 《유리 납골당》 (*The Glass Ossuary* · 1인칭 미스터리 호러 · 36쪽)
 
-### 게임 및 테크니컬 아트 팀
+| 굴절 회랑 포렌식 조사 컨셉 플레이트 | 2페이즈 보스 '유리 속의 성가대' 컨셉 플레이트 |
+| :---: | :---: |
+| ![유리 납골당 포렌식 조사](assets/glass-ossuary-investigation-hero.jpg) | ![유리 속의 성가대 보스전](assets/glass-ossuary-apparition-hero.jpg) |
 
-1. *The Hollow Meridian*의 게임 계약, 경로, 경험 원칙, 품질 저하 방지(anti-slop) 규칙을 읽습니다.
-2. 게임 시스템, 절차적 미디어 정책, QA 게이트를 이어서 읽습니다.
-3. 저장소 권한 문서와 인수 명령이 마련된 후에만 [`prompts/hollow-meridian/agents/`](prompts/hollow-meridian/agents/)의 전문 역할 카드를 사용합니다.
+1894년 가을 폭풍우가 몰아치는 밤, 음향 기록 보관관 **Clara Vane**은 프레넬 등대와 지하 골유리(Bone-Glass) 납골당이 결합된 생반 해안 관측소에 상륙합니다. 총기나 작위적인 점프 스케어 대신 `이중 초점 황동 루페`, `밀랍 실린더 축음기`, `은염 페로타입 건판 카메라` 등 3종의 물리 포렌식 장비와 `6노드 추리 보드`를 활용해 난파 사건의 진실을 추리하고 최심부에서 **The Choir in the Glass(유리 속의 성가대)**와 대면합니다.
 
-### 에이전트 시스템 구축자
+<details>
+<summary><strong>《유리 납골당》 10비트 조사 루트 · 60 Hz 포렌식 장비 프레임 테이블 · 추리 가설 분기 펼치기</strong></summary>
 
-1. [`prompts/`](prompts/)의 독립형 오케스트레이터 프롬프트와 [`schemas/`](schemas/)의 Draft 2020-12 스키마부터 시작합니다.
-2. [`examples/run-0001/`](examples/run-0001/)의 골든 검증 픽스처를 확인하고 `python scripts/verify_release.py`를 실행합니다.
-3. 캡처된 산출물, 수정된 결함, 롤백, 프레임 시간 분포, 비용 회계, 승인된 커밋을 포함하는 실제 종단 간 런타임 실행 한 건을 추가합니다.
+- **10비트 포렌식 조사 루트 (`case_saint_vane`)**: `01 Causeway Landfall`(`Tidewater Causeway` 상륙 · `Lantern Shutter`) -> `02 The Sealed Inquest`(`Caretaker's Stripping Room` · 6노드 추리 보드 · Moreau 실린더) -> `03 Ferrotype Calibration`(`Ferrotype Plate` 자외선 플래시 교정) -> `04 Refraction Gallery`(`Glass Septum Watcher` 시야 회피 · `Brass Loupe`) -> `05 Prism Triangulation`(`45/135/270 deg` 프레넬 링 -> 《조수 원장 단편》) -> `06 Submerged Crypt`(`Mire Listener` 음향 잠입 · `110/220/330 Hz` 수문 -> 《수중 청음 실린더》) -> `07 Inquest Board Deduction`(3대 가설 분기: `lens_sabotage` / `tidal_quarantine` / `acoustic_calling`) -> `08 Ossuary Unsealing` -> `09 The Choir in the Glass`(`600 Integrity` 2페이즈 보스전) -> `10 Publish or Submerge`(`VERDICT_PUBLISH` / `VERDICT_SUBMERGE`).
 
-## 저장소 구성
+| 장비 및 액션 | 선딜레이 | 유효 윈도우 | 후딜레이 | 총 틱 | 소모 자원 및 조사 효과 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `Lantern Shutter` | `6 ticks` | 토글 유지 (`7..`) | `6 ticks` | `12 ticks` | `0 Oil`; 광원 원뿔을 차단해 광학 시야 어그로 해제 |
+| `Brass Loupe Focus` | `9 ticks` | 홀드 (`10..69`) | `6 ticks` | `75 ticks` | `0 Oil`; 미세 프리즘 눈금 및 골유리 각인 해독 |
+| `Phonograph Cancel` | `24 ticks` | `Ticks 25..114` | `36 ticks` | `150 ticks` | 실내 공명 주파수 역위상 상쇄; `Mire Listener`에게 발소리 은폐 |
+| `Ferrotype Flash` | `18 ticks` | `Ticks 19..24` | `66 ticks` | `90 ticks` | `6.5 m` 내 괴이 `150 ticks` 경직 + 골유리 균열 노출 |
+| `Crouch Sidestep` | `5 ticks` | `Ticks 6..16` | `12 ticks` | `28 ticks` | 젖은 석재 바닥 발소리를 `<= -38 dBFS` 이하로 억제 |
+| `Smelling Salts` | `15 ticks` | `Ticks 16..45` | `10 ticks` | `55 ticks` | `Composure +40` 회복 및 `Exposure -25` 정화 |
+
+- **PDF 규격서**: [`publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf`](publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
+- **한국어 상세 가이드**: [`docs/THE_GLASS_OSSUARY_GUIDE.ko.md`](docs/THE_GLASS_OSSUARY_GUIDE.ko.md)
+- **프롬프트 및 골든 픽스처**: [`prompts/glass-ossuary/`](prompts/glass-ossuary/) · [`examples/run-0002/`](examples/run-0002/)
+
+</details>
+
+---
+
+### 3. Game 03 — 《근일점 돌파》 (*Perihelion Breach* · 1인칭 SF 슈팅 어드벤처 · 36쪽)
+
+| 이카로스-9 궤도 태양 중계소 컨셉 플레이트 | 2페이즈 보스 '헬리아크 워든' 교전 컨셉 플레이트 |
+| :---: | :---: |
+| ![근일점 돌파 궤도 스테이션](assets/perihelion-breach-world-hero.jpg) | ![헬리아크 워든 보스전](assets/perihelion-breach-combat-hero.jpg) |
+
+태양으로부터 불과 `0.09 AU` 떨어진 근일점 궤도를 도는 **이카로스-9(Icarus-9) 태양 중계 스테이션**에서 선봉대원 **Soren Kestrel**이 전술 AI **Vesper**와 함께 열폭주에 빠진 방어 그리드를 돌파합니다. `Kestrel-9 트윈코일 카빈`, 관통 전자기 슬러그를 발사하는 `헬리오스 스캐터-레일`, `ticks 14..20` 구간에 열량을 100% 배출하는 `액티브 방열 재장전`, `18.0 m/s` `자기 그래플` 슬링샷 기동을 결합해 2페이즈 보스 **The Heliarch Warden(헬리아크 워든)**을 격파합니다.
+
+<details>
+<summary><strong>《근일점 돌파》 10비트 작전 루트 · 60 Hz 화기/그래플 프레임 테이블 · 엑소 리그 분기 펼치기</strong></summary>
+
+- **10비트 궤도 작전 루트 (`restore_perihelion_attitude`)**: `01 Airlock Breach`(`Umbilical Airlock` · 전술 AI `Vesper` · `Kestrel-9 Carbine`) -> `02 Lockdown Override`(`Slide-Boost` & `Thermal Vent Reload` 교정) -> `03 Heliostat Skirmish`(`240-tick` 태양 플레어 주기 · `Volt Skitter` 요격 · `Magnetic Grapple` 해금) -> `04 Cryo-Coolant Ascent`(`Aegis Drone` 수직 터빈 돌파 · `Breach Launcher` 획득) -> `05 Conduit Phase Routing`(`180 ticks` 내 플라즈마 앵커 3개 연결 -> 《냉각 바이패스 코어》) -> `06 Ballistic Foundry Siege`(`Slag Enforcer` 격파 -> `Helios Scatter-Rail`) -> `07 Suit Rig Calibration`(엑소 리그 코어 3종 중 택1: `recoil_gyro` / `thermal_siphon` / `grapple_overdrive`) -> `08 Shutter Retraction` -> `09 The Heliarch Warden`(`1,000 Integrity` 2페이즈 보스전) -> `10 Divert or Vent`(`DIRECTIVE_DIVERT` / `DIRECTIVE_VENT`).
+
+| 화기 및 기동 | 선딜레이 | 활성 / 입력 구간 | 후딜레이 | 총 틱 | 열량 · 대미지 · 전술 기동 효과 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `Carbine 3-Burst` | `2 ticks` | `Ticks 3..11` (3발) | `10 ticks` | `21 ticks` | `+12 Heat`; `3 x 14 dmg` 히트스캔 (약점 `1.5x`) |
+| `Scatter Uncharged` | `3 ticks` | `Tick 4` (`5x12`) | `15 ticks` | `18 ticks` | `+18 Heat`; 근거리 `60 dmg` 산탄 · 에너지 실드 파쇄 |
+| `Scatter ADS Slug` | `30..54 ticks` | `Tick 31..55` | `18 ticks` | `48..72 ticks` | `+28 Heat`; `55..85 dmg` 관통 레일 슬러그 (약점 `1.75x`) |
+| `Breach Anchor` | `6 ticks` | 투사체 발사 | `24 ticks` | `30 ticks` | `+30 Heat`; `60 AoE dmg` 장갑 균열 또는 도관 앵커 연결 |
+| `Thermal Vent Reload` | `13 ticks` | `Ticks 14..20` | `16 ticks` | `36 ticks` | `14..20t` 입력 성공 시 `Heat 100%` 배출 + `90t` 오버차지 |
+| `Slide-Boost` | `3 ticks` | `Ticks 4..18` | `6 ticks` | `24 ticks` | `11.5 m/s` 고속 슬라이딩 (`ticks 8..18` 점프 캔슬 가능) |
+| `Magnetic Grapple` | `6 ticks` | `18..42 ticks` 견인 | `12 ticks` | `36..60 ticks` | `18.0 m/s` 앵커 견인 · 이탈 시 접선 슬링샷 속도 보존 |
+
+- **PDF 규격서**: [`publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf`](publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
+- **한국어 상세 가이드**: [`docs/PERIHELION_BREACH_GUIDE.ko.md`](docs/PERIHELION_BREACH_GUIDE.ko.md)
+- **프롬프트 및 골든 픽스처**: [`prompts/perihelion-breach/`](prompts/perihelion-breach/) · [`examples/run-0003/`](examples/run-0003/)
+
+</details>
+
+---
+
+## 4개국어 네이티브 기술 문서 매트릭스
+
+본 저장소의 모든 README와 4권의 동반 가이드는 기계적인 번역투를 배제하고 **영어, 중국어 간체, 일본어, 한국어** 각 언어권의 현업 게임 엔진·그래픽스 엔지니어링 용어에 맞춰 네이티브로 집필되었습니다(코드 식별자, CLI 명령어, 스키마 키는 추적성을 위해 영문 원형을 유지합니다).
+
+| 문서 구분 | 영문판 (`en`) | 중국어 간체 네이티브판 (`zh-CN`) | 일본어 네이티브판 (`ja`) | 한국어 네이티브판 (`ko`) |
+| :--- | :--- | :--- | :--- | :--- |
+| **저장소 총람 및 스위트 가이드** | [`README.md`](README.md) | [`README.zh-CN.md`](README.zh-CN.md) | [`README.ja.md`](README.ja.md) | [`README.ko.md`](README.ko.md) |
+| **제1권: Evidence Graph v2.0 매뉴얼 (64쪽)** | [`EVIDENCE_GRAPH_GUIDE.md`](docs/EVIDENCE_GRAPH_GUIDE.md) | [`EVIDENCE_GRAPH_GUIDE.zh-CN.md`](docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [`EVIDENCE_GRAPH_GUIDE.ja.md`](docs/EVIDENCE_GRAPH_GUIDE.ja.md) | [`EVIDENCE_GRAPH_GUIDE.ko.md`](docs/EVIDENCE_GRAPH_GUIDE.ko.md) |
+| **제2권: 《공허의 자오선》 액션 RPG (81쪽)** | [`THE_HOLLOW_MERIDIAN_GUIDE.md`](docs/THE_HOLLOW_MERIDIAN_GUIDE.md) | [`THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md`](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [`THE_HOLLOW_MERIDIAN_GUIDE.ja.md`](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [`THE_HOLLOW_MERIDIAN_GUIDE.ko.md`](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md) |
+| **제3권: 《유리 납골당》 미스터리 호러 (36쪽)** | [`THE_GLASS_OSSUARY_GUIDE.md`](docs/THE_GLASS_OSSUARY_GUIDE.md) | [`THE_GLASS_OSSUARY_GUIDE.zh-CN.md`](docs/THE_GLASS_OSSUARY_GUIDE.zh-CN.md) | [`THE_GLASS_OSSUARY_GUIDE.ja.md`](docs/THE_GLASS_OSSUARY_GUIDE.ja.md) | [`THE_GLASS_OSSUARY_GUIDE.ko.md`](docs/THE_GLASS_OSSUARY_GUIDE.ko.md) |
+| **제4권: 《근일점 돌파》 FPS 어드벤처 (36쪽)** | [`PERIHELION_BREACH_GUIDE.md`](docs/PERIHELION_BREACH_GUIDE.md) | [`PERIHELION_BREACH_GUIDE.zh-CN.md`](docs/PERIHELION_BREACH_GUIDE.zh-CN.md) | [`PERIHELION_BREACH_GUIDE.ja.md`](docs/PERIHELION_BREACH_GUIDE.ja.md) | [`PERIHELION_BREACH_GUIDE.ko.md`](docs/PERIHELION_BREACH_GUIDE.ko.md) |
+| **다국어 용어집 및 번역 정책** | [`docs/GLOSSARY.md`](docs/GLOSSARY.md) · [`docs/TRANSLATION_POLICY.md`](docs/TRANSLATION_POLICY.md) | [`docs/GLOSSARY.md`](docs/GLOSSARY.md) | [`docs/GLOSSARY.md`](docs/GLOSSARY.md) | [`docs/GLOSSARY.md`](docs/GLOSSARY.md) |
+
+---
+
+## 저장소 디렉터리 구조 및 아키텍처 맵
 
 ```text
-.
-├── .gitattributes
-├── .github/
-│   └── workflows/
-│       └── verify-release.yml
-├── AUTHORS.md
-├── LICENSE
-├── README.md
-├── README.zh-CN.md
-├── README.ja.md
-├── README.ko.md
-├── agents/
-├── assets/
-│   ├── publication-set.jpg
-│   ├── readme-hero.jpg
-│   ├── readme-hero.prompt.md
-│   ├── section-heroes.prompt.md
-│   ├── evidence-graph-control-hero.jpg
-│   ├── hollow-meridian-world-hero.jpg
-│   ├── hollow-meridian-boss-hero.jpg
-│   ├── threejs-evidence-graph-cover.jpg
-│   └── the-hollow-meridian-cover.jpg
-├── docs/
-│   ├── EVIDENCE_GRAPH_GUIDE.md
-│   ├── EVIDENCE_GRAPH_GUIDE.zh-CN.md
-│   ├── EVIDENCE_GRAPH_GUIDE.ja.md
-│   ├── EVIDENCE_GRAPH_GUIDE.ko.md
-│   ├── GLOSSARY.md
-│   ├── PUBLICATION_STATUS.md
-│   ├── TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md
-│   ├── THE_HOLLOW_MERIDIAN_GUIDE.md
-│   ├── THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md
-│   ├── THE_HOLLOW_MERIDIAN_GUIDE.ja.md
-│   ├── THE_HOLLOW_MERIDIAN_GUIDE.ko.md
-│   └── TRANSLATION_POLICY.md
-├── examples/
-│   └── run-0001/
-│       ├── defect-record.json
-│       ├── run-manifest.json
-│       └── task-packet.json
-├── orchestration/
-├── prompts/
-│   ├── evidence-graph/
-│   │   └── orchestrator.md
-│   └── hollow-meridian/
-│       ├── orchestrator.md
-│       └── agents/
-├── publications/
-│   ├── threejs-evidence-graph-operational-manual-v2.0-en.pdf
-│   └── the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf
-├── schemas/
-│   ├── defect-record.schema.json
-│   ├── graph-state.d.ts
-│   ├── run-manifest.schema.json
-│   └── task-packet.schema.json
-├── scripts/
-│   └── verify_release.py
-├── CHANGELOG.md
-├── CITATION.cff
-├── CITATIONS.md
-├── CONTRIBUTING.md
-├── RELEASE_NOTES.md
-├── release-manifest.json
-└── SHA256SUMS.txt
+threejs-evidence-graph/
+├── publications/                                                     # 규범적 영문 PDF 출판물 4권 (총 217쪽)
+│   ├── threejs-evidence-graph-operational-manual-v2.0-en.pdf         # 64쪽 · 제어 평면 및 결정론 운영 매뉴얼
+│   ├── the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf               # 81쪽 · Game 01: 《공허의 자오선》 액션 RPG
+│   ├── the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf      # 36쪽 · Game 02: 《유리 납골당》 미스터리 호러
+│   └── perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf       # 36쪽 · Game 03: 《근일점 돌파》 SF 슈팅 어드벤처
+├── schemas/                                                          # Draft 2020-12 JSON Schema 계약 및 TypeScript 상태 정의
+├── orchestration/                                                    # 에이전트 런타임 작업 디렉터리용 드롭인 미러
+├── prompts/                                                          # 마스터 오케스트레이터 4종 + 전담 서브에이전트 카드 21종
+├── examples/                                                         # 스키마 검증을 통과한 골든 픽스처 (run-0001..0003)
+├── docs/                                                             # 4개국어 네이티브 가이드 16종 + 정오표 + 거버넌스 문서
+├── assets/                                                           # EXIF 제로 JPEG 13종 + 커스텀 타이포그래피 SVG 5종
+├── scripts/verify_release.py                                         # 자동 SHA-256, 스키마, PDF, EXIF, 링크 검증 스크립트
+├── SHA256SUMS.txt                                                    # 전체 릴리스 아티팩트 SHA-256 체크섬 (LF 줄바꿈)
+└── release-manifest.json                                             # 기계 판독용 릴리스 매니페스트
 ```
 
-## 현재 로드맵
+---
 
-릴리스 `2026.07.4`는 독립형 Draft 2020-12 JSON Schema(`schemas/*.schema.json`), `schemas/graph-state.d.ts`, 복사 가능한 오케스트레이터 및 전문 에이전트 프롬프트(`prompts/`), 골든 계약 픽스처(`examples/run-0001/`), 자동 릴리스 검증기(`scripts/verify_release.py`)를 제공합니다. 라이브 런타임 하네스를 위한 다음 마일스톤은 다음과 같습니다.
+## 무결성 검증 명령어
 
-- 렌더러 증명 하네스
-- 결정론적 리플레이 및 상태 해싱 런타임
-- 에셋 및 출처 스캐너
-- Playwright 캡처 프로필
-- 비평가 보정 픽스처
-- 승인된 런타임 수정 한 건, 거부된 후보안 한 건, 검증된 롤백 한 건
+저장소 루트에서 아래 명령어를 실행하면 전체 파일의 SHA-256 해시, JSON Schema Draft 2020-12 계약, 3종의 골든 픽스처(`run-0001` ~ `run-0003`), 4권의 PDF 접근성 태그 및 클릭 가능한 URI 링크, 13장의 EXIF 제로 JPEG 에셋, 모든 다국어 Markdown 링크를 한 번에 검증할 수 있습니다.
 
-라이브 런타임 빌드가 존재하기 전까지 이 저장소가 주장하는 가치는 설계, 명세, 계약 스키마에 있으며, 경험적 게임 런타임 벤치마크 결과에는 있지 않습니다.
+```bash
+sha256sum -c SHA256SUMS.txt
+python scripts/verify_release.py
+```
 
-## 번역 정책
+---
 
-영문판이 규범적 판본입니다. 중국어 간체, 일본어, 한국어 버전은 이 저장소 안내서, *Three.js Evidence Graph v2.0* 동반 가이드, 확장형 *The Hollow Meridian* 동반 가이드 모두에 제공됩니다. 이 가이드들은 제작 방법론과 게임 명세를 자세히 설명하지만 전체 `145`페이지(`64 + 81`페이지) 영문 PDF를 축어 번역한 문서는 아닙니다. 출판물 제목, 게임 고유명사, 파일명, 명령어, 스키마 키, 그래프 노드 식별자, 경로, 열거형 값, 코드 식별자는 표준 영문 표기를 유지합니다.
+## 범위 및 비주장 사항 (Epistemic Honesty)
 
-번역본과 영문판이 다를 경우 기술적 해석에는 영문판을 사용하고 이슈를 통해 차이를 보고해 주십시오. [Translation Policy](docs/TRANSLATION_POLICY.md)와 [다국어 기술 용어집](docs/GLOSSARY.md)을 참조하십시오.
+본 저장소는 **아키텍처 규격서, 멀티 에이전트 제작 프롬프트, JSON Schema 계약 및 골든 레퍼런스 픽스처**를 배포하며, 다음 항목은 **포함하지 않습니다**:
 
-## 무결성
+- 플레이 가능한 Three.js 런타임 게임 빌드;
+- 실제 빌드에서 측정된 GPU 프레임 시간 벤치마크 데이터;
+- 라이브 Playwright 브라우저 캡처 패키지;
+- 구현된 UI에 대한 공식 WCAG 접근성 인증.
 
-[SHA256SUMS.txt](SHA256SUMS.txt)의 SHA-256 값은 이 릴리스에 포함된 모든 PDF, JPEG 아트워크 자산, 독립형 JSON Schema, 골든 픽스처, 프롬프트, 문서 산출물(총 `39`개 검증 파일)을 대상으로 합니다. 저장소 루트에서 `sha256sum -c SHA256SUMS.txt` 및 `python scripts/verify_release.py`를 실행하여 전체 릴리스 패키지를 검증할 수 있습니다.
+문서에 명시된 프레임 시간 백분위수(`P50 <= 8.3 ms`, `P95 <= 16.6 ms`, `P99 <= 22.0 ms`), Draw Call 상한, 오디오 라우드니스 목표(`-16 LUFS +- 1.0 LU`, `<= -1.0 dBTP`)는 모두 `N14_RELEASE_CANDIDATE` 승인 전에 구현체가 통과해야 하는 **규범적 인수 게이트(Normative Acceptance Gates)**입니다.
 
-## 기여
+---
 
-다음과 같은 범위가 명확한 기여를 환영합니다.
+## 저자, 인용 및 라이선스
 
-- 페이지 참조가 포함된 사실 또는 편집상 결함
-- 끊어진 출처 링크
-- 번역 수정
-- 용어 개선
-- 접근성 개선
-- 재현 가능한 구현 보고서
-- 공개된 권한 모델을 보존하는 기계 판독형 계약
-
-이슈 또는 풀 리퀘스트를 열기 전에 [CONTRIBUTING.md](CONTRIBUTING.md)를 읽어 주십시오.
-
-## 인용
-
-[CITATION.cff](CITATION.cff)의 메타데이터를 사용하십시오. 간단한 인용 형식은 다음과 같습니다.
-
-> Emily Paradox. *Three.js Evidence Graph v2.0 and The Hollow Meridian RPG Full Prompt v1.0*. Technical Systems and Game Systems Series, July 2026.
-
-## MIT 라이선스
-
-Copyright (c) 2026 Iamemily2050 (@iamemily2050).
-
-개별 파일에 달리 명시되어 있지 않은 한, 이 저장소의 문서, PDF, 원본 콘셉트 아트워크에는 [MIT 라이선스](LICENSE)가 적용됩니다. 복제본이나 주요 부분에는 저작권 고지와 허가 고지를 그대로 유지해야 합니다. 학술, 편집, 기술적 논의에서는 출처 표기를 요청하지만, 이는 MIT 라이선스에 추가되는 조건이 아닙니다.
-
-## 저자 및 권리 보유자
-
-- 출판물 표기명: **Emily Paradox**
-- 창작자 및 권리 보유자: **Iamemily2050 (@iamemily2050)**
-- 직함: **AI Digital Artist**
-- GitHub: [https://github.com/Emily2040](https://github.com/Emily2040)
-- 웹사이트: [https://iamemily2050.com](https://iamemily2050.com)
-- X: [@iamemily2050](https://x.com/iamemily2050)
-- Instagram: [@iamemily2050](https://instagram.com/iamemily2050)
-
-자세한 저자, 크레딧, 권리 정보는 [AUTHORS.md](AUTHORS.md)를 참조하십시오.
+- **출판물 표기명**: Emily Paradox
+- **창작자 및 저작권자**: **Iamemily2050 (`@iamemily2050`)**
+- **GitHub**: [Emily2040](https://github.com/Emily2040) · **웹사이트**: [iamemily2050.com](https://iamemily2050.com) · **X**: [`@iamemily2050`](https://x.com/iamemily2050) · **Instagram**: [`@iamemily2050`](https://instagram.com/iamemily2050)
+- **인용 메타데이터**: [`CITATION.cff`](CITATION.cff) 및 [`CITATIONS.md`](CITATIONS.md)
+- **라이선스**: 별도 명시가 없는 한 [MIT 라이선스](LICENSE)에 따라 배포됩니다. 전체 귀속 기록은 [`AUTHORS.md`](AUTHORS.md)를 참조하십시오.

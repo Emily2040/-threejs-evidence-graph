@@ -42,7 +42,7 @@
     }
   ],
   "metrics": {
-    "frame_time_p50_ms": 8.4,
+    "frame_time_p50_ms": 7.9,
     "frame_time_p95_ms": 14.2,
     "frame_time_p99_ms": 18.1,
     "max_draw_calls": 184,

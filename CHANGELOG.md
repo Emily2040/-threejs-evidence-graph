@@ -1,6 +1,22 @@
 # Changelog
 
+Every release is verified.
+
 All notable changes to the publication bundle are documented here.
+
+## [2026.07.5] - 2026-07-28
+
+### Added
+
+- **Game 02 Flagship Publication (*Mystery on Horror*)**: Added `publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf` (`36` pages, A4 vector PDF with `/Lang (en-US)`, `/MarkInfo << /Marked true >>`, and 20 clickable `/URI` reference links on page 36), specifying a 12-to-16-minute first-person investigative psychological horror vertical slice (*The Glass Ossuary* / 《琉璃骸骨堂》 / 『硝子の納骨堂』 / 《유리 납골당》) in Three.js `r185` (`0.185.0`) with zero downloaded assets
+- **Game 03 Flagship Publication (*First-Person Shooter Adventure*)**: Added `publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf` (`36` pages, A4 vector PDF with `/Lang (en-US)`, `/MarkInfo << /Marked true >>`, and 20 clickable `/URI` reference links on page 36), specifying a 12-to-15-minute first-person kinetic sci-fi shooter adventure vertical slice (*Perihelion Breach* / 《近日点破袭》 / 『ペリヘリオン・ブリーチ』 / 《근일점 돌파》) in Three.js `r185` (`0.185.0`) with zero downloaded assets
+- **Native Four-Language Companion Guides for All Four Publications (`16` Guides in `docs/`)**: Added native English, Simplified Chinese (`zh-CN`), Japanese (`ja`), and Korean (`ko`) companion guides for *The Glass Ossuary* (`docs/THE_GLASS_OSSUARY_GUIDE.{md,zh-CN.md,ja.md,ko.md}`) and *Perihelion Breach* (`docs/PERIHELION_BREACH_GUIDE.{md,zh-CN.md,ja.md,ko.md}`), and updated `docs/EVIDENCE_GRAPH_GUIDE.*` and `docs/THE_HOLLOW_MERIDIAN_GUIDE.*` with full four-publication cross-links
+- **Complete Repository Redesign & Custom Typographic SVG Suite**: Rebuilt `README.md`, `README.zh-CN.md`, `README.ja.md`, and `README.ko.md` from the ground up in native English, Simplified Chinese, Japanese, and Korean, paired with five custom vector SVG banners and diagrams in `assets/svg/` (`masthead-en.svg`, `masthead-zh-CN.svg`, `masthead-ja.svg`, `masthead-ko.svg`, and `architecture-pipeline.svg`)
+- **Concept Artwork, Covers, Prompts & Golden Reference Runs (`run-0002` & `run-0003`)**:
+  - Added four zero-EXIF concept-art section heroes (`assets/glass-ossuary-investigation-hero.jpg`, `assets/glass-ossuary-apparition-hero.jpg`, `assets/perihelion-breach-world-hero.jpg`, `assets/perihelion-breach-combat-hero.jpg`), two PDF cover plates (`assets/the-glass-ossuary-cover.jpg`, `assets/perihelion-breach-cover.jpg`), and an updated 4-publication composite plate (`assets/publication-set.jpg`)
+  - Added 16 standalone copy-pasteable orchestrator and specialist agent prompt files in `prompts/glass-ossuary/` and `prompts/perihelion-breach/` (mirrored in `orchestration/prompts/`)
+  - Added schema-validated golden reference fixtures in `examples/run-0002/` (*The Glass Ossuary*, `seed=1894`) and `examples/run-0003/` (*Perihelion Breach*, `seed=2142`)
+  - Added `docs/ARTWORK_PROVENANCE.md` and Section 6 of `docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`
 
 ## [2026.07.4] - 2026-07-27
 

@@ -1,4 +1,5 @@
-<!-- source_version: 2026.07.4; translation_status: reviewed; language: zh-CN -->
+<!-- source_version: 2026.07.5; translation_status: reviewed; language: zh-CN -->
+
 # Three.js Evidence Graph：操作手册 v2.0 配套导读指南
 
 [English](EVIDENCE_GRAPH_GUIDE.md) | [简体中文](EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [日本語](EVIDENCE_GRAPH_GUIDE.ja.md) | [한국어](EVIDENCE_GRAPH_GUIDE.ko.md)
@@ -64,3 +65,7 @@
 - **可直接复制的编排器提示词**：[`prompts/evidence-graph/orchestrator.md`](../prompts/evidence-graph/orchestrator.md)
 - **黄金参考运行样例**：[`examples/run-0001/`](../examples/run-0001/)
 - **技术勘误与跨版本对齐规范**：[`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)
+- **三款跨品类游戏垂直切片配套指南**：
+  - [docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md](THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md)（《虚空子午线 v1.0》动作 RPG，81 页，examples/run-0001/）
+  - [docs/THE_GLASS_OSSUARY_GUIDE.zh-CN.md](THE_GLASS_OSSUARY_GUIDE.zh-CN.md)（《琉璃骸骨堂 v1.0》悬疑恐怖，36 页，examples/run-0002/）
+  - [docs/PERIHELION_BREACH_GUIDE.zh-CN.md](PERIHELION_BREACH_GUIDE.zh-CN.md)（《近日点破袭 v1.0》科幻射击冒险，36 页，examples/run-0003/）

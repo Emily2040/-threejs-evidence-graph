@@ -1,9 +1,9 @@
 cff-version: 1.2.0
-message: "If you use or discuss this publication set, please cite it using this metadata."
-title: "Three.js Evidence Graph v2.0 and The Hollow Meridian RPG Full Prompt v1.0"
+message: "If you use or discuss this four-publication suite, please cite it using this metadata."
+title: "Three.js Evidence Graph v2.0 and Multi-Genre Zero-Asset Game Production Suite (The Hollow Meridian, The Glass Ossuary, and Perihelion Breach)"
 type: software
-version: 2026.07.4
-date-released: 2026-07-27
+version: 2026.07.5
+date-released: 2026-07-28
 license: MIT
 authors:
   - family-names: "Paradox"
@@ -23,12 +23,16 @@ keywords:
   - deterministic replay
   - procedural generation
   - evidence graph
-  - browser games
+  - action RPG
+  - mystery horror
+  - first-person shooter
 abstract: >-
-  A two-document publication set describing an evidence-driven, repository-local
-  multi-agent production framework for narrow Three.js browser-game vertical
-  slices and an applied action-RPG production specification titled The Hollow
-  Meridian, accompanied by standalone JSON Schema Draft 2020-12 contracts,
-  copy-pasteable agent prompts, and golden reference fixtures. This release
-  contains design specifications, schemas, and prompts, not a playable runtime
-  implementation or empirical benchmark result.
+  A four-volume, 217-page engineering specification and multi-agent prompt suite
+  for deterministic, source-generated Three.js r185 (0.185.0) browser games with
+  zero downloaded runtime assets. Includes Three.js Evidence Graph: Operational
+  Manual v2.0 (64 pages), The Hollow Meridian: Third-Person Action RPG v1.0 (81
+  pages), The Glass Ossuary: First-Person Mystery Horror v1.0 (36 pages), and
+  Perihelion Breach: First-Person Sci-Fi Shooter Adventure v1.0 (36 pages),
+  backed by standalone JSON Schema Draft 2020-12 contracts, 25 copy-pasteable
+  orchestrator and specialist prompts, 3 golden reference runs, and native
+  four-language documentation in English, Simplified Chinese, Japanese, and Korean.

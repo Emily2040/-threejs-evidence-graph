@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/defect-record.schema.json",
+  "issue_id": "HOR-N06A-AUDIO-008",
+  "run_id": "run-0002",
+  "severity": "P1",
+  "category": "determinism",
+  "node": "N06A_GAMEPLAY_COMBAT",
+  "owner_agent": "combat_gameplay",
+  "summary": "Wax-Cylinder Phonograph phase-cancellation window (ticks 25..114) failed to suppress Mire Listener decibel aggro when Lantern Shutter was toggled on tick 24.",
+  "evidence": [
+    "evidence/run-0002/replays/rep-06-crypt-phonograph.json",
+    "evidence/run-0002/metrics/acoustic-aggro-audit.json"
+  ],
+  "root_cause_hypothesis": "Lantern Shutter recovery state overwrote the active acoustic masking flag on the player entity at tick 25 instead of composing independent bitmask channels.",
+  "proposed_repair": "Separate optical visibility state (LANTERN_OPEN / LANTERN_SHUTTERED) from acoustic emission state (PHONOGRAPH_CANCEL_ACTIVE) in the 60 Hz bitmask reducer and verify orthogonality in rep-06.",
+  "affected_paths": [
+    "src/forensics/instrument-state-machine.ts",
+    "src/apparitions/acoustic-aggro.ts"
+  ],
+  "regression_check": "npm run test:replay -- --seed=1894 --scenario=rep-06",
+  "status": "verified_fixed"
+}

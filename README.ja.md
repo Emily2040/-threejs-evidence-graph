@@ -1,286 +1,244 @@
-# Three.js Evidence Graph
-<!-- source_version: 2026.07.4; translation_status: reviewed; language: ja -->
+<!-- source_version: 2026.07.5; translation_status: reviewed; language: ja -->
 
-ソース生成型の Three.js 垂直スライスを対象とする、エビデンス駆動のマルチエージェント制作手法です。適用例として RPG 仕様書 *The Hollow Meridian* を収録しています。
+# Three.js エビデンスグラフ & マルチジャンル・ゼロアセット開発仕様スイート
 
-[English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
+<div align="center">
 
-![抽象的なエビデンスグラフが子午線形状と設計済みゲームルートへ収束する図](assets/readme-hero.jpg)
+[![Native English](https://img.shields.io/badge/Edition-Native_English-D49B4B?style=for-the-badge)](README.md)
+[![简体中文](https://img.shields.io/badge/语言-简体中文_(原生母语版)-45B29D?style=for-the-badge)](README.zh-CN.md)
+[![日本語](https://img.shields.io/badge/言語-日本語_(ネイティブ版)-38C6D9?style=for-the-badge)](README.ja.md)
+[![한국어](https://img.shields.io/badge/언어-한국어_(네이티브판)-C89B54?style=for-the-badge)](README.ko.md)
 
-> **公開状況**
+[![Release 2026.07.5](https://img.shields.io/badge/リリース-2026.07.5-0F1722?style=flat-square&logo=github)](RELEASE_NOTES.md)
+[![Three.js r185](https://img.shields.io/badge/Three.js-r185_(0.185.0)-45B29D?style=flat-square)](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)
+[![Publications 4 PDFs / 217 Pages](https://img.shields.io/badge/仕様書-全4巻_·_計217ページ-D49B4B?style=flat-square)](docs/PUBLICATION_STATUS.md)
+[![JSON Schema Draft 2020-12](https://img.shields.io/badge/JSON_Schema-Draft_2020--12-38C6D9?style=flat-square)](schemas/)
+[![License MIT](https://img.shields.io/badge/ライセンス-MIT-CBD5E1?style=flat-square)](LICENSE)
+
+</div>
+
+![Three.js エビデンスグラフ & マルチジャンル開発仕様スイート マストヘッド](assets/svg/masthead-ja.svg)
+
+> **本リポジトリの位置づけ**
 >
-> このリポジトリには、2冊の設計仕様書および制作プロンプトが含まれています。プレイ可能なゲーム、完成済みのリファレンス実装、ベンチマーク結果、完全なエビデンス実行は含まれていません。出版物内のパフォーマンス図表と予算値は、測定データであることが明示されていない限り、すべて目標値です。
-
-## 出版物
-
-| 出版物 | 役割 | 版 | ダウンロード |
-|---|---|---:|---|
-| **Three.js Evidence Graph** | エージェントが構築するブラウザ向け垂直スライスを統制、テスト、修復、リリースするための汎用的な運用手法 | v2.0、64ページ | [PDF を読む](publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf) |
-| **The Hollow Meridian** | プロシージャルな三人称視点アクション RPG のための、ゲーム固有のプロダクト契約およびマルチエージェント制作プロンプト | v1.0、81ページ | [PDF を読む](publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf) |
-
-![Three.js Evidence Graph と The Hollow Meridian の表紙](assets/publication-set.jpg)
-
-第1文書は、制作上の判断をエビデンスに裏付けられた遷移へ変換する方法を定義します。第2文書は、野心的な RPG 垂直スライスに含めるべき内容を定義します。両文書は同じ Evidence Graph の系譜に属しますが、バージョン間で完全に整合しているわけではありません。*The Hollow Meridian* はフレームワークの中核的な考え方を設計仕様へ数多く取り入れていますが、v2 で追加された複数の安全策より前に作成されています。
-
-## この取り組みが必要な理由
-
-大規模なゲーム生成プロンプトでは、プロダクト方針、アーキテクチャ、実装、品質判断、修復、リリース権限を1つの会話にまとめてしまうことが少なくありません。その結果、よくある失敗が生じます。システムは大量のコードを生成しながら、独立した証拠を提示しないまま、自らの作業が成功したと説明できてしまいます。
-
-本出版物は、これとは異なる制御モデルを提案します。
-
-```mermaid
-flowchart TD
-    A["プロダクト契約"] --> B["範囲を限定した専門作業"]
-    B --> C["独立したエビデンス取得"]
-    C --> D["機械的判定と校正済み評価"]
-    D --> E["受理、修復、分岐、ロールバック"]
-    E --> F["エビデンスに基づくリリース判断"]
-```
-
-プロンプトはコントロールプレーンへのインターフェースであり、それ自体がコントロールプレーンなのではありません。リポジトリの状態、型付きタスク・パケット（task packets）、決定論的チェック、エビデンス・マニフェスト（evidence manifests）、予算、リリース条件（release predicates）が、会話だけでは安全に保持できない権限を担います。
-
-## Three.js Evidence Graph の概要
-
-![プロダクト契約から、範囲を限定した作業、エビデンス取得、リリース判定、修復、却下へ分岐する制御グラフ](assets/evidence-graph-control-hero.jpg)
-
-*Three.js Evidence Graph v2.0* は、範囲を限定したブラウザゲームの垂直スライスを対象とする、リポジトリ内完結型の制作システムを説明します。主な貢献は次のとおりです。
-
-1. **正準な制作グラフ。** 作業は、楽観的な進捗報告ではなく、型付きノードと明示的な遷移条件（transition predicates）に従って進行します。
-2. **リポジトリの権威。** プロダクト、アート、アーキテクチャ、品質に関する契約は、会話の記憶や個々のエージェントの判断よりも上位に置かれます。
-3. **範囲を限定した委任。** 各スペシャリストには、単一の目的、変更を許可または禁止するファイル、不変条件、合格判定コマンド、必要なエビデンス、再試行上限、計算資源の予算が与えられます。
-4. **権限の分離。** 構築担当者（Builder）は実装を担当します。読み取り専用の評価担当者（critic）は取得済み成果物を評価します。来歴監査担当者（provenance auditor）はリリースを阻止できます。指名された人間のディレクターは基本規約（constitution）を変更できますが、失敗した判定を免除することはできません。
-5. **2つのエビデンス制度。** シミュレーション状態やその他の制御対象データには、ビット単位の完全一致を使用できます。GPU でラスタライズされた出力やプロファイル横断の視覚的エビデンスには、宣言済みの許容範囲を使用します。
-6. **実証に基づくレンダラー選択。** WebGPU/TSL と WebGL 2 は、代表的なマテリアル、エフェクト、デバイス、ブラウザ、トレースに照らして検証する候補として扱われます。
-7. **コンパイルとしてのプロシージャル生成。** 生成器には、文法、範囲を制限したパラメーター、シード、排除テスト、衝突判定と LOD の方針、来歴、診断出力が必要です。ランダム性は構成設計の代替にはなりません。
-8. **サプライチェーンを考慮した来歴管理。** アセット方針は、ソースファイル、依存関係、ビルド済みバンドル、フォント、不透明なバイナリ、エンコード済みメディア、実行時要求、生成済み出力を検査します。
-9. **校正された評価。** 評価担当者は既知の欠陥を検出し、提示順を反転した評価にも耐え、エビデンスを引用し、一般的な好みではなく観測可能な失敗を報告しなければなりません。
-10. **根本原因の修復。** 各修復では、欠陥、エビデンス、仮説、介入、予想される変化、保護対象の指標、合格試験、コスト、ロールバック条件を記録します。
-11. **パフォーマンス分布。** 本手法は、平均 FPS だけに依存せず、フレーム時間のパーセンタイル、長時間フレーム、CPU および GPU コスト、メモリ増加、コンパイル停止、レンダラー統計を評価します。
-12. **計算資源の経済性。** 機械的チェックではモデルを使用しません。モデル呼び出しはタスク価値に応じて振り分けられ、実行単位のコスト台帳（cost ledger）に記録されます。
-
-マニュアルには、v1 から v2 への欠陥台帳、15ノードの制御グラフ、4部構成のオーケストレーター・プロンプト（orchestrator prompt）、およびタスク・パケット、欠陥記録、実行マニフェスト用の JSON Schema（[`schemas/`](schemas/) では Draft 2020-12 にアップグレード済み）が含まれます。
-
-> **アーキテクチャの詳細ガイド：** [Evidence Graph v2.0 日本語ガイド](docs/EVIDENCE_GRAPH_GUIDE.ja.md) および [技術正誤表と v2.0 整合仕様](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)では、15ノードの制御トポロジー（`N00_BRIEF` から `N14_RELEASE_CANDIDATE`）、2つの決定論制度、スタンドアロン Draft 2020-12 JSON Schema（[`schemas/`](schemas/)）、ゴールデン検証フィクスチャ（[`examples/run-0001/`](examples/run-0001/)）、およびコピー＆ペースト可能なプロンプト（[`prompts/`](prompts/)）を解説しています。
+> 本リポジトリは、**Emily Paradox（`@iamemily2050`）** によって設計・執筆された、Three.js `r185`（`0.185.0`）向けの**全4巻・計`217`ページにおよぶエンジニアリング仕様書およびマルチエージェント開発プロンプトスイート**です。外部の3Dモデル（`.glb`）、テクスチャ、フォント、録音済み音声ファイルを一切ダウンロードせず、リポジトリ内のコードとシード値のみから決定論的なブラウザゲームのバーティカルスライスを構築するための基盤アーキテクチャ（『Three.js Evidence Graph: Operational Manual v2.0』、`64`ページ）と、3つの異なるゲームジャンルの完全な制作仕様書を収録しています。
+> 1. **Game 01 — 三人称ダークファンタジー・アクションRPG**：**『虚ろの子午線』（*The Hollow Meridian*、81ページ）**
+> 2. **Game 02 — 一人称音響鑑識ミステリーホラー**：**『硝子の納骨堂』（*The Glass Ossuary*、36ページ）**
+> 3. **Game 03 — 一人称ハイスピードSFシューター・アドベンチャー**：**『ペリヘリオン・ブリーチ』（*Perihelion Breach*、36ページ）**
 >
-> Evidence Graph ガイド言語：[English](docs/EVIDENCE_GRAPH_GUIDE.md) | [简体中文](docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [日本語](docs/EVIDENCE_GRAPH_GUIDE.ja.md) | [한국어](docs/EVIDENCE_GRAPH_GUIDE.ko.md)
+> 全4巻の仕様書には、スタンドアロンの JSON Schema Draft 2020-12 契約ファイル（`schemas/`）、そのままコピー＆ペーストして利用できるマスターオーケストレーターおよび21枚の専門サブエージェントカード（`prompts/`）、スキーマ検証済みのゴールデンフィクスチャ（`examples/run-0001/` 〜 `examples/run-0003/`）、そして**英語・簡体字中国語・日本語・韓国語**の4言語それぞれのネイティブ技術文脈で書き下ろされたコンパニオンガイドが付属しています。
 
-## The Hollow Meridian の概要
+---
 
-![The Hollow Meridian の廃墟となった天文台を通る設計済みゲームルート](assets/hollow-meridian-world-hero.jpg)
+## 全4巻仕様書スイート一覧（合計 `217` ページ）
 
-*出版物の説明用コンセプトアートです。ゲームプレイのキャプチャや実装済みであることを示す証拠ではありません。*
+![全4巻仕様書スイート：Three.js Evidence Graph v2.0、『虚ろの子午線』、『硝子の納骨堂』、『ペリヘリオン・ブリーチ』](assets/publication-set.jpg)
 
-*The Hollow Meridian v1.0* は、Three.js で構築するデスクトップブラウザ向け三人称視点ダークファンタジー・アクション RPG の、81ページに及ぶプロダクト契約兼オーケストレーションプロンプトです。ダウンロードした完成版のアート、音声、モデル、テクスチャ、フォント、アセットパックは使用しません。
+*本画像は本リポジトリに収録された4冊のPDF仕様書のコンポジット図版です。すべてのカバーアートおよびセクションヒーロー画像は仕様書向けのコンセプトアートであり、完成した実機ビルドのスクリーンショットやベンチマーク証跡ではありません。*
 
-> **日本語の詳細ガイド：** [The Hollow Meridian ゲーム解説ガイド](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [Evidence Graph v2.0 ガイド](docs/EVIDENCE_GRAPH_GUIDE.ja.md) | [技術正誤表](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)では、世界観、10ビートのルート、戦闘、パズル、遺物、セーブ、ボス、アクセシビリティ、制作グラフを詳しく解説しています。このガイドは81ページの英語版 PDF の完全翻訳ではありません。
->
-> ゲーム解説ガイド言語：[English](docs/THE_HOLLOW_MERIDIAN_GUIDE.md) | [简体中文](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [日本語](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [한국어](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md)
+| 巻 | 仕様書タイトル・ジャンル | PDFアーティファクト（`publications/`） | ページ数 | サイズ | 4言語ネイティブガイド（`docs/`） | プロンプト・検証フィクスチャ |
+| :-: | :--- | :--- | ---: | ---: | :--- | :--- |
+| **01** | **Three.js Evidence Graph v2.0**<br/>*マルチエージェント制御プレーン＆決定論運用マニュアル* | [`threejs-evidence-graph-operational-manual-v2.0-en.pdf`](publications/threejs-evidence-graph-operational-manual-v2.0-en.pdf)<br/>`sha256[0..16]: d3830d411a61c52c` | `64`頁 | `416,827` B | [EN](docs/EVIDENCE_GRAPH_GUIDE.md) · [中文](docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md) · [日本語](docs/EVIDENCE_GRAPH_GUIDE.ja.md) · [한국어](docs/EVIDENCE_GRAPH_GUIDE.ko.md) | [`prompts/evidence-graph/`](prompts/evidence-graph/)<br/>[`schemas/`](schemas/) |
+| **02** | **『虚ろの子午線』The Hollow Meridian v1.0**<br/>*Game 01 · 三人称ダークファンタジー・アクションRPG* | [`the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf`](publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)<br/>`sha256[0..16]: c4f8fe83995d526b` | `81`頁 | `357,144` B | [EN](docs/THE_HOLLOW_MERIDIAN_GUIDE.md) · [中文](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) · [日本語](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md) · [한국어](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md) | [`prompts/hollow-meridian/`](prompts/hollow-meridian/)<br/>[`examples/run-0001/`](examples/run-0001/) |
+| **03** | **『硝子の納骨堂』The Glass Ossuary v1.0**<br/>*Game 02 · 一人称調査型ミステリーホラー* | [`the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf`](publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)<br/>`sha256[0..16]: efead090be003782` | `36`頁 | `98,649` B | [EN](docs/THE_GLASS_OSSUARY_GUIDE.md) · [中文](docs/THE_GLASS_OSSUARY_GUIDE.zh-CN.md) · [日本語](docs/THE_GLASS_OSSUARY_GUIDE.ja.md) · [한국어](docs/THE_GLASS_OSSUARY_GUIDE.ko.md) | [`prompts/glass-ossuary/`](prompts/glass-ossuary/)<br/>[`examples/run-0002/`](examples/run-0002/) |
+| **04** | **『ペリヘリオン・ブリーチ』Perihelion Breach v1.0**<br/>*Game 03 · 一人称SFシューター・アドベンチャー* | [`perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf`](publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)<br/>`sha256[0..16]: 75bdfff21c905122` | `36`頁 | `95,265` B | [EN](docs/PERIHELION_BREACH_GUIDE.md) · [中文](docs/PERIHELION_BREACH_GUIDE.zh-CN.md) · [日本語](docs/PERIHELION_BREACH_GUIDE.ja.md) · [한국어](docs/PERIHELION_BREACH_GUIDE.ko.md) | [`prompts/perihelion-breach/`](prompts/perihelion-breach/)<br/>[`examples/run-0003/`](examples/run-0003/) |
 
-プレイヤーは Cartographer となり、消滅した都市の真の名前を保存する廃墟の天文台を探索します。Cartographer は顔を持たない成人の守護者です。想定される初回プレイ時間は10～14分で、次の要素を含みます。
+---
 
-- 安全な拠点（hub）1か所と、設計済みルート1本
-- 主要な空間5か所
-- クエスト提供者1人と、3つの環で構成される空間パズル1つ
-- 敵の基本型（enemy archetype）3種
-- 3択の遺物（relic）1つ
-- 2段階のボス *The Bell Without a Name*
-- 2種類のエンディング
-- チェックポイント、セーブ、死亡、復帰、勝利、拠点への帰還を扱うローカル進行管理
+## コアアーキテクチャ：15ノード・エビデンスグラフ（`N00` .. `N14`）
 
-この仕様では、オープンワールドへの拡張、クラフト、ショップ、ランダム戦利品、仲間、マルチプレイヤー、キャラクター作成を意図的に除外しています。機能量で弱いインタラクションを覆い隠すのではなく、1つのコンパクトな体験を完成させることが目的です。
+![15ノード・エビデンスグラフトポロジーと3ジャンル垂直スライス構成図](assets/svg/architecture-pipeline.svg)
 
-制作プロンプトは、建築、ゲームプレイと戦闘、プロシージャルな世界構築、敵とボスの挙動、RPG と UI のシステム、音声と効果、統合、QA と性能、視覚評価、来歴監査を担当する専門的な役割を定義します。また、固定刻みシミュレーション、リプレイ取得、状態ハッシュ、安定した診断 URL、エビデンス保存先、範囲を限定した修復タスク、分離した候補、ロールバック、最終リリース判定も定義します。
+単一のチャットスレッドに企画・実装・シェーダー記述・品質判定をすべて委ねる従来のLLMゲーム生成では、コンテキストの肥大化に伴う仕様ドリフトやシェーダーコンパイルスパイク、根拠のない自己合格宣言が頻発します。**Three.js Evidence Graph v2.0** は、権限と検証を以下の4層に分離することでこの構造的欠陥を解決します。
 
-### 設計されたプレイ構造
+1. **決定論的オーケストレーター（`orchestrator`）**：[`schemas/graph-state.d.ts`](schemas/graph-state.d.ts) に基づき、`N00_BRIEF` から `N14_RELEASE_CANDIDATE` までの15ノードDAGを制御します。[`task-packet.schema.json`](schemas/task-packet.schema.json) に準拠したタスク定義と受け入れコマンドの通過なしに次ノードへ進むことはできません。
+2. **ファイル書き込み権限を分離した専門サブエージェント（各ゲーム7枚）**：`combat_gameplay`、`world_quest`、`procedural_art_vfx`、`procedural_audio`、`ui_hud_accessibility`、`qa_perf_playwright`、および読み取り専用の `independent_critic` で構成。各エージェントは割り当てられた `allowed_paths` 以外のファイルを変更できません。
+3. **二重決定論レジーム（`A-PinnedBrowser` & `B-CrossPlatform`）**：
+   - **レジームA（`A-PinnedBrowser`・固定環境ビット完全一致）**：固定バージョンのChromiumコンテナ内で、60 Hz整数ティック状態ハッシュ（`state_hash`）、16-bit PCM量子化済み `OfflineAudioContext` 音声ハッシュ（`audio_hash`）、および `1e-5` 量子化済み手続き型ジオメトリハッシュ（`geometry_hash`）のSHA-256一致を検証します。
+   - **レジームB（`B-CrossPlatform`・マルチ環境許容差検証）**：`THREE.WebGPURenderer`（優先）と `{ forceWebGL: true }`（フォールバック）の両環境において、フレーム時間パーセンタイル（`P50 <= 8.3 ms`、`P95 <= 16.6 ms`、`P99 <= 22.0 ms`）および EBU R128 ラウドネス基準（`-16 LUFS +- 1.0 LU`、トゥルーピーク `<= -1.0 dBTP`）を検証します。
+4. **外部アセットゼロ原則（`provenance_critic`）**：すべての3Dメッシュ、TSL（`Three.js Shading Language`）ノードマテリアル、リグ、UIグリフ、Web Audio音響はソースコードから手続き的にコンパイルされ、`external_network_requests` と `downloaded_assets_count` は厳密に `0` に固定されます。
 
-10ビートのルートは、Ash Court での導入とクエスト受注から始まり、Orrery Bridge の戦闘チュートリアル、Archive Nave の探索、決定論的な3環式子午線パズル、Bell Foundry のガード崩し戦へ進みます。続いて3つの遺物から1つを選び、Meridian Chamber を開き、2段階のボス **The Bell Without a Name** と戦い、最後に束縛（bind）か解放（release）を選んで拠点へ戻ります。プロシージャル・システムが形状や素材を生成しても、この劇的な順序と各空間の目的は設計済みのまま維持されます。
+---
 
-瞬間ごとのループでは、建築と光から方向を把握し、戦闘を読み、移動、ガード、パリィ、回避、攻撃を選び、スタミナと Resonance を管理し、印章またはクエスト状態を進め、チェックポイントで意味のある状態を保存します。戦闘は弱攻撃と強攻撃、ガード、選択されたパリィ受付時間、Echo Brand で構成されます。3種の敵は、それぞれ間合い、遠距離からの圧力、ガード崩しを教えます。3環式パズルは決定論的に解ける空間課題であり、3択の遺物は実際の戦闘判断を変えます。
+## フラッグシップ3作品（3ジャンル）横断比較マトリクス
 
-セーブ・スキーマ（save schema）は、クエスト状態、2つの印章、選択した遺物、消耗品、チェックポイント、完了状態、エンディングの選択、設定、再割り当てした操作を保持します。ボスは標準の敵の大型版ではなく、固有の攻撃一式、体勢耐久（poise）、体力55パーセントでの保護された段階移行、視認可能な安全区画を持つ独立システムです。これらはすべて、想定されるゲームの**仕様および合格契約**を定義するものです。本リポジトリはスタンドアロンのスキーマ、プロンプト、および `examples/run-0001/` のゴールデン検証フィクスチャを提供しており、プレイ可能な実行時ビルドは含んでいません。
+| 比較軸 | Game 01：『虚ろの子午線』(*The Hollow Meridian*) | Game 02：『硝子の納骨堂』(*The Glass Ossuary*) | Game 03：『ペリヘリオン・ブリーチ』(*Perihelion Breach*) |
+| :--- | :--- | :--- | :--- |
+| **ジャンル・視点** | 三人称ダークファンタジー・アクションRPG | 一人称調査型ミステリーホラー（Mystery on Horror） | 一人称SFシューター・アドベンチャー（FPS Adventure） |
+| **想定プレイ時間** | 10〜14分 | 12〜16分 | 12〜15分 |
+| **主人公** | `The Cartographer`（測量師 `Sable Veren`） | `Clara Vane`（音響記録保管官 `The Acoustic Archivist`） | `Soren Kestrel`（リレー先遣隊員＋戦術AI `Vesper`） |
+| **主要リソース** | `100 Health` · `100 Stamina` · `0–100 Resonance` | `100 Composure` · `100 Lantern Oil` · `0–100 Exposure` | `100 Shield` · `100 Hull Integrity` · `0–100 Core Heat` |
+| **60 Hz コアメカニクス** | ボタン押下時の `Parry`（`ticks 6..12`）と長押し `Guard`（`tick >= 13`）の優先度分離 | 直交ビットマスクによる `Lantern Shutter`（`6t`）＋`Phonograph Cancel`（`25..114t`）＋`Ferrotype Flash`（`19..24t`） | `Thermal Vent Reload`（`14..20t` で熱量100%パージ＆火力強化）＋`Magnetic Grapple`（`18.0 m/s`）＋`Slide-Boost`（`11.5 m/s`） |
+| **5つの連結エリア** | `Ash Court` -> `Orrery Bridge` -> `Archive Nave` -> `Bell Foundry` -> `Meridian Chamber` | `Tidewater Causeway` -> `Caretaker's Stripping Room` -> `Refraction Gallery` -> `Submerged Crypt` -> `The Glass Ossuary` | `Umbilical Airlock` -> `Heliostat Truss` -> `Cryo-Coolant Manifold` -> `Ballistic Foundry` -> `Perihelion Core Chamber` |
+| **ビート05 空間パズル** | `Meridian Alignment`（3連真鍮リング整列 -> `North Seal`） | `Prism Triangulation`（`45/135/270 deg` フレネル環 -> 『潮汐台帳の断片』）＋`110/220/330 Hz` 水門共振 | `Conduit Phase Routing`（`180 ticks` 以内に3つのプラズマアンカーを接続 -> 『冷却バイパスコア』） |
+| **3種の敵・怪異** | `Ashbound Skirmisher`、`Lantern Wraith`、`Bell Sentinel` | `Mire Listener`（音響索敵）、`Glass Septum Watcher`（視線屈折）、`Drowned Chorister`（低周波オーラ） | `Volt Skitter`（壁面疾走）、`Aegis Drone`（盾持ち狙撃）、`Slag Enforcer`（重装迫撃砲） |
+| **ビート07 ビルド分岐** | **聖堂の遺物**：`brass_vow` · `ash_thread` · `vacant_name` | **推理ボード仮説**：`lens_sabotage` · `tidal_quarantine` · `acoustic_calling` | **Exo-Rigコア**：`recoil_gyro` · `thermal_siphon` · `grapple_overdrive` |
+| **ビート09 二段階ボス** | **名もなき鐘**（`The Bell Without a Name`、`850 HP`、残り`55%`で第2段階） | **硝子の中の聖歌隊**（`The Choir in the Glass`、`600 Integrity`、`300`で第2段階） | **ヘリアーク・ウォーデン**（`The Heliarch Warden`、`1,000 Integrity`、`500`で第2段階） |
+| **ビート10 マルチエンディング** | `CHOICE_BIND`（封縛）または `CHOICE_RELEASE`（解放） | `VERDICT_PUBLISH`（公表）または `VERDICT_SUBMERGE`（水没封鎖） | `DIRECTIVE_DIVERT`（防衛）または `DIRECTIVE_VENT`（炉心パージ） |
+| **描画予算上限** | `<= 300` Draw Calls · `<= 500,000` Tris | `<= 280` Draw Calls · `<= 460,000` Tris | `<= 300` Draw Calls · `<= 500,000` Tris |
+| **ゴールデンフィクスチャ** | [`examples/run-0001/`](examples/run-0001/)（`seed=1337`） | [`examples/run-0002/`](examples/run-0002/)（`seed=1894`） | [`examples/run-0003/`](examples/run-0003/)（`seed=2142`） |
 
-## 2つの版の関係
+---
 
-*The Hollow Meridian* は、Evidence Graph の系譜に属し、中核原則に整合するリファレンス仕様として理解するのが適切です。v2 のすべての規則に準拠していると認証された実装ではありません。出版物間の v2.0 契約の統合は [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) および [`schemas/`](schemas/) で提供されています。
+## フラッグシップ3作品の詳細ガイド
 
-| 領域 | Evidence Graph v2.0 | Hollow Meridian v1.0 |
-|---|---|---|
-| プロダクト範囲 | 45～90秒という非常に狭い基準スライスを推奨 | 10～14分の野心的な RPG ルートを規定 |
-| エビデンス制度 | ビット単位の完全一致と許容範囲ベースの制度を明示 | 決定論的エビデンスは存在し、[`schemas/`](schemas/) で2つの制度に統合済み |
-| 評価担当者の統制 | 校正、提示順を入れ替えた評価、評価傾向の再点検 | 独立した評価担当者は存在するが、校正は完全には規定されていない |
-| 計算資源の経済性 | モデル階層と必須のコスト台帳 | [`schemas/run-manifest.schema.json`](schemas/run-manifest.schema.json) で統合済み |
-| 人間の権限 | 修正権限を限定された指名ディレクター | [`schemas/run-manifest.schema.json`](schemas/run-manifest.schema.json) で統合済み |
-| エンジン横断の決定論 | 厳密一致を主張する場合、制御された決定論的数学カーネルを要求 | [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) で規定済み |
-| 音声エビデンス | オフライン書き出し、ラウドネス、トゥルーピーク、音切れ、音声予算の判定 | プロシージャル音声は規定済み。16ビット PCM 量子化規則を [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) に記載 |
-| アクセシビリティ | エビデンスに裏付けられたリリース判定 | 充実したアクセシビリティ要件を収録 |
-| 来歴 | ソース、依存関係、バンドル、ネットワーク、出力の監査 | ソース生成型メディアと来歴に関する強力な規則を収録 |
+### 1. Game 01 — 『虚ろの子午線』（*The Hollow Meridian* · 三人称アクションRPG · 81ページ）
 
-この区別は重要です。付属の正誤表とスタンドアロン・スキーマにより、印刷時点での歴史的 PDF 版の差異を隠すことなく、2つの出版物の契約を整合させています。
+| 廃墟観測所ルート コンセプトプレート | 二段階ボス「名もなき鐘」コンセプトプレート |
+| :---: | :---: |
+| ![虚ろの子午線 ワールドルート](assets/hollow-meridian-world-hero.jpg) | ![名もなき鐘 ボス戦](assets/hollow-meridian-boss-hero.jpg) |
 
-## ここでの「AAA-grade」の意味
+失われた都市の「真名」を保管していた巨大な廃墟観測所を舞台に、プレイヤーは **The Cartographer（測量師）** として5つの空間を踏破します。60 Hz固定ティックによる7フレームのジャストパリィ判定、スタミナ管理、3連リングの空間パズル、聖堂での遺物（Relic）選択を経て、二段階ボス **The Bell Without a Name（名もなき鐘）** に挑みます。
 
-この表現は、意図的に範囲を限定した垂直スライスの内部リリース契約として使用しています。これは、完成度の高い表現、操作感（game feel）、一貫性、パフォーマンス、アクセシビリティ、来歴、エビデンスを指します。コンテンツ量、予算、チーム規模、市場での位置付け、あるいは商用 AAA タイトルとして完成済みの品質を主張するものではありません。
+<details>
+<summary><strong>『虚ろの子午線』10ビート進行ルート・60 Hz戦闘フレーム表・遺物分岐を展開</strong></summary>
 
-このリポジトリ内の文書は、目標が達成されたことを証明していません。その主張には、実行可能な実装、宣言済みデバイス・プロファイル、完全なエビデンス・マニフェスト、校正済み評価、再現可能な計算資源、問題のない回帰試験サイクル、単一の受理済みコミットに紐付いたリリース候補が必要です。
+| アクション | 発生 | 持続 / 無敵 | 硬直 | 全体フレーム | 消費・効果 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+- **設計済み10ビート進行ルート（`recover_orientation`）**：`01 Ash Court Arrival`（拠点・`Mnemonic Keeper`）-> `02 Quest Acceptance`（2つの方位印クエスト）-> `03 Orrery Bridge Tutorial`（`Ashbound Skirmisher` 戦）-> `04 Archive Nave`（`Lantern Wraith` 戦）-> `05 Meridian Alignment`（3連リングパズル -> `North Seal`）-> `06 Bell Foundry`（`Bell Sentinel` 撃破 -> `Depth Seal`）-> `07 Shrine Choice`（3種の遺物：`brass_vow` / `ash_thread` / `vacant_name`）-> `08 Chamber Opening` -> `09 The Unnamed Bell`（`850 HP` 二段階ボス戦）-> `10 Bind or Release`（`CHOICE_BIND` / `CHOICE_RELEASE`）。
 
-## 技術的ベースラインと境界
+| アクション | 発生 | 持続 / 無敵 | 硬直 | 全体フレーム | 消費・効果 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `Light Attack 1 / 2 / 3` | `10 / 11 / 15t` | `5 / 7 / 9t` | `12 / 12 / 18t` | `27 / 30 / 42t` | `10 / 11 / 14 Stamina`；`16 / 18 / 25 HP` |
+| `Charged Heavy` | `27..38t` | `10..11t` | `12..14t` | `49..63t` | `28 Stamina`；`28..42 HP`＋強靭削り |
+| `Dodge Roll` | `7t` | `Ticks 7..18`（`12t`） | `12t` | `31t` | `22 Stamina`；`ticks 7..18` 完全無敵 |
+| `Parry Deflect` | `5t`（`0..4`） | `Ticks 6..12`（`7t`） | `18t` | `31t` | `12 Stamina`；長押しで `tick 13` から `Guard` 移行 |
+| `Echo Brand` | `12t` | `360t 刻印` | `0t` | `12t 詠唱` | `50 Resonance`；被ダメージ `+25%`＋ボス弱点露出 |
 
-- 出版物は **Three.js r185**（`0.185.0`）を技術基準として作成されています。
-- WebGPU/TSL と WebGL 2 は、レンダラー選択判定を通じて評価されます（`THREE.WebGPURenderer` と `{ forceWebGL: true }` フォールバック。詳細は [`docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md`](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md) を参照）。
-- 「No downloaded assets」は、最終的に可視または可聴となるメディアに適用されます。バージョンを固定した開発用依存関係、ブラウザ API、ビルドツール、テストツール、プロファイラーは引き続き使用できますが、監査対象です。
-- ビット単位の完全一致を主張できるのは、制御されたデータクラスに限られます。ブラウザと GPU の出力は、オペレーティングシステム、ドライバー、ハードウェア、ブラウザ、設定によって変動する可能性があります。
-- 文書内のアクセシビリティ要件はエンジニアリング上の目標です。正式な WCAG 適合を確立するものではありません。
-- 来歴管理はトレーサビリティを向上させますが、著作権上の独自性やソフトウェアセキュリティを証明するものではありません。
-- ホスト・エージェントには、リポジトリへのアクセス、シェル実行、ブラウザ自動化、取得基盤、分離されたブランチまたは worktree、構造化されたタスク割り当てが必要です。基本的なチャットインターフェースだけでは不十分です。
+- **PDF仕様書**：[`publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf`](publications/the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf)
+- **日本語詳細ガイド**：[`docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md`](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md)
+- **プロンプト＆検証フィクスチャ**：[`prompts/hollow-meridian/`](prompts/hollow-meridian/) · [`examples/run-0001/`](examples/run-0001/)
 
-## 推奨する読み方
+</details>
 
-### テクニカルディレクターおよび研究者
+---
 
-1. Evidence Graph の欠陥台帳、[技術正誤表と v2.0 整合仕様](docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md)、および[公開状況ページ](docs/PUBLICATION_STATUS.md)を読みます。
-2. 制御グラフ、権限階層、エビデンス制度、評価担当者の校正、運用、および [`schemas/`](schemas/) の規範スキーマを確認します。
-3. *The Hollow Meridian* を適用例として扱う前に、上記の互換性表を読みます。
+### 2. Game 02 — 『硝子の納骨堂』（*The Glass Ossuary* · 一人称ミステリーホラー · 36ページ）
 
-### ゲームおよびテクニカルアートチーム
+| 屈折回廊での光学鑑識 コンセプトプレート | 二段階ボス「硝子の中の聖歌隊」コンセプトプレート |
+| :---: | :---: |
+| ![硝子の納骨堂 現場鑑識](assets/glass-ossuary-investigation-hero.jpg) | ![硝子の中の聖歌隊 ボス戦](assets/glass-ossuary-apparition-hero.jpg) |
 
-1. *The Hollow Meridian* のゲーム契約、ルート、体験の柱、反スロップ規則（anti-slop rules）を読みます。
-2. 続いてゲームシステム、プロシージャル・メディア方針、QA 判定を確認します。
-3. リポジトリの権限文書と合格判定コマンドが存在する場合に限り、[`prompts/hollow-meridian/agents/`](prompts/hollow-meridian/agents/) の専門エージェント・カード（specialist cards）を使用します。
+1894年秋の暴風雨の夜、音響記録保管官 **Clara Vane** は、フレネル灯台と地下の「骨硝子（ボーン・ガラス）」納骨堂が融合したサン＝ヴァーヌ沿岸観測所へ足を踏み入れます。銃器やスクリプト演出のジャンプスケアに頼らず、`二焦点真鍮ルーペ`、`蝋管蓄音機`、`銀塩フェロタイプ乾板カメラ` の3つの鑑識器具と `6ノード推理ボード` を駆使して海難事件の真相を解明し、最深部で **The Choir in the Glass（硝子の中の聖歌隊）** と対峙します。
 
-### エージェントシステム構築者
+<details>
+<summary><strong>『硝子の納骨堂』10ビート調査ルート・60 Hz鑑識器具フレーム表・推理ボード分岐を展開</strong></summary>
 
-1. [`prompts/`](prompts/) のスタンドアロン・オーケストレーター・プロンプトと [`schemas/`](schemas/) の Draft 2020-12 スキーマから始めます。
-2. [`examples/run-0001/`](examples/run-0001/) のゴールデン検証フィクスチャを確認し、`python scripts/verify_release.py` を実行します。
-3. 取得済み成果物、修復済みの欠陥、ロールバック、フレーム時間分布、コスト計上、受理済みコミットを含む、実在するエンドツーエンド実行を1件追加します。
+- **10ビート調査ルート（`case_saint_vane`）**：`01 Causeway Landfall`（桟橋上陸・`Lantern Shutter`）-> `02 The Sealed Inquest`（剥離室拠点・6ノード推理ボード・Moreau蝋管）-> `03 Ferrotype Calibration`（`Ferrotype Plate` UVフラッシュ較正）-> `04 Refraction Gallery`（`Glass Septum Watcher` 視線回避・`Brass Loupe`）-> `05 Prism Triangulation`（`45/135/270 deg` フレネル環 -> 『潮汐台帳の断片』）-> `06 Submerged Crypt`（`Mire Listener` 音響潜行・`110/220/330 Hz` 水門 -> 『水中聴音蝋管』）-> `07 Inquest Board Deduction`（3つの仮説分岐：`lens_sabotage` / `tidal_quarantine` / `acoustic_calling`）-> `08 Ossuary Unsealing` -> `09 The Choir in the Glass`（`600 Integrity` 二段階ボス戦）-> `10 Publish or Submerge`（`VERDICT_PUBLISH` / `VERDICT_SUBMERGE`）。
 
-## リポジトリ構成
+| 器具・アクション | 発生 | 有効ウィンドウ | 硬直 | 全体フレーム | コスト・鑑識メカニクス効果 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `Lantern Shutter` | `6 ticks` | トグル維持（`7..`） | `6 ticks` | `12 ticks` | `0 Oil`；光錐を遮断し光学索敵ヘイトを切る |
+| `Brass Loupe Focus` | `9 ticks` | ホールド（`10..69`） | `6 ticks` | `75 ticks` | `0 Oil`；微細プリズム刻印および骨硝子文字を解読 |
+| `Phonograph Cancel` | `24 ticks` | `Ticks 25..114` | `36 ticks` | `150 ticks` | 空間倍音を逆位相消去し `Mire Listener` から足音を隠蔽 |
+| `Ferrotype Flash` | `18 ticks` | `Ticks 19..24` | `66 ticks` | `90 ticks` | 距離 `6.5 m` 内の怪異を `150 ticks` スタン＋亀裂露光 |
+| `Crouch Sidestep` | `5 ticks` | `Ticks 6..16` | `12 ticks` | `28 ticks` | 濡れた石床での足音ノイズを `<= -38 dBFS` に抑制 |
+| `Smelling Salts` | `15 ticks` | `Ticks 16..45` | `10 ticks` | `55 ticks` | `Composure +40` 回復・`Exposure -25` 浄化 |
+
+- **PDF仕様書**：[`publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf`](publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf)
+- **日本語詳細ガイド**：[`docs/THE_GLASS_OSSUARY_GUIDE.ja.md`](docs/THE_GLASS_OSSUARY_GUIDE.ja.md)
+- **プロンプト＆検証フィクスチャ**：[`prompts/glass-ossuary/`](prompts/glass-ossuary/) · [`examples/run-0002/`](examples/run-0002/)
+
+</details>
+
+---
+
+### 3. Game 03 — 『ペリヘリオン・ブリーチ』（*Perihelion Breach* · 一人称SFシューター・アドベンチャー · 36ページ）
+
+| 太陽中継ステーション「イカロス9号」コンセプトプレート | 二段階ボス「ヘリアーク・ウォーデン」コンセプトプレート |
+| :---: | :---: |
+| ![ペリヘリオン・ブリーチ 軌道セクター](assets/perihelion-breach-world-hero.jpg) | ![ヘリアーク・ウォーデン ボス戦](assets/perihelion-breach-combat-hero.jpg) |
+
+太陽からわずか `0.09 AU` の近日点軌道を周回する巨大太陽中継ステーション「イカロス9号」を舞台に、先遣隊員 **Soren Kestrel** が戦術AI **Vesper** と共に熱暴走した防衛グリッドを突破します。`Kestrel-9 ツインコイル・カービン` や貫通電磁スラッグを撃ち出す `Helios Scatter-Rail`、`ticks 14..20` の受付ウィンドウで熱量を一掃する `Thermal Vent Reload`、`18.0 m/s` の `Magnetic Grapple` スリング機動を駆使し、二段階ボス **The Heliarch Warden（ヘリアーク・ウォーデン）** を撃破します。
+
+<details>
+<summary><strong>『ペリヘリオン・ブリーチ』10ビート作戦ルート・60 Hz銃器/グラップルフレーム表を展開</strong></summary>
+
+- **10ビート軌道作戦ルート（`restore_perihelion_attitude`）**：`01 Airlock Breach`（`Umbilical Airlock`・AI `Vesper`・`Kestrel-9 Carbine`）-> `02 Lockdown Override`（`Slide-Boost` & `Thermal Vent Reload` 較正）-> `03 Heliostat Skirmish`（`240-tick` 太陽フレア周期・`Volt Skitter` 迎撃・`Magnetic Grapple` 解放）-> `04 Cryo-Coolant Ascent`（`Aegis Drone` 垂直シャフト突破・`Breach Launcher` 取得）-> `05 Conduit Phase Routing`（`180 ticks` 内に3つのプラズマアンカー接続 -> 『冷却バイパスコア』）-> `06 Ballistic Foundry Siege`（`Slag Enforcer` 撃破 -> `Helios Scatter-Rail`）-> `07 Suit Rig Calibration`（3種のExo-Rigコア：`recoil_gyro` / `thermal_siphon` / `grapple_overdrive`）-> `08 Shutter Retraction` -> `09 The Heliarch Warden`（`1,000 Integrity` 二段階ボス戦）-> `10 Divert or Vent`（`DIRECTIVE_DIVERT` / `DIRECTIVE_VENT`）。
+
+| 武装・機動 | 発生 | 判定 / 受付 | 硬直 | 全体フレーム | 熱量・ダメージ・戦術効果 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `Carbine 3-Burst` | `2 ticks` | `Ticks 3..11`（3発） | `10 ticks` | `21 ticks` | `+12 Heat`；`3 x 14 dmg` ヒットスキャン（弱点 `1.5x`） |
+| `Scatter Uncharged` | `3 ticks` | `Tick 4`（`5x12`） | `15 ticks` | `18 ticks` | `+18 Heat`；近距離 `60 dmg` 拡散・エネルギーシールド破砕 |
+| `Scatter ADS Slug` | `30..54 ticks` | `Tick 31..55` | `18 ticks` | `48..72 ticks` | `+28 Heat`；`55..85 dmg` 貫通レールスラッグ（弱点 `1.75x`） |
+| `Breach Anchor` | `6 ticks` | 弾道飛翔体 | `24 ticks` | `30 ticks` | `+30 Heat`；`60 AoE dmg` 装甲破砕・導管ノード接続 |
+| `Thermal Vent Reload` | `13 ticks` | `Ticks 14..20` | `16 ticks` | `36 ticks` | `14..20t` 入力成功で `Heat 100%` 排出＋`90t` オーバーチャージ |
+| `Slide-Boost` | `3 ticks` | `Ticks 4..18` | `6 ticks` | `24 ticks` | `11.5 m/s` 高速スライディング（`ticks 8..18` ジャンプキャンセル可） |
+| `Magnetic Grapple` | `6 ticks` | `18..42 ticks` 牽引 | `12 ticks` | `36..60 ticks` | `18.0 m/s` アンカー牽引・離脱時に接線スリング速度を保持 |
+
+- **PDF仕様書**：[`publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf`](publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf)
+- **日本語詳細ガイド**：[`docs/PERIHELION_BREACH_GUIDE.ja.md`](docs/PERIHELION_BREACH_GUIDE.ja.md)
+- **プロンプト＆検証フィクスチャ**：[`prompts/perihelion-breach/`](prompts/perihelion-breach/) · [`examples/run-0003/`](examples/run-0003/)
+
+</details>
+
+---
+
+## 4言語ネイティブ技術ドキュメント一覧
+
+本リポジトリのすべてのREADMEおよびコンパニオンガイドは、機械的な直訳調を避け、**英語・簡体字中国語・日本語・韓国語**それぞれのゲーム開発・グラフィックス工学の専門用語体系に沿ってネイティブ執筆されています（コード識別子・CLIコマンド・スキーマキーは追跡可能性のため英語のまま保持）。
+
+| ドキュメント種別 | 英語版 (`en`) | 簡体字中国語版 (`zh-CN`) | 日本語ネイティブ版 (`ja`) | 韓国語ネイティブ版 (`ko`) |
+| :--- | :--- | :--- | :--- | :--- |
+| **リポジトリ総合ガイド** | [`README.md`](README.md) | [`README.zh-CN.md`](README.zh-CN.md) | [`README.ja.md`](README.ja.md) | [`README.ko.md`](README.ko.md) |
+| **第1巻：Evidence Graph v2.0 運用マニュアル（64頁）** | [`EVIDENCE_GRAPH_GUIDE.md`](docs/EVIDENCE_GRAPH_GUIDE.md) | [`EVIDENCE_GRAPH_GUIDE.zh-CN.md`](docs/EVIDENCE_GRAPH_GUIDE.zh-CN.md) | [`EVIDENCE_GRAPH_GUIDE.ja.md`](docs/EVIDENCE_GRAPH_GUIDE.ja.md) | [`EVIDENCE_GRAPH_GUIDE.ko.md`](docs/EVIDENCE_GRAPH_GUIDE.ko.md) |
+| **第2巻：『虚ろの子午線』アクションRPG（81頁）** | [`THE_HOLLOW_MERIDIAN_GUIDE.md`](docs/THE_HOLLOW_MERIDIAN_GUIDE.md) | [`THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md`](docs/THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md) | [`THE_HOLLOW_MERIDIAN_GUIDE.ja.md`](docs/THE_HOLLOW_MERIDIAN_GUIDE.ja.md) | [`THE_HOLLOW_MERIDIAN_GUIDE.ko.md`](docs/THE_HOLLOW_MERIDIAN_GUIDE.ko.md) |
+| **第3巻：『硝子の納骨堂』ミステリーホラー（36頁）** | [`THE_GLASS_OSSUARY_GUIDE.md`](docs/THE_GLASS_OSSUARY_GUIDE.md) | [`THE_GLASS_OSSUARY_GUIDE.zh-CN.md`](docs/THE_GLASS_OSSUARY_GUIDE.zh-CN.md) | [`THE_GLASS_OSSUARY_GUIDE.ja.md`](docs/THE_GLASS_OSSUARY_GUIDE.ja.md) | [`THE_GLASS_OSSUARY_GUIDE.ko.md`](docs/THE_GLASS_OSSUARY_GUIDE.ko.md) |
+| **第4巻：『ペリヘリオン・ブリーチ』FPSアドベンチャー（36頁）** | [`PERIHELION_BREACH_GUIDE.md`](docs/PERIHELION_BREACH_GUIDE.md) | [`PERIHELION_BREACH_GUIDE.zh-CN.md`](docs/PERIHELION_BREACH_GUIDE.zh-CN.md) | [`PERIHELION_BREACH_GUIDE.ja.md`](docs/PERIHELION_BREACH_GUIDE.ja.md) | [`PERIHELION_BREACH_GUIDE.ko.md`](docs/PERIHELION_BREACH_GUIDE.ko.md) |
+| **多言語用語集・翻訳ポリシー** | [`docs/GLOSSARY.md`](docs/GLOSSARY.md) · [`docs/TRANSLATION_POLICY.md`](docs/TRANSLATION_POLICY.md) | [`docs/GLOSSARY.md`](docs/GLOSSARY.md) | [`docs/GLOSSARY.md`](docs/GLOSSARY.md) | [`docs/GLOSSARY.md`](docs/GLOSSARY.md) |
+
+---
+
+## リポジトリ構成・ファイルマップ
 
 ```text
-.
-├── .gitattributes
-├── .github/
-│   └── workflows/
-│       └── verify-release.yml
-├── AUTHORS.md
-├── LICENSE
-├── README.md
-├── README.zh-CN.md
-├── README.ja.md
-├── README.ko.md
-├── agents/
-├── assets/
-│   ├── publication-set.jpg
-│   ├── readme-hero.jpg
-│   ├── readme-hero.prompt.md
-│   ├── section-heroes.prompt.md
-│   ├── evidence-graph-control-hero.jpg
-│   ├── hollow-meridian-world-hero.jpg
-│   ├── hollow-meridian-boss-hero.jpg
-│   ├── threejs-evidence-graph-cover.jpg
-│   └── the-hollow-meridian-cover.jpg
-├── docs/
-│   ├── EVIDENCE_GRAPH_GUIDE.md
-│   ├── EVIDENCE_GRAPH_GUIDE.zh-CN.md
-│   ├── EVIDENCE_GRAPH_GUIDE.ja.md
-│   ├── EVIDENCE_GRAPH_GUIDE.ko.md
-│   ├── GLOSSARY.md
-│   ├── PUBLICATION_STATUS.md
-│   ├── TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md
-│   ├── THE_HOLLOW_MERIDIAN_GUIDE.md
-│   ├── THE_HOLLOW_MERIDIAN_GUIDE.zh-CN.md
-│   ├── THE_HOLLOW_MERIDIAN_GUIDE.ja.md
-│   ├── THE_HOLLOW_MERIDIAN_GUIDE.ko.md
-│   └── TRANSLATION_POLICY.md
-├── examples/
-│   └── run-0001/
-│       ├── defect-record.json
-│       ├── run-manifest.json
-│       └── task-packet.json
-├── orchestration/
-├── prompts/
-│   ├── evidence-graph/
-│   │   └── orchestrator.md
-│   └── hollow-meridian/
-│       ├── orchestrator.md
-│       └── agents/
-├── publications/
-│   ├── threejs-evidence-graph-operational-manual-v2.0-en.pdf
-│   └── the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf
-├── schemas/
-│   ├── defect-record.schema.json
-│   ├── graph-state.d.ts
-│   ├── run-manifest.schema.json
-│   └── task-packet.schema.json
-├── scripts/
-│   └── verify_release.py
-├── CHANGELOG.md
-├── CITATION.cff
-├── CITATIONS.md
-├── CONTRIBUTING.md
-├── RELEASE_NOTES.md
-├── release-manifest.json
-└── SHA256SUMS.txt
+threejs-evidence-graph/
+├── publications/                                                     # 規範的英語PDF仕様書 全4巻（計217ページ）
+│   ├── threejs-evidence-graph-operational-manual-v2.0-en.pdf         # 64頁 · 制御プレーン＆決定論マニュアル
+│   ├── the-hollow-meridian-rpg-full-prompt-v1.0-en.pdf               # 81頁 · Game 01：『虚ろの子午線』アクションRPG
+│   ├── the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf      # 36頁 · Game 02：『硝子の納骨堂』ミステリーホラー
+│   └── perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf       # 36頁 · Game 03：『ペリヘリオン・ブリーチ』SF FPS
+├── schemas/                                                          # Draft 2020-12 JSON Schema 契約＆TypeScript型定義
+├── orchestration/                                                    # エージェント実行環境向けドロップインミラー
+├── prompts/                                                          # オーケストレーター4種＋専門サブエージェントカード21枚
+├── examples/                                                         # スキーマ検証済みゴールデンフィクスチャ（run-0001..0003）
+├── docs/                                                             # 4言語ネイティブガイド16冊＋エラッタ＋ガバナンス文書
+├── assets/                                                           # EXIFゼロJPEG 13枚＋カスタムタイポグラフィSVG 5枚
+├── scripts/verify_release.py                                         # 自動ハッシュ・スキーマ・PDF・EXIF・リンク検証スクリプト
+├── SHA256SUMS.txt                                                    # 全リリース資産のSHA-256チェックサム（LF改行）
+└── release-manifest.json                                             # 機械可読リリースマニフェスト
 ```
 
-## 現在のロードマップ
+---
 
-リリース `2026.07.4` では、スタンドアロンの Draft 2020-12 JSON Schema（`schemas/*.schema.json`）、`schemas/graph-state.d.ts`、コピー＆ペースト可能なオーケストレーターおよび専門エージェント・プロンプト（`prompts/`）、ゴールデン契約フィクスチャ（`examples/run-0001/`）、および自動リリース検証スクリプト（`scripts/verify_release.py`）を提供しています。ライブ実行時ハーネスの次のマイルストーンは次のとおりです。
+## 整合性検証コマンド
 
-- レンダラー実証基盤
-- 決定論的リプレイと状態ハッシュ実行系
-- アセットと来歴のスキャナー
-- Playwright の取得プロファイル
-- 評価担当者を校正する固定テスト
-- 受理済みの実行時修復1件、却下済みの候補1件、検証済みのロールバック1件
+リポジトリのルートディレクトリで以下のコマンドを実行すると、全ファイルのSHA-256ダイジェスト、JSON Schema Draft 2020-12 契約、3組のゴールデンフィクスチャ（`run-0001`〜`run-0003`）、全4冊のPDFアクセシビリティタグとURIリンク、13枚のEXIFゼロJPEG画像、および全Markdownリンクを一括検証できます。
 
-ライブ実行時ビルドが存在するまでは、このリポジトリが主張するのは設計、仕様、および契約スキーマとしての価値であり、実証的なゲーム実行時ベンチマーク結果ではありません。
+```bash
+sha256sum -c SHA256SUMS.txt
+python scripts/verify_release.py
+```
 
-## 翻訳方針
+---
 
-英語版が規範版です。簡体字中国語版、日本語版、韓国語版は、このリポジトリガイド、*Three.js Evidence Graph v2.0* コンパニオンガイド、および拡張版 *The Hollow Meridian* コンパニオンガイドのすべてに提供されています。これらのガイドは制作手法とゲーム仕様を各言語で詳しく説明する資料であり、全 `145` ページ（`64 + 81` ページ）の英語版 PDF の逐語翻訳ではありません。出版物のタイトル、ゲーム固有名詞、ファイル名、コマンド、スキーマのキー、グラフノード識別子、パス、列挙値、コード識別子は、正準な英語表記のまま維持されます。
+## スコープと非主張事項（Epistemic Honesty）
 
+本リポジトリは**設計仕様書、マルチエージェント用プロンプト、JSON Schema契約、および検証用ゴールデンフィクスチャ**を公開するものであり、以下の成果物は**含まれていません**：
 
-翻訳版と英語版の内容が異なる場合は、技術的解釈には英語版を使用し、issue を通じて相違を報告してください。[Translation Policy](docs/TRANSLATION_POLICY.md) と[多言語技術用語集](docs/GLOSSARY.md)を参照してください。
+- プレイ可能な Three.js ゲームのランタイム実装；
+- 実機ビルドから計測されたGPUフレーム時間やベンチマーク結果；
+- ライブPlaywrightキャプチャパッケージ；
+- 実装済みUIに対する公式なWCAG適合証明。
 
-## 完全性
+本仕様書群に記載されたフレーム時間パーセンタイル（`P50 <= 8.3 ms`、`P95 <= 16.6 ms`、`P99 <= 22.0 ms`）、Draw Call上限、およびラウドネス目標（`-16 LUFS +- 1.0 LU`、`<= -1.0 dBTP`）はすべて、`N14_RELEASE_CANDIDATE` 承認前に実装が通過すべき**規範的受け入れゲート（Normative Acceptance Gates）**です。
 
-[SHA256SUMS.txt](SHA256SUMS.txt) の SHA-256 値は、このリリースで公開されるすべての PDF、JPEG アセット、スタンドアロン JSON Schema、ゴールデン検証フィクスチャ、プロンプト、およびドキュメントファイル（計 `39` ファイル）を対象としています。リポジトリのルートで `sha256sum -c SHA256SUMS.txt` および `python scripts/verify_release.py` を実行すると、すべてのパッケージ成果物を検証できます。
+---
 
-## コントリビューション
+## 著者・引用・ライセンス
 
-次のような焦点を絞ったコントリビューションを歓迎します。
-
-- ページ参照を伴う事実上または編集上の欠陥
-- 無効になったソースリンク
-- 翻訳の修正
-- 用語の改善
-- アクセシビリティの改善
-- 再現可能な実装レポート
-- 公開済みの権限モデルを維持する機械可読な契約
-
-issue または pull request を開く前に、[CONTRIBUTING.md](CONTRIBUTING.md) をお読みください。
-
-## 引用
-
-[CITATION.cff](CITATION.cff) のメタデータを使用してください。簡潔な引用形式は次のとおりです。
-
-> Emily Paradox. *Three.js Evidence Graph v2.0 and The Hollow Meridian RPG Full Prompt v1.0*. Technical Systems and Game Systems Series, July 2026.
-
-## ライセンス
-
-Copyright (c) 2026 Iamemily2050 (@iamemily2050).
-
-個別のファイルに別段の記載がない限り、本リポジトリの文書、PDF、およびオリジナルのコンセプトアートには [MIT License](LICENSE) が適用されます。
-
-利用または再配布する場合は、該当する著作権表示および許諾表示を保持してください。学術、編集、技術上の議論では出典の明記をお願いしますが、これは MIT License に追加される条件ではありません。
-
-## 著者および権利者
-
-- 出版物の著者表記：**Emily Paradox**
-- クリエイターおよび権利者：**Iamemily2050**（`@iamemily2050`）
-- 職種：**AI Digital Artist（AIデジタルアーティスト）**
-- GitHub：[https://github.com/Emily2040](https://github.com/Emily2040)
-- ウェブサイト：[https://iamemily2050.com](https://iamemily2050.com)
-- X：[@iamemily2050](https://x.com/iamemily2050)
-- Instagram：[@iamemily2050](https://instagram.com/iamemily2050)
-- 著者および権利情報：[AUTHORS.md](AUTHORS.md)
+- **出版物著者名**：Emily Paradox
+- **クリエイターおよび著作権者**：**Iamemily2050（`@iamemily2050`）**
+- **GitHub**：[Emily2040](https://github.com/Emily2040) · **Web**：[iamemily2050.com](https://iamemily2050.com) · **X**：[`@iamemily2050`](https://x.com/iamemily2050) · **Instagram**：[`@iamemily2050`](https://instagram.com/iamemily2050)
+- **引用メタデータ**：[`CITATION.cff`](CITATION.cff) および [`CITATIONS.md`](CITATIONS.md)
+- **ライセンス**：個別の記載がない限り [MIT License](LICENSE) の下で公開されています。詳細は [`AUTHORS.md`](AUTHORS.md) を参照してください。

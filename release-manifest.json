@@ -1,13 +1,15 @@
 {
-  "version": "2026.07.4",
-  "release_date": "2026-07-27",
+  "version": "2026.07.5",
+  "release_date": "2026-07-28",
   "repository": "https://github.com/Emily2040/-threejs-evidence-graph",
   "three_baseline": "0.185.0",
   "suite": {
-    "title": "Three.js Evidence Graph: Method and Applied RPG Specification",
-    "version": "2026.07.4",
-    "release_date": "2026-07-27",
+    "title": "Three.js Evidence Graph v2.0 & Multi-Genre Zero-Asset Game Production Suite",
+    "version": "2026.07.5",
+    "release_date": "2026-07-28",
     "release_type": "documentation-and-contracts",
+    "total_publications": 4,
+    "total_pdf_pages": 217,
     "author": "Emily Paradox",
     "creator": "Iamemily2050",
     "rights_holder": "Iamemily2050 (@iamemily2050)",
@@ -19,12 +21,19 @@
       "contact": "191656017+Emily2040@users.noreply.github.com"
     },
     "normative_language": "en",
+    "supported_languages": [
+      "en",
+      "zh-CN",
+      "ja",
+      "ko"
+    ],
     "repository": "https://github.com/Emily2040/-threejs-evidence-graph"
   },
   "publications": [
     {
       "id": "threejs-evidence-graph",
       "title": "Three.js Evidence Graph - Operational Manual",
+      "genre": "Multi-Agent Control Plane & Dual Determinism Architecture",
       "version": "2.0",
       "language": "en",
       "pages": 64,
@@ -37,7 +46,8 @@
     },
     {
       "id": "the-hollow-meridian",
-      "title": "The Hollow Meridian RPG Full Prompt",
+      "title": "The Hollow Meridian: RPG Full Multi-Agent Production Prompt",
+      "genre": "Third-Person Dark-Fantasy Action RPG",
       "version": "1.0",
       "language": "en",
       "pages": 81,
@@ -47,7 +57,40 @@
       "sha256": "c4f8fe83995d526b99cefddd3d267bf6a3ed42c945b9df0b579193533bfa2b16",
       "status": "applied production specification",
       "playable_build_included": false,
+      "golden_fixture": "examples/run-0001/",
       "evidence_graph_v2_conformance": "reconciled via schemas/ and docs/TECHNICAL_ERRATA_AND_V2_ALIGNMENT.md"
+    },
+    {
+      "id": "the-glass-ossuary",
+      "title": "The Glass Ossuary: Mystery Horror Full Multi-Agent Production Prompt",
+      "genre": "First-Person Investigative Psychological Horror (Mystery on Horror)",
+      "version": "1.0",
+      "language": "en",
+      "pages": 36,
+      "file": "publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf",
+      "path": "publications/the-glass-ossuary-mystery-horror-full-prompt-v1.0-en.pdf",
+      "bytes": 98649,
+      "sha256": "efead090be003782a122463ba17fe686caa1c30aeafcf66f11d294555c7aafda",
+      "status": "applied production specification",
+      "playable_build_included": false,
+      "golden_fixture": "examples/run-0002/",
+      "evidence_graph_v2_conformance": "native v2.0 contract conformance"
+    },
+    {
+      "id": "perihelion-breach",
+      "title": "Perihelion Breach: FPS Adventure Full Multi-Agent Production Prompt",
+      "genre": "First-Person Kinetic Sci-Fi Shooter Adventure (FPS Adventure)",
+      "version": "1.0",
+      "language": "en",
+      "pages": 36,
+      "file": "publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf",
+      "path": "publications/perihelion-breach-fps-adventure-full-prompt-v1.0-en.pdf",
+      "bytes": 95265,
+      "sha256": "75bdfff21c905122b4e1a0352e8c760c27e7c80cf8c3d5dcad63ea2263f89170",
+      "status": "applied production specification",
+      "playable_build_included": false,
+      "golden_fixture": "examples/run-0003/",
+      "evidence_graph_v2_conformance": "native v2.0 contract conformance"
     }
   ],
   "localization": {
@@ -69,41 +112,77 @@
       "ja",
       "ko"
     ],
+    "glass_ossuary_game_guides": [
+      "en",
+      "zh-CN",
+      "ja",
+      "ko"
+    ],
+    "perihelion_breach_game_guides": [
+      "en",
+      "zh-CN",
+      "ja",
+      "ko"
+    ],
     "pdf_editions": [
       "en"
     ],
     "translation_review_status": "reviewed",
-    "translation_scope": "Repository guides, Evidence Graph v2.0 companion guides, and expanded Hollow Meridian companion guides are localized in 4 languages. The 145 PDF pages remain the normative English editions."
+    "translation_scope": "Repository READMEs and all four publication companion guides (16 guides in docs/) are natively authored in English, Simplified Chinese, Japanese, and Korean. The 217 PDF pages remain the normative English editions."
   },
   "artwork": {
-    "status": "concept artwork, not implementation evidence",
-    "generator": "OpenAI ImageGen",
+    "status": "concept artwork and publication plates, not implementation evidence",
     "assets": [
       "assets/readme-hero.jpg",
       "assets/evidence-graph-control-hero.jpg",
       "assets/hollow-meridian-world-hero.jpg",
       "assets/hollow-meridian-boss-hero.jpg",
+      "assets/glass-ossuary-investigation-hero.jpg",
+      "assets/glass-ossuary-apparition-hero.jpg",
+      "assets/perihelion-breach-world-hero.jpg",
+      "assets/perihelion-breach-combat-hero.jpg",
       "assets/publication-set.jpg",
       "assets/threejs-evidence-graph-cover.jpg",
-      "assets/the-hollow-meridian-cover.jpg"
+      "assets/the-hollow-meridian-cover.jpg",
+      "assets/the-glass-ossuary-cover.jpg",
+      "assets/perihelion-breach-cover.jpg"
+    ],
+    "svg_assets": [
+      "assets/svg/masthead-en.svg",
+      "assets/svg/masthead-zh-CN.svg",
+      "assets/svg/masthead-ja.svg",
+      "assets/svg/masthead-ko.svg",
+      "assets/svg/architecture-pipeline.svg"
     ],
     "dimensions": {
       "assets/readme-hero.jpg": "2172x724",
       "assets/evidence-graph-control-hero.jpg": "2172x724",
       "assets/hollow-meridian-world-hero.jpg": "2172x724",
       "assets/hollow-meridian-boss-hero.jpg": "2172x724",
-      "assets/publication-set.jpg": "1434x980",
+      "assets/glass-ossuary-investigation-hero.jpg": "1600x893",
+      "assets/glass-ossuary-apparition-hero.jpg": "1600x893",
+      "assets/perihelion-breach-world-hero.jpg": "1600x893",
+      "assets/perihelion-breach-combat-hero.jpg": "1600x893",
+      "assets/publication-set.jpg": "1600x993",
       "assets/threejs-evidence-graph-cover.jpg": "1191x1684",
-      "assets/the-hollow-meridian-cover.jpg": "1191x1684"
+      "assets/the-hollow-meridian-cover.jpg": "1191x1684",
+      "assets/the-glass-ossuary-cover.jpg": "1400x1812",
+      "assets/perihelion-breach-cover.jpg": "1400x1812"
     },
     "sha256": {
       "assets/readme-hero.jpg": "d1391fc2f880ecdb0f1d3827e44753808a913b56e664cac74c2a1b2610159ecf",
       "assets/evidence-graph-control-hero.jpg": "138c9ed49c941b55665efeb87708f2b72157bd8fc55972fda78dfe3dc2cb52f9",
       "assets/hollow-meridian-world-hero.jpg": "d8f429dfe0b8c3ff30abea3cc095cdd73c5ff3c4181eeb1130e707546fc4e5fb",
       "assets/hollow-meridian-boss-hero.jpg": "a351d7011b588564676165154484881fd038c97a4c165324261a53437ebe77ee",
-      "assets/publication-set.jpg": "cd0fbdf71b17e95442b31738687a3665d0965b5247b4878c6c78be5b0cbb68e3",
+      "assets/glass-ossuary-investigation-hero.jpg": "d1d28b72a90dcc303e6ae7cb382ba8ca8f93ec9fdff8d9701e35cf86ad272a27",
+      "assets/glass-ossuary-apparition-hero.jpg": "4057239e3293250c25e7cf361abf5cb31331ff0275ec31627a25d8b4b13dea1f",
+      "assets/perihelion-breach-world-hero.jpg": "dd90785d29bfcd3dcebb397c0320e3f38eaa879da7c7a064e29bd841b5f79d95",
+      "assets/perihelion-breach-combat-hero.jpg": "3036789882a08f824ea3af3719dbef8e8d85c96c75a2e46e1c0400eb57c0dd50",
+      "assets/publication-set.jpg": "c20259a487c133b08a22698964b12be150f60366a5434a7ec366ad92e2029725",
       "assets/threejs-evidence-graph-cover.jpg": "3839e7167b525b67384f63491bdb0877979a1c644972ec994ae7a8c4d2ec989a",
-      "assets/the-hollow-meridian-cover.jpg": "85c7ebc54c2818e7d29c6679e4b15603deaa714484d645e6e97c7b5a9f89d6ad"
+      "assets/the-hollow-meridian-cover.jpg": "85c7ebc54c2818e7d29c6679e4b15603deaa714484d645e6e97c7b5a9f89d6ad",
+      "assets/the-glass-ossuary-cover.jpg": "9481ddeb5da5c36d9fc7948f97b3a7def5bf6240328f2f6663346326508f1bb3",
+      "assets/perihelion-breach-cover.jpg": "cae50baacc0169a10038a96c9e36e72fa9c9866c22347e811e4e15257384eb74"
     },
     "items": [
       {
@@ -131,10 +210,34 @@
         "sha256": "a351d7011b588564676165154484881fd038c97a4c165324261a53437ebe77ee"
       },
       {
+        "path": "assets/glass-ossuary-investigation-hero.jpg",
+        "dimensions": "1600x893",
+        "bytes": 364655,
+        "sha256": "d1d28b72a90dcc303e6ae7cb382ba8ca8f93ec9fdff8d9701e35cf86ad272a27"
+      },
+      {
+        "path": "assets/glass-ossuary-apparition-hero.jpg",
+        "dimensions": "1600x893",
+        "bytes": 358168,
+        "sha256": "4057239e3293250c25e7cf361abf5cb31331ff0275ec31627a25d8b4b13dea1f"
+      },
+      {
+        "path": "assets/perihelion-breach-world-hero.jpg",
+        "dimensions": "1600x893",
+        "bytes": 550777,
+        "sha256": "dd90785d29bfcd3dcebb397c0320e3f38eaa879da7c7a064e29bd841b5f79d95"
+      },
+      {
+        "path": "assets/perihelion-breach-combat-hero.jpg",
+        "dimensions": "1600x893",
+        "bytes": 461036,
+        "sha256": "3036789882a08f824ea3af3719dbef8e8d85c96c75a2e46e1c0400eb57c0dd50"
+      },
+      {
         "path": "assets/publication-set.jpg",
-        "dimensions": "1434x980",
-        "bytes": 273945,
-        "sha256": "cd0fbdf71b17e95442b31738687a3665d0965b5247b4878c6c78be5b0cbb68e3"
+        "dimensions": "1600x993",
+        "bytes": 232911,
+        "sha256": "c20259a487c133b08a22698964b12be150f60366a5434a7ec366ad92e2029725"
       },
       {
         "path": "assets/threejs-evidence-graph-cover.jpg",
@@ -147,9 +250,49 @@
         "dimensions": "1191x1684",
         "bytes": 315959,
         "sha256": "85c7ebc54c2818e7d29c6679e4b15603deaa714484d645e6e97c7b5a9f89d6ad"
+      },
+      {
+        "path": "assets/the-glass-ossuary-cover.jpg",
+        "dimensions": "1400x1812",
+        "bytes": 316094,
+        "sha256": "9481ddeb5da5c36d9fc7948f97b3a7def5bf6240328f2f6663346326508f1bb3"
+      },
+      {
+        "path": "assets/perihelion-breach-cover.jpg",
+        "dimensions": "1400x1812",
+        "bytes": 334479,
+        "sha256": "cae50baacc0169a10038a96c9e36e72fa9c9866c22347e811e4e15257384eb74"
+      }
+    ],
+    "svg_items": [
+      {
+        "path": "assets/svg/masthead-en.svg",
+        "bytes": 7967,
+        "sha256": "97c5219f48e90fd1804c2d6e3066edc61693e935b6418bb93039d54d6fa78f82"
+      },
+      {
+        "path": "assets/svg/masthead-zh-CN.svg",
+        "bytes": 7985,
+        "sha256": "2b27be1f7cb518e010ad32fc18516b877b45c5ed811f644ef7faa1ffa239b404"
+      },
+      {
+        "path": "assets/svg/masthead-ja.svg",
+        "bytes": 8303,
+        "sha256": "f34ceb698d36f13677dbf58c0156337d00b0bf97a1a29875a2d54d5b1b2ccb5f"
+      },
+      {
+        "path": "assets/svg/masthead-ko.svg",
+        "bytes": 8065,
+        "sha256": "b2323ffad58081a14e92f44ba601c010cc82d90d779e221dfef7367d980d825a"
+      },
+      {
+        "path": "assets/svg/architecture-pipeline.svg",
+        "bytes": 8275,
+        "sha256": "62a856516b143cb4c26759db1f7a4fd4a6f7d24e0762b6b6a260b80d3fa296b0"
       }
     ],
     "prompt_records": [
+      "docs/ARTWORK_PROVENANCE.md",
       "assets/readme-hero.prompt.md",
       "assets/section-heroes.prompt.md"
     ]
@@ -157,8 +300,8 @@
   "schemas": [
     {
       "path": "schemas/task-packet.schema.json",
-      "bytes": 3803,
-      "sha256": "95375fa208916e910fccd5af183ba3ec7d53c2865bc43c70d2eca8a3a115de29"
+      "bytes": 3833,
+      "sha256": "8f2414c35c2f5bae4b2e2215b36dafa4acb0bf6af285627c1230397ca5826b36"
     },
     {
       "path": "schemas/defect-record.schema.json",
@@ -167,13 +310,13 @@
     },
     {
       "path": "schemas/run-manifest.schema.json",
-      "bytes": 7118,
-      "sha256": "9cc7b532bab2dead0bdd4cf138e3f94ec0e674aec36219655cd51b4c245f6383"
+      "bytes": 7415,
+      "sha256": "7d9128fbee095c83787bb3d343278ab4e6d98e51452da09aee7c0cd767e21c2d"
     },
     {
       "path": "schemas/graph-state.d.ts",
-      "bytes": 3080,
-      "sha256": "a9530d439c7fb27c0a35424985aa35e683071d8758dfa21fd2e1a371849bb166"
+      "bytes": 3421,
+      "sha256": "347555ca5c0ccc41afad24f32128a3428dea8e1eeea72d1504a7de51d998d020"
     }
   ],
   "examples": [
@@ -190,7 +333,37 @@
     {
       "path": "examples/run-0001/run-manifest.json",
       "bytes": 2656,
-      "sha256": "d8e3483201b9d7d7cb59f0849e8029ed8a03cadce286e97cda425bf778a3bd92"
+      "sha256": "7a4b04c85de0c013fac11d00c592f0e18bd6822c8ec4cf110526d98303c00d42"
+    },
+    {
+      "path": "examples/run-0002/task-packet.json",
+      "bytes": 1639,
+      "sha256": "7b7d48f1c32a89440c7ce1abdf10553575ccf271451adac169deaadfc002781c"
+    },
+    {
+      "path": "examples/run-0002/defect-record.json",
+      "bytes": 1178,
+      "sha256": "130c63c69d7e8bc43a52c9aa217311d9b6d3e3ffe7b5dc8f2a2402b7254737ce"
+    },
+    {
+      "path": "examples/run-0002/run-manifest.json",
+      "bytes": 2702,
+      "sha256": "5e3dc8f6bd86ea55a272375036790f77756df399cbb20f44d0f8d260ffba3e5f"
+    },
+    {
+      "path": "examples/run-0003/task-packet.json",
+      "bytes": 1607,
+      "sha256": "617a1492e1dd6ec808b9f06d5b5eaa3746485f1d8b5e58214c0797fa9658be31"
+    },
+    {
+      "path": "examples/run-0003/defect-record.json",
+      "bytes": 1135,
+      "sha256": "e160aca755402ca12996a49df6d4750ab3ff23b322faf13cbefcc76d457ac0cd"
+    },
+    {
+      "path": "examples/run-0003/run-manifest.json",
+      "bytes": 2670,
+      "sha256": "6d2d7e5fc55e6d37b122f3277002f3064b25b7afcd9f689e194abec8f97ea853"
     }
   ],
   "prompts": [
@@ -200,9 +373,44 @@
       "sha256": "3755a0a2afd1798ca53596387e646d6cadea3ab86feca575edfba1349dc32ee4"
     },
     {
-      "path": "prompts/hollow-meridian/orchestrator.md",
-      "bytes": 2561,
-      "sha256": "8da99e1530d26ba51c0417c604f55f7d6a37586d752db53bf5f2ecfde5fd5333"
+      "path": "prompts/glass-ossuary/agents/combat-gameplay.md",
+      "bytes": 1261,
+      "sha256": "31e957538b90f4a06e6ebd98caa386012f4b198052e2d97b64a484076f7a87e9"
+    },
+    {
+      "path": "prompts/glass-ossuary/agents/independent-critic.md",
+      "bytes": 490,
+      "sha256": "7f195c9d806190170421def3780416ab94ae07cb8f2b22488448a74b8ea6336d"
+    },
+    {
+      "path": "prompts/glass-ossuary/agents/procedural-art-vfx.md",
+      "bytes": 809,
+      "sha256": "6689cc7572e2d88f5f236081883ae41c35b10f7d97796a9d4cfca2ef32c569d2"
+    },
+    {
+      "path": "prompts/glass-ossuary/agents/procedural-audio.md",
+      "bytes": 664,
+      "sha256": "53a8d779a0801c6841d5addcac02d7b649dbc27eec9c5ff886987e6ac2fff34a"
+    },
+    {
+      "path": "prompts/glass-ossuary/agents/qa-perf-playwright.md",
+      "bytes": 595,
+      "sha256": "463a5bf066b44c227c5004661714115daf0fd549a35c8313528ea2945b67107b"
+    },
+    {
+      "path": "prompts/glass-ossuary/agents/ui-hud-accessibility.md",
+      "bytes": 670,
+      "sha256": "694ed9b4cb1d3fbacf08e38502b388fb9de5e29285eacd2e16795a2b45e58840"
+    },
+    {
+      "path": "prompts/glass-ossuary/agents/world-quest.md",
+      "bytes": 942,
+      "sha256": "c8fb4d4844a08ba80bc516598c132e3cc55cd70c291c8ccba64522d9b8dd57fe"
+    },
+    {
+      "path": "prompts/glass-ossuary/orchestrator.md",
+      "bytes": 3203,
+      "sha256": "19020c87de1036c6b4f31304ac78fb356fa4f029538cbb23e4a0e4d440d4d113"
     },
     {
       "path": "prompts/hollow-meridian/agents/combat-gameplay.md",
@@ -238,20 +446,66 @@
       "path": "prompts/hollow-meridian/agents/world-quest.md",
       "bytes": 990,
       "sha256": "3805ade32069ca1d1b893a8d55e260746b9d6ce08f18c02d3d9156da70a75919"
+    },
+    {
+      "path": "prompts/hollow-meridian/orchestrator.md",
+      "bytes": 2561,
+      "sha256": "8da99e1530d26ba51c0417c604f55f7d6a37586d752db53bf5f2ecfde5fd5333"
+    },
+    {
+      "path": "prompts/perihelion-breach/agents/combat-gameplay.md",
+      "bytes": 1205,
+      "sha256": "fcfc308b72a4b9611755bc81bd79aa3245e10dfb3c795ecda024f21601bfb005"
+    },
+    {
+      "path": "prompts/perihelion-breach/agents/independent-critic.md",
+      "bytes": 506,
+      "sha256": "7bbf31a4bc982d31b837cf289895df96e42f4f1aa2b5b96e9ac9e327d8ad9271"
+    },
+    {
+      "path": "prompts/perihelion-breach/agents/procedural-art-vfx.md",
+      "bytes": 791,
+      "sha256": "700de78d7a3ae1d266d93977c9c7a23cab3ac3b36307e391a0c71ef3e12212a4"
+    },
+    {
+      "path": "prompts/perihelion-breach/agents/procedural-audio.md",
+      "bytes": 641,
+      "sha256": "af85fd3d165ee73e470b55a794a22aa89dab84f3eb5197b28f66fc7a77722228"
+    },
+    {
+      "path": "prompts/perihelion-breach/agents/qa-perf-playwright.md",
+      "bytes": 612,
+      "sha256": "c4a6298ab06cdbab503d6f29a5874e5e0c6b5490c2d432ac79751daea7c353a7"
+    },
+    {
+      "path": "prompts/perihelion-breach/agents/ui-hud-accessibility.md",
+      "bytes": 706,
+      "sha256": "71cb716692d0ff6c1fb2d86a6be0c2f925a6d9c9ab0a266690f63626f8dee3b6"
+    },
+    {
+      "path": "prompts/perihelion-breach/agents/world-quest.md",
+      "bytes": 729,
+      "sha256": "f4af986e4c66c877db0afcf37a5fa6bf78c7e084f3fc4b8ca78eced0debccd33"
+    },
+    {
+      "path": "prompts/perihelion-breach/orchestrator.md",
+      "bytes": 3326,
+      "sha256": "c5d48e3b7f9945ed8325738cae899bf8b0231d367eb7571a66e181280791c601"
     }
   ],
   "license": {
     "spdx_id": "MIT",
     "file": "LICENSE",
     "copyright": "Copyright (c) 2026 Iamemily2050 (@iamemily2050)",
-    "scope": "Unless a file states otherwise, the MIT License applies to repository documentation, schemas, prompts, PDFs, and original concept artwork."
+    "scope": "Unless a file states otherwise, the MIT License applies to repository documentation, schemas, prompts, PDFs, SVGs, and original concept artwork."
   },
   "integrity": {
     "algorithm": "SHA-256",
     "checksum_file": "SHA256SUMS.txt",
-    "binary_files_covered": 9,
-    "total_files_covered": 39,
+    "binary_files_covered": 17,
+    "svg_files_covered": 5,
+    "total_files_covered": 93,
     "verification_script": "scripts/verify_release.py",
-    "coverage": "All published PDFs, JPEG artwork assets, standalone JSON schemas, golden fixtures, prompts, and documentation files in this release"
+    "coverage": "All 4 published PDFs (217 pages), 13 JPEG artwork assets, 5 SVG typographic banners, standalone JSON schemas, 3 golden fixture runs, 25 prompts, and native 4-language documentation files in this release"
   }
 }
